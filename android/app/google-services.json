@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "111371745959",
+    "firebase_url": "https://the-protesters-oath.firebaseio.com",
+    "project_id": "the-protesters-oath",
+    "storage_bucket": "the-protesters-oath.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111371745959:android:5665648e6e1b1bd98bb982",
+        "android_client_info": {
+          "package_name": "com.theprotestersoath.theprotestersoath"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "111371745959-ifsevefgj0578eeaujn6g8ggup3017hg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.theprotestersoath.theprotestersoath",
+            "certificate_hash": "b7a2beaa614b3b39951315051ce66c6235098b0e"
+          }
+        },
+        {
+          "client_id": "111371745959-bubclkgsi0pjm67d1qgrlgck8ptuno79.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyIvMvA0HgyWfO-n48xo2CTmpJEcsclOg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "111371745959-bubclkgsi0pjm67d1qgrlgck8ptuno79.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "111371745959-076thuk7883cubrfd2rk48266fjl195e.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.theprotestersoath.theprotestersoath"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
