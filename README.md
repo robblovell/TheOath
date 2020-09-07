@@ -1,24 +1,26 @@
 # The Protester’s Oath
 
 <table>
-<tr><td>
+<tr><td width="620px">
 
-1. ***I will not be violent.***
-2. ***I will bear witness and record peaceful non-violent acts of protest.***
-3. ***I will recognize when I am emotionally out of control and remove myself from situations to calm down.***
-4. ***I will listen to the advice and direction of protest leaders and report problems with violence, crime and vandalism that I see.***
-5. ***I will eat and sleep beforehand so that I can control my emotions.***
-6. ***I will help those who are hurt when I am able.***
-7. ***I will not bring a weapon, defensive or offensive, to a protest.***
-8. ***I will stop violence, crime and vandalism or record it if I feel it is safe to do so.***
-9. ***I will not react to or throw things at people or police.***
-10. ***I will not protest at night during a curfew ordered to quell violence.***
+1. *I will not be violent.*
+2. *I will bear witness and record peaceful non-violent acts of protest.*
+3. *I will recognize when I am emotionally out of control and remove myself from situations to calm down.*
+4. *I will listen to the advice and direction of protest leaders and report problems with violence, crime and vandalism that I see.*
+5. *I will eat and sleep beforehand so that I can control my emotions.*
+6. *I will help those who are hurt when I am able.*
+7. *I will not bring a weapon, defensive or offensive, to a protest.*
+8. *I will stop violence, crime and vandalism or record it if I feel it is safe to do so.*
+9. *I will not react to or throw things at people or police.*
+10. *I will not protest at night during a curfew ordered to quell violence.*
 
 </td>
 <td>
   
-<img src="./assets/img/king.jpg" width="600">
-  
+<img src="./assets/img/king.jpg" width="400px">
+<br><br>
+<br><br>
+<br><br>
 </td></tr>
 </table>
 <table>
