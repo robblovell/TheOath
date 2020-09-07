@@ -16,9 +16,9 @@
 
 </td>
 <td>
-
-![King](./assets/img/king.jpg?raw=true )
-
+  
+<img src="./assets/img/king.jpg" width="600">
+  
 </td></tr>
 </table>
 <table>
