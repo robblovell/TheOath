@@ -48,6 +48,7 @@ Protesting involves the committing of acts of useful civil disobedience that is 
 Violence is where protest ends and riots begin. Violence gives the object of a protest an excuse to commit violent acts and to suppress a protest. It overshadows the reason for the protest.  
 <br><br>
 <br><br>
+<br><br>
 
 </td>
 <td>
