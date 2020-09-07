@@ -1,5 +1,8 @@
 #The Protester’s Oath
 
+<table>
+<tr><td>
+
 1. ***I will not be violent.***
 2. ***I will bear witness and record peaceful non-violent acts of protest.***
 3. ***I will recognize when I am emotionally out of control and remove myself from situations to calm down.***
@@ -11,6 +14,13 @@
 9. ***I will not react to or throw things at people or police.***
 10. ***I will not protest at night during a curfew ordered to quell violence.***
 
+</td>
+<td>
+
+![King](./assets/img/king.jpg?raw=true )
+
+</td></tr>
+</table>
 <table>
 <tr>
 <td>
