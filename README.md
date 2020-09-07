@@ -1,7 +1,7 @@
 # The Protester’s Oath
 
 <table>
-<tr><td width="620px">
+<tr><td width="60%">
 
 1. *I will not be violent.*
 2. *I will bear witness and record peaceful non-violent acts of protest.*
@@ -15,9 +15,11 @@
 10. *I will not protest at night during a curfew ordered to quell violence.*
 
 </td>
-<td>
+<td width="40%">
   
-<img src="./assets/img/king.jpg" width="400px">
+<img src="./assets/img/king.jpg" width="100%">
+<br><br>
+<br><br>
 <br><br>
 <br><br>
 <br><br>
