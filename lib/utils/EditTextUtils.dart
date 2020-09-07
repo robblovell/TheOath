@@ -15,39 +15,12 @@ class EditTextUtils {
       keyboardType: keyboardType,
       decoration: InputDecoration(
           prefixIcon: Icon(icon),
-          prefixStyle: TextStyle(color: Colors.orange),
+          prefixStyle: TextStyle(color: Colors.black45),
           fillColor: Colors.white.withOpacity(0.6),
           filled: true,
           isDense: true,
-          labelStyle: TextStyle(color: Colors.orange),
-          focusColor: Colors.orange,
-          border: new OutlineInputBorder(
-            borderRadius: const BorderRadius.all(
-              const Radius.circular(8.0),
-            ),
-            borderSide: new BorderSide(
-              color: Colors.orange,
-              width: 1.0,
-            ),
-          ),
-          disabledBorder: new OutlineInputBorder(
-            borderRadius: const BorderRadius.all(
-              const Radius.circular(8.0),
-            ),
-            borderSide: new BorderSide(
-              color: Colors.orange,
-              width: 1.0,
-            ),
-          ),
-          focusedBorder: new OutlineInputBorder(
-            borderRadius: const BorderRadius.all(
-              const Radius.circular(8.0),
-            ),
-            borderSide: new BorderSide(
-              color: Colors.orange,
-              width: 1.0,
-            ),
-          ),
+          labelStyle: TextStyle(color: Colors.black45),
+          focusColor: Colors.black45,
           hintText: hintValue,
           labelText: labelValue,),
     validator: validator,

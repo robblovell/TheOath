@@ -1,7 +1,7 @@
 import 'package:theprotestersoath/authenticate/bloc.dart';
 import 'package:theprotestersoath/data/user_repository.dart';
 import 'package:theprotestersoath/home/home_page.dart';
-import 'package:theprotestersoath/login/login_page.dart';
+import 'package:theprotestersoath/login/LoginPage.dart';
 import 'package:theprotestersoath/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -31,6 +31,8 @@ class SimpleBlocDelegate extends BlocDelegate {
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   BlocSupervisor.delegate = SimpleBlocDelegate();
+  // Inject the user repository into the application.
+  // This is the touchpoint with the authenction persistence in firebase.
   UserRepository userRepository = UserRepository();
   runApp(BlocProvider(
     create: (context) => AuthenticationBloc(userRepository)..add(AppStarted()),
@@ -50,6 +52,7 @@ class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
 
+// The main top level application state.
 class _MyAppState extends State<MyApp> {
   UserRepository get userRepository => widget._userRepository;
 
@@ -58,25 +61,12 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.orange,
       ),
       home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
-          if (state is Uninitialized) {
-            return SplashPage();
-          } else if (state is Unauthenticated) {
-            return LoginPage(
-              userRepository: userRepository,
-            );
+          if (state is Unauthenticated) {
+            return LoginPage(userRepository: userRepository);
           } else if (state is Authenticated) {
             return HomePage();
           } else {

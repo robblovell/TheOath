@@ -1,8 +1,7 @@
 import 'package:theprotestersoath/data/user_repository.dart';
 import 'package:theprotestersoath/home/home_page.dart';
-import 'package:theprotestersoath/login/login_page.dart';
+import 'package:theprotestersoath/login/LoginPage.dart';
 import 'package:theprotestersoath/splash/splash_page.dart';
-import 'package:theprotestersoath/userdetail/edit_user_detail.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -25,9 +24,6 @@ class Router {
         return MaterialPageRoute(builder: (_) => HomePage());
       case SPLASH_PAGE:
         return MaterialPageRoute(builder: (_) => SplashPage());
-      case SPLASH_PAGE:
-        return MaterialPageRoute(builder: (_) => EditUserDetail());
-
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(
