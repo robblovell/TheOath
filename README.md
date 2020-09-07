@@ -18,8 +18,6 @@
 <td width="40%">
   
 <img src="./assets/img/king.jpg" width="100%">
-<br><br>
-<br><br>
 
 </td></tr>
 </table>
