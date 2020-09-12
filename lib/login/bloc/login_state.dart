@@ -27,11 +27,9 @@ class OtpVerifiedState extends LoginState {
 }
 
 class LoginCompleteState extends LoginState {
-  FirebaseUser _firebaseUser;
-
+  final User _firebaseUser;
   LoginCompleteState(this._firebaseUser);
-
-  FirebaseUser getUser(){
+  User getUser(){
     return _firebaseUser;
   }
   @override
@@ -39,20 +37,16 @@ class LoginCompleteState extends LoginState {
 }
 
 class ExceptionState extends LoginState {
-  String message;
-
+  final String message;
   ExceptionState({this.message});
-
   @override
   // TODO: implement props
   List<Object> get props => [message];
 }
 
 class OtpExceptionState extends LoginState {
-  String message;
-
+  final String message;
   OtpExceptionState({this.message});
-
   @override
   // TODO: implement props
   List<Object> get props => [message];

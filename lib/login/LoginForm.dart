@@ -1,4 +1,4 @@
-import 'package:theprotestersoath/authenticate/bloc.dart';
+import 'package:theprotestersoath/authentication/authentication.dart';
 import 'package:theprotestersoath/login/bloc/bloc.dart';
 import 'package:theprotestersoath/login/bloc/login_bloc.dart';
 import 'package:flutter/cupertino.dart';
@@ -26,7 +26,8 @@ class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     return BlocListener<LoginBloc, LoginState>(
-      bloc: _loginBloc,
+      //todo: figure out if this is right.
+      cubit: _loginBloc,
       listener: (context, loginState) {
         if (loginState is ExceptionState || loginState is OtpExceptionState) {
           String message;
