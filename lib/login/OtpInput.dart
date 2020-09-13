@@ -12,7 +12,8 @@ class OtpInput extends StatelessWidget {
     // TODO: implement build
     return ConstrainedBox(
       child: Padding(
-        padding: EdgeInsets.only(top: 18, bottom: 15.0, left: 16.0, right: 16.0),
+        padding:
+            EdgeInsets.only(top: 18, bottom: 15.0, left: 16.0, right: 16.0),
         child: Column(
           children: <Widget>[
             PinEntryTextField(
@@ -24,13 +25,20 @@ class OtpInput extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: RaisedButton(
+                elevation: 7.0,
+                splashColor: Colors.brown,
+                animationDuration: Duration(seconds: 2),
+                colorBrightness: Brightness.light,
+                shape: RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(8.0),
+                ),
                 onPressed: () {
                   BlocProvider.of<LoginBloc>(context).add(AppStartEvent());
                 },
                 color: Colors.orange,
                 child: Text(
                   'BACK'.tr(),
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(fontSize: 18, color: Colors.white),
                 ),
               ),
             )

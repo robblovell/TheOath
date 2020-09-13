@@ -37,7 +37,7 @@ class _LoginFormState extends State<LoginForm> {
           }
           final snackBar = SnackBar(
             content: Container(
-              height: 120,
+              height: 125,
               child: RichText(
                 text: TextSpan(
                   children: [
@@ -76,7 +76,7 @@ class _LoginFormState extends State<LoginForm> {
                         Container(
                           child: ConstrainedBox(
                             constraints:
-                                BoxConstraints.tight(Size.fromHeight(167)),
+                                BoxConstraints.tight(Size.fromHeight(158)),
                             child: getViewAsPerState(state),
                           ),
                           // decoration: BoxDecoration(

@@ -21,3 +21,4 @@
   BACK: Back
   SETTINGS: Settings
   HOME: Home
+  AUTH_TIMEOUT: Authentication Timed Out.

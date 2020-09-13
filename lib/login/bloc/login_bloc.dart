@@ -14,7 +14,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   @override
   Stream<LoginState> mapEventToState(LoginEvent event,) async* {
-    if (event is SendOtpEvent) {
+    if (event is AppStartEvent) {
+      yield InitialLoginState();
+    } else if (event is SendOtpEvent) {
       yield LoadingState();
       try {
         subscription = sendOtp(event.phoNo/*, event.context*/).listen((event) {
@@ -106,11 +108,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         eventStream.add(OtpSendEvent());
       };
       final phoneCodeAutoRetrievalTimeout = (String verid) {
-        print("AUTH TIMEOUT::" + onError.toString());
-        print("AUTH --->::" + verid);
-
+        print("AUTH TIMEOUT:: --->::" + verid);
         this.verID = verid;
-        eventStream.add(LoginExceptionEvent(onError.toString()));
+        eventStream.add(LoginExceptionEvent('AUTH_TIMEOUT'.tr()));
         eventStream.close();
       };
       await FirebaseAuth.instance.verifyPhoneNumber(

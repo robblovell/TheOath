@@ -15,7 +15,9 @@ class SendOtpEvent extends LoginEvent {
   SendOtpEvent({this.phoNo, this.context});
 }
 
-class AppStartEvent extends LoginEvent {}
+class AppStartEvent extends LoginEvent {
+
+}
 
 class VerifyOtpEvent extends LoginEvent {
   final String otp;
