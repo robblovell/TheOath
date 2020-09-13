@@ -7,6 +7,8 @@ import 'package:theprotestersoath/authentication/authentication_event.dart';
 import 'package:theprotestersoath/drawer/drawer_widget.dart';
 // import './oath_proof_painter.dart';
 import './ShapesPainter.dart';
+import 'package:easy_localization/easy_localization.dart';
+
 
 class HomePage extends StatelessWidget {
   @override
@@ -22,7 +24,7 @@ class HomePage extends StatelessWidget {
             title: Text('Proof of Oath'),
           ),
           body: Stack(children: <Widget>[
-            Text('UserID: ${FirebaseAuth.instance.currentUser.uid}',
+            Text('UserID: ${FirebaseAuth.instance.currentUser!=null?FirebaseAuth.instance.currentUser.uid:"none"}',
             ),
             CustomPaint(
               size: Size.infinite,
@@ -39,7 +41,7 @@ class HomePage extends StatelessWidget {
                     color: Colors.black,
                     size: 30,
                   ),
-                  tooltip: 'Settings',
+                  tooltip: 'SETTINGS'.tr(),
                   onPressed: () {
                     context.bloc<AuthenticationBloc>().add(LoggedOut());
                   },
@@ -52,7 +54,7 @@ class HomePage extends StatelessWidget {
                     color: Colors.black,
                     size: 30,
                   ),
-                  tooltip: 'Logout',
+                  tooltip: 'LOGOUT'.tr(),
                   onPressed: () {
                     context.bloc<AuthenticationBloc>().add(LoggedOut());
                   },

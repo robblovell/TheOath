@@ -18,7 +18,7 @@ class _SplashPageState extends State<SplashPage> {
     return new Scaffold(
       body: new Center(
         child: new Image.asset(
-          Res.firebase,
+          Res.protester,
           width: 350,
           height:  350,
         ),

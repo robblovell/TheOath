@@ -6,8 +6,8 @@ import 'package:meta/meta.dart';
 abstract class LoginState extends Equatable {}
 
 class InitialLoginState extends LoginState {
-  @override
   // TODO: implement props
+  @override
   List<Object> get props => [];
 }
 

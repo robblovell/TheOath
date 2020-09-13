@@ -26,7 +26,6 @@ class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     return BlocListener<LoginBloc, LoginState>(
-      //todo: figure out if this is right.
       cubit: _loginBloc,
       listener: (context, loginState) {
         if (loginState is ExceptionState || loginState is OtpExceptionState) {
@@ -37,19 +36,24 @@ class _LoginFormState extends State<LoginForm> {
             message = loginState.message;
           }
           final snackBar = SnackBar(
-            content: RichText(
-              text: TextSpan(
-                children: [
-                  WidgetSpan(
-                    child: Icon(Icons.error),
-                  ),
-                  TextSpan(
-                    text: message,
-                  ),
-                ],
+            content: Container(
+              height: 120,
+              child: RichText(
+                text: TextSpan(
+                  children: [
+                    WidgetSpan(
+                      child: Icon(Icons.error),
+                    ),
+                    TextSpan(text: "  "),
+                    TextSpan(
+                        text: message,
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black))
+                  ],
+                ),
               ),
             ),
-            backgroundColor: Colors.red,
+            backgroundColor: Colors.redAccent,
           );
           Scaffold.of(context)
             ..hideCurrentSnackBar()
@@ -72,13 +76,13 @@ class _LoginFormState extends State<LoginForm> {
                         Container(
                           child: ConstrainedBox(
                             constraints:
-                            BoxConstraints.tight(Size.fromHeight(200)),
+                                BoxConstraints.tight(Size.fromHeight(167)),
                             child: getViewAsPerState(state),
                           ),
-                          decoration: BoxDecoration(
-                              color: Colors.black26,
-                              borderRadius: BorderRadius.only(
-                                  topLeft: Radius.circular(62))),
+                          // decoration: BoxDecoration(
+                          //     color: Colors.black26,
+                          //     borderRadius: BorderRadius.only(
+                          //         topLeft: Radius.circular(62))),
                         )
                       ],
                     ),
@@ -100,8 +104,8 @@ class _LoginFormState extends State<LoginForm> {
     } else if (state is LoadingState) {
       return LoadingIndicator();
     } else if (state is LoginCompleteState) {
-      BlocProvider.of<AuthenticationBloc>(context)
-          .add(LoggedIn(token: state.getUser().uid));
+      BlocProvider.of<AuthenticationBloc>(context).add(LoggedIn(
+          token: state.getUser() != null ? state.getUser().uid : "none"));
     } else {
       return NumberInput();
     }

@@ -1,22 +1,23 @@
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 
 @immutable
-abstract class AppdrawerState {}
+abstract class AppdrawerState extends Equatable {}
 
 class DrawerEventState extends AppdrawerState {
-  @override
   // TODO: implement props
+  @override
   List<Object> get props => [];
 }
 
 class HomePageState extends AppdrawerState {
-  @override
   // TODO: implement props
+  @override
   List<Object> get props => [];
 }
 
 class SamplePageState extends AppdrawerState {
-  @override
   // TODO: implement props
+  @override
   List<Object> get props => [];
 }

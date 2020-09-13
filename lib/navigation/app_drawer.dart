@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:theprotestersoath/authentication/authentication.dart';
 import 'package:theprotestersoath/navigation/bloc/appdrawer_bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import 'bloc/appdrawer_bloc.dart';
 import 'bloc/appdrawer_event.dart';
@@ -21,7 +22,7 @@ class AppDrawer extends StatelessWidget {
                 children: <Widget>[
                   ListTile(
                     leading: Icon(Icons.group),
-                    title: Text("Sample Page"),
+                    title: Text('SAMPLE_PAGE'.tr()),
                     onTap: () {
                       BlocProvider.of<AppdrawerBloc>(context).add(SamplePageEvent());
                       Navigator.pop(context);
@@ -29,7 +30,7 @@ class AppDrawer extends StatelessWidget {
                   ),
                   ListTile(
                     leading: Icon(Icons.group),
-                    title: Text("Home"),
+                    title: Text("HOME".tr()),
                     onTap: () {
                       BlocProvider.of<AppdrawerBloc>(context).add(HomePageEvent());
                       Navigator.pop(context);
@@ -37,7 +38,7 @@ class AppDrawer extends StatelessWidget {
                   ),
                   ListTile(
                     leading: Icon(Icons.exit_to_app),
-                    title: Text('Logout'),
+                    title: Text('LOGOUT'.tr()),
                     onTap: () {
                       context
                           .bloc<AuthenticationBloc>()

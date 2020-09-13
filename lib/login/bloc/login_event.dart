@@ -11,7 +11,8 @@ class LoginEvent extends Equatable {
 
 class SendOtpEvent extends LoginEvent {
   final String phoNo;
-  SendOtpEvent({this.phoNo});
+  final BuildContext context;
+  SendOtpEvent({this.phoNo, this.context});
 }
 
 class AppStartEvent extends LoginEvent {}

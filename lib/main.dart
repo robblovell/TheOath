@@ -1,10 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 import 'package:theprotestersoath/authentication/authentication.dart';
-// import 'package:theprotestersoath/app.dart';
-import 'package:theprotestersoath/authentication.dart';
+import 'package:theprotestersoath/app.dart';
+
+import 'i18n/yaml_asset_loader.dart';
 
 class SimpleBlocObserver extends BlocObserver {
   @override
@@ -31,8 +32,13 @@ Future<void> main() async {
   await Firebase.initializeApp();
 
   Bloc.observer = SimpleBlocObserver();
-  runApp(BlocProvider(
-    create: (context) => AuthenticationBloc()..add(AppStarted()),
-    child: App(),
+  runApp(EasyLocalization(
+    supportedLocales: [Locale('en')],
+    path: 'assets/translations',
+    fallbackLocale: Locale('en'),
+    assetLoader: YamlAssetLoader(),
+    child: BlocProvider(
+        create: (context) => AuthenticationBloc()..add(AppStarted()),
+        child: App()),
   ));
 }
