@@ -2,11 +2,17 @@ import 'package:theprotestersoath/home/home_page.dart';
 import 'package:theprotestersoath/login/LoginPage.dart';
 import 'package:theprotestersoath/splash/splash_page.dart';
 import 'package:flutter/material.dart';
+import 'package:theprotestersoath/stories/story_page.dart';
+
+import 'about/about_page.dart';
+import 'oath/oath_page.dart';
 
 const String LOGIN_PAGE = "/login";
-const String SPLASH_PAGE = "/";
+const String SPLASH_PAGE = "/splash";
+const String STORY_PAGE = "/story";
+const String OATH_PAGE = "/oath";
 const String HOME_PAGE = "/home";
-const String USER_DETAIL = "/user_detail";
+const String ABOUT_PAGE = "/about";
 
 class Router {
 
@@ -14,13 +20,18 @@ class Router {
     switch (settings.name) {
       case LOGIN_PAGE:
         return MaterialPageRoute(
-          // todo: user repository?
             builder: (BuildContext context) =>
                 LoginPage());
       case HOME_PAGE:
         return MaterialPageRoute(builder: (_) => HomePage());
       case SPLASH_PAGE:
         return MaterialPageRoute(builder: (_) => SplashPage());
+      case STORY_PAGE:
+        return MaterialPageRoute(builder: (_) => StoryPage());
+      case OATH_PAGE:
+        return MaterialPageRoute(builder: (_) => OathPage());
+      case ABOUT_PAGE:
+        return MaterialPageRoute(builder: (_) => AboutPage());
       default:
         return MaterialPageRoute(
             builder: (_) => Scaffold(

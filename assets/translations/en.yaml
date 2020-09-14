@@ -21,3 +21,10 @@ BACK: Back
 SETTINGS: Settings
 HOME: Home
 AUTH_TIMEOUT: Authentication Timed Out.
+OATH_TAKEN: I Took The Protester's Oath
+STORIES_TOOLTIP: Stories
+STORY_01: A lone man stands up to a line of tanks in Tiananmen Square in 1989.
+STORY_01_DATE: June 5, 1989
+STORY_01_CREDIT: AP Photo/Jeff Widener
+STORY_01_IMAGE: https://i.insider.com/55b0f2782acae7c7018b9204
+STORY_01_URL: https://en.wikipedia.org/wiki/Tank_Man

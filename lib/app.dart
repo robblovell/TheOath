@@ -6,10 +6,12 @@ import 'package:theprotestersoath/home/home_page.dart';
 import 'package:theprotestersoath/login/LoginPage.dart';
 import 'package:theprotestersoath/splash/splash_page.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:theprotestersoath/stories/story_page.dart';
 
 import 'about/about_page.dart';
 import 'navigation/app_drawer/appdrawer_state.dart';
 import 'navigation/app_drawer/appdrawer_bloc.dart';
+import 'oath/oath_page.dart';
 
 class App extends StatefulWidget {
   App({Key key}) : super(key: key);
@@ -79,7 +81,7 @@ class _AppViewState extends State<AppView> {
         child: MaterialApp(
           title: 'APP_TITLE'.tr(),
           theme: ThemeData(
-            primarySwatch: Colors.orange,
+            primarySwatch: Colors.grey,
           ),
           home: BlocBuilder<AppDrawerBloc, AppDrawerState>(
             builder: (context, state) {
@@ -88,6 +90,12 @@ class _AppViewState extends State<AppView> {
               } else if (state is HomePageState) {
                 // Navigator.of(context).pop();
                 return HomePage();
+              } else if (state is StoryPageState) {
+                // Navigator.of(context).pop();
+                return StoryPage();
+              } else if (state is OathPageState) {
+                // Navigator.of(context).pop();
+                return OathPage();
               } else {
                 return SplashPage();
               }
