@@ -6,7 +6,6 @@ import 'package:meta/meta.dart';
 abstract class LoginState extends Equatable {}
 
 class InitialLoginState extends LoginState {
-  // TODO: implement props
   @override
   List<Object> get props => [];
 }
@@ -40,7 +39,6 @@ class ExceptionState extends LoginState {
   final String message;
   ExceptionState({this.message});
   @override
-  // TODO: implement props
   List<Object> get props => [message];
 }
 
@@ -48,6 +46,5 @@ class OtpExceptionState extends LoginState {
   final String message;
   OtpExceptionState({this.message});
   @override
-  // TODO: implement props
   List<Object> get props => [message];
 }

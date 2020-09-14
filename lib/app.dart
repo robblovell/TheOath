@@ -8,8 +8,8 @@ import 'package:theprotestersoath/splash/splash_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 import 'about/about_page.dart';
-import 'navigation/bloc/appdrawer_state.dart';
-import 'navigation/bloc/appdrawer_bloc.dart';
+import 'navigation/app_drawer/appdrawer_state.dart';
+import 'navigation/app_drawer/appdrawer_bloc.dart';
 
 class App extends StatefulWidget {
   App({Key key}) : super(key: key);
@@ -74,14 +74,14 @@ class _AppViewState extends State<AppView> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<AppdrawerBloc>(
-        create: (context) => AppdrawerBloc(),
+    return BlocProvider<AppDrawerBloc>(
+        create: (context) => AppDrawerBloc(),
         child: MaterialApp(
           title: 'APP_TITLE'.tr(),
           theme: ThemeData(
             primarySwatch: Colors.orange,
           ),
-          home: BlocBuilder<AppdrawerBloc, AppdrawerState>(
+          home: BlocBuilder<AppDrawerBloc, AppDrawerState>(
             builder: (context, state) {
               if (state is AboutPageState) {
                 return AboutPage();

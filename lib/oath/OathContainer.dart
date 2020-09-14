@@ -33,9 +33,6 @@ class TheOathGrid extends StatelessWidget {
     final hnb9 = (heightNoBar-150-120-10+fudge)/9;
     final aspect = width/hnb9;
 
-    print ("width/hnb9: ${width/hnb9}");
-
-
     return SliverGrid(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 1,

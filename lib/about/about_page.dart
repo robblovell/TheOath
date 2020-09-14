@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:local_image_provider/local_image_provider.dart';
-
-import '../navigation/app_drawer.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:theprotestersoath/navigation/app_drawer/appdrawer_bloc.dart';
+import 'package:theprotestersoath/navigation/app_drawer/appdrawer_event.dart';
 
 class AboutPage extends StatelessWidget {
   static Route route() {
@@ -11,8 +11,18 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('About')),
-      drawer: AppDrawer(),
+      appBar: AppBar(
+        title: Text(
+          "About",
+          style: new TextStyle(color: Colors.white),
+        ),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            BlocProvider.of<AppDrawerBloc>(context).add(BackButtonEvent());
+          },
+        ),
+      ),
       body: Center(
         child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -38,9 +48,10 @@ class AboutPage extends StatelessWidget {
                   shape: BoxShape.rectangle,
                   image: DecorationImage(
                     fit: BoxFit.fitHeight,
-                    image: AssetImage('assets/img/flutter_logo_transparent.png'),
+                    image: AssetImage('assets/img/logo_flutter_transparent.png'),
                   )
               )),
+          Container(height: 5),
           Text('Powered by: Flutter',textScaleFactor: 1.5,)
         ],
       )),
