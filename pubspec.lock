@@ -385,6 +385,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.3-nullsafety"
+  json_annotation:
+    dependency: transitive
+    description:
+      name: json_annotation
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.1"
+  local_image_provider:
+    dependency: "direct main"
+    description:
+      name: local_image_provider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
   logging:
     dependency: transitive
     description:
@@ -518,6 +532,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.4"
+  pin_entry_text_field:
+    dependency: "direct main"
+    description:
+      name: pin_entry_text_field
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.4"
   pin_input_text_field:
     dependency: "direct main"
     description:
@@ -525,6 +546,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.1"
+  pinput:
+    dependency: "direct main"
+    description:
+      name: pinput
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.2.5"
   platform:
     dependency: transitive
     description:

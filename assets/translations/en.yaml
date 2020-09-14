@@ -14,7 +14,7 @@ INVALID_PHONE_REGEX: Phone number is in an invalid format.
 I_COMMIT: I Commit to this Oath
 INVALID_OTP: The code you have entered is not corrrect.
 ENTER_PHONE_TIP: Enter a phone number
-SAMPLE_PAGE: Sample Page
+ABOUT_PAGE_MENU_ITEM: About
 LOGOUT: Log Out
 LOGIN: Log in
 BACK: Back

@@ -16,7 +16,7 @@ class HomePageState extends AppdrawerState {
   List<Object> get props => [];
 }
 
-class SamplePageState extends AppdrawerState {
+class AboutPageState extends AppdrawerState {
   // TODO: implement props
   @override
   List<Object> get props => [];

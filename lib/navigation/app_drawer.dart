@@ -18,13 +18,13 @@ class AppDrawer extends StatelessWidget {
             removeTop: true,
             child: Expanded(
               child: ListView(
-                padding: const EdgeInsets.only(top: 8.0),
+                padding: const EdgeInsets.only(top: 50.0),
                 children: <Widget>[
                   ListTile(
                     leading: Icon(Icons.group),
-                    title: Text('SAMPLE_PAGE'.tr()),
+                    title: Text('ABOUT_PAGE_MENU_ITEM'.tr()),
                     onTap: () {
-                      BlocProvider.of<AppdrawerBloc>(context).add(SamplePageEvent());
+                      BlocProvider.of<AppdrawerBloc>(context).add(AboutPageEvent());
                       Navigator.pop(context);
                     },
                   ),

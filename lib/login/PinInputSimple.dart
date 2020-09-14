@@ -1,4 +1,4 @@
-import 'package:pin_entry_text_field/pin_entry_text_field.dart';
+import 'package:pinput/pin_put/pin_put.dart';
 import 'package:theprotestersoath/login/bloc/login.dart';
 import 'package:theprotestersoath/login/bloc/login_bloc.dart';
 import 'package:flutter/cupertino.dart';
@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-class OtpInput extends StatelessWidget {
+class PinInputSimple extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
@@ -15,9 +15,8 @@ class OtpInput extends StatelessWidget {
             EdgeInsets.only(top: 18, bottom: 15.0, left: 16.0, right: 16.0),
         child: Column(
           children: <Widget>[
-            PinEntryTextField(
-                fields: 6,
-
+            PinPut(
+                fieldsCount: 6,
                 onSubmit: (String pin) {
                   BlocProvider.of<LoginBloc>(context)
                       .add(VerifyOtpEvent(otp: pin));

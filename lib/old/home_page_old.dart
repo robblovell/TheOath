@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:theprotestersoath/authentication/authentication_bloc.dart';
 import 'package:theprotestersoath/authentication/authentication_event.dart';
-import 'package:theprotestersoath/drawer/drawer_widget.dart';
+import 'package:theprotestersoath/old/drawer/drawer_widget.dart';
 // import './oath_proof_painter.dart';
-import './ShapesPainter.dart';
+import '../home/ShapesPainter.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 

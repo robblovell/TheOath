@@ -4,6 +4,8 @@ import 'package:theprotestersoath/oath/OathCard.dart';
 import 'package:theprotestersoath/utils/sizing.dart';
 
 class TheOath extends StatelessWidget {
+
+  // App Bar for the Login/Oath.
   @override
   Widget build(BuildContext context) =>
       CustomScrollView(
@@ -25,29 +27,28 @@ class TheOathGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = screenWidth(context);
-    final height = screenHeight(context);
     final heightNoBar = screenHeightExcludingToolbar(context);
-    final hnb9 = (heightNoBar-250)/9;
-    print ("Width: $width");
-    print ("Height: $height");
-    print ("HeightNoBar: $heightNoBar");
-    print ("HeightNoBar/9: ${heightNoBar/9}");
-    print ("Height/Width: ${height/width}");
-    print ("width/height: ${width/height}");
+    final fudge = Theme.of(context).platform == TargetPlatform.android ? 20 : 0;
+    // Height of the Title Card above and the Number Entry card and the spacing between elements
+    final hnb9 = (heightNoBar-150-120-10+fudge)/9;
+    final aspect = width/hnb9;
+
     print ("width/hnb9: ${width/hnb9}");
+
+
     return SliverGrid(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 1,
-        mainAxisSpacing: 0.0,
+        mainAxisSpacing: 2.0,
         crossAxisSpacing: 10.0,
-        childAspectRatio: width/hnb9, // between 7 and 9.
+        childAspectRatio: aspect, // between 7 and 9.
 
       ),
       delegate: SliverChildBuilderDelegate(
             (BuildContext context, int index) {
           return Container(
             alignment: Alignment.centerLeft,
-            color: Colors.grey[200 + index % 2 * 200],
+            color: Colors.grey[300 + index % 2 * 100],
             child: OathCard('POINT_0$index'),
           );
         },

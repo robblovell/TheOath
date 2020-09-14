@@ -15,7 +15,7 @@
 //   ) async* {
 //     if (event is HomePageEvent) {
 //       yield AppdrawerState.homePage;
-//     } else if (event is SamplePageEvent) {
+//     } else if (event is AboutPageEvent) {
 //       yield AppdrawerState.testPage;
 //     }
 //   }
@@ -35,8 +35,8 @@ class AppdrawerBloc extends Bloc<AppdrawerEvent, AppdrawerState> {
     if (event is HomePageEvent) {
       yield HomePageState();
     }
-    if (event is SamplePageEvent) {
-      yield SamplePageState();
+    if (event is AboutPageEvent) {
+      yield AboutPageState();
     }
   }
 }

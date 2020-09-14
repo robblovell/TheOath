@@ -6,6 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import './OtpInput.dart';
+import './PinInputSimple.dart';
+import './PinInput.dart';
 import './NumberInput.dart';
 import './LoadingIndicator.dart';
 
@@ -62,6 +64,7 @@ class _LoginFormState extends State<LoginForm> {
             ..showSnackBar(snackBar);
         }
       },
+      // https://medium.com/flutter-community/a-guide-to-using-screensize-in-flutter-a-more-readable-approach-901e82556195
       child: BlocBuilder<LoginBloc, LoginState>(
         builder: (context, state) {
           return LayoutBuilder(
@@ -107,7 +110,7 @@ class _LoginFormState extends State<LoginForm> {
     if (state is Unauthenticated) {
       return NumberInput();
     } else if (state is OtpSentState || state is OtpExceptionState) {
-      return OtpInput();
+      return PinInput();
     } else if (state is LoadingState) {
       return LoadingIndicator();
     } else if (state is LoginCompleteState) {

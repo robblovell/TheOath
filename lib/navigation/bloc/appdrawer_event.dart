@@ -18,11 +18,11 @@ class HomePageEvent extends AppdrawerEvent {
   List<Object> get props => [];
 }
 
-class SamplePageEvent extends AppdrawerEvent {
-  SamplePageEvent() : super();
+class AboutPageEvent extends AppdrawerEvent {
+  AboutPageEvent() : super();
 
   @override
-  String toString() => 'SamplePage';
+  String toString() => 'AboutPage';
 
   @override
   // TODO: implement props

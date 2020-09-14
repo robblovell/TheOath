@@ -7,7 +7,7 @@ import 'package:theprotestersoath/login/LoginPage.dart';
 import 'package:theprotestersoath/splash/splash_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 
-import 'home/sample_page.dart';
+import 'about/about_page.dart';
 import 'navigation/bloc/appdrawer_state.dart';
 import 'navigation/bloc/appdrawer_bloc.dart';
 
@@ -83,8 +83,8 @@ class _AppViewState extends State<AppView> {
           ),
           home: BlocBuilder<AppdrawerBloc, AppdrawerState>(
             builder: (context, state) {
-              if (state is SamplePageState) {
-                return SamplePage();
+              if (state is AboutPageState) {
+                return AboutPage();
               } else if (state is HomePageState) {
                 // Navigator.of(context).pop();
                 return HomePage();
