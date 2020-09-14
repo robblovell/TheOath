@@ -40,12 +40,11 @@ class _AppState extends State<App> {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      title: 'TITLE'.tr(),
       theme: ThemeData(
-        primaryColor: Colors.orange,
-        accentColor: Colors.amber,
+        primaryColor: Colors.grey,
+        accentColor: Colors.grey[300],
         accentColorBrightness: Brightness.light,
-        primarySwatch: Colors.orange,
+        primarySwatch: Colors.blueGrey,
       ),
       home: BlocBuilder<AuthenticationBloc, AuthenticationState>(
         builder: (context, state) {
@@ -78,7 +77,7 @@ class _AppViewState extends State<AppView> {
     return BlocProvider<AppdrawerBloc>(
         create: (context) => AppdrawerBloc(),
         child: MaterialApp(
-          title: "TITLE".tr(),
+          title: 'APP_TITLE'.tr(),
           theme: ThemeData(
             primarySwatch: Colors.orange,
           ),

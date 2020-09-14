@@ -1,11 +1,11 @@
 import 'package:theprotestersoath/authentication/authentication.dart';
-import 'package:theprotestersoath/login/bloc/bloc.dart';
+import 'package:theprotestersoath/oath/OathContainer.dart';
+import 'package:theprotestersoath/login/bloc/login.dart';
 import 'package:theprotestersoath/login/bloc/login_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import './OtpInput.dart';
-import './Header.dart';
 import './NumberInput.dart';
 import './LoadingIndicator.dart';
 
@@ -48,7 +48,9 @@ class _LoginFormState extends State<LoginForm> {
                     TextSpan(
                         text: message,
                         style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black))
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black))
                   ],
                 ),
               ),
@@ -62,34 +64,39 @@ class _LoginFormState extends State<LoginForm> {
       },
       child: BlocBuilder<LoginBloc, LoginState>(
         builder: (context, state) {
-          return Scaffold(
-            body: Row(
-              children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    color: Colors.grey,
+          return LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints viewportConstraints) {
+              return SingleChildScrollView(
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    minHeight: viewportConstraints.maxHeight,
+                  ),
+                  child: IntrinsicHeight(
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end,
                       children: <Widget>[
-                        Header(),
-                        Container(
-                          child: ConstrainedBox(
-                            constraints:
-                                BoxConstraints.tight(Size.fromHeight(158)),
-                            child: getViewAsPerState(state),
+                        Expanded(
+                          // A flexible child that will grow to fit the viewport but
+                          // still be at least as big as necessary to fit its contents.
+                          child: Container(
+                            color: Colors.grey[100],
+                            height: 18.0,
+                            alignment: Alignment.center,
+                            child: TheOath(),
                           ),
-                          // decoration: BoxDecoration(
-                          //     color: Colors.black26,
-                          //     borderRadius: BorderRadius.only(
-                          //         topLeft: Radius.circular(62))),
-                        )
+                        ),
+                        Container(
+                          // A fixed-height child.
+                          color: Colors.grey, //const Color(0xff00ccee),
+                          height: 150.0,
+                          alignment: Alignment.center,
+                          child: getViewAsPerState(state),
+                        ),
                       ],
                     ),
                   ),
                 ),
-              ],
-            ),
+              );
+            },
           );
         },
       ),

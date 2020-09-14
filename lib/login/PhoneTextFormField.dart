@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class EditTextUtils {
+class PhoneTextFormField {
   TextFormField getCustomEditTextArea({
     String labelValue = "",
     String hintValue = "",
@@ -10,9 +10,11 @@ class EditTextUtils {
     TextEditingController controller,
     TextInputType keyboardType = TextInputType.text,
     String validationErrorMsg,
+    FocusNode focusNode,
   }) {
     return TextFormField(
       controller: controller,
+      focusNode: focusNode,
       keyboardType: keyboardType,
       decoration: InputDecoration(
         prefixIcon: Icon(icon),

@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:theprotestersoath/common/OathText.dart';
+import 'package:theprotestersoath/oath/OathContainer.dart';
+import './TheOathHeader.dart';
 
 class Header extends StatelessWidget {
   const Header({

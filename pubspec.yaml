@@ -47,14 +47,15 @@ dependencies:
   google_sign_in: ^4.0.1+1
   font_awesome_flutter: ^8.8.1
   lottie: 0.6.0
-  pin_entry_text_field: ^0.1.4
+#  pin_entry_text_field: ^0.1.4
+  pin_input_text_field: ^3.1.0
   redux_thunk: 0.3.0
   rxdart: ^0.23.0 # 0.24.1
   simple_animations: ^2.2.2
   shared_preferences: ^0.5.10
   easy_localization: ^2.3.3
   material_design_icons_flutter: 4.0.5555
-
+  auto_size_text: 2.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

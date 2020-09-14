@@ -1,51 +1,81 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:theprotestersoath/login/bloc/bloc.dart';
+import 'package:theprotestersoath/login/bloc/login.dart';
 import 'package:theprotestersoath/login/bloc/login_bloc.dart';
-import 'package:theprotestersoath/utils/EditTextUtils.dart';
+import 'package:theprotestersoath/login/PhoneTextFormField.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:theprotestersoath/utils/stripCorrectPhone.dart';
+import 'package:theprotestersoath/utils/validatePhoneNumber.dart';
 
-class NumberInput extends StatelessWidget {
-  final _formKey = GlobalKey<FormState>();
-  final _phoneTextController = TextEditingController();
+class NumberInput extends StatefulWidget {
+
+  NumberInput({Key key}) : super(key: key);
 
   @override
+  _NumberInput createState() => _NumberInput();
+}
+
+class _NumberInput extends State<NumberInput> {
+  GlobalKey<FormState> _formKey;
+  TextEditingController _phoneTextController;
+  FocusNode _focusNode;
+
+  @override
+  void initState() {
+    _formKey = new GlobalKey<FormState>();
+    _phoneTextController = TextEditingController();
+    _focusNode = FocusNode();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    // Clean up the focus node when the Form is disposed.
+    _focusNode.dispose();
+
+    super.dispose();
+  }
+  
+  @override
   Widget build(BuildContext context) {
+    // To show the keyboard on load:  _focusNode.requestFocus();
     return Padding(
       padding: EdgeInsets.only(top: 8, bottom: 15.0, left: 16.0, right: 16.0),
       child: Column(
         children: <Widget>[
           Form(
             key: _formKey,
-            child: EditTextUtils().getCustomEditTextArea(
+            child: PhoneTextFormField().getCustomEditTextArea(
                 labelValue: 'ENTER_PHONE_TIP'.tr(),
                 hintValue: "",
                 controller: _phoneTextController,
                 keyboardType: TextInputType.number,
                 icon: Icons.phone,
+                focusNode: _focusNode,
                 validator: (value) {
-                  return validateMobile(value);
+                  return validatePhoneNumber(value);
                 }),
           ),
           Padding(
-            padding: const EdgeInsets.all(5.0),
+            padding: const EdgeInsets.all(0.0),
+            // I Commit Button
             child: RaisedButton(
               elevation: 7.0,
               splashColor: Colors.brown,
               animationDuration: Duration(seconds: 2),
               colorBrightness: Brightness.light,
               shape: RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(8.0),
+                borderRadius: new BorderRadius.circular(3.0),
               ),
               onPressed: () {
                 if (_formKey.currentState.validate()) {
                   BlocProvider.of<LoginBloc>(context).add(SendOtpEvent(
-                      phoNo: this.StripCorrectPhone(_phoneTextController
+                      phoNo: stripCorrectPhone(_phoneTextController
                           .value.text))); //, context:context));
                 }
               },
-              color: Colors.orange,
+              color: Colors.green,
               child: Text(
                 'I_COMMIT'.tr(),
                 style: TextStyle(fontSize: 18, color: Colors.white),
@@ -55,30 +85,5 @@ class NumberInput extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  String StripCorrectPhone(phone) {
-    // remove all characters that are not digits or a plus sign
-    // assume that a +1 or +011 is not given and we need to add +1.
-    final String prefix = (phone.substring(0, 1) != '+1')
-        ? "+1"
-        : (phone.substring(0, 0) != '+')
-            ? "+"
-            : "";
-    final RegExp regExp = new RegExp(r'\W+');
-    final String strippedPhone = phone.replaceAll(regExp, '');
-    print(prefix + strippedPhone);
-    return prefix + strippedPhone;
-  }
-
-  String validateMobile(String value) {
-    final String pattern =
-        r'^[+]{0,1}[\s]{0,1}[\d]{0,3}[\s]{0,1}[-(]{0,1}[\d]{1,4}[-)]{0,1}[\s]{0,1}[-\s\.\d]{3,10}$';
-    RegExp regExp = new RegExp(pattern);
-
-    if (!regExp.hasMatch(value))
-      return 'INVALID_PHONE_REGEX'.tr();
-    else
-      return null;
   }
 }

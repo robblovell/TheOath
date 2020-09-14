@@ -36,6 +36,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.5.0-nullsafety"
+  auto_size_text:
+    dependency: "direct main"
+    description:
+      name: auto_size_text
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
   bloc:
     dependency: "direct main"
     description:
@@ -511,13 +518,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.0.4"
-  pin_entry_text_field:
+  pin_input_text_field:
     dependency: "direct main"
     description:
-      name: pin_entry_text_field
+      name: pin_input_text_field
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.4"
+    version: "3.1.1"
   platform:
     dependency: transitive
     description:

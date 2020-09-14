@@ -1,24 +1,23 @@
----
-  TITLE: The Protester's Oath
-  POINT_01: (1) I will not be violent.
-  POINT_02: (2) I will bear witness and record peaceful non-violent acts of protest.
-  POINT_03: (3) I will recognize when I am emotionally out of control and remove myself from situations to calm down.
-  POINT_04: (4) I will listen to the advice and direction of protest leaders and report problems with violence and crime that I see.
-  POINT_05: (5) I will eat and sleep beforehand so that I can control my emotions.
-  POINT_06: (6) I will help those who are hurt when I am able.
-  POINT_07: (7) I will not bring a weapon, defensive or offensive, to a protest.
-  POINT_08: (8) I will stop violence, crime and vandalism or record it if I feel it is safe to do so.
-  POINT_09: (9) I will not react to or throw things at people or police.
-  POINT_10: (10) I will not protest at night during a curfew that has been ordered to quell violence.
-  INVALID_PHONE_REMOTE: Phone number should not contain letters and must be 10-14 digits long.
-  INVALID_PHONE_REGEX: Phone number is in an invalid format.
-  I_COMMIT: I Commit to this Oath
-  INVALID_OTP: The code you have entered is not corrrect.
-  ENTER_PHONE_TIP: Enter a phone number
-  SAMPLE_PAGE: Sample Page
-  LOGOUT: Log Out
-  LOGIN: Log in
-  BACK: Back
-  SETTINGS: Settings
-  HOME: Home
-  AUTH_TIMEOUT: Authentication Timed Out.
+LOGIN_TITLE: The Protester's Oath
+APP_TITLE: The Protester's Oath 2
+POINT_00: I will not be violent.
+POINT_01: I will not bring a weapon, defensive or offensive, to a protest.
+POINT_02: I will stop violence, crime and vandalism, or record it, if I feel it is safe to do so.
+POINT_03: I will bear witness and record peaceful and non-violent acts of protest.
+POINT_04: I will help those who are hurt when I am able.
+POINT_05: I will listen to the advice and direction of protest leaders and report problems I see.
+POINT_06: I will eat and sleep beforehand so that I can control my emotions.
+POINT_07: I will recognize when I am emotionally out of control and remove myself to calm down.
+POINT_08: I will not protest at night during a riot or a curfew ordered to quell violence.
+INVALID_PHONE_REMOTE: Phone number should not contain letters and must be 10-14 digits long.
+INVALID_PHONE_REGEX: Phone number is in an invalid format.
+I_COMMIT: I Commit to this Oath
+INVALID_OTP: The code you have entered is not corrrect.
+ENTER_PHONE_TIP: Enter a phone number
+SAMPLE_PAGE: Sample Page
+LOGOUT: Log Out
+LOGIN: Log in
+BACK: Back
+SETTINGS: Settings
+HOME: Home
+AUTH_TIMEOUT: Authentication Timed Out.

@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import './bloc.dart';
+import './login.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
   // final UserRepository _userRepository;
