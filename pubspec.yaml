@@ -30,6 +30,7 @@ dependencies:
   #  cloud_firestore: ^0.13.2+2
   bloc: ^6.0.3
   bloc_test: ^7.0.3
+  flutter_cubit: ^0.1.1
   firebase_core: 0.5.0
   firebase_auth: ^0.18.0+1
   firebase_analytics: ^6.0.0

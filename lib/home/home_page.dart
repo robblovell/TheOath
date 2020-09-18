@@ -56,12 +56,6 @@ class HomePage extends StatelessWidget {
               child: Text('OATH_TAKEN'.tr(), textScaleFactor: 1.3,),
             ),
           ),
-          // Align(
-          //   alignment: Alignment.center,
-          //   child: Text(
-          //     'UserID: ${FirebaseAuth.instance.currentUser != null ? FirebaseAuth.instance.currentUser.uid : "none"}',
-          //   ),
-          // ),
         ]));
   }
 }

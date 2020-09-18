@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_cubit/flutter_cubit.dart';
 
 import 'package:theprotestersoath/authentication/authentication.dart';
 import 'package:theprotestersoath/home/home_page.dart';
 import 'package:theprotestersoath/login/LoginPage.dart';
 import 'package:theprotestersoath/splash/splash_page.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:theprotestersoath/stories/stories_cubit.dart';
 import 'package:theprotestersoath/stories/story_page.dart';
 
 import 'about/about_page.dart';
@@ -29,16 +31,6 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // localizationsDelegates: [
-      //   // ... app-specific localization delegate[s] here
-      //   GlobalMaterialLocalizations.delegate,
-      //   GlobalWidgetsLocalizations.delegate,
-      //   GlobalCupertinoLocalizations.delegate,
-      // ],
-      // supportedLocales: [
-      //   const Locale('en', ''), // English, no country code
-      //   // ... other locales the app supports
-      // ],
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
@@ -92,7 +84,10 @@ class _AppViewState extends State<AppView> {
                 return HomePage();
               } else if (state is StoryPageState) {
                 // Navigator.of(context).pop();
-                return StoryPage();
+                return CubitProvider<StoriesCubit>(
+                  create: (context) => StoriesCubit(),
+                  child: StoryPage(),
+                );
               } else if (state is OathPageState) {
                 // Navigator.of(context).pop();
                 return OathPage();

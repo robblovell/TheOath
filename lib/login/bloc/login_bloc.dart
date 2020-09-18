@@ -15,7 +15,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   @override
   Stream<LoginState> mapEventToState(LoginEvent event,) async* {
     if (event is AppStartEvent) {
-      yield InitialLoginState();
+      yield InitialLoginState(); // go back from the pin page leads here.
     } else if (event is SendOtpEvent) {
       yield LoadingState();
       try {
@@ -23,18 +23,20 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           add(event);
         });
       } catch (e) {
+        // todo: things seem pretty unrecoverable here...
         print(e);
         // Phoenix.rebirth(context)
-
       }
     } else if (event is OtpSendEvent) {
-      yield OtpSentState();
-    } else if (event is LoginCompleteEvent) {
-      yield LoginCompleteState(event.firebaseUser);
+      yield OtpSentState(); // we get here after an otp is sent. the ui reacts by showing the pin entry screen.
+    // } else if (event is LoginCompleteEvent) {
+    //   yield LoginCompleteState(event.firebaseUser);
     } else if (event is LoginExceptionEvent) {
       yield ExceptionState(message: event.message);
     } else if (event is VerifyOtpEvent) {
       yield LoadingState();
+      // this fires when the user submits the pin on the pin entry page and the
+      // auto verification has failed, so sign in the user manually.
       try {
         final AuthCredential credential = PhoneAuthProvider.credential(
           verificationId: this.verID,
@@ -48,15 +50,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           yield OtpExceptionState(message: 'INVALID_OTP'.tr());
         }
       } catch (e) {
-        yield OtpExceptionState(message: 'INVALID_OTP'.tr());
-        print(e);
+        yield OtpExceptionState(message: 'SOMETHING_WRONG'.tr());
       }
     }
   }
 
   @override
   void onEvent(LoginEvent event) {
-    // TODO: implement onEvent
+    // TODO: implement onEvent (contains phoNo)
     super.onEvent(event);
     print(event);
   }
@@ -68,8 +69,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     print("AUTH ONERROR::" + onError.toString());
     print(stacktrace);
     // todo: figure out how to recover gracefully here.
-    // StreamController().add(LoginExceptionEvent(e.toString()));
-    // StreamController().add(LoginCompleteEvent);
     //InitialLoginState();
     final eventStream = StreamController();
     eventStream.add(LoginExceptionEvent(onError.toString()));
@@ -82,33 +81,48 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   Stream<LoginEvent> sendOtp(String phoNo/*, BuildContext context*/) async* {
     try {
-      print("Phone number: "+phoNo);
+      print("Phone number given: "+phoNo);
       StreamController<LoginEvent> eventStream = StreamController();
-      final phoneVerificationCompleted = (AuthCredential authCredential) {
+
+      final PhoneVerificationCompleted phoneVerificationCompleted = (AuthCredential authCredential) async* {
         print("AUTH SUCCESS:: Your account is successfully verified");
-        // TODO: not sure this needs to be called, appears to be double call.
-        // _userRepository.getUser().catchError((onError) {
-        //   print(onError);
-        //   eventStream.add(LoginExceptionEvent(onError.toString()));
-        //   eventStream.close();
-        // }).then((user) {
-        // eventStream.add(LoginCompleteEvent());
-        // eventStream.close();
-        // });
+        // eventStream.add(OtpAutoRetrievalEvent()); // todo: tell the user we are auto validating.
+        try {
+          final User user = (await FirebaseAuth.instance.signInWithCredential(authCredential)).user;
+
+          if (user != null) {
+            eventStream.add(LoginCompleteEvent(user));
+            eventStream.close();
+          } else {
+            eventStream.add(LoginExceptionEvent('INVALID_OTP'.tr()));
+            eventStream.close();
+          }
+        } catch (error) {
+          eventStream.add(LoginExceptionEvent('SOMETHING_WRONG'.tr() + error));
+          eventStream.close();
+        }
       };
+
       final phoneVerificationFailed = (FirebaseAuthException authException) {
         // print("AUTH FAILED::"+authException.message);
         print("AUTH FAILED::" + authException.message);
-        eventStream.add(LoginExceptionEvent(authException.message));
+        var status = authException.message;
+        if (status.contains('not authorized'))
+          status = 'Something has gone wrong, please try later. '+status; // todo: only add the exception message in debug mode.
+        else if (status.contains('Network'))
+          status = 'Please check your internet connection and try again. '+status;
+        else
+          status = 'Something has gone wrong, please try later. '+status;
+        eventStream.add(LoginExceptionEvent(status));
         eventStream.close();
       };
       final phoneCodeSent = (String verId, [int forceResent]) {
-        print("AUTH CODE SENT::" + verId);
+        print("AUTH CODE SENT::" + verId); // ended up here on back from stories?
         this.verID = verId;
         eventStream.add(OtpSendEvent());
       };
       final phoneCodeAutoRetrievalTimeout = (String verid) {
-        print("AUTH TIMEOUT:: --->::" + verid);
+        print("AUTH TIMEOUT:: --->::" + verid);  // somehow ened up here on giving a phone number.?
         this.verID = verid;
         eventStream.add(LoginExceptionEvent('AUTH_TIMEOUT'.tr()));
         eventStream.close();
@@ -121,20 +135,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         codeSent: phoneCodeSent,
         codeAutoRetrievalTimeout: phoneCodeAutoRetrievalTimeout,
       );
-
       yield* eventStream.stream;
     } catch (e) {
-      print(e);
-      // throw(e);
-      // Phoenix.rebirth(context); // dependOnInheritedWidgetOfExactType
       // todo: figure out how to recover gracefully here.
-      // StreamController().add(LoginExceptionEvent(e.toString()));
-      // StreamController().add(LoginCompleteEvent);
-      //InitialLoginState();
-      // final eventStream = StreamController();
-      // eventStream.add(LoginExceptionEvent(onError.toString()));
-      // eventStream.close();
-      // }
+      print(e);
     }
   }
 }

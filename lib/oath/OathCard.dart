@@ -21,10 +21,10 @@ class OathCard extends StatelessWidget {
               overflow: TextOverflow.visible,
               stepGranularity: 1,
               maxLines: 3,
-              minFontSize: 14,
+              minFontSize: 39,
               style: TextStyle(
                   fontWeight: FontWeight.w600,
-                  fontSize: 20,
+                  fontSize: 40,
                   color: Colors.black),
             )),
         )

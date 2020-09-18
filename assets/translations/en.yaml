@@ -12,7 +12,8 @@ POINT_08: I will not protest at night during a riot or a curfew ordered to quell
 INVALID_PHONE_REMOTE: Phone number should not contain letters and must be 10-14 digits long.
 INVALID_PHONE_REGEX: Phone number is in an invalid format.
 I_COMMIT: I Commit to this Oath
-INVALID_OTP: The code you have entered is not corrrect.
+INVALID_OTP: The wrong code ws given or the phone number given is incorrect.
+SOMETHING_WRONG: Something has gone wrong, please try again later.
 ENTER_PHONE_TIP: Enter a phone number
 ABOUT_PAGE_MENU_ITEM: About
 LOGOUT: Log Out
@@ -23,8 +24,31 @@ HOME: Home
 AUTH_TIMEOUT: Authentication Timed Out.
 OATH_TAKEN: I Took The Protester's Oath
 STORIES_TOOLTIP: Stories
+
+STORY_00: tbd.
+STORY_DATE_00: tbd
+STORY_CREDIT_00: tbd
+STORY_IMAGE_00: assets/img/stories/story000.jpg
+STORY_IMAGE_URL_00: tbd
+STORY_URL_00: tbd
+
 STORY_01: A lone man stands up to a line of tanks in Tiananmen Square in 1989.
-STORY_01_DATE: June 5, 1989
-STORY_01_CREDIT: AP Photo/Jeff Widener
-STORY_01_IMAGE: https://i.insider.com/55b0f2782acae7c7018b9204
-STORY_01_URL: https://en.wikipedia.org/wiki/Tank_Man
+STORY_DATE_01: June 5, 1989
+STORY_CREDIT_01: AP Photo/Jeff Widener
+STORY_IMAGE_01: assets/img/stories/story001.jpg
+STORY_IMAGE_URL_01: https://i.insider.com/55b0f2782acae7c7018b9204
+STORY_URL_01: https://en.wikipedia.org/wiki/Tank_Man
+
+STORY_02: tbd
+STORY_DATE_02: tbd
+STORY_CREDIT_02: tbd
+STORY_IMAGE_02: assets/img/stories/story002.jpg
+STORY_IMAGE_URL_02: tbd
+STORY_URL_02: tbd
+
+STORY_03: tbd
+STORY_DATE_03: tbd
+STORY_CREDIT_03: tbd
+STORY_IMAGE_03: assets/img/stories/story003.jpg
+STORY_IMAGE_URL_03: tbd4
+STORY_URL_03: tbd
