@@ -15,12 +15,14 @@ I_COMMIT: I Commit to this Oath
 INVALID_OTP: The wrong code ws given or the phone number given is incorrect.
 SOMETHING_WRONG: Something has gone wrong, please try again later.
 ENTER_PHONE_TIP: Enter a phone number
-ABOUT_PAGE_MENU_ITEM: About
+ABOUT: About
 LOGOUT: Log Out
 LOGIN: Log in
 BACK: Back
+STORIES: Stories of Protest
 SETTINGS: Settings
-HOME: Home
+HOME: Proof of Oath
+THEOATH: The Oath Rules
 AUTH_TIMEOUT: Authentication Timed Out.
 OATH_TAKEN: I Took The Protester's Oath
 STORIES_TOOLTIP: Stories

@@ -41,7 +41,7 @@ class _NumberInput extends State<NumberInput> {
   Widget build(BuildContext context) {
     // To show the keyboard on load:  _focusNode.requestFocus();
     return Padding(
-      padding: EdgeInsets.only(top: 8, bottom: 15.0, left: 16.0, right: 16.0),
+      padding: EdgeInsets.only(top: 15, bottom: 15.0, left: 16.0, right: 16.0),
       child: Column(
         children: <Widget>[
           Form(
@@ -58,7 +58,7 @@ class _NumberInput extends State<NumberInput> {
                 }),
           ),
           Padding(
-            padding: const EdgeInsets.all(0.0),
+            padding: const EdgeInsets.all(7.0),
             // I Commit Button
             child: RaisedButton(
               elevation: 7.0,

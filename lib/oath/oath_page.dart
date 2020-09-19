@@ -58,7 +58,7 @@ class OathPage extends StatelessWidget {
                           color: Colors.grey[100],
                           height: 18.0,
                           alignment: Alignment.center,
-                          child: TheOath(),
+                          child: TheOath(false),
                         ),
                       ),
 

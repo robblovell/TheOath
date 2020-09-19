@@ -36,7 +36,7 @@ class StoryContainer extends StatelessWidget {
 
     return LayoutBuilder(builder: (BuildContext context, BoxConstraints viewportConstraints) {
       return Container(
-          color: Colors.blue[100],
+          color: Colors.grey[400],
           child: ConstrainedBox(
               constraints: BoxConstraints(
                 minHeight: viewportConstraints.maxHeight,
@@ -44,16 +44,16 @@ class StoryContainer extends StatelessWidget {
               child: IntrinsicHeight(
                   child: Column(children: <Widget>[
                     Container(
-                        height: 300,
+                        height: 500,
                         child: ListView(
                           padding: const EdgeInsets.all(8),
                           children: <Widget>[
                             Container(
-                                height: 200.0,
+                                height: 300.0,
                                 decoration: BoxDecoration(
                                     shape: BoxShape.rectangle,
                                     image: DecorationImage(
-                                      fit: BoxFit.fitWidth,
+                                      fit: BoxFit.fitHeight,
                                       image: AssetImage(story.imageURL),
                                     ))),
                             Align(

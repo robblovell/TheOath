@@ -25,6 +25,10 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
+    final availableHeight = MediaQuery.of(context).size.height -
+        AppBar().preferredSize.height -
+        MediaQuery.of(context).padding.top -
+        MediaQuery.of(context).padding.bottom;
     return BlocListener<LoginBloc, LoginState>(
       cubit: _loginBloc,
       listener: (context, loginState) {
@@ -37,7 +41,7 @@ class _LoginFormState extends State<LoginForm> {
           }
           final snackBar = SnackBar(
             content: Container(
-              height: 125,
+              height: 170,
               child: RichText(
                 text: TextSpan(
                   children: [
@@ -80,15 +84,15 @@ class _LoginFormState extends State<LoginForm> {
                           // still be at least as big as necessary to fit its contents.
                           child: Container(
                             color: Colors.grey[100],
-                            height: 18.0,
+                            height: 1, // give it any height so that the scroller calculates correctly.
                             alignment: Alignment.center,
-                            child: TheOath(),
+                            child: TheOath(true),
                           ),
                         ),
                         Container(
                           // A fixed-height child.
                           color: Colors.grey, //const Color(0xff00ccee),
-                          height: 150.0,
+                          height: 170.0,
                           alignment: Alignment.center,
                           child: getViewAsPerState(state),
                         ),
