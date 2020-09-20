@@ -41,7 +41,7 @@ class _LoginFormState extends State<LoginForm> {
           }
           final snackBar = SnackBar(
             content: Container(
-              height: 170,
+              height: 150,
               child: RichText(
                 text: TextSpan(
                   children: [
@@ -86,11 +86,11 @@ class _LoginFormState extends State<LoginForm> {
                             color: Colors.grey[100],
                             height: 1, // give it any height so that the scroller calculates correctly.
                             alignment: Alignment.center,
-                            child: TheOath(true),
+                            child: TheOath(true, viewportConstraints),
                           ),
                         ),
                         Container(
-                          // A fixed-height child.
+                          // A fixed-height child that holds a phone entry or pin entry
                           color: Colors.grey, //const Color(0xff00ccee),
                           height: 170.0,
                           alignment: Alignment.center,

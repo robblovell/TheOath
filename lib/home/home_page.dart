@@ -49,10 +49,23 @@ class HomePage extends StatelessWidget {
                 onPressed: () => BlocProvider.of<AppDrawerBloc>(context)
                     .add(OathPageEvent()),
               )),
+          Container(
+              alignment: Alignment(-.9, 0.91),
+              child: IconButton(
+                icon: new Icon(
+                  Icons.info,
+                  // IconData(0xe060, fontFamily: 'MaterialIcons'),
+                  color: Colors.black,
+                  size: 30,
+                ),
+                tooltip: 'THEREASON'.tr(),
+                onPressed: () => BlocProvider.of<AppDrawerBloc>(context)
+                    .add(ReasonPageEvent()),
+              )),
           Align(
             alignment: Alignment.bottomCenter,
             child: Container(
-              alignment: Alignment(0.0, 0.87),
+              alignment: Alignment(0.0, 0.80),
               child: Text('OATH_TAKEN'.tr(), textScaleFactor: 1.3,),
             ),
           ),

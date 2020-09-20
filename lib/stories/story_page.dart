@@ -113,7 +113,7 @@ class _StoryPageState extends State<StoryPage> {
         return Scaffold(
             appBar: AppBar(
               title: Text(
-                "Stories",
+                "STORIES".tr(),
                 style: new TextStyle(color: Colors.white),
               ),
               actions: [

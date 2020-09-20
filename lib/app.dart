@@ -5,6 +5,7 @@ import 'package:flutter_cubit/flutter_cubit.dart';
 import 'package:theprotestersoath/authentication/authentication.dart';
 import 'package:theprotestersoath/home/home_page.dart';
 import 'package:theprotestersoath/login/LoginPage.dart';
+import 'package:theprotestersoath/reason/reason_page.dart';
 import 'package:theprotestersoath/splash/splash_page.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:theprotestersoath/stories/stories_cubit.dart';
@@ -44,6 +45,10 @@ class _AppState extends State<App> {
         builder: (context, state) {
           if (state is Unauthenticated) {
             return LoginPage();
+          }
+          else if (state is LoginReasonPageState) {
+              // Navigator.of(context).pop();
+              return ReasonPage(true);
           } else if (state is Authenticated) {
             return AppView();
           } else {
@@ -91,6 +96,9 @@ class _AppViewState extends State<AppView> {
               } else if (state is OathPageState) {
                 // Navigator.of(context).pop();
                 return OathPage();
+              } else if (state is ReasonPageState) {
+                // Navigator.of(context).pop();
+                return ReasonPage(false);
               } else {
                 return SplashPage();
               }

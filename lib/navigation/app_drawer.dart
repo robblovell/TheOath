@@ -21,30 +21,11 @@ class AppDrawer extends StatelessWidget {
               child: ListView(
                 padding: const EdgeInsets.only(top: 40),
                 children: <Widget>[
+
                   ListTile(
-                    leading: Icon(Icons.group),
-                    title: Text('ABOUT'.tr(),
-                      style: TextStyle(fontSize: 25, color: Colors.black),
-                    ),
-                    onTap: () {
-                      BlocProvider.of<AppDrawerBloc>(context).add(AboutPageEvent());
-                      Navigator.pop(context);
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.group),
-                    title: Text("STORIES".tr(),
-                      style: TextStyle(fontSize: 25, color: Colors.black),
-                    ),
-                    onTap: () {
-                      BlocProvider.of<AppDrawerBloc>(context).add(StoryPageEvent());
-                      Navigator.pop(context);
-                    },
-                  ),
-                  ListTile(
-                    leading: Icon(Icons.group),
+                    leading: Icon(Icons.article_outlined),
                     title: Text("THEOATH".tr(),
-                      style: TextStyle(fontSize: 25, color: Colors.black),
+                      style: TextStyle(fontSize: 22, color: Colors.black),
                     ),
                     onTap: () {
                       BlocProvider.of<AppDrawerBloc>(context).add(OathPageEvent());
@@ -52,9 +33,29 @@ class AppDrawer extends StatelessWidget {
                     },
                   ),
                   ListTile(
-                    leading: Icon(Icons.group),
+                    leading: Icon(Icons.info),
+                    title: Text("THEREASON".tr(),
+                      style: TextStyle(fontSize: 22, color: Colors.black),
+                    ),
+                    onTap: () {
+                      BlocProvider.of<AppDrawerBloc>(context).add(ReasonPageEvent());
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.art_track),
+                    title: Text("STORIES".tr(),
+                      style: TextStyle(fontSize: 22, color: Colors.black),
+                    ),
+                    onTap: () {
+                      BlocProvider.of<AppDrawerBloc>(context).add(StoryPageEvent());
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.turned_in),
                     title: Text("HOME".tr(),
-                      style: TextStyle(fontSize: 25, color: Colors.black),
+                      style: TextStyle(fontSize: 22, color: Colors.black),
                     ),
                     onTap: () {
                       BlocProvider.of<AppDrawerBloc>(context).add(HomePageEvent());
@@ -62,9 +63,19 @@ class AppDrawer extends StatelessWidget {
                     },
                   ),
                   ListTile(
+                    leading: Icon(Icons.group),
+                    title: Text('ABOUT'.tr(),
+                      style: TextStyle(fontSize: 22, color: Colors.black),
+                    ),
+                    onTap: () {
+                      BlocProvider.of<AppDrawerBloc>(context).add(AboutPageEvent());
+                      Navigator.pop(context);
+                    },
+                  ),
+                  ListTile(
                     leading: Icon(Icons.exit_to_app),
                     title: Text('LOGOUT'.tr(),
-                      style: TextStyle(fontSize: 25, color: Colors.black),
+                      style: TextStyle(fontSize: 22, color: Colors.black),
                     ),
                     onTap: () {
                       context

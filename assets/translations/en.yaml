@@ -1,56 +1,83 @@
-LOGIN_TITLE: The Protester's Oath
-APP_TITLE: The Protester's Oath 2
-POINT_00: I will not be violent.
-POINT_01: I will not bring a weapon, defensive or offensive, to a protest.
-POINT_02: I will stop violence, crime and vandalism, or record it, if I feel it is safe to do so.
-POINT_03: I will bear witness and record peaceful and non-violent acts of protest.
-POINT_04: I will help those who are hurt when I am able.
-POINT_05: I will listen to the advice and direction of protest leaders and report problems I see.
-POINT_06: I will eat and sleep beforehand so that I can control my emotions.
-POINT_07: I will recognize when I am emotionally out of control and remove myself to calm down.
-POINT_08: I will not protest at night during a riot or a curfew ordered to quell violence.
-INVALID_PHONE_REMOTE: Phone number should not contain letters and must be 10-14 digits long.
-INVALID_PHONE_REGEX: Phone number is in an invalid format.
-I_COMMIT: I Commit to this Oath
-INVALID_OTP: The wrong code ws given or the phone number given is incorrect.
-SOMETHING_WRONG: Something has gone wrong, please try again later.
-ENTER_PHONE_TIP: Enter a phone number
-ABOUT: About
-LOGOUT: Log Out
-LOGIN: Log in
-BACK: Back
-STORIES: Stories of Protest
-SETTINGS: Settings
-HOME: Proof of Oath
-THEOATH: The Oath Rules
-AUTH_TIMEOUT: Authentication Timed Out.
-OATH_TAKEN: I Took The Protester's Oath
-STORIES_TOOLTIP: Stories
+  LOGIN_TITLE: The Protester's Oath
+  APP_TITLE: The Protester's Oath 2
+  POINT_00: I will not be violent.
+  POINT_01: I will not bring a weapon, defensive or offensive, to a protest.
+  POINT_02: I will stop violence, crime and vandalism, or record it, if I feel it is safe to do so.
+  POINT_03: I will bear witness and record peaceful and non-violent acts of protest.
+  POINT_04: I will help those who are hurt when I am able.
+  POINT_05: I will listen to the advice and direction of protest leaders and report problems I see.
+  POINT_06: I will eat and sleep beforehand so that I can control my emotions.
+  POINT_07: I will recognize when I am emotionally out of control and remove myself to calm down.
+  POINT_08: I will not protest at night during a riot or a curfew ordered to quell violence.
+  INVALID_PHONE_REMOTE: Phone number should not contain letters and must be 10-14 digits long.
+  INVALID_PHONE_REGEX: Phone number is in an invalid format.
+  I_COMMIT: I Commit to this Oath
+  INVALID_OTP: The wrong code ws given or the phone number given is incorrect.
+  SOMETHING_WRONG: Something has gone wrong, please try again later.
+  ENTER_PHONE_TIP: Enter a phone number
+  ABOUT: About
+  LOGOUT: Log Out
+  LOGIN: Log in
+  BACK: Back
+  STORIES: Stories of Protest
+  SETTINGS: Settings
+  HOME: Proof of Oath
+  THEOATH: The Oath
+  THEREASON: Reason for the Oath
+  AUTH_TIMEOUT: Authentication Timed Out.
+  OATH_TAKEN: I Took The Protester's Oath
+  STORIES_TOOLTIP: Stories
 
-STORY_00: tbd.
-STORY_DATE_00: tbd
-STORY_CREDIT_00: tbd
-STORY_IMAGE_00: assets/img/stories/story000.jpg
-STORY_IMAGE_URL_00: tbd
-STORY_URL_00: tbd
+  STORY_00: tbd.
+  STORY_DATE_00: tbd
+  STORY_CREDIT_00: tbd
+  STORY_IMAGE_00: assets/img/stories/story000.jpg
+  STORY_IMAGE_URL_00: tbd
+  STORY_URL_00: tbd
 
-STORY_01: A lone man stands up to a line of tanks in Tiananmen Square in 1989.
-STORY_DATE_01: June 5, 1989
-STORY_CREDIT_01: AP Photo/Jeff Widener
-STORY_IMAGE_01: assets/img/stories/story001.jpg
-STORY_IMAGE_URL_01: https://i.insider.com/55b0f2782acae7c7018b9204
-STORY_URL_01: https://en.wikipedia.org/wiki/Tank_Man
+  STORY_01: A lone man stands up to a line of tanks in Tiananmen Square in 1989.
+  STORY_DATE_01: June 5, 1989
+  STORY_CREDIT_01: AP Photo/Jeff Widener
+  STORY_IMAGE_01: assets/img/stories/story001.jpg
+  STORY_IMAGE_URL_01: https://i.insider.com/55b0f2782acae7c7018b9204
+  STORY_URL_01: https://en.wikipedia.org/wiki/Tank_Man
 
-STORY_02: tbd
-STORY_DATE_02: tbd
-STORY_CREDIT_02: tbd
-STORY_IMAGE_02: assets/img/stories/story002.jpg
-STORY_IMAGE_URL_02: tbd
-STORY_URL_02: tbd
+  STORY_02: tbd
+  STORY_DATE_02: tbd
+  STORY_CREDIT_02: tbd
+  STORY_IMAGE_02: assets/img/stories/story002.jpg
+  STORY_IMAGE_URL_02: tbd
+  STORY_URL_02: tbd
 
-STORY_03: tbd
-STORY_DATE_03: tbd
-STORY_CREDIT_03: tbd
-STORY_IMAGE_03: assets/img/stories/story003.jpg
-STORY_IMAGE_URL_03: tbd4
-STORY_URL_03: tbd
+  STORY_03: tbd
+  STORY_DATE_03: tbd
+  STORY_CREDIT_03: tbd
+  STORY_IMAGE_03: assets/img/stories/story003.jpg
+  STORY_IMAGE_URL_03: tbd4
+  STORY_URL_03: tbd
+
+  REASON_TITLE: Reasoning
+  REASON1: The power of protest is to reveal truth in the face of unjust power through non-violent action.
+  REASON2: Violence negates that revelation, burying the truth in a haze of fear and anger. If the audience of the protest fears you, they will not hear you. Non-violence means peaceful civil disobedience and useful mischief against immoral laws and power.
+  REASON3: People who are out of power, minorities, immigrants, the non traditional and those at the fringes of society have learned this. But we all must learn this if there is to be change.
+  REASON4: We are taught to meet injustice with violence, that violence is somehow justified in that context. Violence is never justified, and further, the reacting person gives up their power when they respond with violence. The power of non-violence is its ability to win sympathy and to clearly demonstrate the injustice of an aggressor, an oppressor, the object of the protest.
+  REASON5: Please take this oath so that your voice will be heard and the real power of non-violence activated.
+
+  EXPLAIN_TITLE: Explanation
+  EXPLAIN1: Being non-violent is the power that a protest holds, that gives it a voice for change.
+  EXPLAIN2: Protesting involves committing of acts of useful civil disobedience that is peaceful, non-violent and non-vengeful. These acts may be inconvenient to others, but brings attention to the injustices that are being protested. Indiscriminate vandalism isn’t useful mischief, throwing things is not useful mischief. Examples of useful mischief are blocking traffic, sit ins, disobeying immoral laws, or defacing of symbols of oppression and hate.
+  EXPLAIN3: Violence is where protest ends and riots begin. Violence gives the object of a protest an excuse to commit violent acts and to suppress the protest. Violence overshadows the reason for the protest.
+  EXPLAIN4: Vandalizing bystander property, breaking windows or spraying graffiti does not help a cause because the object of the protest will use that as an excuse to discount its message. Vandalism will be used as an excuse to respond with disproportionate force which endangers the protest. Vandalism will be seen as violence by many bystanders. One exception is vandalism of symbols of oppression.
+  EXPLAIN5: Throwing things at police, military or anyone will be seen as an act of violence and will be responded to with disproportionate force. Throwing any projectile will be seen as an act of violence even if it is non-lethal. Water bottles, rocks, eggs, fireworks, shoes and other like objects can hurt someone if they hit them in unfortunate ways. One exception is glitter or soap bubbles which can’t be construed as violent.
+  EXPLAIN6: Weapons must not be brought to a protest because it enables violence whether that weapon is used defensively or offensively. Do not bring a weapon to a protest, no guns, knives, batons or any instrument that can be used to hurt someone. A weapon is not a means of defence, it is a temptation to use violence.
+  EXPLAIN7: Stopping violence around the protest helps people stay focused on what is important- staying non-violent. This must be done in a non-violent way. Help each other to quell anger and respond with love so that the message of the protest will be heard.
+  EXPLAIN8: Being a witness to the protest helps to bring the protest’s message to a wider audience and gain the sympathy of potential allies. The protest will be understood if violence is met with love and by example over time.
+  EXPLAIN9: Help people who are hurt only if you are coming to help from a place of certainty, safety, knowledge of your surroundings and of the risk you are taking. Helping the hurt will keep people healthy so that they can continue to participate.
+  EXPLAIN10: By listening to the leaders of the protest, you can coordinate with protest activities and help communicate coherent and clear messages. The first responsibility of the protest and protesters is to communicate to bystanders what the problem is and what remedy is required.
+  EXPLAIN11: When the police are informed, they do not have an excuse to work against the protest. Police should come to see their duty as protecting the protester, property and bystanders. By cooperating with police, they can come to understand the motivations of the protest. Committing crimes is self serving and not the purpose of protest.
+  EXPLAIN12: Eating and sleeping before attending a protest will help to control feelings of anger. The human body is built to short circuit the brain in dangerous situations and will create the desire for violence. This short circuit becomes more sensitive as we become tired and hungry.
+  EXPLAIN13: When we become emotional it is more difficult to control ourselves. We must not respond to violence with violence, even when feeling angry or fearful. We must stand if we can, run to protect ourselves if we must, or remove ourselves if we cannot control our actions. If we feel self righteous we will feel we have an excuse for retribution. But, we should not take that path because this will hurt the cause.
+  EXPLAIN14: Finally, nighttime protests are more difficult because it is much easier to get away with violence, crime and vandalism. It is also much harder to distinguish rioter from protester. If a protest must take place at night, more coordination with the protest leaders and police will be necessary to keep the things peaceful, identify vandals and thieves and keep protesters safe.
+  EXPLAIN15: Robb E. Lovell
+
+

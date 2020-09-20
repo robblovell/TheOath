@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:theprotestersoath/login/bloc/login.dart';
 import 'package:theprotestersoath/login/bloc/login_bloc.dart';
-import 'package:theprotestersoath/login/PhoneTextFormField.dart';
+import 'package:theprotestersoath/login/old/PhoneTextFormField.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,7 +9,6 @@ import 'package:theprotestersoath/utils/stripCorrectPhone.dart';
 import 'package:theprotestersoath/utils/validatePhoneNumber.dart';
 
 class NumberInput extends StatefulWidget {
-
   NumberInput({Key key}) : super(key: key);
 
   @override
@@ -36,12 +35,12 @@ class _NumberInput extends State<NumberInput> {
 
     super.dispose();
   }
-  
+
   @override
   Widget build(BuildContext context) {
     // To show the keyboard on load:  _focusNode.requestFocus();
     return Padding(
-      padding: EdgeInsets.only(top: 15, bottom: 15.0, left: 16.0, right: 16.0),
+      padding: EdgeInsets.only(top: 16, bottom: 16.0, left: 16.0, right: 16.0),
       child: Column(
         children: <Widget>[
           Form(
@@ -58,30 +57,32 @@ class _NumberInput extends State<NumberInput> {
                 }),
           ),
           Padding(
-            padding: const EdgeInsets.all(7.0),
-            // I Commit Button
-            child: RaisedButton(
-              elevation: 7.0,
-              splashColor: Colors.brown,
-              animationDuration: Duration(seconds: 2),
-              colorBrightness: Brightness.light,
-              shape: RoundedRectangleBorder(
-                borderRadius: new BorderRadius.circular(3.0),
-              ),
-              onPressed: () {
-                if (_formKey.currentState.validate()) {
-                  BlocProvider.of<LoginBloc>(context).add(SendOtpEvent(
-                      phoNo: stripCorrectPhone(_phoneTextController
-                          .value.text))); //, context:context));
-                }
-              },
-              color: Colors.green,
-              child: Text(
-                'I_COMMIT'.tr(),
-                style: TextStyle(fontSize: 18, color: Colors.white),
-              ),
-            ),
-          )
+              padding: const EdgeInsets.all(7.0),
+              // I Commit Button
+              // child: SizedBox(
+              //   width: 210,
+                child: MaterialButton(
+                  elevation: 20.0,
+                  minWidth: 210,
+                  splashColor: Colors.grey[500],
+                  animationDuration: Duration(seconds: 1),
+                  colorBrightness: Brightness.light,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(8.0),
+                  ),
+                  onPressed: () {
+                    if (_formKey.currentState.validate()) {
+                      BlocProvider.of<LoginBloc>(context).add(SendOtpEvent(
+                          phoNo: stripCorrectPhone(_phoneTextController.value.text))); //, context:context));
+                    }
+                  },
+                  color: Colors.grey[900],
+                  child: Text(
+                    'I_COMMIT'.tr(),
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+                ),
+              )//)
         ],
       ),
     );

@@ -14,6 +14,14 @@ class AppStarted extends AuthenticationEvent {
   List<Object> get props => [];
 }
 
+class LoginReasonPageEvent extends AuthenticationEvent {
+  @override
+  String toString() => 'LoginReasonPage';
+
+  @override
+  List<Object> get props => [];
+}
+
 class LoggedIn extends AuthenticationEvent {
   LoggedIn({@required this.token}) : super([token]);
   final String token;

@@ -22,6 +22,9 @@ class AppDrawerBloc extends Bloc<AppDrawerEvent, AppDrawerState> {
     if (event is OathPageEvent) {
       yield OathPageState();
     }
+    if (event is ReasonPageEvent) {
+      yield ReasonPageState();
+    }
     if (event is BackButtonEvent) {
       yield HomePageState();
     }

@@ -24,6 +24,11 @@ class StoryPageState extends AppDrawerState {
   List<Object> get props => [];
 }
 
+class ReasonPageState extends AppDrawerState {
+  @override
+  List<Object> get props => [];
+}
+
 class OathPageState extends AppDrawerState {
   @override
   List<Object> get props => [];

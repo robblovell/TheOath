@@ -47,6 +47,17 @@ class OathPageEvent extends AppDrawerEvent {
   List<Object> get props => [];
 }
 
+class ReasonPageEvent extends AppDrawerEvent {
+  ReasonPageEvent() : super();
+
+  @override
+  String toString() => 'ReasonPage';
+
+  @override
+  List<Object> get props => [];
+}
+
+
 class BackButtonEvent extends AppDrawerEvent {
   BackButtonEvent() : super();
 

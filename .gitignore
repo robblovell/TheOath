@@ -136,3 +136,7 @@ coverage/
 !**/ios/**/default.perspectivev3
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 !/dev/ci/**/Gemfile.lock
+
+# Release
+android/fastlane/deployment_cert.der
+Google Play Android Developer.json

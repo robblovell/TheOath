@@ -5,7 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:theprotestersoath/authentication/authentication.dart';
 import 'package:theprotestersoath/app.dart';
 
-import 'i18n/yaml_asset_loader.dart';
+import 'l10n/yaml_asset_loader.dart';
 
 class SimpleBlocObserver extends BlocObserver {
   @override

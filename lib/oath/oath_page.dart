@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:theprotestersoath/navigation/app_drawer/appdrawer_bloc.dart';
 import 'package:theprotestersoath/navigation/app_drawer/appdrawer_event.dart';
 import 'package:theprotestersoath/oath/OathContainer.dart';
@@ -24,7 +25,7 @@ class OathPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text(
-            "Stories",
+            "THEOATH".tr(),
             style: new TextStyle(color: Colors.white),
           ),
           actions: [
@@ -58,7 +59,7 @@ class OathPage extends StatelessWidget {
                           color: Colors.grey[100],
                           height: 18.0,
                           alignment: Alignment.center,
-                          child: TheOath(false),
+                          child: TheOath(false, viewportConstraints),
                         ),
                       ),
 
