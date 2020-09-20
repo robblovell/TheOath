@@ -12,6 +12,7 @@ class ReasonPage extends StatelessWidget {
   ReasonPage(this.isLogin);
 
   bool isLogin = true;
+
   // static Route route() {
   //   return MaterialPageRoute(builder: (_) => ReasonPage(this.isLogin));
   // }
@@ -20,21 +21,35 @@ class ReasonPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: AppBar(
-        title: Text(
-          "THEREASON".tr(),
-          style: new TextStyle(color: Colors.white),
-        ),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
+          title: Text(
+            "THEREASON".tr(),
+            style: new TextStyle(color: Colors.white),
+          ),
+          leading: (() {
             if (this.isLogin) {
-              BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut());
+              return IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () {
+                  if (this.isLogin) {
+                    BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut());
+                  } else {
+                    BlocProvider.of<AppDrawerBloc>(context).add(BackButtonEvent());
+                  }
+                },
+              );
             } else {
-              BlocProvider.of<AppDrawerBloc>(context).add(BackButtonEvent());
+              return IconButton(
+                icon: Icon(Icons.turned_in),
+                onPressed: () {
+                  if (this.isLogin) {
+                    BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut());
+                  } else {
+                    BlocProvider.of<AppDrawerBloc>(context).add(BackButtonEvent());
+                  }
+                },
+              );
             }
-          },
-        ),
-      ),
+          })()),
       body: TheReason(),
     );
   }

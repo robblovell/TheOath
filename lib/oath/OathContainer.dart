@@ -48,6 +48,7 @@ class TheOathGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double height = screenHeight(context);
     var viewportHeight = this.viewportConstraints.maxHeight;
     var viewportWidth = this.viewportConstraints.maxWidth;
     var paddingTopScreen = MediaQuery.of(context).padding.top;
@@ -56,26 +57,39 @@ class TheOathGrid extends StatelessWidget {
     var appBarHeight = AppBar().preferredSize.height;
     var loginButtonSpace = isLogin ? 170 : 0;
 
-    var availableHeight = viewportHeight - (appBarHeight + paddingTopScreen) - loginButtonSpace;
+    var availableHeightBig = height - (appBarHeight + paddingTopScreen) - loginButtonSpace;
+    var availableHeightSmall = viewportHeight - (appBarHeight + paddingTopScreen) - loginButtonSpace;
     var availableWidth = viewportWidth - paddingLeftScreen + paddingRightScreen;
 
     // Height of the Title Card above and the Number Entry card and the spacing between elements
     var cardPadding = 0.0;
-    var cardHeight = (availableHeight - (cardPadding*9))/ 9;
+    var cardHeightBig = (availableHeightBig - (cardPadding*9))/ 9;
+    var cardHeightSmall = (availableHeightSmall - (cardPadding*9))/ 9;
+    if (cardHeightSmall < 18) cardHeightSmall = 18;
+    var cardHeight = cardHeightBig;
+
+    if (viewportHeight != height) {
+      cardHeight = cardHeightSmall;
+      // if (cardHeight < 15) {cardHeight = cardHeightBig;}
+    }
+
     var cardWidth = availableWidth + cardPadding*2;
     var aspect = cardWidth / cardHeight;
 
-    // print("Container::viewportHeight: " + viewportHeight.toString());
-    // print("Container::paddingTopScreen: " + paddingTopScreen.toString());
-    // print("Container::paddingLeftScreen: " + paddingLeftScreen.toString());
-    // print("Container::paddingRightScreen: " + paddingRightScreen.toString());
-    // print("Container::appBarPrefHeight: " + appBarPrefHeight.toString());
-    // print("Container::appBarHeight: " + appBarHeight.toString());
-    // print("Container::loginButtonSpace: " + loginButtonSpace.toString());
-    // print("Container::availableHeight: " + availableHeight.toString());
-    // print("Container::cardHeight: " + cardHeight.toString());
-    // print("Container::cardWidth: " + cardWidth.toString());
-    // print("Container::cardAspect: " + aspect.toString());
+    print("Container::Height: " + height.toString());
+    print("Container::viewportHeight: " + viewportHeight.toString());
+    print("Container::paddingTopScreen: " + paddingTopScreen.toString());
+    print("Container::paddingLeftScreen: " + paddingLeftScreen.toString());
+    print("Container::paddingRightScreen: " + paddingRightScreen.toString());
+    print("Container::appBarHeight: " + appBarHeight.toString());
+    print("Container::loginButtonSpace: " + loginButtonSpace.toString());
+    print("Container::availableHeightBig: " + availableHeightBig.toString());
+    print("Container::availableHeightSmall: " + availableHeightSmall.toString());
+    print("Container::cardHeightBig: " + cardHeightBig.toString());
+    print("Container::cardHeightSmall: " + cardHeightSmall.toString());
+    print("Container::cardHeight: " + cardHeight.toString());
+    print("Container::cardWidth: " + cardWidth.toString());
+    print("Container::cardAspect: " + aspect.toString());
 
     return SliverGrid(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -89,7 +103,9 @@ class TheOathGrid extends StatelessWidget {
                 return Container(
                   alignment: Alignment.centerLeft,
                   color: Colors.grey[300 + index % 2 * 100],
-                  child: OathCard('POINT_0$index', isLogin, index),
+                  child: (viewportHeight != height /*&& cardHeightSmall >= 15*/) ?
+                  OathCard('SHORT_POINT_0$index', isLogin, index) :
+                  OathCard('POINT_0$index', isLogin, index),
                 );
               },
               childCount: 9,

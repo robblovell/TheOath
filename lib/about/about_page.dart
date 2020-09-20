@@ -17,7 +17,7 @@ class AboutPage extends StatelessWidget {
           style: new TextStyle(color: Colors.white),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: Icon(Icons.turned_in),
           onPressed: () {
             BlocProvider.of<AppDrawerBloc>(context).add(BackButtonEvent());
           },

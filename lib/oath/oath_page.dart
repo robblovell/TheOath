@@ -36,7 +36,7 @@ class OathPage extends StatelessWidget {
             ),
           ],
           leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+            icon: Icon(Icons.turned_in),
             onPressed: () {
               BlocProvider.of<AppDrawerBloc>(context).add(BackButtonEvent());
             },

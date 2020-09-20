@@ -12,7 +12,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
   Stream<AuthenticationState> mapEventToState(AuthenticationEvent event,) async* {
     if (event is AppStarted) {
       // todo: set initial login state to true if we have a token.
-      final bool hasToken = true;
+      final bool hasToken = false;
 
       if (hasToken) {
         yield Authenticated();

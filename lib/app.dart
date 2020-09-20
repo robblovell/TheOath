@@ -45,10 +45,9 @@ class _AppState extends State<App> {
         builder: (context, state) {
           if (state is Unauthenticated) {
             return LoginPage();
-          }
-          else if (state is LoginReasonPageState) {
-              // Navigator.of(context).pop();
-              return ReasonPage(true);
+          } else if (state is LoginReasonPageState) {
+            // Navigator.of(context).pop();
+            return ReasonPage(true);
           } else if (state is Authenticated) {
             return AppView();
           } else {
@@ -77,9 +76,7 @@ class _AppViewState extends State<AppView> {
         create: (context) => AppDrawerBloc(),
         child: MaterialApp(
           title: 'APP_TITLE'.tr(),
-          theme: ThemeData(
-            primarySwatch: Colors.grey,
-          ),
+          theme: ThemeData(primarySwatch: Colors.grey, appBarTheme: AppBarTheme(color: Colors.grey)),
           home: BlocBuilder<AppDrawerBloc, AppDrawerState>(
             builder: (context, state) {
               if (state is AboutPageState) {
