@@ -20,6 +20,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
         // appBar: AppBar(title: Text('HOME'.tr())),
         drawer: AppDrawer(),
+
         appBar: AppBar(
           backgroundColor: Colors.grey,
           // theme: ThemeData(

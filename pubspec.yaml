@@ -57,6 +57,7 @@ dependencies:
   material_design_icons_flutter: 4.0.5555
   auto_size_text: 2.1.0
   link: ^1.1.0
+  flutter_session: 0.1.1
 
 dev_dependencies:
   flutter_test:

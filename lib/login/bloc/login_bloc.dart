@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:flutter_session/flutter_session.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -47,9 +49,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         if (user != null) {
           yield LoginCompleteState(user);
         } else {
+          // todo: messaging in production
           yield OtpExceptionState(message: 'INVALID_OTP'.tr());
         }
       } catch (e) {
+        // todo: messaging in production
         yield OtpExceptionState(message: 'SOMETHING_WRONG'.tr());
       }
     }
@@ -79,18 +83,17 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     super.close();
   }
 
-  Stream<LoginEvent> sendOtp(String phoNo/*, BuildContext context*/) async* {
+  Stream<LoginEvent> sendOtp(String phoNo) async* {
     try {
-      print("Phone number given: "+phoNo);
       StreamController<LoginEvent> eventStream = StreamController();
 
       final PhoneVerificationCompleted phoneVerificationCompleted = (AuthCredential authCredential) async* {
-        print("AUTH SUCCESS:: Your account is successfully verified");
         // eventStream.add(OtpAutoRetrievalEvent()); // todo: tell the user we are auto validating.
         try {
           final User user = (await FirebaseAuth.instance.signInWithCredential(authCredential)).user;
 
           if (user != null) {
+            // todo: is this path ever followed?
             eventStream.add(LoginCompleteEvent(user));
             eventStream.close();
           } else {
@@ -104,25 +107,24 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       };
 
       final phoneVerificationFailed = (FirebaseAuthException authException) {
-        // print("AUTH FAILED::"+authException.message);
-        print("AUTH FAILED::" + authException.message);
         var status = authException.message;
         if (status.contains('not authorized'))
+          // todo: messaging in production
           status = 'Something has gone wrong, please try later. '+status; // todo: only add the exception message in debug mode.
         else if (status.contains('Network'))
+          // todo: messaging in production
           status = 'Please check your internet connection and try again. '+status;
         else
+          // todo: messaging in production
           status = 'Something has gone wrong, please try later. '+status;
         eventStream.add(LoginExceptionEvent(status));
         eventStream.close();
       };
       final phoneCodeSent = (String verId, [int forceResent]) {
-        print("AUTH CODE SENT::" + verId); // ended up here on back from stories?
         this.verID = verId;
         eventStream.add(OtpSendEvent());
       };
       final phoneCodeAutoRetrievalTimeout = (String verid) {
-        print("AUTH TIMEOUT:: --->::" + verid);  // somehow ened up here on giving a phone number.?
         this.verID = verid;
         eventStream.add(LoginExceptionEvent('AUTH_TIMEOUT'.tr()));
         eventStream.close();
