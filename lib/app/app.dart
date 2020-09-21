@@ -5,6 +5,7 @@ import 'package:flutter_cubit/flutter_cubit.dart';
 import 'package:theprotestersoath/authentication/authentication.dart';
 import 'package:theprotestersoath/home/home_page.dart';
 import 'package:theprotestersoath/login/LoginPage.dart';
+import 'package:theprotestersoath/navigation/app_drawer/appdrawer_bloc.dart';
 import 'package:theprotestersoath/reason/reason_page.dart';
 import 'package:theprotestersoath/splash/splash_page.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -12,10 +13,10 @@ import 'package:theprotestersoath/stories/stories_cubit.dart';
 import 'package:theprotestersoath/stories/story_page.dart';
 import 'package:theprotestersoath/utils/onBackPressed.dart';
 
-import 'about/about_page.dart';
-import 'navigation/app_drawer/appdrawer_state.dart';
-import 'navigation/app_drawer/appdrawer_bloc.dart';
-import 'oath/oath_page.dart';
+import '../about/about_page.dart';
+import '../navigation/app_drawer/appdrawer_state.dart';
+import '../navigation/app_drawer/appdrawer_event.dart';
+import '../oath/oath_page.dart';
 
 class App extends StatefulWidget {
   App({Key key}) : super(key: key);
@@ -47,7 +48,6 @@ class _AppState extends State<App> {
           if (state is Unauthenticated) {
             return LoginPage();
           } else if (state is LoginReasonPageState) {
-            // Navigator.of(context).pop();
             return ReasonPage(true);
           } else if (state is Authenticated) {
             return AppView();
@@ -88,6 +88,10 @@ class _AppViewState extends State<AppView> {
               home: BlocBuilder<AppDrawerBloc, AppDrawerState>(
                 builder: (context, state) {
                   this.state = state;
+                  if (state is LoadingState) {
+                    BlocProvider.of<AppDrawerBloc>(context).add(LoadingEvent());
+                    return SplashPage();
+                  }
                   if (state is AboutPageState) {
                     return AboutPage();
                   } else if (state is HomePageState) {

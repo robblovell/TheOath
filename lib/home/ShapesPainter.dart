@@ -1,38 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:theprotestersoath/data/Token.dart';
+
+import 'PaintingCode.dart';
 
 class ShapesPainter extends CustomPainter {
+  Token token;
+  ShapesPainter(Token token) {
+    this.token = token;
+  }
   @override
   void paint(Canvas canvas, Size size) {
     final paint = Paint();
 
-    // set the paint color to be white
-    paint.color = Colors.white;
-
     // Create a rectangle with size and width same as the canvas
-    var rect = Rect.fromLTWH(0, 0, size.width, size.height);
+    final Rect rect = Rect.fromLTWH(0, 0, size.width, size.height);
 
-    // draw the rectangle using the paint
-    canvas.drawRect(rect, paint);
+    List<Shape> shapes = new List<Shape>();
+    shapes.add(new Rectangle(rect, Colors.grey[500]));
 
-    paint.color = Colors.yellow;
-
-    // create a path
-    var path = Path();
-    path.lineTo(0, size.height);
-    path.lineTo(size.width, 0);
-    // close the path to form a bounded shape
-    path.close();
-
-    canvas.drawPath(path, paint);
-
-    // set the color property of the paint
-    paint.color = Colors.deepOrange;
-
-    // center of the canvas is (x,y) => (width/2, height/2)
-    var center = Offset(size.width / 2, size.height / 2);
-
-    // draw the circle with center having radius 75.0
-    canvas.drawCircle(center, 75.0, paint);
+    PaintingCode painting = new PaintingCode(shapes);
+    painting.makePainting(this.token.phoneNumber);
+    painting.draw(canvas);
   }
 
   @override

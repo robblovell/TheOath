@@ -7,6 +7,11 @@ class AppDrawerEvent extends Equatable {
   List<Object> get props => [];
 }
 
+class LoadingEvent extends AppDrawerEvent {
+  @override
+  List<Object> get props => [];
+}
+
 class HomePageEvent extends AppDrawerEvent {
   HomePageEvent() : super();
 

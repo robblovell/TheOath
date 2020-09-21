@@ -76,20 +76,20 @@ class TheOathGrid extends StatelessWidget {
     var cardWidth = availableWidth + cardPadding*2;
     var aspect = cardWidth / cardHeight;
 
-    print("Container::Height: " + height.toString());
-    print("Container::viewportHeight: " + viewportHeight.toString());
-    print("Container::paddingTopScreen: " + paddingTopScreen.toString());
-    print("Container::paddingLeftScreen: " + paddingLeftScreen.toString());
-    print("Container::paddingRightScreen: " + paddingRightScreen.toString());
-    print("Container::appBarHeight: " + appBarHeight.toString());
-    print("Container::loginButtonSpace: " + loginButtonSpace.toString());
-    print("Container::availableHeightBig: " + availableHeightBig.toString());
-    print("Container::availableHeightSmall: " + availableHeightSmall.toString());
-    print("Container::cardHeightBig: " + cardHeightBig.toString());
-    print("Container::cardHeightSmall: " + cardHeightSmall.toString());
-    print("Container::cardHeight: " + cardHeight.toString());
-    print("Container::cardWidth: " + cardWidth.toString());
-    print("Container::cardAspect: " + aspect.toString());
+    // print("Container::Height: " + height.toString());
+    // print("Container::viewportHeight: " + viewportHeight.toString());
+    // print("Container::paddingTopScreen: " + paddingTopScreen.toString());
+    // print("Container::paddingLeftScreen: " + paddingLeftScreen.toString());
+    // print("Container::paddingRightScreen: " + paddingRightScreen.toString());
+    // print("Container::appBarHeight: " + appBarHeight.toString());
+    // print("Container::loginButtonSpace: " + loginButtonSpace.toString());
+    // print("Container::availableHeightBig: " + availableHeightBig.toString());
+    // print("Container::availableHeightSmall: " + availableHeightSmall.toString());
+    // print("Container::cardHeightBig: " + cardHeightBig.toString());
+    // print("Container::cardHeightSmall: " + cardHeightSmall.toString());
+    // print("Container::cardHeight: " + cardHeight.toString());
+    // print("Container::cardWidth: " + cardWidth.toString());
+    // print("Container::cardAspect: " + aspect.toString());
 
     return SliverGrid(
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

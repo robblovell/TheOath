@@ -18,12 +18,15 @@
   SHORT_POINT_06: eat and sleep to control emotions,
   SHORT_POINT_07: leave when emotionally out of control,
   SHORT_POINT_08: not protest in a riot or curfew for violence.
+
+  NETWORK_ISSUES: Please check your internet connection and try again.
   INVALID_PHONE_REMOTE: Phone number should not contain letters and must be 10-14 digits long.
   INVALID_PHONE_REGEX: Phone number is in an invalid format.
   I_COMMIT: I Commit to this Oath
-  INVALID_OTP: The wrong code ws given or the phone number given is incorrect.
+  INVALID_OTP: The wrong code was given or the phone number given is incorrect.
   SOMETHING_WRONG: Something has gone wrong, please try again later.
   ENTER_PHONE_TIP: Enter a phone number
+  INVALID_OTP2: The sms verification code used to create the phone auth credential is invalid. Please resend the verification code sms and be sure use the verification code provided by the user.
   ABOUT: About
   LOGOUT: Log Out
   LOGIN: Log in

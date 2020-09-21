@@ -1,9 +1,10 @@
 import 'dart:async';
+import 'dart:convert';
 import 'package:flutter_session/flutter_session.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:theprotestersoath/data/Token.dart';
 import './login.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {
@@ -46,15 +47,30 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         );
         final User user =
             (await FirebaseAuth.instance.signInWithCredential(credential)).user;
+        final Token token = Token();
+        token.uid = user.uid;
+        token.phoneNumber = user.phoneNumber;
+        String json = jsonEncode(token);
+
+        await FlutterSession().set('token', json);
+
         if (user != null) {
           yield LoginCompleteState(user);
         } else {
           // todo: messaging in production
-          yield OtpExceptionState(message: 'INVALID_OTP'.tr());
+          final translation = 'INVALID_OTP'.tr();
+          yield OtpExceptionState(message: translation + " (Error 07) ");
         }
       } catch (e) {
         // todo: messaging in production
-        yield OtpExceptionState(message: 'SOMETHING_WRONG'.tr());
+        var translation = 'SOMETHING_WRONG'.tr();
+        if (e.message.substring(0,7) == "The sms") {
+          translation = 'INVALID_OTP2'.tr();
+          yield OtpExceptionState(message: translation + " (Error 09) ");
+        }
+        else {
+          yield OtpExceptionState(message: translation + " (Error 06) " + e.message);
+        }
       }
     }
   }
@@ -70,12 +86,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   void onError(Object error, StackTrace stacktrace) {
     // TODO: implement onError
     super.onError(error, stacktrace);
-    print("AUTH ONERROR::" + onError.toString());
-    print(stacktrace);
+    // print("AUTH ONERROR::" + onError.toString());
+    // print(stacktrace);
     // todo: figure out how to recover gracefully here.
     //InitialLoginState();
     final eventStream = StreamController();
-    eventStream.add(LoginExceptionEvent(onError.toString()));
+    // eventStream.add(LoginExceptionEvent(onError.toString()));
+    // todo: only add the exception message in debug mode.
+    final translation = 'SOMETHING_WRONG'.tr();
+    eventStream.add(LoginExceptionEvent(translation + " (Error 05) " + onError.toString()));
     eventStream.close();
   }
 
@@ -97,26 +116,34 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             eventStream.add(LoginCompleteEvent(user));
             eventStream.close();
           } else {
-            eventStream.add(LoginExceptionEvent('INVALID_OTP'.tr()));
+            final String translation = 'SOMETHING_WRONG'.tr();
+            eventStream.add(LoginExceptionEvent(translation + " (Error 08) "));
             eventStream.close();
           }
         } catch (error) {
-          eventStream.add(LoginExceptionEvent('SOMETHING_WRONG'.tr() + error));
+          final String translation = 'SOMETHING_WRONG'.tr();
+          eventStream.add(LoginExceptionEvent(translation + " (Error 04) " + error));
           eventStream.close();
         }
       };
 
       final phoneVerificationFailed = (FirebaseAuthException authException) {
         var status = authException.message;
-        if (status.contains('not authorized'))
+        if (status.contains('not authorized')) {
           // todo: messaging in production
-          status = 'Something has gone wrong, please try later. '+status; // todo: only add the exception message in debug mode.
-        else if (status.contains('Network'))
+          final String translation = 'SOMETHING_WRONG'.tr();
+          status = translation + " (Error 03) " + status; // todo: only add the exception message in debug mode.
+        }
+        else if (status.contains('Network')) {
           // todo: messaging in production
-          status = 'Please check your internet connection and try again. '+status;
-        else
+          final String translation = 'NETWORK_ISSUES'.tr();
+          status = translation + " (Error 02) " + status; // todo: only add the exception message in debug mode.
+        }
+        else {
           // todo: messaging in production
-          status = 'Something has gone wrong, please try later. '+status;
+          final String translation = 'SOMETHING_WRONG'.tr();
+          status = translation + " (Error 01) " + status;// todo: only add the exception message in debug mode.
+        }
         eventStream.add(LoginExceptionEvent(status));
         eventStream.close();
       };
@@ -126,7 +153,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       };
       final phoneCodeAutoRetrievalTimeout = (String verid) {
         this.verID = verid;
-        eventStream.add(LoginExceptionEvent('AUTH_TIMEOUT'.tr()));
+        final String translation = 'AUTH_TIMEOUT'.tr();
+        eventStream.add(LoginExceptionEvent(translation + " (Error 10)"));
         eventStream.close();
       };
       await FirebaseAuth.instance.verifyPhoneNumber(
