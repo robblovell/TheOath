@@ -85,7 +85,7 @@ class StoryContainer extends StatelessWidget {
                                 alignment: Alignment(0.9, 0.87),
                                 child: IconButton(
                                   icon: new Icon(
-                                    Icons.article_outlined,
+                                    Icons.list, //article_outlined,
                                     color: Colors.black,
                                     size: 30,
                                   ),
@@ -125,7 +125,7 @@ class _StoryPageState extends State<StoryPage> {
               leading: IconButton(
                 icon: Icon(Icons.turned_in),
                 onPressed: () {
-                  BlocProvider.of<AppDrawerBloc>(context).add(BackButtonEvent());
+                  BlocProvider.of<AppDrawerBloc>(context).add(BackButtonEvent("StoryPage"));
                 },
               ),
             ),

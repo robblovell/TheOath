@@ -23,7 +23,7 @@ class AppDrawer extends StatelessWidget {
                 children: <Widget>[
 
                   ListTile(
-                    leading: Icon(Icons.article_outlined),
+                    leading: Icon(Icons.list), //article_outlined),
                     title: Text("THEOATH".tr(),
                       style: TextStyle(fontSize: 22, color: Colors.black),
                     ),

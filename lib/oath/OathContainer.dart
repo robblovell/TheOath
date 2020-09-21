@@ -7,6 +7,8 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:theprotestersoath/oath/OathCard.dart';
 import 'package:theprotestersoath/utils/sizing.dart';
 
+import '../navigation/app_drawer.dart';
+
 class TheOath extends StatelessWidget {
   TheOath(this.isLogin, this.viewportConstraints);
 
@@ -24,9 +26,13 @@ class TheOath extends StatelessWidget {
         actions: [
           IconButton(
             icon: Icon(Icons.info, size: 40),
-            onPressed: () =>
-                BlocProvider.of<AuthenticationBloc>(context).add(LoginReasonPageEvent()),
-          ),
+            onPressed: () {
+              if (this.isLogin) {
+                BlocProvider.of<AuthenticationBloc>(context).add(LoginReasonPageEvent());
+              } else {
+                BlocProvider.of<AppDrawerBloc>(context).add(ReasonPageEvent());
+              }
+          }),
         ],
         // expandedHeight: appBarHeight,
         flexibleSpace: FlexibleSpaceBar(
@@ -76,8 +82,8 @@ class TheOathGrid extends StatelessWidget {
     var cardWidth = availableWidth + cardPadding*2;
     var aspect = cardWidth / cardHeight;
 
-    // print("Container::Height: " + height.toString());
-    // print("Container::viewportHeight: " + viewportHeight.toString());
+    print("Container::Height: " + height.toString());
+    print("Container::viewportHeight: " + viewportHeight.toString());
     // print("Container::paddingTopScreen: " + paddingTopScreen.toString());
     // print("Container::paddingLeftScreen: " + paddingLeftScreen.toString());
     // print("Container::paddingRightScreen: " + paddingRightScreen.toString());
@@ -85,8 +91,8 @@ class TheOathGrid extends StatelessWidget {
     // print("Container::loginButtonSpace: " + loginButtonSpace.toString());
     // print("Container::availableHeightBig: " + availableHeightBig.toString());
     // print("Container::availableHeightSmall: " + availableHeightSmall.toString());
-    // print("Container::cardHeightBig: " + cardHeightBig.toString());
-    // print("Container::cardHeightSmall: " + cardHeightSmall.toString());
+    print("Container::cardHeightBig: " + cardHeightBig.toString());
+    print("Container::cardHeightSmall: " + cardHeightSmall.toString());
     // print("Container::cardHeight: " + cardHeight.toString());
     // print("Container::cardWidth: " + cardWidth.toString());
     // print("Container::cardAspect: " + aspect.toString());
@@ -103,7 +109,7 @@ class TheOathGrid extends StatelessWidget {
                 return Container(
                   alignment: Alignment.centerLeft,
                   color: Colors.grey[300 + index % 2 * 100],
-                  child: (viewportHeight != height /*&& cardHeightSmall >= 15*/) ?
+                  child: (viewportHeight != height && viewportHeight < 600) ?
                   OathCard('SHORT_POINT_0$index', isLogin, index) :
                   OathCard('POINT_0$index', isLogin, index),
                 );

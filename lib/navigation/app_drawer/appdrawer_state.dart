@@ -2,6 +2,8 @@ import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:theprotestersoath/data/Token.dart';
 
+import 'appdrawer_event.dart';
+
 @immutable
 abstract class AppDrawerState extends Equatable {}
 
@@ -35,8 +37,13 @@ class StoryPageState extends AppDrawerState {
 }
 
 class ReasonPageState extends AppDrawerState {
+  AppDrawerEvent lastPage;
+  ReasonPageState(lastPage) {
+    this.lastPage = lastPage;
+  }
+
   @override
-  List<Object> get props => [];
+  List<Object> get props => [lastPage];
 }
 
 class OathPageState extends AppDrawerState {

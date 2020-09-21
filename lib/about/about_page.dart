@@ -19,7 +19,7 @@ class AboutPage extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.turned_in),
           onPressed: () {
-            BlocProvider.of<AppDrawerBloc>(context).add(BackButtonEvent());
+            BlocProvider.of<AppDrawerBloc>(context).add(BackButtonEvent("AboutPage"));
           },
         ),
       ),

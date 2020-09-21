@@ -5,6 +5,8 @@ import 'package:theprotestersoath/navigation/app_drawer/appdrawer_bloc.dart';
 import 'package:theprotestersoath/navigation/app_drawer/appdrawer_event.dart';
 import 'package:theprotestersoath/authentication/authentication.dart';
 
+import '../navigation/app_drawer/appdrawer.dart';
+import '../navigation/app_drawer/appdrawer_state.dart';
 import '../res.dart';
 import 'ReasonContainer.dart';
 
@@ -19,38 +21,57 @@ class ReasonPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      appBar: AppBar(
-          title: Text(
-            "THEREASON".tr(),
-            style: new TextStyle(color: Colors.white),
-          ),
-          leading: (() {
-            if (this.isLogin) {
+    if (this.isLogin) {
+      return Scaffold(
+        appBar: AppBar(
+            title: Text(
+              "THEREASON".tr(),
+              style: new TextStyle(color: Colors.white),
+            ),
+            leading: (() {
               return IconButton(
                 icon: Icon(Icons.arrow_back),
                 onPressed: () {
-                  if (this.isLogin) {
-                    BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut());
-                  } else {
-                    BlocProvider.of<AppDrawerBloc>(context).add(BackButtonEvent());
-                  }
+                  BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut());
                 },
               );
-            } else {
-              return IconButton(
-                icon: Icon(Icons.turned_in),
-                onPressed: () {
-                  if (this.isLogin) {
-                    BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut());
-                  } else {
-                    BlocProvider.of<AppDrawerBloc>(context).add(BackButtonEvent());
-                  }
-                },
-              );
-            }
-          })()),
-      body: TheReason(),
-    );
+            })()),
+        body: TheReason(),
+      );
+    } else {
+      return BlocBuilder<AppDrawerBloc, AppDrawerState>(
+          builder: (BuildContext context, AppDrawerState state) {
+        return Scaffold(
+          appBar: AppBar(
+              title: Text(
+                "THEREASON".tr(),
+                style: new TextStyle(color: Colors.white),
+              ),
+              leading: (() {
+                if (this.isLogin) {
+                  return IconButton(
+                    icon: Icon(Icons.arrow_back),
+                    onPressed: () {
+                      BlocProvider.of<AuthenticationBloc>(context)
+                          .add(LoggedOut());
+                    },
+                  );
+                } else {
+                  AppDrawerEvent lastPage = (state as ReasonPageState).lastPage;
+                  return IconButton(
+                    icon: Icon(lastPage is OathPageEvent
+                        ? Icons.arrow_back
+                        : Icons.turned_in),
+                    onPressed: () {
+                      BlocProvider.of<AppDrawerBloc>(context)
+                          .add(ReasonBackButtonEvent(lastPage));
+                    },
+                  );
+                }
+              })()),
+          body: TheReason(),
+        );
+      });
+    }
   }
 }

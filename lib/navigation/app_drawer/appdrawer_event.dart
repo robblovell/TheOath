@@ -62,14 +62,25 @@ class ReasonPageEvent extends AppDrawerEvent {
   List<Object> get props => [];
 }
 
+class ReasonBackButtonEvent extends AppDrawerEvent {
+  AppDrawerEvent toPageEvent;
+  ReasonBackButtonEvent(this.toPageEvent) : super();
+
+  @override
+  String toString() => 'ReasonBackButton';
+
+  @override
+  List<Object> get props => [this.toPageEvent];
+}
 
 class BackButtonEvent extends AppDrawerEvent {
-  BackButtonEvent() : super();
+  String fromPage;
+  BackButtonEvent(this.fromPage) : super();
 
   @override
   String toString() => 'BackButton';
 
   @override
-  List<Object> get props => [];
+  List<Object> get props => [this.fromPage];
 }
 

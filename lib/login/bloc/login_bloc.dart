@@ -150,6 +150,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       final phoneCodeSent = (String verId, [int forceResent]) {
         this.verID = verId;
         eventStream.add(OtpSendEvent());
+        eventStream.close();
       };
       final phoneCodeAutoRetrievalTimeout = (String verid) {
         this.verID = verid;
