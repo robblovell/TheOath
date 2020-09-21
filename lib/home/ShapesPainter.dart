@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:theprotestersoath/data/Token.dart';
 
-import 'PaintingCode.dart';
+import 'PaintedBarcode/PaintedBarcode.dart';
+import 'PaintedBarcode/Shape.dart';
+import 'PaintedBarcode/Square.dart';
 
 class ShapesPainter extends CustomPainter {
   Token token;
@@ -16,9 +18,9 @@ class ShapesPainter extends CustomPainter {
     final Rect rect = Rect.fromLTWH(0, 0, size.width, size.height);
 
     List<Shape> shapes = new List<Shape>();
-    shapes.add(new Rectangle(rect, Colors.grey[500]));
-
-    PaintingCode painting = new PaintingCode(shapes);
+    shapes.add(new Square(rect, Colors.grey[500]));
+    // this.token.phoneNumber = "1213141516";
+    PaintedBarcode painting = new PaintedBarcode(shapes);
     painting.makePainting(this.token.phoneNumber);
     painting.draw(canvas);
   }
