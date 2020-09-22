@@ -7,7 +7,7 @@ jobs:
   # Set the job key. The key is displayed as the job name
   # when a job name is not provided
   build-apk:
-    if: "startsWith(github.event.commits[0].message, '[apk]'"
+    if: "startsWith(github.event.commits[0].message, '[apk]')"
 
     # Name the Job
     name: Build APK
