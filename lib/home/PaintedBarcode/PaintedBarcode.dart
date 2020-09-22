@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 
 import 'Circle.dart';
@@ -45,7 +44,7 @@ class PaintedBarcode {
       Shape toOverlay = shapes[which];
       Offset offset = toOverlay.center();
       double radius = toOverlay.minSize();
-      Circle circle = new Circle(offset, radius, colors[color]);
+      Circle circle = Circle(offset, radius, colors[color]);
       return [...shapes, circle];
     }
     else {
@@ -58,7 +57,7 @@ class PaintedBarcode {
 
   void makePainting(phone) {
     List digits = phone.split('');
-    RegExp digitChars = new RegExp('[0-9]');
+    RegExp digitChars = RegExp('[0-9]');
 
     digits = digits.where((digit) {
       return digitChars.firstMatch(digit) != null;

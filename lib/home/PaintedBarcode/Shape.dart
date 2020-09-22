@@ -12,7 +12,7 @@ class Shape {
   }
 
   Shape fromShape(Shape shape, [Color color = Colors.blueAccent]) {
-    Shape newShape = new Shape(shape.type, color);
+    Shape newShape = Shape(shape.type, color);
     return newShape;
   }
 
@@ -33,7 +33,7 @@ class Shape {
     return 10;
   }
   Offset center() {
-    return new Offset(100,100);
+    return Offset(100,100);
   }
 
   draw(Canvas canvas) {}

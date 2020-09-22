@@ -22,7 +22,7 @@ class _NumberInput extends State<NumberInput> {
 
   @override
   void initState() {
-    _formKey = new GlobalKey<FormState>();
+    _formKey = GlobalKey<FormState>();
     _phoneTextController = TextEditingController();
     _focusNode = FocusNode();
     super.initState();
@@ -68,7 +68,7 @@ class _NumberInput extends State<NumberInput> {
                   animationDuration: Duration(seconds: 1),
                   colorBrightness: Brightness.light,
                   shape: RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(8.0),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   onPressed: () {
                     if (_formKey.currentState.validate()) {

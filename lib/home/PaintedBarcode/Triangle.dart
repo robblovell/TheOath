@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'Shape.dart';
 
 class Triangle extends Shape {
-  List<Point> points = new List<Point>(3);
+  List<Point> points = List<Point>(3);
 
   Triangle(List<Point> point, [Color color = Colors.pinkAccent]) : super(SHAPES.triangle, color) {
     this.points = point;
@@ -29,7 +29,7 @@ class Triangle extends Shape {
   }
 
   Point midpoint(Point p0, Point p1) {
-    return new Point((p0.x + p1.x) / 2, (p0.y + p1.y) / 2);
+    return Point((p0.x + p1.x) / 2, (p0.y + p1.y) / 2);
   }
 
   List<Shape> splitTriangle(direction, [Color color = null]) {

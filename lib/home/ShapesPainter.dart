@@ -17,10 +17,10 @@ class ShapesPainter extends CustomPainter {
     // Create a rectangle with size and width same as the canvas
     final Rect rect = Rect.fromLTWH(0, 0, size.width, size.height);
 
-    List<Shape> shapes = new List<Shape>();
-    shapes.add(new Square(rect, Colors.grey[500]));
+    List<Shape> shapes = List<Shape>();
+    shapes.add(Square(rect, Colors.grey[500]));
     this.token.phoneNumber = "6047621034";
-    PaintedBarcode painting = new PaintedBarcode(shapes);
+    PaintedBarcode painting = PaintedBarcode(shapes);
     painting.makePainting(this.token.phoneNumber);
     painting.draw(canvas);
   }

@@ -1,8 +1,5 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:theprotestersoath/oath/OathCard.dart';
-import 'package:theprotestersoath/utils/sizing.dart';
 
 class TheReason extends StatelessWidget {
   // App Bar for the Login/Oath.

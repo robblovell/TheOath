@@ -42,18 +42,18 @@ class Square extends Shape {
         ];
 
       case 2: // up diagonal
-        Point LT = new Point(this.rect.left, this.rect.top);
-        Point RT = new Point(this.rect.right, this.rect.top);
-        Point RB = new Point(this.rect.right, this.rect.bottom);
-        Point LB = new Point(this.rect.left, this.rect.bottom);
+        Point LT = Point(this.rect.left, this.rect.top);
+        Point RT = Point(this.rect.right, this.rect.top);
+        Point RB = Point(this.rect.right, this.rect.bottom);
+        Point LB = Point(this.rect.left, this.rect.bottom);
         return [Triangle.fromPoints(LT, RT, RB, this.color), Triangle.fromPoints(RB, LB, LT, color)];
 
       case 3:
       default: // down diagonal
-        Point LT = new Point(this.rect.left, this.rect.top);
-        Point RT = new Point(this.rect.right, this.rect.top);
-        Point RB = new Point(this.rect.right, this.rect.bottom);
-        Point LB = new Point(this.rect.left, this.rect.bottom);
+        Point LT = Point(this.rect.left, this.rect.top);
+        Point RT = Point(this.rect.right, this.rect.top);
+        Point RB = Point(this.rect.right, this.rect.bottom);
+        Point LB = Point(this.rect.left, this.rect.bottom);
 
         return [Triangle.fromPoints(RB, LB, RT, this.color), Triangle.fromPoints(RT, LT, RB, color)];
     }

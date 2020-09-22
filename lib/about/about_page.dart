@@ -15,7 +15,7 @@ class AboutPage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           "About",
-          style: new TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white),
         ),
         leading: IconButton(
           icon: Icon(Icons.turned_in),

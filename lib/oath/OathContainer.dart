@@ -13,7 +13,7 @@ class TheOath extends StatelessWidget {
   TheOath(this.isLogin, this.viewportConstraints);
 
   bool isLogin = false;
-  BoxConstraints viewportConstraints = new BoxConstraints();
+  BoxConstraints viewportConstraints = BoxConstraints();
 
   // App Bar for the Login/Oath.
   @override

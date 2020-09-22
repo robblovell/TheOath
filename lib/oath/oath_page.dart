@@ -26,7 +26,7 @@ class OathPage extends StatelessWidget {
         appBar: AppBar(
           title: Text(
             "THEOATH".tr(),
-            style: new TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.white),
           ),
           actions: [
             IconButton(

@@ -6,7 +6,7 @@ String stripCorrectPhone(phone) {
       : (phone.substring(0, 0) != '+')
       ? "+"
       : "";
-  final RegExp regExp = new RegExp(r'\W+');
+  final RegExp regExp = RegExp(r'\W+');
   final String strippedPhone = phone.replaceAll(regExp, '');
   print(prefix + strippedPhone);
   return prefix + strippedPhone;

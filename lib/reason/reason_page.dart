@@ -7,7 +7,6 @@ import 'package:theprotestersoath/authentication/authentication.dart';
 
 import '../navigation/app_drawer/appdrawer.dart';
 import '../navigation/app_drawer/appdrawer_state.dart';
-import '../res.dart';
 import 'ReasonContainer.dart';
 
 class ReasonPage extends StatelessWidget {
@@ -26,7 +25,7 @@ class ReasonPage extends StatelessWidget {
         appBar: AppBar(
             title: Text(
               "THEREASON".tr(),
-              style: new TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.white),
             ),
             leading: (() {
               return IconButton(
@@ -45,7 +44,7 @@ class ReasonPage extends StatelessWidget {
           appBar: AppBar(
               title: Text(
                 "THEREASON".tr(),
-                style: new TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white),
               ),
               leading: (() {
                 if (this.isLogin) {

@@ -4,7 +4,6 @@ import 'package:theprotestersoath/navigation/app_drawer.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:theprotestersoath/navigation/app_drawer/appdrawer_bloc.dart';
 import 'package:theprotestersoath/navigation/app_drawer/appdrawer_event.dart';
-import 'package:bloc/bloc.dart';
 import '../navigation/app_drawer/appdrawer.dart';
 import 'ShapesPainter.dart';
 
@@ -45,7 +44,7 @@ class HomePage extends StatelessWidget {
             Container(
                 alignment: Alignment(0.9, 0.91),
                 child: IconButton(
-                  icon: new Icon(
+                  icon: Icon(
                     Icons.list,//article_outlined,
                     // IconData(0xe060, fontFamily: 'MaterialIcons'),
                     color: Colors.black,
@@ -57,7 +56,7 @@ class HomePage extends StatelessWidget {
             Container(
                 alignment: Alignment(-.9, 0.91),
                 child: IconButton(
-                  icon: new Icon(
+                  icon: Icon(
                     Icons.info,
                     // IconData(0xe060, fontFamily: 'MaterialIcons'),
                     color: Colors.black,

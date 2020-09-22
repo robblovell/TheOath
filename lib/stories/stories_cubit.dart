@@ -15,7 +15,7 @@ class StoriesCubit extends Cubit<StoriesState> {
     try {
       emit(LoadingState());
       which = (which + 1) % this.stories;
-      var f = new NumberFormat("00", "en_US");
+      var f = NumberFormat("00", "en_US");
       var index = f.format(which);
       var date = 'STORY_DATE_'+index;
       var title = 'STORY_'+index;

@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
 
 import 'Shape.dart';
@@ -27,7 +26,7 @@ class Circle extends Shape {
     if (direction == 0)
       return [this];
     else
-      return [this, new Circle(this.offset, this.radius / 2, color)];
+      return [this, Circle(this.offset, this.radius / 2, color)];
   }
 
   @override

@@ -19,7 +19,7 @@ class _PinInput extends State<PinInput> {
 
   @override
   void initState() {
-    _formKey = new GlobalKey<FormState>();
+    _formKey = GlobalKey<FormState>();
     super.initState();
   }
 
@@ -69,7 +69,7 @@ class _PinInput extends State<PinInput> {
                   animationDuration: Duration(seconds: 1),
                   colorBrightness: Brightness.light,
                   shape: RoundedRectangleBorder(
-                    borderRadius: new BorderRadius.circular(8.0),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   onPressed: () {
                     BlocProvider.of<LoginBloc>(context).add(AppStartEvent());

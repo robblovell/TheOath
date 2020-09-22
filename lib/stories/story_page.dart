@@ -84,7 +84,7 @@ class StoryContainer extends StatelessWidget {
                             child: Container(
                                 alignment: Alignment(0.9, 0.87),
                                 child: IconButton(
-                                  icon: new Icon(
+                                  icon: Icon(
                                     Icons.list, //article_outlined,
                                     color: Colors.black,
                                     size: 30,
@@ -114,7 +114,7 @@ class _StoryPageState extends State<StoryPage> {
             appBar: AppBar(
               title: Text(
                 "STORIES".tr(),
-                style: new TextStyle(color: Colors.white),
+                style: TextStyle(color: Colors.white),
               ),
               actions: [
                 IconButton(
@@ -132,6 +132,9 @@ class _StoryPageState extends State<StoryPage> {
             body: StoryContainer(state.story)
         );
       }
+      return Center(
+        child: Icon(Icons.close),
+      );
     });
   }
 }
