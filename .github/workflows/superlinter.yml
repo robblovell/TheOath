@@ -1,13 +1,8 @@
 name: Super-Linter
-
-# Run this workflow every time a new commit pushed to your repository
 on: push
-
 jobs:
-  # Set the job key. The key is displayed as the job name
-  # when a job name is not provided
   super-lint:
-    if: "startsWith(github.event.commits[0].message, '[lint]'"
+    if: "startsWith(github.event.commits[0].message, '[lint]')"
     # Name the Job
     name: Lint code base
     # Set the type of machine to run on
