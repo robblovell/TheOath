@@ -33,15 +33,27 @@ class PaintedBarcode {
     return [shape];
   }
 
+  Shape makeInsideShape(Shape shape, int color, int repeat) {
+
+  }
+
   // give three numbers, split the rectangle
   List<Shape> split(int which, int direction, int color, int repeat) {
-    // direction = 3; //2+direction%1+1;
-    // make a new list with all but the chosen shape
     List<Shape> shapes = this.shapes;
-    print("remove: "+which.toString()+" length"+shapes.length.toString());
-    Shape toSplit = shapes.removeAt(which);
-    print("To Split:" + toSplit.toString());
-    return [...shapes, ...splitShape(toSplit, direction, color, repeat)];
+
+    if (direction == 0) {
+      Shape toOverlay = shapes[which];
+      Offset offset = toOverlay.center();
+      double radius = toOverlay.minSize();
+      Circle circle = new Circle(offset, radius, colors[color]);
+      return [...shapes, circle];
+    }
+    else {
+      print("remove: "+which.toString()+" length"+shapes.length.toString());
+      Shape toSplit = shapes.removeAt(which);
+      print("To Split:" + toSplit.toString());
+      return [...shapes, ...splitShape(toSplit, direction, color, repeat)];
+    }
   }
 
   void makePainting(phone) {
@@ -55,7 +67,8 @@ class PaintedBarcode {
     }).toList();
     int length = digits.length;
     digits.asMap().forEach((index, digit) {
-      int direction = digit%4; //(digit < 5) ? 0 : (digit < 8) ? 1: (digit < 9)? 2 : 3;
+      int direction = digit%3;
+      direction = (digit < 3) ? 1 : (digit < 7) ? 0: (digit < 8)? 2 : 3;
       int color = digits[(index + 1) % length]%9;
       int repeat = digits[(index + 2) % length]%2;
       int which = digits[(index + 3) % length]%this.shapes.length;

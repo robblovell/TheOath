@@ -39,13 +39,13 @@
   AUTH_TIMEOUT: Authentication Timed Out.
   OATH_TAKEN: I Took The Protester's Oath
   STORIES_TOOLTIP: Stories
-
-  STORY_00: tbd.
-  STORY_DATE_00: tbd
-  STORY_CREDIT_00: tbd
+  STORY_URL_CAPTION:  Online Story Link
+  STORY_00: One month before Hitler rose to power, a Jewish family living in Germany defiantly displayed a Hanukkah menorah in their window across from a Nazi flag.
+  STORY_DATE_00: 1932.
+  STORY_CREDIT_00: Photo 12/Universal Images Group via Getty Images
   STORY_IMAGE_00: assets/img/stories/story000.jpg
-  STORY_IMAGE_URL_00: tbd
-  STORY_URL_00: tbd
+  STORY_IMAGE_URL_00: https://i.insider.com/5ede5e88f34d0572f200b336
+  STORY_URL_00: https://en.wikipedia.org/wiki/The_Holocaust
 
   STORY_01: A lone man stands up to a line of tanks in Tiananmen Square in 1989.
   STORY_DATE_01: June 5, 1989
@@ -54,19 +54,75 @@
   STORY_IMAGE_URL_01: https://i.insider.com/55b0f2782acae7c7018b9204
   STORY_URL_01: https://en.wikipedia.org/wiki/Tank_Man
 
-  STORY_02: tbd
-  STORY_DATE_02: tbd
-  STORY_CREDIT_02: tbd
+  STORY_02: This photo of Rosa Parks sitting in the front of a bus was actually taken after the Supreme Court disbanded Montgomery's segregated bus system, but it remains a classic symbol.
+  STORY_DATE_02: December 21, 1956.
+  STORY_CREDIT_02: Underwood Archives/Getty Images
   STORY_IMAGE_02: assets/img/stories/story002.jpg
-  STORY_IMAGE_URL_02: tbd
-  STORY_URL_02: tbd
+  STORY_IMAGE_URL_02: https://i.insider.com/5ede626e988ee312947bac38
+  STORY_URL_02: https://en.wikipedia.org/wiki/Montgomery_bus_boycott
 
-  STORY_03: tbd
-  STORY_DATE_03: tbd
-  STORY_CREDIT_03: tbd
+  STORY_03: The civil rights movement, which began in 1954, aimed to end racial inequality, segregation, and discrimination.
+  STORY_DATE_03: 1954-1968
+  STORY_CREDIT_03: Martin Luther King Jr. AP
   STORY_IMAGE_03: assets/img/stories/story003.jpg
-  STORY_IMAGE_URL_03: tbd4
-  STORY_URL_03: tbd
+  STORY_IMAGE_URL_03: https://i.insider.com/58829068ee14b618038b92c5
+  STORY_URL_03: https://en.wikipedia.org/wiki/Civil_rights_movement
+
+  STORY_04: John Filo's photo of the aftermath of the Kent State shootings is credited with helping turn public opinion against the Vietnam War.
+  STORY_DATE_04: May 1, 1970
+  STORY_CREDIT_04: John Filo/Valley News-Dispatch
+  STORY_IMAGE_04: assets/img/stories/story004.jpg
+  STORY_IMAGE_URL_04: https://i.insider.com/5ede5cfe5af6cc69607005b7
+  STORY_URL_04: https://en.wikipedia.org/wiki/Kent_State_shootings
+
+  STORY_05: John Lewis, in the foreground, is beaten by a state trooper during a civil rights voting march in Selma, Ala.
+  STORY_DATE_05: March 7, 1965.
+  STORY_CREDIT_05: AP Photo
+  STORY_IMAGE_05: assets/img/stories/story005.jpg
+  STORY_IMAGE_URL_05: https://apnews.com/eda3ffe8fbfcf7727270e67bba1c9566
+  STORY_URL_05: https://en.wikipedia.org/wiki/Selma_to_Montgomery_marches
+
+  STORY_06: Demonstrator George Harris sticking carnations into gun barrels during an antiwar protest at the Pentagon in 1967.
+  STORY_DATE_06: October 22, 1967.
+  STORY_CREDIT_06: Bernie Boston/The Washington Post via Getty Images
+  STORY_IMAGE_06: assets/img/stories/story006.jpg
+  STORY_IMAGE_URL_06: https://i.insider.com/5ede5da23ad8617aea7f5cc8
+  STORY_URL_06: https://en.wikipedia.org/wiki/Selma_to_Montgomery_marches
+
+  STORY_07: A Woman Sits In Front Of Riot Police Blocking The Road To Protect Protesters During The Anti-Government Protest In Seoul, South Korea.
+  STORY_DATE_07: 24 April 2015.
+  STORY_CREDIT_07: Chung Sung-Jun/Getty Images
+  STORY_IMAGE_07: assets/img/stories/story007.jpg
+  STORY_IMAGE_URL_07: https://images.thestar.com/QqrIn4CsbO_rwaS83GsxZwtE15o=/1086x710/smart/filters:cb(2700061000)/https://www.thestar.com/content/dam/thestar/news/world/2015/04/24/10000-south-koreans-march-in-anti-government-rally/granny-protester.jpg
+  STORY_URL_07: https://www.thestar.com/news/world/2015/04/24/10000-south-koreans-march-in-anti-government-rally.html
+
+  STORY_08: A series of sit-in street protests, often called the Umbrella Revolution and sometimes used interchangeably with Umbrella Movement, or Occupy Movement, occurred in Hong Kong from 26 September to 15 December 2014.[
+  STORY_DATE_08: 26 September to 15 December 2014.
+  STORY_CREDIT_08: Chung Sung-Jun/Getty Images
+  STORY_IMAGE_08: assets/img/stories/story008.jpg
+  STORY_IMAGE_URL_08: https://assets.bwbx.io/images/users/iqjWHBFdfxIU/imk_Zwl9BJpo/v0/1800x-1.jpg
+  STORY_URL_08: https://en.wikipedia.org/wiki/Umbrella_Movement
+
+  STORY_09: Chalk Girl, is a protester at the heart of Hong Kong’s democracy movement. Arrested for drawing a flower in chalk on a wall when she was 14
+  STORY_DATE_09: September 2016
+  STORY_CREDIT_09: The Guardian
+  STORY_IMAGE_09: assets/img/stories/story009.jpg
+  STORY_IMAGE_URL_09: https://cdn1.i-scmp.com/sites/default/files/styles/1200x800/public/2015/01/04/chalkgirl.jpg?itok=wM9vo-nV
+  STORY_URL_09: https://www.theguardian.com/world/ng-interactive/2017/jun/16/chalk-girl-hong-kong-democracy-umbrella-movement-protester-china
+
+  STORY_10: The Lennon Wall in Hong Kong is one of the major artworks of the Umbrella Movement as a collective artistic work of spontaneous free expression, demanding democracy in the elections of the territory's top leaders.
+  STORY_DATE_10: 10 October 2014, 23:04
+  STORY_CREDIT_10: Pasu Au Yeung
+  STORY_IMAGE_10: assets/img/stories/story010.jpg
+  STORY_IMAGE_URL_10: https://commons.wikimedia.org/wiki/File:Hong_Kong_Umbrella_Revolution_-umbrellarevolution_-UmbrellaMovement_(15310525419).jpg
+  STORY_URL_10: https://en.wikipedia.org/wiki/Lennon_Wall_(Hong_Kong)
+
+  STORY_11: Thousands of people lay down on June 2 on the Burnside Bridge for 8 minutes and 46 seconds in remembrance of George Floyd, who was killed by a Minneapolis police officer.
+  STORY_DATE_11: June 2, 202
+  STORY_CREDIT_11: Andrew Wallner
+  STORY_IMAGE_11: assets/img/stories/story011.jpg
+  STORY_IMAGE_URL_11: https://www.oregonlive.com/resizer/PEiJs2Z-xHTNyoVowdEWUESNkpI=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/LRPD6CZ4PZG3VHOEPFCN4JWOWA.jpg
+  STORY_URL_11: https://www.oregonlive.com/news/2020/06/the-world-needs-to-see-this-the-story-behind-the-iconic-photo-of-the-burnside-bridge-protest-in-portland.html
 
   REASON_TITLE: Reasoning
   REASON1: The power of protest is to reveal truth in the face of unjust power through non-violent action.

@@ -8,7 +8,7 @@ class StoriesCubit extends Cubit<StoriesState> {
     getNextStory();
   }
 
-  final stories = 4;
+  final stories = 11;
   static int which = -1;
 
   void getNextStory() async {

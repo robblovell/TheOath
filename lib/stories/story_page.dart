@@ -53,7 +53,7 @@ class StoryContainer extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     shape: BoxShape.rectangle,
                                     image: DecorationImage(
-                                      fit: BoxFit.fitHeight,
+                                      fit: BoxFit.contain,
                                       image: AssetImage(story.imageURL),
                                     ))),
                             Align(
@@ -70,7 +70,7 @@ class StoryContainer extends StatelessWidget {
                             Align(
                                 alignment: Alignment.bottomRight,
                                 child: Link(
-                                  child: Text('Wikipedia Entry'),
+                                  child: Text('STORY_URL_CAPTION'.tr()),
                                   url: story.storyURL,
                                   onError: _showErrorSnackBar,
                                 )

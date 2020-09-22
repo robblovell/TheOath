@@ -1,0 +1,5 @@
+build --bes_results_url=https://app.buildbuddy.io/invocation/
+build --bes_backend=grpcs://JE5SaU7fsCLZwPUthblk@cloud.buildbuddy.io
+build --remote_executor=grpcs://JE5SaU7fsCLZwPUthblk@cloud.buildbuddy.io
+
+
