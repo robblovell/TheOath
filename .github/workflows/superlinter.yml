@@ -4,7 +4,7 @@ jobs:
   super-lint:
     if: "startsWith(github.event.commits[0].message, '[lint]')"
     # Name the Job
-    name: Lint code base
+    name: Static Analysis
     # Set the type of machine to run on
     runs-on: ubuntu-latest
 
@@ -16,7 +16,7 @@ jobs:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '1.22.0-10.0.pre.281'
+          flutter-version: '1.9.1+hotfix.6'
       - run: flutter pub get
 
       # Runs the Super-Linter action
