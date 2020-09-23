@@ -17,8 +17,7 @@ class LOCAL {
   final Locale locale;
 
   static LOCAL of(BuildContext context) {
-    return Localizations.of<LOCAL>(
-        context, LOCAL);
+    return Localizations.of<LOCAL>(context, LOCAL);
   }
 
   static Map<String, Map<String, String>> _localizedValues = {
@@ -64,8 +63,7 @@ class LOCAL {
   }
 }
 
-class ProtestersOathLocalizationsDelegate
-    extends LocalizationsDelegate<LOCAL> {
+class ProtestersOathLocalizationsDelegate extends LocalizationsDelegate<LOCAL> {
   const ProtestersOathLocalizationsDelegate();
 
   @override
@@ -75,8 +73,7 @@ class ProtestersOathLocalizationsDelegate
   Future<LOCAL> load(Locale locale) {
     // Returning a SynchronousFuture here because an async "load" operation
     // isn't needed to produce an instance of DemoLocalizations.
-    return SynchronousFuture<LOCAL>(
-        LOCAL(locale));
+    return SynchronousFuture<LOCAL>(LOCAL(locale));
   }
 
   @override

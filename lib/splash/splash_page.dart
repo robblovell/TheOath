@@ -15,13 +15,13 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       backgroundColor: Colors.grey,
       body: Center(
         child: Image.asset(
           Res.protester,
           width: 350,
-          height:  350,
+          height: 350,
         ),
       ),
     );

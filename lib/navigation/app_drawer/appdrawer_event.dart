@@ -83,4 +83,3 @@ class BackButtonEvent extends AppDrawerEvent {
   @override
   List<Object> get props => [this.fromPage];
 }
-

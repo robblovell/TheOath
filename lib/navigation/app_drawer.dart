@@ -8,78 +8,86 @@ import 'app_drawer/appdrawer_event.dart';
 
 class AppDrawer extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext theContext) {
     // final double paddingTop = MediaQuery.of(context).padding.top;
     return Drawer(
       child: Column(
         children: <Widget>[
           MediaQuery.removePadding(
-            context: context,
+            context: theContext,
             removeTop: true,
             child: Expanded(
               child: ListView(
                 padding: const EdgeInsets.only(top: 40),
                 children: <Widget>[
-
                   ListTile(
                     leading: Icon(Icons.list), //article_outlined),
-                    title: Text("THEOATH".tr(),
+                    title: Text(
+                      "THEOATH".tr(),
                       style: TextStyle(fontSize: 22, color: Colors.black),
                     ),
                     onTap: () {
-                      BlocProvider.of<AppDrawerBloc>(context).add(OathPageEvent());
-                      Navigator.pop(context);
+                      BlocProvider.of<AppDrawerBloc>(theContext)
+                          .add(OathPageEvent());
+                      Navigator.pop(theContext);
                     },
                   ),
                   ListTile(
                     leading: Icon(Icons.info),
-                    title: Text("THEREASON".tr(),
+                    title: Text(
+                      "THEREASON".tr(),
                       style: TextStyle(fontSize: 22, color: Colors.black),
                     ),
                     onTap: () {
-                      BlocProvider.of<AppDrawerBloc>(context).add(ReasonPageEvent());
-                      Navigator.pop(context);
+                      BlocProvider.of<AppDrawerBloc>(theContext)
+                          .add(ReasonPageEvent());
+                      Navigator.pop(theContext);
                     },
                   ),
                   ListTile(
                     leading: Icon(Icons.art_track),
-                    title: Text("STORIES".tr(),
+                    title: Text(
+                      "STORIES".tr(),
                       style: TextStyle(fontSize: 22, color: Colors.black),
                     ),
                     onTap: () {
-                      BlocProvider.of<AppDrawerBloc>(context).add(StoryPageEvent());
-                      Navigator.pop(context);
+                      BlocProvider.of<AppDrawerBloc>(theContext)
+                          .add(StoryPageEvent());
+                      Navigator.pop(theContext);
                     },
                   ),
                   ListTile(
                     leading: Icon(Icons.turned_in),
-                    title: Text("HOME".tr(),
+                    title: Text(
+                      "HOME".tr(),
                       style: TextStyle(fontSize: 22, color: Colors.black),
                     ),
                     onTap: () {
-                      BlocProvider.of<AppDrawerBloc>(context).add(HomePageEvent());
-                      Navigator.pop(context);
+                      BlocProvider.of<AppDrawerBloc>(theContext)
+                          .add(HomePageEvent());
+                      Navigator.pop(theContext);
                     },
                   ),
                   ListTile(
                     leading: Icon(Icons.group),
-                    title: Text('ABOUT'.tr(),
+                    title: Text(
+                      'ABOUT'.tr(),
                       style: TextStyle(fontSize: 22, color: Colors.black),
                     ),
                     onTap: () {
-                      BlocProvider.of<AppDrawerBloc>(context).add(AboutPageEvent());
-                      Navigator.pop(context);
+                      BlocProvider.of<AppDrawerBloc>(theContext)
+                          .add(AboutPageEvent());
+                      Navigator.pop(theContext);
                     },
                   ),
                   ListTile(
                     leading: Icon(Icons.exit_to_app),
-                    title: Text('LOGOUT'.tr(),
+                    title: Text(
+                      'LOGOUT'.tr(),
                       style: TextStyle(fontSize: 22, color: Colors.black),
                     ),
                     onTap: () {
-                      context
-                          .bloc<AuthenticationBloc>()
-                          .add(LoggedOut());
+                      theContext.bloc<AuthenticationBloc>().add(LoggedOut());
                     },
                   )
                 ],

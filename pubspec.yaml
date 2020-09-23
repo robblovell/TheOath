@@ -64,6 +64,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   pedantic: ^1.0.0
+#  lint: ^1.0.0
 
 flutter_icons:
   ios: true

@@ -30,16 +30,17 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
-    final availableHeight = MediaQuery.of(context).size.height -
-        AppBar().preferredSize.height -
-        MediaQuery.of(context).padding.top -
-        MediaQuery.of(context).padding.bottom;
+    // final availableHeight = MediaQuery.of(context).size.height -
+    //     AppBar().preferredSize.height -
+    //     MediaQuery.of(context).padding.top -
+    //     MediaQuery.of(context).padding.bottom;
     return WillPopScope(
         onWillPop: _onBackPressed,
         child: BlocListener<LoginBloc, LoginState>(
           cubit: _loginBloc,
           listener: (context, loginState) {
-            if (loginState is ExceptionState || loginState is OtpExceptionState) {
+            if (loginState is ExceptionState ||
+                loginState is OtpExceptionState) {
               String message;
               if (loginState is ExceptionState) {
                 message = loginState.message;
@@ -58,7 +59,10 @@ class _LoginFormState extends State<LoginForm> {
                         TextSpan(text: "  "),
                         TextSpan(
                             text: message,
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.black))
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black))
                       ],
                     ),
                   ),
@@ -74,7 +78,8 @@ class _LoginFormState extends State<LoginForm> {
           child: BlocBuilder<LoginBloc, LoginState>(
             builder: (context, state) {
               return LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints viewportConstraints) {
+                builder:
+                    (BuildContext context, BoxConstraints viewportConstraints) {
                   return SingleChildScrollView(
                     child: ConstrainedBox(
                       constraints: BoxConstraints(
@@ -88,7 +93,8 @@ class _LoginFormState extends State<LoginForm> {
                               // still be at least as big as necessary to fit its contents.
                               child: Container(
                                 color: Colors.grey[100],
-                                height: 1, // give it any height so that the scroller calculates correctly.
+                                height:
+                                    1, // give it any height so that the scroller calculates correctly.
                                 alignment: Alignment.center,
                                 child: TheOath(true, viewportConstraints),
                               ),
@@ -120,8 +126,8 @@ class _LoginFormState extends State<LoginForm> {
     } else if (state is LoadingState) {
       return LoadingIndicator();
     } else if (state is LoginCompleteState) {
-      BlocProvider.of<AuthenticationBloc>(context)
-          .add(LoggedIn(token: state.getUser() != null ? state.getUser().uid : "none"));
+      BlocProvider.of<AuthenticationBloc>(context).add(LoggedIn(
+          token: state.getUser() != null ? state.getUser().uid : "none"));
     } else {
       return NumberInput();
     }

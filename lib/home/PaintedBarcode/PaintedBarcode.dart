@@ -7,15 +7,23 @@ import 'Shape.dart';
 
 class PaintedBarcode {
   List<Shape> shapes;
-  List<Color> colors = [Colors.red, Colors.green, Colors.blue,
-    Colors.yellow, Colors.pink, Colors.cyan,
-    Colors.orange, Colors.purple, Colors.lime];
+  List<Color> colors = [
+    Colors.red,
+    Colors.green,
+    Colors.blue,
+    Colors.yellow,
+    Colors.pink,
+    Colors.cyan,
+    Colors.orange,
+    Colors.purple,
+    Colors.lime
+  ];
 
   PaintedBarcode(List<Shape> shapes) {
     this.shapes = shapes;
   }
 
-  PaintedBarcode draw(Canvas canvas) {
+  void draw(Canvas canvas) {
     shapes.forEach((shape) => shape.draw(canvas));
   }
 
@@ -32,9 +40,9 @@ class PaintedBarcode {
     return [shape];
   }
 
-  Shape makeInsideShape(Shape shape, int color, int repeat) {
-
-  }
+  // Shape makeInsideShape(Shape shape, int color, int repeat) {
+  //
+  // }
 
   // give three numbers, split the rectangle
   List<Shape> split(int which, int direction, int color, int repeat) {
@@ -46,9 +54,9 @@ class PaintedBarcode {
       double radius = toOverlay.minSize();
       Circle circle = Circle(offset, radius, colors[color]);
       return [...shapes, circle];
-    }
-    else {
-      print("remove: "+which.toString()+" length"+shapes.length.toString());
+    } else {
+      print(
+          "remove: " + which.toString() + " length" + shapes.length.toString());
       Shape toSplit = shapes.removeAt(which);
       print("To Split:" + toSplit.toString());
       return [...shapes, ...splitShape(toSplit, direction, color, repeat)];
@@ -66,15 +74,21 @@ class PaintedBarcode {
     }).toList();
     int length = digits.length;
     digits.asMap().forEach((index, digit) {
-      int direction = digit%3;
-      direction = (digit < 3) ? 1 : (digit < 7) ? 0: (digit < 8)? 2 : 3;
-      int color = digits[(index + 1) % length]%9;
-      int repeat = digits[(index + 2) % length]%2;
-      int which = digits[(index + 3) % length]%this.shapes.length;
-      print("remove-: "+which.toString()+" length"+length.toString());
-      print ("Before: "+this.shapes.toString());
+      int direction = digit % 3;
+      direction = (digit < 3)
+          ? 1
+          : (digit < 7)
+              ? 0
+              : (digit < 8)
+                  ? 2
+                  : 3;
+      int color = digits[(index + 1) % length] % 9;
+      int repeat = digits[(index + 2) % length] % 2;
+      int which = digits[(index + 3) % length] % this.shapes.length;
+      print("remove-: " + which.toString() + " length" + length.toString());
+      print("Before: " + this.shapes.toString());
       this.shapes = this.split(which, direction, color, repeat);
-      print ("After: "+this.shapes.toString());
+      print("After: " + this.shapes.toString());
       print("---------------------------------");
     });
   }

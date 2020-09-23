@@ -7,7 +7,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class PinInput extends StatefulWidget {
-
   PinInput({Key key}) : super(key: key);
 
   @override
@@ -42,8 +41,10 @@ class _PinInput extends State<PinInput> {
                 pinLength: 6,
                 autoFocus: true,
                 decoration: BoxLooseDecoration(
-                  strokeColorBuilder: PinListenColorBuilder(Colors.grey[800], Colors.grey[800]),
-                  bgColorBuilder: PinListenColorBuilder(Colors.grey[900], Colors.grey[400]),
+                  strokeColorBuilder:
+                      PinListenColorBuilder(Colors.grey[800], Colors.grey[800]),
+                  bgColorBuilder:
+                      PinListenColorBuilder(Colors.grey[900], Colors.grey[400]),
                   textStyle: TextStyle(fontSize: 32, color: Colors.white),
                 ),
                 onChanged: (text) {
@@ -58,28 +59,29 @@ class _PinInput extends State<PinInput> {
                       .add(VerifyOtpEvent(otp: pin));
                 }),
             Padding(
-              padding: const EdgeInsets.only(top: 31, bottom: 10.0, left: 16.0, right: 16.0),
+              padding: const EdgeInsets.only(
+                  top: 31, bottom: 10.0, left: 16.0, right: 16.0),
               // Back Button
               // child: SizedBox(
               //   width: 200, // specific value
-                child: MaterialButton(
-                  elevation: 20.0,
-                  minWidth: 210,
-                  splashColor: Colors.grey[500],
-                  animationDuration: Duration(seconds: 1),
-                  colorBrightness: Brightness.light,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  onPressed: () {
-                    BlocProvider.of<LoginBloc>(context).add(AppStartEvent());
-                  },
-                  color: Colors.grey[900],
-                  child: Text(
-                    'BACK'.tr(),
-                    style: TextStyle(fontSize: 18, color: Colors.white),
-                  ),
+              child: MaterialButton(
+                elevation: 20.0,
+                minWidth: 210,
+                splashColor: Colors.grey[500],
+                animationDuration: Duration(seconds: 1),
+                colorBrightness: Brightness.light,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8.0),
                 ),
+                onPressed: () {
+                  BlocProvider.of<LoginBloc>(context).add(AppStartEvent());
+                },
+                color: Colors.grey[900],
+                child: Text(
+                  'BACK'.tr(),
+                  style: TextStyle(fontSize: 18, color: Colors.white),
+                ),
+              ),
               // ),
             ),
           ],

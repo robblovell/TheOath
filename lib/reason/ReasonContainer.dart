@@ -23,12 +23,17 @@ class TheReason extends StatelessWidget {
             child: RichText(
               overflow: TextOverflow.visible,
               text: TextSpan(
-                  style: TextStyle(fontWeight: FontWeight.w300, fontSize: 15, color: Colors.black),
+                  style: TextStyle(
+                      fontWeight: FontWeight.w300,
+                      fontSize: 15,
+                      color: Colors.black),
                   children: <TextSpan>[
                     // todo: clean this code up!
                     TextSpan(
-                        style: TextStyle(fontWeight: FontWeight.w500,
-                          fontSize: 20, color: Colors.black,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
+                          color: Colors.black,
                         ),
                         text: 'REASON_TITLE'.tr() + '\n\n'),
                     TextSpan(text: 'REASON1'.tr() + '\n\n'),
@@ -37,8 +42,10 @@ class TheReason extends StatelessWidget {
                     TextSpan(text: 'REASON4'.tr() + '\n\n'),
                     TextSpan(text: 'REASON5'.tr() + '\n\n'),
                     TextSpan(
-                        style: TextStyle(fontWeight: FontWeight.w500,
-                            fontSize: 20, color: Colors.black,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 20,
+                          color: Colors.black,
                         ),
                         text: 'EXPLAIN_TITLE'.tr() + '\n\n'),
                     TextSpan(text: 'EXPLAIN1'.tr() + '\n\n'),
@@ -56,7 +63,6 @@ class TheReason extends StatelessWidget {
                     TextSpan(text: 'EXPLAIN13'.tr() + '\n\n'),
                     TextSpan(text: 'EXPLAIN14'.tr() + '\n\n'),
                     TextSpan(text: 'EXPLAIN15'.tr() + '\n\n'),
-
                   ]),
             ),
           ),

@@ -13,8 +13,4 @@ class Unauthenticated extends AuthenticationState {}
 
 class Loading extends AuthenticationState {}
 
-class LoginReasonPageState extends AuthenticationState {
-  @override
-  List<Object> get props => [];
-  // print("in login reason page stae.");
-}
+class LoginReasonPageState extends AuthenticationState {}

@@ -10,10 +10,10 @@ import 'package:theprotestersoath/stories/stories_cubit.dart';
 import 'package:theprotestersoath/stories/stories_state.dart';
 
 class StoryPage extends StatefulWidget {
-  @override
-  static Route route() {
-    return MaterialPageRoute(builder: (_) => StoryPage());
-  }
+  // @override
+  // static Route route() {
+  //   return MaterialPageRoute(builder: (_) => StoryPage());
+  // }
 
   @override
   _StoryPageState createState() => _StoryPageState();
@@ -34,7 +34,8 @@ class StoryContainer extends StatelessWidget {
       );
     }
 
-    return LayoutBuilder(builder: (BuildContext context, BoxConstraints viewportConstraints) {
+    return LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints viewportConstraints) {
       return Container(
           color: Colors.grey[400],
           child: ConstrainedBox(
@@ -43,56 +44,58 @@ class StoryContainer extends StatelessWidget {
               ),
               child: IntrinsicHeight(
                   child: Column(children: <Widget>[
-                    Container(
-                        height: 500,
-                        child: ListView(
-                          padding: const EdgeInsets.all(8),
-                          children: <Widget>[
-                            Container(
-                                height: 300.0,
-                                decoration: BoxDecoration(
-                                    shape: BoxShape.rectangle,
-                                    image: DecorationImage(
-                                      fit: BoxFit.contain,
-                                      image: AssetImage(story.imageURL),
-                                    ))),
-                            Align(
-                              child: Center(
-                                  child: Text(
-                                    story.title,
-                                    textScaleFactor: 1.3,
-                                  )),
-                            ),
-                            Align(
-                              alignment: Alignment.bottomRight,
-                              child: Text(story.credit),
-                            ),
-                            Align(
-                                alignment: Alignment.bottomRight,
-                                child: Link(
-                                  child: Text('STORY_URL_CAPTION'.tr()),
-                                  url: story.storyURL,
-                                  onError: _showErrorSnackBar,
-                                )
-                              // Text('STORY_01_URL'.tr()),
-                            ),
-                          ],
-                        )),
-                    Expanded(
-                        child: Align(
+                Container(
+                    height: 500,
+                    child: ListView(
+                      padding: const EdgeInsets.all(8),
+                      children: <Widget>[
+                        Container(
+                            height: 300.0,
+                            decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                image: DecorationImage(
+                                  fit: BoxFit.contain,
+                                  image: AssetImage(story.imageURL),
+                                ))),
+                        Align(
+                          child: Center(
+                              child: Text(
+                            story.title,
+                            textScaleFactor: 1.3,
+                          )),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomRight,
+                          child: Text(story.credit),
+                        ),
+                        Align(
                             alignment: Alignment.bottomRight,
-                            child: Container(
-                                alignment: Alignment(0.9, 0.87),
-                                child: IconButton(
-                                  icon: Icon(
-                                    Icons.list, //article_outlined,
-                                    color: Colors.black,
-                                    size: 30,
-                                  ),
-                                  tooltip: 'STORIES_TOOLTIP'.tr(),
-                                  onPressed: () => BlocProvider.of<AppDrawerBloc>(context).add(OathPageEvent()),
-                                )))),
-                  ]))));
+                            child: Link(
+                              child: Text('STORY_URL_CAPTION'.tr()),
+                              url: story.storyURL,
+                              onError: _showErrorSnackBar,
+                            )
+                            // Text('STORY_01_URL'.tr()),
+                            ),
+                      ],
+                    )),
+                Expanded(
+                    child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: Container(
+                            alignment: Alignment(0.9, 0.87),
+                            child: IconButton(
+                              icon: Icon(
+                                Icons.list, //article_outlined,
+                                color: Colors.black,
+                                size: 30,
+                              ),
+                              tooltip: 'STORIES_TOOLTIP'.tr(),
+                              onPressed: () =>
+                                  BlocProvider.of<AppDrawerBloc>(context)
+                                      .add(OathPageEvent()),
+                            )))),
+              ]))));
     });
   }
 }
@@ -119,18 +122,19 @@ class _StoryPageState extends State<StoryPage> {
               actions: [
                 IconButton(
                   icon: Icon(Icons.art_track, size: 40),
-                  onPressed: () => CubitProvider.of<StoriesCubit>(context).getNextStory(),
+                  onPressed: () =>
+                      CubitProvider.of<StoriesCubit>(context).getNextStory(),
                 ),
               ],
               leading: IconButton(
                 icon: Icon(Icons.turned_in),
                 onPressed: () {
-                  BlocProvider.of<AppDrawerBloc>(context).add(BackButtonEvent("StoryPage"));
+                  BlocProvider.of<AppDrawerBloc>(context)
+                      .add(BackButtonEvent("StoryPage"));
                 },
               ),
             ),
-            body: StoryContainer(state.story)
-        );
+            body: StoryContainer(state.story));
       }
       return Center(
         child: Icon(Icons.close),

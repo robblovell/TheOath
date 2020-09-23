@@ -4,9 +4,9 @@ import 'package:theprotestersoath/navigation/app_drawer/appdrawer_bloc.dart';
 import 'package:theprotestersoath/navigation/app_drawer/appdrawer_event.dart';
 
 class AboutPage extends StatelessWidget {
-  static Route route() {
-    return MaterialPageRoute(builder: (_) => AboutPage());
-  }
+  // static Route route() {
+  //   return MaterialPageRoute(builder: (_) => AboutPage());
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +20,13 @@ class AboutPage extends StatelessWidget {
         leading: IconButton(
           icon: Icon(Icons.turned_in),
           onPressed: () {
-            BlocProvider.of<AppDrawerBloc>(context).add(BackButtonEvent("AboutPage"));
+            BlocProvider.of<AppDrawerBloc>(context)
+                .add(BackButtonEvent("AboutPage"));
           },
         ),
       ),
       body: Center(
-        child: Column(
+          child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -35,12 +36,14 @@ class AboutPage extends StatelessWidget {
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                      fit: BoxFit.fill,
-                      image: AssetImage('assets/img/robb.png'),
-                  )
-              )),
+                    fit: BoxFit.fill,
+                    image: AssetImage('assets/img/robb.png'),
+                  ))),
           Container(height: 5),
-          Text('Made by: Robb E Lovell',textScaleFactor: 1.5,),
+          Text(
+            'Made by: Robb E Lovell',
+            textScaleFactor: 1.5,
+          ),
           Container(height: 50),
           Container(
               width: 190.0,
@@ -49,11 +52,14 @@ class AboutPage extends StatelessWidget {
                   shape: BoxShape.rectangle,
                   image: DecorationImage(
                     fit: BoxFit.fitHeight,
-                    image: AssetImage('assets/img/logo_flutter_transparent.png'),
-                  )
-              )),
+                    image:
+                        AssetImage('assets/img/logo_flutter_transparent.png'),
+                  ))),
           Container(height: 5),
-          Text('Powered by: Flutter',textScaleFactor: 1.5,)
+          Text(
+            'Powered by: Flutter',
+            textScaleFactor: 1.5,
+          )
         ],
       )),
     );

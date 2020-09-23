@@ -8,13 +8,14 @@ import '../navigation/app_drawer/appdrawer.dart';
 import 'ShapesPainter.dart';
 
 class HomePage extends StatelessWidget {
-  static Route route() {
-    return MaterialPageRoute<void>(builder: (_) => HomePage());
-  }
+  // static Route route() {
+  //   return MaterialPageRoute<void>(builder: (_) => HomePage());
+  // }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AppDrawerBloc, AppDrawerState>(builder: (BuildContext context, AppDrawerState state) {
+    return BlocBuilder<AppDrawerBloc, AppDrawerState>(
+        builder: (BuildContext context, AppDrawerState state) {
       return Scaffold(
           drawer: AppDrawer(),
           appBar: AppBar(
@@ -29,7 +30,8 @@ class HomePage extends StatelessWidget {
             actions: [
               IconButton(
                 icon: Icon(Icons.art_track, size: 40),
-                onPressed: () => BlocProvider.of<AppDrawerBloc>(context).add(StoryPageEvent()),
+                onPressed: () => BlocProvider.of<AppDrawerBloc>(context)
+                    .add(StoryPageEvent()),
               ),
             ],
           ),
@@ -45,13 +47,14 @@ class HomePage extends StatelessWidget {
                 alignment: Alignment(0.9, 0.91),
                 child: IconButton(
                   icon: Icon(
-                    Icons.list,//article_outlined,
+                    Icons.list, //article_outlined,
                     // IconData(0xe060, fontFamily: 'MaterialIcons'),
                     color: Colors.black,
                     size: 30,
                   ),
                   tooltip: 'STORIES_TOOLTIP'.tr(),
-                  onPressed: () => BlocProvider.of<AppDrawerBloc>(context).add(OathPageEvent()),
+                  onPressed: () => BlocProvider.of<AppDrawerBloc>(context)
+                      .add(OathPageEvent()),
                 )),
             Container(
                 alignment: Alignment(-.9, 0.91),
@@ -63,7 +66,8 @@ class HomePage extends StatelessWidget {
                     size: 30,
                   ),
                   tooltip: 'THEREASON'.tr(),
-                  onPressed: () => BlocProvider.of<AppDrawerBloc>(context).add(ReasonPageEvent()),
+                  onPressed: () => BlocProvider.of<AppDrawerBloc>(context)
+                      .add(ReasonPageEvent()),
                 )),
             Align(
               alignment: Alignment.bottomCenter,

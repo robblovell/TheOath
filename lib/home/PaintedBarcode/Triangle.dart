@@ -6,11 +6,14 @@ import 'Shape.dart';
 class Triangle extends Shape {
   List<Point> points = List<Point>(3);
 
-  Triangle(List<Point> point, [Color color = Colors.pinkAccent]) : super(SHAPES.triangle, color) {
+  Triangle(List<Point> point, [Color color = Colors.pinkAccent])
+      : super(SHAPES.triangle, color) {
     this.points = point;
   }
 
-  Triangle.fromPoints(Point p0, Point p1, Point p2, [Color color = Colors.pinkAccent]) : super(SHAPES.triangle, color) {
+  Triangle.fromPoints(Point p0, Point p1, Point p2,
+      [Color color = Colors.pinkAccent])
+      : super(SHAPES.triangle, color) {
     this.points[0] = p0;
     this.points[1] = p1;
     this.points[2] = p2;
@@ -38,10 +41,22 @@ class Triangle extends Shape {
       color = this.color;
     }
     switch (direction) {
-      case 0: p0 = 0; p1 = 1; p2 = 2; break;
-      case 1: p0 = 2; p1 = 0; p2 = 1; break;
+      case 0:
+        p0 = 0;
+        p1 = 1;
+        p2 = 2;
+        break;
+      case 1:
+        p0 = 2;
+        p1 = 0;
+        p2 = 1;
+        break;
       case 2:
-      default: p0 = 1; p1 = 2; p2 = 0; break;
+      default:
+        p0 = 1;
+        p1 = 2;
+        p2 = 0;
+        break;
     }
     Point center = this.midpoint(this.points[p1], this.points[p2]);
     return [
@@ -49,11 +64,14 @@ class Triangle extends Shape {
       Triangle.fromPoints(this.points[p0], center, this.points[p2], color)
     ];
   }
+
   String toString() {
-    return "Triangle[ "+
-        this.points[0].toString()+ ", " +
-        this.points[1].toString() + ", "+
-        this.points[2].toString()+
+    return "Triangle[ " +
+        this.points[0].toString() +
+        ", " +
+        this.points[1].toString() +
+        ", " +
+        this.points[2].toString() +
         " ]\n";
   }
 

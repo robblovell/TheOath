@@ -7,8 +7,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:theprotestersoath/oath/OathCard.dart';
 import 'package:theprotestersoath/utils/sizing.dart';
 
-import '../navigation/app_drawer.dart';
-
 class TheOath extends StatelessWidget {
   TheOath(this.isLogin, this.viewportConstraints);
 
@@ -18,21 +16,23 @@ class TheOath extends StatelessWidget {
   // App Bar for the Login/Oath.
   @override
   Widget build(BuildContext context) {
-    double appBarHeight = screenHeight(context) < 600 ? 75 : 75;
+    // double appBarHeight = screenHeight(context) < 600 ? 75 : 75;
 
     return CustomScrollView(shrinkWrap: false, slivers: <Widget>[
       SliverAppBar(
         pinned: true,
         actions: [
           IconButton(
-            icon: Icon(Icons.info, size: 40),
-            onPressed: () {
-              if (this.isLogin) {
-                BlocProvider.of<AuthenticationBloc>(context).add(LoginReasonPageEvent());
-              } else {
-                BlocProvider.of<AppDrawerBloc>(context).add(ReasonPageEvent());
-              }
-          }),
+              icon: Icon(Icons.info, size: 40),
+              onPressed: () {
+                if (this.isLogin) {
+                  BlocProvider.of<AuthenticationBloc>(context)
+                      .add(LoginReasonPageEvent());
+                } else {
+                  BlocProvider.of<AppDrawerBloc>(context)
+                      .add(ReasonPageEvent());
+                }
+              }),
         ],
         // expandedHeight: appBarHeight,
         flexibleSpace: FlexibleSpaceBar(
@@ -63,14 +63,16 @@ class TheOathGrid extends StatelessWidget {
     var appBarHeight = AppBar().preferredSize.height;
     var loginButtonSpace = isLogin ? 170 : 0;
 
-    var availableHeightBig = height - (appBarHeight + paddingTopScreen) - loginButtonSpace;
-    var availableHeightSmall = viewportHeight - (appBarHeight + paddingTopScreen) - loginButtonSpace;
+    var availableHeightBig =
+        height - (appBarHeight + paddingTopScreen) - loginButtonSpace;
+    var availableHeightSmall =
+        viewportHeight - (appBarHeight + paddingTopScreen) - loginButtonSpace;
     var availableWidth = viewportWidth - paddingLeftScreen + paddingRightScreen;
 
     // Height of the Title Card above and the Number Entry card and the spacing between elements
     var cardPadding = 0.0;
-    var cardHeightBig = (availableHeightBig - (cardPadding*9))/ 9;
-    var cardHeightSmall = (availableHeightSmall - (cardPadding*9))/ 9;
+    var cardHeightBig = (availableHeightBig - (cardPadding * 9)) / 9;
+    var cardHeightSmall = (availableHeightSmall - (cardPadding * 9)) / 9;
     if (cardHeightSmall < 18) cardHeightSmall = 18;
     var cardHeight = cardHeightBig;
 
@@ -79,7 +81,7 @@ class TheOathGrid extends StatelessWidget {
       // if (cardHeight < 15) {cardHeight = cardHeightBig;}
     }
 
-    var cardWidth = availableWidth + cardPadding*2;
+    var cardWidth = availableWidth + cardPadding * 2;
     var aspect = cardWidth / cardHeight;
 
     print("Container::Height: " + height.toString());
@@ -98,25 +100,24 @@ class TheOathGrid extends StatelessWidget {
     // print("Container::cardAspect: " + aspect.toString());
 
     return SliverGrid(
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 1,
-              mainAxisSpacing: cardPadding,
-              crossAxisSpacing: cardPadding,
-              childAspectRatio: aspect, // between 7 and 9.
-            ),
-            delegate: SliverChildBuilderDelegate(
-              (BuildContext context, int index) {
-                return Container(
-                  alignment: Alignment.centerLeft,
-                  color: Colors.grey[300 + index % 2 * 100],
-                  child: (viewportHeight != height && viewportHeight < 600) ?
-                  OathCard('SHORT_POINT_0$index', isLogin, index) :
-                  OathCard('POINT_0$index', isLogin, index),
-                );
-              },
-              childCount: 9,
-            ),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 1,
+        mainAxisSpacing: cardPadding,
+        crossAxisSpacing: cardPadding,
+        childAspectRatio: aspect, // between 7 and 9.
+      ),
+      delegate: SliverChildBuilderDelegate(
+        (BuildContext context, int index) {
+          return Container(
+            alignment: Alignment.centerLeft,
+            color: Colors.grey[300 + index % 2 * 100],
+            child: (viewportHeight != height && viewportHeight < 600)
+                ? OathCard('SHORT_POINT_0$index', isLogin, index)
+                : OathCard('POINT_0$index', isLogin, index),
           );
-
+        },
+        childCount: 9,
+      ),
+    );
   }
 }

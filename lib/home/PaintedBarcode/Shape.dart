@@ -20,22 +20,25 @@ class Shape {
     return [this.fromShape(this, this.color)];
   }
 
-  double width () {
+  double width() {
     return 10;
   }
-  double height () {
+
+  double height() {
     return 10;
   }
-  double minSize () {
+
+  double minSize() {
     return 100;
   }
-  double maxSize () {
+
+  double maxSize() {
     return 10;
   }
+
   Offset center() {
-    return Offset(100,100);
+    return Offset(100, 100);
   }
 
   draw(Canvas canvas) {}
 }
-

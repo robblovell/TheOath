@@ -6,7 +6,8 @@ class Circle extends Shape {
   Offset offset;
   double radius;
 
-  Circle(Offset offset, double radius, [Color color = Colors.amberAccent]) : super(SHAPES.circle, color) {
+  Circle(Offset offset, double radius, [Color color = Colors.amberAccent])
+      : super(SHAPES.circle, color) {
     this.offset = offset;
     this.radius = radius;
   }
@@ -23,10 +24,11 @@ class Circle extends Shape {
     if (color == null) {
       color = this.color;
     }
-    if (direction == 0)
+    if (direction == 0) {
       return [this];
-    else
+    } else {
       return [this, Circle(this.offset, this.radius / 2, color)];
+    }
   }
 
   @override
@@ -36,4 +38,3 @@ class Circle extends Shape {
     canvas.drawCircle(this.offset, this.radius, paint);
   }
 }
-

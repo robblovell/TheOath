@@ -5,20 +5,21 @@ import 'package:theprotestersoath/utils/sizing.dart';
 
 class OathCard extends StatelessWidget {
   final String text;
-  bool isLogin=false;
-  int index=-1;
+  bool isLogin = false;
+  int index = -1;
 
   OathCard(this.text, this.isLogin, this.index);
 
   @override
   Widget build(BuildContext context) {
     final double width = screenWidth(context);
-    final double height = screenHeight(context)-MediaQuery.of(context).padding.top;
-    double aspect = width/height;
+    final double height =
+        screenHeight(context) - MediaQuery.of(context).padding.top;
+    double aspect = width / height;
 
-    final heightPart1 = height/(27);
+    final heightPart1 = height / (27);
     final aspectPart1 = 3 / aspect;
-    final heightPart2 = height/(32);
+    final heightPart2 = height / (32);
     final aspectPart2 = 3 / aspect;
 
     final double fontSize = (heightPart1 - aspectPart1).toInt().toDouble();
@@ -51,8 +52,7 @@ class OathCard extends StatelessWidget {
                       fontSize: fontSize,
                       color: Colors.black),
                 )),
-          )
-      ),
+          )),
     );
   }
 }

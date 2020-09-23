@@ -57,32 +57,33 @@ class _NumberInput extends State<NumberInput> {
                 }),
           ),
           Padding(
-              padding: const EdgeInsets.all(7.0),
-              // I Commit Button
-              // child: SizedBox(
-              //   width: 210,
-                child: MaterialButton(
-                  elevation: 20.0,
-                  minWidth: 210,
-                  splashColor: Colors.grey[500],
-                  animationDuration: Duration(seconds: 1),
-                  colorBrightness: Brightness.light,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8.0),
-                  ),
-                  onPressed: () {
-                    if (_formKey.currentState.validate()) {
-                      BlocProvider.of<LoginBloc>(context).add(SendOtpEvent(
-                          phoNo: stripCorrectPhone(_phoneTextController.value.text))); //, context:context));
-                    }
-                  },
-                  color: Colors.grey[900],
-                  child: Text(
-                    'I_COMMIT'.tr(),
-                    style: TextStyle(fontSize: 18, color: Colors.white),
-                  ),
-                ),
-              )//)
+            padding: const EdgeInsets.all(7.0),
+            // I Commit Button
+            // child: SizedBox(
+            //   width: 210,
+            child: MaterialButton(
+              elevation: 20.0,
+              minWidth: 210,
+              splashColor: Colors.grey[500],
+              animationDuration: Duration(seconds: 1),
+              colorBrightness: Brightness.light,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              onPressed: () {
+                if (_formKey.currentState.validate()) {
+                  BlocProvider.of<LoginBloc>(context).add(SendOtpEvent(
+                      phoNo: stripCorrectPhone(_phoneTextController
+                          .value.text))); //, context:context));
+                }
+              },
+              color: Colors.grey[900],
+              child: Text(
+                'I_COMMIT'.tr(),
+                style: TextStyle(fontSize: 18, color: Colors.white),
+              ),
+            ),
+          ) //)
         ],
       ),
     );

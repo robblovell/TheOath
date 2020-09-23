@@ -8,19 +8,19 @@ import 'package:theprotestersoath/oath/OathContainer.dart';
 import 'OathContainer.dart';
 
 class OathPage extends StatelessWidget {
-  static Route route() {
-    return MaterialPageRoute(builder: (_) => OathPage());
-  }
+  // static Route route() {
+  //   return MaterialPageRoute(builder: (_) => OathPage());
+  // }
 
   @override
   Widget build(BuildContext context) {
-    void _showErrorSnackBar() {
-      Scaffold.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Oops... the URL couldn\'t be opened!'),
-        ),
-      );
-    }
+    // void _showErrorSnackBar() {
+    //   Scaffold.of(context).showSnackBar(
+    //     SnackBar(
+    //       content: Text('Oops... the URL couldn\'t be opened!'),
+    //     ),
+    //   );
+    // }
 
     return Scaffold(
         appBar: AppBar(
@@ -38,7 +38,8 @@ class OathPage extends StatelessWidget {
           leading: IconButton(
             icon: Icon(Icons.turned_in),
             onPressed: () {
-              BlocProvider.of<AppDrawerBloc>(context).add(BackButtonEvent("OathPage"));
+              BlocProvider.of<AppDrawerBloc>(context)
+                  .add(BackButtonEvent("OathPage"));
             },
           ),
         ),
@@ -62,7 +63,6 @@ class OathPage extends StatelessWidget {
                           child: TheOath(false, viewportConstraints),
                         ),
                       ),
-
                     ],
                   ),
                 ),

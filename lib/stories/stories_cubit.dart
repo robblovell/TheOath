@@ -17,12 +17,13 @@ class StoriesCubit extends Cubit<StoriesState> {
       which = (which + 1) % this.stories;
       var f = NumberFormat("00", "en_US");
       var index = f.format(which);
-      var date = 'STORY_DATE_'+index;
-      var title = 'STORY_'+index;
-      var credit = 'STORY_CREDIT_'+index;
-      var image = 'STORY_IMAGE_'+index;
-      var url = 'STORY_URL_'+index;
-      final story = StoryModel(date.tr(),title.tr(),credit.tr(),image.tr(),url.tr());
+      var date = 'STORY_DATE_' + index;
+      var title = 'STORY_' + index;
+      var credit = 'STORY_CREDIT_' + index;
+      var image = 'STORY_IMAGE_' + index;
+      var url = 'STORY_URL_' + index;
+      final story =
+          StoryModel(date.tr(), title.tr(), credit.tr(), image.tr(), url.tr());
       emit(LoadedState(story));
     } catch (e) {
       emit(ErrorState());

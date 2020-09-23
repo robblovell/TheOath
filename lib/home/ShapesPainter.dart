@@ -12,8 +12,6 @@ class ShapesPainter extends CustomPainter {
   }
   @override
   void paint(Canvas canvas, Size size) {
-    final paint = Paint();
-
     // Create a rectangle with size and width same as the canvas
     final Rect rect = Rect.fromLTWH(0, 0, size.width, size.height);
 

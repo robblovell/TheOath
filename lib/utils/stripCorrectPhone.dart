@@ -4,11 +4,10 @@ String stripCorrectPhone(phone) {
   final String prefix = (phone.substring(0, 1) != '+1')
       ? "+1"
       : (phone.substring(0, 0) != '+')
-      ? "+"
-      : "";
+          ? "+"
+          : "";
   final RegExp regExp = RegExp(r'\W+');
-  final String strippedPhone = phone.replaceAll(regExp, '');
+  final String strippedPhone = phone.replaceAll(regExp, '') as String;
   print(prefix + strippedPhone);
   return prefix + strippedPhone;
 }
-

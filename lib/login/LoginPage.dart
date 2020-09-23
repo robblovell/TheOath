@@ -6,9 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import './LoginForm.dart';
 
 class LoginPage extends StatelessWidget {
-
-  LoginPage({Key key})
-      : super(key: key);
+  LoginPage({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

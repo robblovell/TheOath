@@ -4,13 +4,15 @@ import 'package:flutter_session/flutter_session.dart';
 import './authentication.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
-
+class AuthenticationBloc
+    extends Bloc<AuthenticationEvent, AuthenticationState> {
   AuthenticationBloc() : super(InitialAuthenticationState());
 
   // @override
   @override
-  Stream<AuthenticationState> mapEventToState(AuthenticationEvent event,) async* {
+  Stream<AuthenticationState> mapEventToState(
+    AuthenticationEvent event,
+  ) async* {
     if (event is AppStarted) {
       // todo: set initial login state to true if we have a token.
 
@@ -31,7 +33,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     if (event is LoggedIn) {
       await FlutterSession().set("isAuth", true);
       final prefs = await SharedPreferences.getInstance();
-      prefs.setBool('isAuth', true);
+      await prefs.setBool('isAuth', true);
       yield Loading();
       yield Authenticated();
     }
@@ -39,7 +41,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     if (event is LoggedOut) {
       await FlutterSession().set("isAuth", false);
       final prefs = await SharedPreferences.getInstance();
-      prefs.setBool('isAuth', false);
+      await prefs.setBool('isAuth', false);
       yield Loading();
       yield Unauthenticated();
     }

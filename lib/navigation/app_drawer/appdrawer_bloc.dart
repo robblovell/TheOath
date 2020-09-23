@@ -6,17 +6,17 @@ import './appdrawer.dart';
 import 'appdrawer.dart';
 
 class AppDrawerBloc extends Bloc<AppDrawerEvent, AppDrawerState> {
-
   Token token;
   AppDrawerEvent lastPage;
   AppDrawerEvent currentPage;
 
-  AppDrawerBloc()
-      : super(LoadingState());
+  AppDrawerBloc() : super(LoadingState());
 
   // @override
   @override
-  Stream<AppDrawerState> mapEventToState(AppDrawerEvent event,) async* {
+  Stream<AppDrawerState> mapEventToState(
+    AppDrawerEvent event,
+  ) async* {
     this.lastPage = this.currentPage;
     this.currentPage = event;
     if (event is LoadingEvent) {
@@ -57,11 +57,11 @@ class AppDrawerBloc extends Bloc<AppDrawerEvent, AppDrawerState> {
       });
     }
   }
+
   Stream<AppDrawerEvent> backFromReason(event) async* {
     StreamController<AppDrawerEvent> eventStream = StreamController();
     eventStream.add(event);
-    eventStream.close();
+    await eventStream.close();
     yield* eventStream.stream;
   }
 }
-

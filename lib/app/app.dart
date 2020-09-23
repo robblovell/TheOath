@@ -70,6 +70,7 @@ class _AppViewState extends State<AppView> {
   void initState() {
     super.initState();
   }
+
   var state = null;
 
   Future<bool> _onBackPressed() {
@@ -84,7 +85,9 @@ class _AppViewState extends State<AppView> {
             onWillPop: _onBackPressed,
             child: MaterialApp(
               title: 'APP_TITLE'.tr(),
-              theme: ThemeData(primarySwatch: Colors.grey, appBarTheme: AppBarTheme(color: Colors.grey)),
+              theme: ThemeData(
+                  primarySwatch: Colors.grey,
+                  appBarTheme: AppBarTheme(color: Colors.grey)),
               home: BlocBuilder<AppDrawerBloc, AppDrawerState>(
                 builder: (context, state) {
                   this.state = state;

@@ -12,7 +12,8 @@ class PhoneTextFormField {
     String validationErrorMsg,
     FocusNode focusNode,
   }) {
-    return Expanded(child: TextFormField(
+    return Expanded(
+        child: TextFormField(
       controller: controller,
       focusNode: focusNode,
       keyboardType: keyboardType,
