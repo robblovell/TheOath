@@ -140,3 +140,11 @@ coverage/
 # Release
 android/fastlane/deployment_cert.der
 Google Play Android Developer.json
+ios/vendor
+elite-coral-290406-91d4a3fff596.json
+the-protesters-oath-firebase-adminsdk-h5isv-1b7e8d8e4c.json
+report.xml
+Payload.ipa
+ios/Runner.xcarchive
+Payload
+gplaydev.json

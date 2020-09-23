@@ -21,18 +21,44 @@ platform :android do
     gradle(task: "test")
   end
 
-  desc "Submit a new Beta Build to Crashlytics Beta"
-  lane :beta do
-    gradle(task: "clean assembleRelease")
-    crashlytics
-  
-    # sh "your_script.sh"
-    # You can also use other beta testing services here
-  end
-
   desc "Deploy a new version to the Google Play"
   lane :deploy do
     gradle(task: "clean assembleRelease")
-    upload_to_play_store
+    upload_to_play_store(
+      json_key: "/Users/robblovell/Code/original/theprotestersoath/android/fastlane/the-protesters-oath-firebase-adminsdk-h5isv-1b7e8d8e4c.json "
+    )
   end
+
+  desc "distribute"
+    lane :distribute do
+        build_android_app( # built-in fastlane action.
+          task: "assemble",
+          build_type: "Release",
+        )
+
+        firebase_app_distribution(
+            apk_path: "../build/app/outputs/bundle/release/app-release.apk",
+            app: "1:111371745959:android:5665648e6e1b1bd98bb982",
+            testers: "robblovell@gmail.com",  # "/path/to/testers.txt"
+            release_notes: "First release",  # "/path/to/release-notes.txt"
+            service_credentials_file: "/Users/robblovell/Code/original/theprotestersoath/android/fastlane/gplaydev.json"
+        )
+        slack(
+            slack_url: "https://hooks.slack.com/services/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",
+            message: "New build is available for testing",
+            success: true,
+            default_payloads: [:git_branch, :last_git_commit_message]
+        )
+
+    end
+    # handle exception
+    error do |lane, exception, options|
+        # send slack failure notification
+        slack(
+            message: "Build failed with exception: #{exception}",
+            slack_url: "https://hooks.slack.com/services/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",
+            success: false,
+            default_payloads: [:git_branch, :last_git_commit_message]
+        )
+    end
 end
