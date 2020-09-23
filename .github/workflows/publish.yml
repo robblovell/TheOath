@@ -16,10 +16,11 @@ jobs:
           java-version: '12.x'
       - uses: subosito/flutter-action@v1
         with:
-          flutter-version: '1.9.1+hotfix.6'
+          flutter-version: '2.5.0'
       - run: flutter pub get
       - run: flutter test
       - run: flutter build apk
+      - run: flutter build ios --release
       - uses: actions/upload-artifact@v1
         with:
           # Name of the command/step.
