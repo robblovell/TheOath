@@ -16,4 +16,4 @@ mv Payload.zip Payload.ipa
 rm -Rf Payload
 # open finder and manually find the .ipa and upload to diawi using chrome
 open .
-open -a "Google Chrome" https://www.diawi.com/
+open -a "Google Chrome" https://console.firebase.google.com/u/1/project/the-protesters-oath/appdistribution/app/ios:com.theprotestersoath.theprotestersoath/releases

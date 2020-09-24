@@ -9,9 +9,7 @@
 #
 #     https://docs.fastlane.tools/plugins/available-plugins
 #
-
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
+update_fastlane
 
 default_platform(:android)
 
@@ -21,44 +19,71 @@ platform :android do
     gradle(task: "test")
   end
 
-  desc "Deploy a new version to the Google Play"
-  lane :deploy do
-    gradle(task: "clean assembleRelease")
-    upload_to_play_store(
-      json_key: "/Users/robblovell/Code/original/theprotestersoath/android/fastlane/the-protesters-oath-firebase-adminsdk-h5isv-1b7e8d8e4c.json "
+
+
+  def getGitInfo
+    commit = last_git_commit
+    revNumber=`git rev-list --all|wc -l|xargs`
+    shaNumber=`git rev-parse --verify --short HEAD`
+    branch=`git branch --show-current`
+    commit[:branch] = branch
+    commit[:rev] = revNumber
+    commit[:sha] = commit[:abbreviated_commit_hash]
+    print("Rev number: #{revNumber}".blue)
+    print("Commit SHA: #{shaNumber}".blue)
+    puts("Commit Object: #{commit}".yellow)
+    puts("Commit Author: #{commit[:author]}".blue)
+    puts("Commit Message: #{commit[:message]}".blue)
+    puts("Commit HASH: #{commit[:commit_hash]}".blue)
+    puts("Commit SHA: #{commit[:abbreviated_commit_hash]}".blue)
+    puts("Commit Branch: #{branch}".blue)
+    return commit
+  end
+
+  def buildAndroid
+    build_android_app( # built-in fastlane action.
+      task: "assemble",
+      build_type: "Release",
+    )
+  end
+
+  def distributeAndroid
+    firebase_app_distribution(
+      apk_path: "../build/app/outputs/apk/release/app-release.apk",
+      app: "1:111371745959:android:5665648e6e1b1bd98bb982",
+      testers: "robblovell@gmail.com",  # "/path/to/testers.txt"
+      release_notes: "First release",  # "/path/to/release-notes.txt"
+    )
+  end
+
+  def notifySlack(message, commit, result)
+    slack(
+      slack_url: "https://hooks.slack.com/services/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",
+      message: message,
+      success: result,
+      default_payloads: [commit[:branch],commit[:sha],commit[:rev], commit[:message]]
     )
   end
 
   desc "distribute"
     lane :distribute do
-        build_android_app( # built-in fastlane action.
-          task: "assemble",
-          build_type: "Release",
-        )
-
-        firebase_app_distribution(
-            apk_path: "../build/app/outputs/bundle/release/app-release.apk",
-            app: "1:111371745959:android:5665648e6e1b1bd98bb982",
-            testers: "robblovell@gmail.com",  # "/path/to/testers.txt"
-            release_notes: "First release",  # "/path/to/release-notes.txt"
-            service_credentials_file: "/Users/robblovell/Code/original/theprotestersoath/android/fastlane/gplaydev.json"
-        )
-        slack(
-            slack_url: "https://hooks.slack.com/services/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",
-            message: "New build is available for testing",
-            success: true,
-            default_payloads: [:git_branch, :last_git_commit_message]
-        )
-
+      commit = getGitInfo()
+      buildAndroid()
+      distributeAndroid()
+      notifySlack("A new build is available for testing", commit, true)
     end
+
     # handle exception
     error do |lane, exception, options|
-        # send slack failure notification
-        slack(
-            message: "Build failed with exception: #{exception}",
-            slack_url: "https://hooks.slack.com/services/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",
-            success: false,
-            default_payloads: [:git_branch, :last_git_commit_message]
-        )
+      commit = getGitInfo()
+      notifySlack("Build failed with exception: #{exception}", commit, false)
     end
+
+  desc "Deploy a new version to the Google Play"
+      lane :deploy do
+        gradle(task: "clean assembleRelease")
+        upload_to_play_store(
+          json_key: "/Users/robblovell/Code/original/theprotestersoath/android/fastlane/the-protesters-oath-firebase-adminsdk-h5isv-1b7e8d8e4c.json "
+        )
+      end
 end

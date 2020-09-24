@@ -17,7 +17,7 @@ class ShapesPainter extends CustomPainter {
 
     List<Shape> shapes = List<Shape>();
     shapes.add(Square(rect, Colors.grey[500]));
-    this.token.phoneNumber = "6047621034";
+    // this.token.phoneNumber = "6047621034";
     PaintedBarcode painting = PaintedBarcode(shapes);
     painting.makePainting(this.token.phoneNumber);
     painting.draw(canvas);
