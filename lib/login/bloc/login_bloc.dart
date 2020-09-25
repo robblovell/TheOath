@@ -102,7 +102,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   }
 
   Future<void> close() async {
-    await super.close();
+    super.close();
   }
 
   Stream<LoginEvent> sendOtp(String phoNo) async* {
@@ -161,7 +161,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       final phoneCodeSent = (String verId, [int forceResent]) {
         this.verID = verId;
         eventStream.add(OtpSendEvent());
-        eventStream.close();
+        // eventStream.close();
       };
       final phoneCodeAutoRetrievalTimeout = (String verid) {
         this.verID = verid;

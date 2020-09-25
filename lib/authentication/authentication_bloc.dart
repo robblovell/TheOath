@@ -33,7 +33,7 @@ class AuthenticationBloc
     if (event is LoggedIn) {
       await FlutterSession().set("isAuth", true);
       final prefs = await SharedPreferences.getInstance();
-      await prefs.setBool('isAuth', true);
+      prefs.setBool('isAuth', true);
       yield Loading();
       yield Authenticated();
     }
@@ -41,7 +41,7 @@ class AuthenticationBloc
     if (event is LoggedOut) {
       await FlutterSession().set("isAuth", false);
       final prefs = await SharedPreferences.getInstance();
-      await prefs.setBool('isAuth', false);
+      prefs.setBool('isAuth', false);
       yield Loading();
       yield Unauthenticated();
     }
