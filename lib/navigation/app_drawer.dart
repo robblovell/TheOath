@@ -33,7 +33,7 @@ class AppDrawer extends StatelessWidget {
                     },
                   ),
                   ListTile(
-                    leading: Icon(Icons.info),
+                    leading: Icon(Icons.arrow_back),
                     title: Text(
                       "THEREASON".tr(),
                       style: TextStyle(fontSize: 22, color: Colors.black),

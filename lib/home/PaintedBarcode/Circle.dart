@@ -12,15 +12,22 @@ class Circle extends Shape {
     this.radius = radius;
   }
 
-  @override
-  Shape fromShape(Shape shape, [Color color = Colors.blueAccent]) {
-    Circle newShape = super.fromShape(shape, color);
-    newShape.offset = this.offset;
-    newShape.radius = this.radius;
-    return newShape;
+  @override Offset center() {
+    return this.offset;
   }
 
-  List<Shape> splitCircle(int direction, [Color color = null]) {
+  @override double minSize() {
+    return this.radius/2;
+  }
+
+  @override
+  Circle.fromShape(Shape shape, [Color color = Colors.blueAccent])
+      : super(SHAPES.circle, color){
+    this.offset = shape.center(); //Offset(shape.center().x, shape.center().y);
+    this.radius = shape.incircleRadius();
+  }
+
+  List<Shape> splitCircle(int direction, Color color) {
     if (color == null) {
       color = this.color;
     }
@@ -29,6 +36,10 @@ class Circle extends Shape {
     } else {
       return [this, Circle(this.offset, this.radius / 2, color)];
     }
+  }
+
+  String toString() {
+    return "Circle[ " + this.offset.toString() + ", " + this.radius.toString() + ", " + super.toString() + " ]\n";
   }
 
   @override

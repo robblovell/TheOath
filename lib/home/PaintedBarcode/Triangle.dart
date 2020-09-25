@@ -20,15 +20,62 @@ class Triangle extends Shape {
   }
 
   @override
-  Shape fromShape(Shape shape, [Color color = Colors.blueAccent]) {
-    Triangle newShape = super.fromShape(shape, color);
-    newShape.points = this.points;
-    return newShape;
-  }
-
-  @override
   List<Shape> split() {
     return [this, this];
+  }
+
+  double length(Point a, Point b) {
+    return sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y));
+  }
+
+  double minSize() {
+    Point A = this.points[0];
+    Point B = this.points[1];
+    Point C = this.points[2];
+    double c = length(A, B);
+    double a = length(B, C);
+    double b = length(C, A);
+    double perimeter = a+b+c;
+    double p = perimeter/2;
+
+    double area = sqrt(p*(p-a)*(p-b)*(p-c));
+    return 2*area/perimeter;
+  }
+
+  double incircleRadius() {
+    Point A = this.points[0];
+    Point B = this.points[1];
+    Point C = this.points[2];
+    double c = length(A, B);
+    double a = length(B, C);
+    double b = length(C, A);
+    double perimeter = a+b+c;
+    double p = perimeter/2;
+
+    double area = sqrt(p*(p-a)*(p-b)*(p-c));
+    return 2*area/perimeter;
+  }
+
+  Point inCenter() {
+    Point A = this.points[0];
+    Point B = this.points[1];
+    Point C = this.points[2];
+    double c = length(A, B);
+    double a = length(B, C);
+    double b = length(C, A);
+    double divisor = a + b + c;
+    return Point(
+        (A.x*a + B.x*b + C.x*c) / divisor, (A.y*a + B.y*b + C.y*c) / divisor);
+  }
+
+  Offset center() {
+    Point center = this.inCenter();
+    return Offset(center.x, center.y);
+  }
+
+  Point naturalCenter() {
+    return Point((points[0].x + points[1] .x + points[2].x)/3,
+        (points[0].y + points[1] .y + points[2].y)/3);
   }
 
   Point midpoint(Point p0, Point p1) {

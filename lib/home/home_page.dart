@@ -16,70 +16,77 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AppDrawerBloc, AppDrawerState>(
         builder: (BuildContext context, AppDrawerState state) {
-      return Scaffold(
-          drawer: AppDrawer(),
-          appBar: AppBar(
-            backgroundColor: Colors.grey,
-            // theme: ThemeData(
-            //   primaryColor: Colors.black,
-            // ),
-            title: Text(
-              'HOME'.tr(),
-              style: TextStyle(color: Colors.white),
-            ),
-            actions: [
-              IconButton(
-                icon: Icon(Icons.art_track, size: 40),
-                onPressed: () => BlocProvider.of<AppDrawerBloc>(context)
-                    .add(StoryPageEvent()),
-              ),
-            ],
-          ),
-          body: Stack(children: <Widget>[
-            CustomPaint(
-              size: Size.infinite,
-              child: Container(
-                height: MediaQuery.of(context).size.height,
-              ),
-              painter: ShapesPainter((state as HomePageState).token),
-            ),
-            Container(
-                alignment: Alignment(0.9, 0.91),
-                child: IconButton(
-                  icon: Icon(
-                    Icons.list, //article_outlined,
-                    // IconData(0xe060, fontFamily: 'MaterialIcons'),
-                    color: Colors.black,
-                    size: 30,
-                  ),
-                  tooltip: 'STORIES_TOOLTIP'.tr(),
-                  onPressed: () => BlocProvider.of<AppDrawerBloc>(context)
-                      .add(OathPageEvent()),
-                )),
-            Container(
-                alignment: Alignment(-.9, 0.91),
-                child: IconButton(
-                  icon: Icon(
-                    Icons.info,
-                    // IconData(0xe060, fontFamily: 'MaterialIcons'),
-                    color: Colors.black,
-                    size: 30,
-                  ),
-                  tooltip: 'THEREASON'.tr(),
-                  onPressed: () => BlocProvider.of<AppDrawerBloc>(context)
-                      .add(ReasonPageEvent()),
-                )),
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Container(
-                alignment: Alignment(0.0, 0.80),
-                child: Text(
-                  'OATH_TAKEN'.tr(),
-                  textScaleFactor: 1.3,
+          return Scaffold(
+              drawer: AppDrawer(),
+              appBar: AppBar(
+                backgroundColor: Colors.grey,
+                // theme: ThemeData(
+                //   primaryColor: Colors.black,
+                // ),
+                title: Text(
+                  'HOME'.tr(),
+                  style: TextStyle(color: Colors.white),
                 ),
+                actions: [
+                  IconButton(
+                    icon: Icon(Icons.art_track, size: 40),
+                    onPressed: () =>
+                        BlocProvider.of<AppDrawerBloc>(context)
+                            .add(StoryPageEvent()),
+                  ),
+                ],
               ),
-            ),
-          ]));
-    });
+              body: Stack(children: <Widget>[
+                CustomPaint(
+                  size: Size.infinite,
+                  child: Container(
+                    height: MediaQuery
+                        .of(context)
+                        .size
+                        .height,
+                  ),
+                  painter: ShapesPainter((state as HomePageState).token),
+                ),
+                Container(
+                    alignment: Alignment(0.9, 0.91),
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.list, //article_outlined,
+                        // IconData(0xe060, fontFamily: 'MaterialIcons'),
+                        color: Colors.black,
+                        size: 30,
+                      ),
+                      tooltip: 'STORIES_TOOLTIP'.tr(),
+                      onPressed: () =>
+                          BlocProvider.of<AppDrawerBloc>(context)
+                              .add(OathPageEvent()),
+                    )),
+                Container(
+                    alignment: Alignment(-.9, 0.91),
+                    child: IconButton(
+                      icon: Icon(
+                        Icons.arrow_back,
+                        // IconData(0xe060, fontFamily: 'MaterialIcons'),
+                        color: Colors.black,
+                        size: 30,
+                      ),
+                      tooltip: 'THEREASON'.tr(),
+                      onPressed: () =>
+                          BlocProvider.of<AppDrawerBloc>(context)
+                              .add(ReasonPageEvent()),
+                    )),
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Container(
+                    alignment: Alignment(0.0, 0.75),
+                    child: Text(
+                      'OATH_TAKEN'.tr(),
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                      textScaleFactor: 1.8,
+                    ),
+                  ),
+                ),
+              ]));
+        });
   }
 }

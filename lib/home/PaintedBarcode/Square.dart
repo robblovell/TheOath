@@ -12,12 +12,30 @@ class Square extends Shape {
     this.rect = rect;
   }
 
-  // @override
-  // Shape fromShape(Shape shape, [Color color = Colors.blueAccent]) {
-  //   Square newShape = super.fromShape(shape, color) as Square;
-  //   newShape.rect = this.rect;
-  //   return newShape;
-  // }
+  Point midpoint(Point p0, Point p1) {
+    return Point((p0.x + p1.x) / 2, (p0.y + p1.y) / 2);
+  }
+
+  double width() {
+    return this.rect.width;
+  }
+
+  double height() {
+    return this.rect.height;
+  }
+
+  @override
+  Offset center() {
+    return this.rect.center;
+  }
+
+  double incircleRadius () {
+    return minSize()/2;
+  }
+
+  @override double minSize() {
+    return width() < height() ? width() : height();
+  }
 
   Square.fromLTRB(double left, double top, double right, double bottom,
       [Color color = Colors.blueAccent])

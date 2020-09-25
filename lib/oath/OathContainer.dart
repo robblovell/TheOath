@@ -23,7 +23,7 @@ class TheOath extends StatelessWidget {
         pinned: true,
         actions: [
           IconButton(
-              icon: Icon(Icons.info, size: 40),
+              icon: Icon(Icons.arrow_back, size: 40),
               onPressed: () {
                 if (this.isLogin) {
                   BlocProvider.of<AuthenticationBloc>(context)

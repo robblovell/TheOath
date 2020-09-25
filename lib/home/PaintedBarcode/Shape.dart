@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/material.dart';
 
 enum SHAPES { circle, triangle, square }
@@ -9,15 +10,6 @@ class Shape {
   Shape(SHAPES type, [Color color = Colors.blueAccent]) {
     this.type = type;
     this.color = color;
-  }
-
-  Shape fromShape(Shape shape, [Color color = Colors.blueAccent]) {
-    Shape newShape = Shape(shape.type, color);
-    return newShape;
-  }
-
-  List<Shape> split() {
-    return [this.fromShape(this, this.color)];
   }
 
   double width() {
@@ -36,9 +28,15 @@ class Shape {
     return 10;
   }
 
-  Offset center() {
-    return Offset(100, 100);
+  double incircleRadius() {
+    return 10;
   }
 
+  Offset center() {
+    return Offset(0,0);
+  }
+  String toString() {
+    return  "Color: "+this.color.value.toString();
+  }
   draw(Canvas canvas) {}
 }

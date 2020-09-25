@@ -39,3 +39,15 @@ genreate ipa:
 https://gist.github.com/monmonja/6e2910ca51d64b8be8bb8d28d0d34a55
 
 flutter build appbundle --target-platform android-arm,android-arm64
+
+
+#### To release android:
+
+bundle exec fastlane run firebase_app_distribution_login
+export FIREBASE_TOKEN=...
+bundle exec fastlane distribute
+
+
+#### To release ios: 
+
+

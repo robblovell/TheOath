@@ -9,17 +9,93 @@
 #
 #     https://docs.fastlane.tools/plugins/available-plugins
 #
-
-# Uncomment the line if you want fastlane to automatically update itself
-# update_fastlane
+update_fastlane
 
 default_platform(:ios)
 
 platform :ios do
-  desc "Push a new beta build to TestFlight"
-  lane :beta do
-    puts "Building iOS and pushing to firebase."
-    build_app(workspace: "Runner.xcworkspace", scheme: "Runner")
-    upload_to_firebase
-  end
+
+
+    def bumpIOS
+             # read the properties file, assume the last and fifth line is the version Code.
+            properties = File.read("../local.properties")
+            puts properties
+            parts = properties.split('=')
+
+            parts[5] = ((parts[5].to_i) + 1).to_s
+
+            properties = parts.join("=");
+            puts properties
+
+            f = File.new("../local.properties", "w")
+            f.write(properties)
+            f.close
+    end
+    def getGitInfo
+      commit = last_git_commit
+      revNumber=`git rev-list --all|wc -l|xargs`
+      shaNumber=`git rev-parse --verify --short HEAD`
+      branch=`git branch --show-current`
+      commit[:branch] = branch
+      commit[:rev] = revNumber
+      commit[:sha] = commit[:abbreviated_commit_hash]
+      print("Rev number: #{revNumber}".blue)
+      print("Commit SHA: #{shaNumber}".blue)
+      puts("Commit Object: #{commit}".yellow)
+      puts("Commit Author: #{commit[:author]}".blue)
+      puts("Commit Message: #{commit[:message]}".blue)
+      puts("Commit HASH: #{commit[:commit_hash]}".blue)
+      puts("Commit SHA: #{commit[:abbreviated_commit_hash]}".blue)
+      puts("Commit Branch: #{branch}".blue)
+      return commit
+    end
+
+    def buildIOS
+      bumpIOS()
+      build_app(
+          scheme: "Runner",
+          archive_path: "./build/Runner.xcarchive",
+          export_method: "development",
+          output_directory: "./build/Runner"
+        )
+    end
+
+    def distributeIOS
+      firebase_app_distribution(
+        ipa_path: "../build/Runner/Runner.ipa",
+        app: "1:111371745959:ios:d000a315c73d72468bb982",
+        testers: "robblovell@gmail.com",  # "/path/to/testers.txt"
+        release_notes: "First release",  # "/path/to/release-notes.txt"
+      )
+    end
+
+    def notifySlack(message, commit, result)
+      slack(
+        slack_url: "https://hooks.slack.com/services/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",
+        message: message,
+        success: result,
+        default_payloads: [commit[:branch],commit[:sha],commit[:rev], commit[:message]]
+      )
+    end
+
+    desc "build"
+      lane :build do
+        buildIOS()
+      end
+
+    desc "distribute"
+      lane :distribute do
+        commit = getGitInfo()
+        buildIOS()
+        distributeIOS()
+        notifySlack("A new build is available for testing", commit, true)
+      end
+
+      # handle exception
+      error do |lane, exception, options|
+        commit = getGitInfo()
+        notifySlack("Build failed with exception: #{exception}", commit, false)
+      end
+
+
 end
