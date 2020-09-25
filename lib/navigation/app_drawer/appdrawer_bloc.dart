@@ -22,13 +22,13 @@ class AppDrawerBloc extends Bloc<AppDrawerEvent, AppDrawerState> {
     if (event is LoadingEvent) {
       dynamic tokenMap = await FlutterSession().get("token");
       this.token = Token.fromJson(tokenMap);
-      print(token);
+      // print(token);
       yield HomePageState(this.token);
     }
     if (event is HomePageEvent) {
       dynamic tokenMap = await FlutterSession().get("token");
       this.token = Token.fromJson(tokenMap);
-      print(token);
+      // print(token);
       yield HomePageState(this.token);
     }
     if (event is AboutPageEvent) {
@@ -46,7 +46,7 @@ class AppDrawerBloc extends Bloc<AppDrawerEvent, AppDrawerState> {
     if (event is BackButtonEvent) {
       dynamic tokenMap = await FlutterSession().get("token");
       this.token = Token.fromJson(tokenMap);
-      print(token);
+      // print(token);
       // todo: handle the differences for the Reason page. sometimes it goes back to oath.
       yield HomePageState(this.token);
     }

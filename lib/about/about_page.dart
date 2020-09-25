@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:theprotestersoath/navigation/app_drawer/appdrawer_bloc.dart';
 import 'package:theprotestersoath/navigation/app_drawer/appdrawer_event.dart';
 
+import '../res.dart';
+
 class AboutPage extends StatelessWidget {
   // static Route route() {
   //   return MaterialPageRoute(builder: (_) => AboutPage());
@@ -18,7 +20,7 @@ class AboutPage extends StatelessWidget {
           style: TextStyle(color: Colors.white),
         ),
         leading: IconButton(
-          icon: Icon(Icons.turned_in),
+          icon: Icon(Icons.arrow_back),
           onPressed: () {
             BlocProvider.of<AppDrawerBloc>(context)
                 .add(BackButtonEvent("AboutPage"));
@@ -37,7 +39,7 @@ class AboutPage extends StatelessWidget {
                   shape: BoxShape.circle,
                   image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: AssetImage('assets/img/robb.png'),
+                    image: AssetImage(Res.robb),
                   ))),
           Container(height: 5),
           Text(
@@ -53,7 +55,7 @@ class AboutPage extends StatelessWidget {
                   image: DecorationImage(
                     fit: BoxFit.fitHeight,
                     image:
-                        AssetImage('assets/img/logo_flutter_transparent.png'),
+                        AssetImage(Res.logo_flutter_transparent),
                   ))),
           Container(height: 5),
           Text(

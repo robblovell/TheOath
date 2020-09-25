@@ -113,7 +113,7 @@ class PaintedBarcode {
         used.add(colorIndex);
       }
     });
-    print(this.shapes.toString());
+    // print(this.shapes.toString());
   }
 
   arrayDraw(Canvas canvas, List<Object> shapes) {

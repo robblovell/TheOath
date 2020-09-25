@@ -49,7 +49,7 @@ class ReasonPage extends StatelessWidget {
               leading: (() {
                 if (this.isLogin) {
                   return IconButton(
-                    icon: Icon(Icons.arrow_back),
+                    icon: Icon(Icons.info),
                     onPressed: () {
                       BlocProvider.of<AuthenticationBloc>(context)
                           .add(LoggedOut());
@@ -60,7 +60,7 @@ class ReasonPage extends StatelessWidget {
                   return IconButton(
                     icon: Icon(lastPage is OathPageEvent
                         ? Icons.arrow_back
-                        : Icons.turned_in),
+                        : Icons.arrow_back),
                     onPressed: () {
                       BlocProvider.of<AppDrawerBloc>(context)
                           .add(ReasonBackButtonEvent(lastPage));

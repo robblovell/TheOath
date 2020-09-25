@@ -8,6 +8,12 @@ String stripCorrectPhone(phone) {
           : "";
   final RegExp regExp = RegExp(r'\W+');
   final String strippedPhone = phone.replaceAll(regExp, '') as String;
-  print(prefix + strippedPhone);
+  // print(prefix + strippedPhone);
   return prefix + strippedPhone;
+}
+
+String stripPlusOnePhone(phone) {
+  return (phone.substring(0, 2) == '+1')
+      ? phone.substring(2, phone.length)
+      : phone;
 }

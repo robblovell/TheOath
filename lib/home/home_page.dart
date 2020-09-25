@@ -65,7 +65,7 @@ class HomePage extends StatelessWidget {
                     alignment: Alignment(-.9, 0.91),
                     child: IconButton(
                       icon: Icon(
-                        Icons.arrow_back,
+                        Icons.info,
                         // IconData(0xe060, fontFamily: 'MaterialIcons'),
                         color: Colors.black,
                         size: 30,

@@ -52,6 +52,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         final Token token = Token();
         token.uid = user.uid;
         token.phoneNumber = user.phoneNumber;
+
         String json = jsonEncode(token);
 
         await FlutterSession().set('token', json);
@@ -81,7 +82,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   void onEvent(LoginEvent event) {
     // TODO: implement onEvent (contains phoNo)
     super.onEvent(event);
-    print(event);
+    // print(event);
   }
 
   @override
