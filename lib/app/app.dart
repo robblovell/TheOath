@@ -34,6 +34,7 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
@@ -85,6 +86,7 @@ class _AppViewState extends State<AppView> {
             onWillPop: _onBackPressed,
             child: MaterialApp(
               title: 'APP_TITLE'.tr(),
+              debugShowCheckedModeBanner: false,
               theme: ThemeData(
                   primarySwatch: Colors.grey,
                   appBarTheme: AppBarTheme(color: Colors.grey)),

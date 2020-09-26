@@ -13,24 +13,28 @@ update_fastlane
 
 default_platform(:ios)
 
-platform :ios do
-
+platform :ios do |options|
+    lane :beta do
+      cert
+      sigh(force: true)
+    end
 
     def bumpIOS
-             # read the properties file, assume the last and fifth line is the version Code.
-            properties = File.read("../local.properties")
-            puts properties
-            parts = properties.split('=')
+       # read the properties file, assume the last and fifth line is the version Code.
+      properties = File.read("../local.properties")
+      puts properties
+      parts = properties.split('=')
 
-            parts[5] = ((parts[5].to_i) + 1).to_s
+      parts[5] = ((parts[5].to_i) + 1).to_s
 
-            properties = parts.join("=");
-            puts properties
+      properties = parts.join("=");
+      puts properties
 
-            f = File.new("../local.properties", "w")
-            f.write(properties)
-            f.close
+      f = File.new("../local.properties", "w")
+      f.write(properties)
+      f.close
     end
+
     def getGitInfo
       commit = last_git_commit
       revNumber=`git rev-list --all|wc -l|xargs`
@@ -50,23 +54,35 @@ platform :ios do
       return commit
     end
 
-    def buildIOS
-      bumpIOS()
+    def buildIOS(options)
+      # bumpIOS()
+      get_certificates
+      get_provisioning_profile(
+        adhoc: options[:method]=="app-store"?false:true,
+        force: true#,
+#        filename: "myFile.mobileprovision"
+      )
+      puts "Build method is #{options[:method]}. Possible: [app-store,ad-hoc,package,enterprise,development,developer-id]"
       build_app(
-          scheme: "Runner",
-          archive_path: "./build/Runner.xcarchive",
-          export_method: "development",
-          output_directory: "./build/Runner"
-        )
+        scheme: "Runner",
+        # ["app-store", "ad-hoc", "package", "enterprise", "development", "developer-id"]
+        export_method: options[:method],
+#        output_directory: "./build/Runner"
+      )
     end
 
-    def distributeIOS
+    def distributeIOSFirebase
       firebase_app_distribution(
         ipa_path: "../build/Runner/Runner.ipa",
         app: "1:111371745959:ios:d000a315c73d72468bb982",
         testers: "robblovell@gmail.com",  # "/path/to/testers.txt"
-        release_notes: "First release",  # "/path/to/release-notes.txt"
+        release_notes: "/Users/robblovell/Code/original/theprotestersoath/docs/release-notes.txt",
+        firebase_cli_token: $FIREBASE_TOKEN
       )
+    end
+
+    def distributeTestFlight
+        upload_to_testflight
     end
 
     def notifySlack(message, commit, result)
@@ -79,23 +95,23 @@ platform :ios do
     end
 
     desc "build"
-      lane :build do
-        buildIOS()
+      lane :build do |options|
+        buildIOS(options)
+        commit = getGitInfo()
+        notifySlack("A new build complete. #{commit[:rev]} - #{commit[:sha]}", commit, true)
       end
 
     desc "distribute"
-      lane :distribute do
-        commit = getGitInfo()
-        buildIOS()
+      lane :distribute do |options|
+        buildIOS(options)
         distributeIOS()
-        notifySlack("A new build is available for testing", commit, true)
+        commit = getGitInfo()
+        notifySlack("A new build is available for testing. #{commit[:rev]} - #{commit[:sha]}", commit, true)
       end
 
       # handle exception
-      error do |lane, exception, options|
-        commit = getGitInfo()
-        notifySlack("Build failed with exception: #{exception}", commit, false)
-      end
-
-
+    error do |lane, exception, options|
+      commit = getGitInfo()
+      notifySlack("Build failed with exception: #{commit[:rev]} - #{commit[:sha]} #{exception}", commit, false)
+    end
 end

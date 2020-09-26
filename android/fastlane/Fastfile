@@ -68,6 +68,7 @@ platform :android do
       app: "1:111371745959:android:5665648e6e1b1bd98bb982",
       testers: "robblovell@gmail.com",  # "/path/to/testers.txt"
       release_notes: "First release",  # "/path/to/release-notes.txt"
+      firebase_cli_token: $FIREBASE_TOKEN
     )
   end
 
@@ -80,7 +81,7 @@ platform :android do
     )
   end
 
-  desc "distribute"
+  desc "build"
     lane :build do
       buildAndroid()
     end
@@ -93,10 +94,26 @@ platform :android do
       notifySlack("A new build is available for testing", commit, true)
     end
 
-    # handle exception
-    error do |lane, exception, options|
+  desc "beta"
+    lane :publish do
       commit = getGitInfo()
-      notifySlack("Build failed with exception: #{exception}", commit, false)
+      buildAndroid()
+      upload_to_play_store(track: 'beta')
+      notifySlack("Successfully published a beta build", commit, true)
     end
+
+  desc "publish"
+    lane :publish do
+      commit = getGitInfo()
+      buildAndroid()
+      upload_to_play_store(track: 'store')
+      notifySlack("Successfully published a store build", commit, true)
+    end
+
+  # handle exception
+  error do |lane, exception, options|
+    commit = getGitInfo()
+    notifySlack("Build failed with exception: #{exception}", commit, false)
+  end
 
 end

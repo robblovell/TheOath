@@ -41,6 +41,12 @@ https://gist.github.com/monmonja/6e2910ca51d64b8be8bb8d28d0d34a55
 flutter build appbundle --target-platform android-arm,android-arm64
 
 
+#### To Login to do the authentication: 
+
+firebase login:ci
+This takes you to a login flow which generates a token.
+setenv $FIREBASE_TOKEN=...
+
 #### To release android:
 
 bundle exec fastlane run firebase_app_distribution_login

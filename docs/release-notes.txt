@@ -1,0 +1,6 @@
+I have fixed the login and update a number of small features:
+1. The barcode screen draws as conceived.
+2. All print statements have been removed
+3. Remove +1 off of phone numbers if it is present.
+4. Back buttons and icons have been reworked.
+5. Fixed the signing cert so that iOS users can download.
