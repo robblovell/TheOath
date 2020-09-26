@@ -30,8 +30,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       }
     } else if (event is OtpSendEvent) {
       yield OtpSentState(); // we get here after an otp is sent. the ui reacts by showing the pin entry screen.
-    // } else if (event is LoginCompleteEvent) {
-    //   yield LoginCompleteState(event.firebaseUser);
+    } else if (event is LoginCompleteEvent) {
+      yield LoginCompleteState(event.firebaseUser);
     } else if (event is LoginExceptionEvent) {
       yield ExceptionState(message: event.message);
     } else if (event is VerifyOtpEvent) {
@@ -126,7 +126,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       final phoneCodeSent = (String verId, [int forceResent]) {
         this.verID = verId;
         eventStream.add(OtpSendEvent());
-        eventStream.close();
       };
       final phoneCodeAutoRetrievalTimeout = (String verid) {
         this.verID = verid;
@@ -136,7 +135,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       };
       await FirebaseAuth.instance.verifyPhoneNumber(
         phoneNumber: phoNo,
-        timeout: const Duration(seconds: 10),
+        timeout: const Duration(seconds: 30),
         verificationCompleted: phoneVerificationCompleted,
         verificationFailed: phoneVerificationFailed,
         codeSent: phoneCodeSent,
