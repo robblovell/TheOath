@@ -8,20 +8,9 @@ import 'package:theprotestersoath/oath/OathContainer.dart';
 import 'OathContainer.dart';
 
 class OathPage extends StatelessWidget {
-  // static Route route() {
-  //   return MaterialPageRoute(builder: (_) => OathPage());
-  // }
 
   @override
   Widget build(BuildContext context) {
-    // void _showErrorSnackBar() {
-    //   Scaffold.of(context).showSnackBar(
-    //     SnackBar(
-    //       content: Text('Oops... the URL couldn\'t be opened!'),
-    //     ),
-    //   );
-    // }
-
     return Scaffold(
         appBar: AppBar(
           title: Text(

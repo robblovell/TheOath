@@ -16,26 +16,22 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc() : super(InitialLoginState());
 
   @override
-  Stream<LoginState> mapEventToState(
-    LoginEvent event,
-  ) async* {
+  Stream<LoginState> mapEventToState(LoginEvent event,) async* {
     if (event is AppStartEvent) {
       yield InitialLoginState(); // go back from the pin page leads here.
     } else if (event is SendOtpEvent) {
       yield LoadingState();
       try {
-        subscription = sendOtp(event.phoNo /*, event.context*/).listen((event) {
+        subscription = sendOtp(event.phoNo).listen((event) {
           add(event);
         });
       } catch (e) {
-        // todo: things seem pretty unrecoverable here...
         print(e);
-        // Phoenix.rebirth(context)
       }
     } else if (event is OtpSendEvent) {
       yield OtpSentState(); // we get here after an otp is sent. the ui reacts by showing the pin entry screen.
-      // } else if (event is LoginCompleteEvent) {
-      //   yield LoginCompleteState(event.firebaseUser);
+    // } else if (event is LoginCompleteEvent) {
+    //   yield LoginCompleteState(event.firebaseUser);
     } else if (event is LoginExceptionEvent) {
       yield ExceptionState(message: event.message);
     } else if (event is VerifyOtpEvent) {
@@ -52,7 +48,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         final Token token = Token();
         token.uid = user.uid;
         token.phoneNumber = user.phoneNumber;
-
         String json = jsonEncode(token);
 
         await FlutterSession().set('token', json);
@@ -60,19 +55,13 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         if (user != null) {
           yield LoginCompleteState(user);
         } else {
-          // todo: messaging in production
-          final translation = 'INVALID_OTP'.tr();
-          yield OtpExceptionState(message: translation + " (Error 07) ");
+          yield OtpExceptionState(message: 'INVALID_OTP_7'.tr() + " (Error 07) ");
         }
       } catch (e) {
-        // todo: messaging in production
-        var translation = 'SOMETHING_WRONG'.tr();
         if (e.message.substring(0, 7) == "The sms") {
-          translation = 'INVALID_OTP2'.tr();
-          yield OtpExceptionState(message: translation + " (Error 09) ");
+          yield OtpExceptionState(message: 'INVALID_OTP2_9'.tr());
         } else {
-          yield OtpExceptionState(
-              message: translation + " (Error 06) " + e.message);
+          yield OtpExceptionState(message: 'SOMETHING_WRONG_6'.tr()); // + " (Error 06) " + e.message);
         }
       }
     }
@@ -80,7 +69,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   @override
   void onEvent(LoginEvent event) {
-    // TODO: implement onEvent (contains phoNo)
+    // TODO: implement onEvent
     super.onEvent(event);
     // print(event);
   }
@@ -89,16 +78,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   void onError(Object error, StackTrace stacktrace) {
     // TODO: implement onError
     super.onError(error, stacktrace);
-    // print("AUTH ONERROR::" + onError.toString());
-    // print(stacktrace);
-    // todo: figure out how to recover gracefully here.
-    //InitialLoginState();
     final eventStream = StreamController();
-    // eventStream.add(LoginExceptionEvent(onError.toString()));
-    // todo: only add the exception message in debug mode.
-    final translation = 'SOMETHING_WRONG'.tr();
-    eventStream.add(
-        LoginExceptionEvent(translation + " (Error 05) " + onError.toString()));
+    eventStream.add(LoginExceptionEvent('SOMETHING_WRONG_5'.tr() + " (Error 05) " + onError.toString()));
     eventStream.close();
   }
 
@@ -110,51 +91,34 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     try {
       StreamController<LoginEvent> eventStream = StreamController();
 
-      final PhoneVerificationCompleted phoneVerificationCompleted =
-          (AuthCredential authCredential) async* {
+      final PhoneVerificationCompleted phoneVerificationCompleted = (AuthCredential authCredential) async* {
         // eventStream.add(OtpAutoRetrievalEvent()); // todo: tell the user we are auto validating.
         try {
-          final User user =
-              (await FirebaseAuth.instance.signInWithCredential(authCredential))
-                  .user;
+          final User user = (await FirebaseAuth.instance.signInWithCredential(authCredential)).user;
 
           if (user != null) {
             // todo: is this path ever followed?
             eventStream.add(LoginCompleteEvent(user));
-            await eventStream.close();
+            eventStream.close();
           } else {
-            final String translation = 'SOMETHING_WRONG'.tr();
-            eventStream.add(LoginExceptionEvent(translation + " (Error 08) "));
-            await eventStream.close();
+            eventStream.add(LoginExceptionEvent('SOMETHING_WRONG_8'.tr() + " (Error 08) "));
+            eventStream.close();
           }
         } catch (error) {
-          final String translation = 'SOMETHING_WRONG'.tr();
-          eventStream
-              .add(LoginExceptionEvent(translation + " (Error 04) " + error));
+          eventStream.add(LoginExceptionEvent('SOMETHING_WRONG_4'.tr() + " (Error 04) ")); // + error));
           await eventStream.close();
         }
       };
-
       final phoneVerificationFailed = (FirebaseAuthException authException) {
         var status = authException.message;
-        if (status.contains('not authorized')) {
-          // todo: messaging in production
-          final String translation = 'SOMETHING_WRONG'.tr();
-          status = translation +
-              " (Error 03) " +
-              status; // todo: only add the exception message in debug mode.
+        if (status.contains("Caonnot evaluate")) {
+          status = 'SOMETHING_WRONG_11'.tr();// + " (Error 11) " + status;
+        } else if (status.contains('not authorized')) {
+          status = 'SOMETHING_WRONG_3'.tr() + " (Error 03) " + status;
         } else if (status.contains('Network')) {
-          // todo: messaging in production
-          final String translation = 'NETWORK_ISSUES'.tr();
-          status = translation +
-              " (Error 02) " +
-              status; // todo: only add the exception message in debug mode.
+          status = 'NETWORK_ISSUES_2'.tr() + " (Error 02) " + status;
         } else {
-          // todo: messaging in production
-          final String translation = 'SOMETHING_WRONG'.tr();
-          status = translation +
-              " (Error 01) " +
-              status; // todo: only add the exception message in debug mode.
+          status = 'SOMETHING_WRONG_1'.tr(); // + " (Error 01) " + status; // todo: only add the exception message in debug mode.
         }
         eventStream.add(LoginExceptionEvent(status));
         eventStream.close();
@@ -162,7 +126,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       final phoneCodeSent = (String verId, [int forceResent]) {
         this.verID = verId;
         eventStream.add(OtpSendEvent());
-        // eventStream.close();
+        eventStream.close();
       };
       final phoneCodeAutoRetrievalTimeout = (String verid) {
         this.verID = verid;
@@ -172,7 +136,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       };
       await FirebaseAuth.instance.verifyPhoneNumber(
         phoneNumber: phoNo,
-        timeout: const Duration(seconds: 120),
+        timeout: const Duration(seconds: 10),
         verificationCompleted: phoneVerificationCompleted,
         verificationFailed: phoneVerificationFailed,
         codeSent: phoneCodeSent,
@@ -180,7 +144,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       );
       yield* eventStream.stream;
     } catch (e) {
-      // todo: figure out how to recover gracefully here.
       print(e);
     }
   }

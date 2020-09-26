@@ -5,7 +5,9 @@ String validatePhoneNumber(String value) {
       r'^[+]{0,1}[\s]{0,1}[\d]{0,3}[\s]{0,1}[-(]{0,1}[\d]{1,4}[-)]{0,1}[\s]{0,1}[-\s\.\d]{3,10}$';
   RegExp regExp = RegExp(pattern);
 
-  if (!regExp.hasMatch(value)) {
+  if (value.length < 10 || value.length > 14) {
+    return 'INVALID_PHONE_LENGTH'.tr();
+  } else if (!regExp.hasMatch(value)) {
     return 'INVALID_PHONE_REGEX'.tr();
   } else {
     return null;
