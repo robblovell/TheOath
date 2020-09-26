@@ -19,14 +19,20 @@
   SHORT_POINT_07: leave when emotionally out of control,
   SHORT_POINT_08: not protest in a riot or curfew for violence.
 
-  NETWORK_ISSUES: Please check your internet connection and try again.
   INVALID_PHONE_REMOTE: Phone number should not contain letters and must be 10-14 digits long.
   INVALID_PHONE_REGEX: Phone number is in an invalid format.
   I_COMMIT: I Commit to this Oath
-  INVALID_OTP: The wrong code was given or the phone number given is incorrect.
-  SOMETHING_WRONG: Something has gone wrong, please try again later.
+  SOMETHING_WRONG_1: Please enter a valid phone number.
+  NETWORK_ISSUES_2: Please check your internet connection and try again.
+  SOMETHING_WRONG_3: Something has gone wrong, please try again later.
+  SOMETHING_WRONG_4: Something has gone wrong, please try again later.
+  SOMETHING_WRONG_5: Something has gone wrong, please try again later.
+  SOMETHING_WRONG_6: Something has gone wrong, please try again later.
+  INVALID_OTP_7: The wrong code was given or the phone number given is incorrect.
+  SOMETHING_WRONG_8: Something has gone wrong, please try again later.
+  INVALID_OTP2_9: The sms verification code entered is incorrect. Please check the number and try again.
+  AUTH_TIMEOUT_10: Authentication Timed Out.
   ENTER_PHONE_TIP: Enter a phone number
-  INVALID_OTP2: The sms verification code used to create the phone auth credential is invalid. Please resend the verification code sms and be sure use the verification code provided by the user.
   ABOUT: About
   LOGOUT: Log Out
   LOGIN: Log in
@@ -36,7 +42,6 @@
   HOME: Proof of Oath
   THEOATH: The Oath
   THEREASON: Reason for the Oath
-  AUTH_TIMEOUT: Authentication Timed Out.
   OATH_TAKEN: I Took The Protester's Oath
   STORIES_TOOLTIP: Stories
   STORY_URL_CAPTION:  Online Story Link

@@ -60,15 +60,15 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           yield LoginCompleteState(user);
         } else {
           // todo: messaging in production
-          final translation = 'INVALID_OTP'.tr();
+          final translation = 'INVALID_OTP_7'.tr();
           yield OtpExceptionState(message: translation + " (Error 07) ");
         }
       } catch (e) {
         // todo: messaging in production
-        var translation = 'SOMETHING_WRONG'.tr();
+        var translation = 'SOMETHING_WRONG_6'.tr();
         if (e.message.substring(0, 7) == "The sms") {
-          translation = 'INVALID_OTP2'.tr();
-          yield OtpExceptionState(message: translation + " (Error 09) ");
+          translation = 'INVALID_OTP2_9'.tr();
+          yield OtpExceptionState(message: translation); // + " (Error 09) ");
         } else {
           yield OtpExceptionState(
               message: translation + " (Error 06) " + e.message);
@@ -95,7 +95,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     final eventStream = StreamController();
     // eventStream.add(LoginExceptionEvent(onError.toString()));
     // todo: only add the exception message in debug mode.
-    final translation = 'SOMETHING_WRONG'.tr();
+    final translation = 'SOMETHING_WRONG_5'.tr();
     eventStream.add(
         LoginExceptionEvent(translation + " (Error 05) " + onError.toString()));
     eventStream.close();
@@ -122,14 +122,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
             eventStream.add(LoginCompleteEvent(user));
             await eventStream.close();
           } else {
-            final String translation = 'SOMETHING_WRONG'.tr();
+            final String translation = 'SOMETHING_WRONG_8'.tr();
             eventStream.add(LoginExceptionEvent(translation + " (Error 08) "));
             await eventStream.close();
           }
         } catch (error) {
-          final String translation = 'SOMETHING_WRONG'.tr();
+          final String translation = 'SOMETHING_WRONG_4'.tr();
           eventStream
-              .add(LoginExceptionEvent(translation + " (Error 04) " + error));
+              .add(LoginExceptionEvent(translation + " (Error 04) ")); // + error));
           await eventStream.close();
         }
       };
@@ -138,22 +138,20 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         var status = authException.message;
         if (status.contains('not authorized')) {
           // todo: messaging in production
-          final String translation = 'SOMETHING_WRONG'.tr();
+          final String translation = 'SOMETHING_WRONG_3'.tr();
           status = translation +
               " (Error 03) " +
               status; // todo: only add the exception message in debug mode.
         } else if (status.contains('Network')) {
           // todo: messaging in production
-          final String translation = 'NETWORK_ISSUES'.tr();
+          final String translation = 'NETWORK_ISSUES_2'.tr();
           status = translation +
               " (Error 02) " +
               status; // todo: only add the exception message in debug mode.
         } else {
           // todo: messaging in production
-          final String translation = 'SOMETHING_WRONG'.tr();
-          status = translation +
-              " (Error 01) " +
-              status; // todo: only add the exception message in debug mode.
+          final String translation = 'SOMETHING_WRONG_1'.tr();
+          status = translation; // + " (Error 01) " + status; // todo: only add the exception message in debug mode.
         }
         eventStream.add(LoginExceptionEvent(status));
         eventStream.close();
@@ -165,13 +163,13 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       };
       final phoneCodeAutoRetrievalTimeout = (String verid) {
         this.verID = verid;
-        final String translation = 'AUTH_TIMEOUT'.tr();
+        final String translation = 'AUTH_TIMEOUT_10'.tr();
         eventStream.add(LoginExceptionEvent(translation + " (Error 10)"));
         eventStream.close();
       };
       await FirebaseAuth.instance.verifyPhoneNumber(
         phoneNumber: phoNo,
-        timeout: const Duration(seconds: 120),
+        timeout: const Duration(seconds: 15),
         verificationCompleted: phoneVerificationCompleted,
         verificationFailed: phoneVerificationFailed,
         codeSent: phoneCodeSent,
