@@ -54,7 +54,7 @@ class _PinInput extends State<PinInput> {
                   }
                 },
                 onSubmit: (String pin) {
-                  print("Pin: $pin");
+                  // print("Pin: $pin");
                   BlocProvider.of<LoginBloc>(context)
                       .add(VerifyOtpEvent(otp: pin));
                 }),
