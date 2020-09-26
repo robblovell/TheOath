@@ -33,6 +33,7 @@
   INVALID_OTP2_9: The sms verification code entered is incorrect. Please check the number and try again.
   AUTH_TIMEOUT_10: Authentication Timed Out
   SOMETHING_WRONG_11: Cannot evaluate the phone number for an unknown reason.
+  SOMETHING_WRONG_12: This device does not have cellular connectivity.
     Something has gone wrong, please try again later.
   URL_PROBLEM: Oops... the URL couldn\'t be opened!
   ENTER_PHONE_TIP: Enter a phone number

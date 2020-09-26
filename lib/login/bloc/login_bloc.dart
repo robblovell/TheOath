@@ -117,8 +117,11 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           status = 'SOMETHING_WRONG_3'.tr() + " (Error 03) " + status;
         } else if (status.contains('Network')) {
           status = 'NETWORK_ISSUES_2'.tr() + " (Error 02) " + status;
-        } else {
-          status = 'SOMETHING_WRONG_1'.tr(); // + " (Error 01) " + status; // todo: only add the exception message in debug mode.
+        } else if (status.contains('Invalide token')) {
+          status = 'INVALID_TOKEN_12'.tr() + " (Error 12) ";// + status;
+        }
+        else {
+          status = /*'SOMETHING_WRONG_1'.tr() + */" (Error 01) " + status; // todo: only add the exception message in debug mode.
         }
         eventStream.add(LoginExceptionEvent(status));
         eventStream.close();
