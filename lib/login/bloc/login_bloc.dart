@@ -117,7 +117,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           status = 'SOMETHING_WRONG_3'.tr() + " (Error 03) " + status;
         } else if (status.contains('Network')) {
           status = 'NETWORK_ISSUES_2'.tr() + " (Error 02) " + status;
-        } else if (status.contains('Invalide token')) {
+        } else if (status.contains('Invalid token')) {
           status = 'INVALID_TOKEN_12'.tr() + " (Error 12) ";// + status;
         }
         else {
@@ -132,7 +132,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       };
       final phoneCodeAutoRetrievalTimeout = (String verid) {
         this.verID = verid;
-        eventStream.add(LoginExceptionEvent('AUTH_TIMEOUT'.tr())); //+ " (Error 10)"));
+        eventStream.add(LoginExceptionEvent('AUTH_TIMEOUT_10'.tr())); //+ " (Error 10)"));
         eventStream.close();
       };
       await FirebaseAuth.instance.verifyPhoneNumber(

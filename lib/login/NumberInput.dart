@@ -46,15 +46,15 @@ class _NumberInput extends State<NumberInput> {
           Form(
             key: _formKey,
             child: PhoneTextFormField().getCustomEditTextArea(
-                labelValue: 'ENTER_PHONE_TIP'.tr(),
-                hintValue: "",
-                controller: _phoneTextController,
-                keyboardType: TextInputType.number,
-                icon: Icons.phone,
-                focusNode: _focusNode,
-                validator: (value) {
-                  return validatePhoneNumber(value);
-                }),
+              labelValue: 'ENTER_PHONE_TIP'.tr(),
+              hintValue: '',
+              controller: _phoneTextController,
+              keyboardType: TextInputType.number,
+              icon: Icons.phone,
+              focusNode: _focusNode,
+              validator: (value) {
+                return validatePhoneNumber(value);
+              }),
           ),
           Padding(
             padding: const EdgeInsets.all(7.0),
@@ -79,7 +79,7 @@ class _NumberInput extends State<NumberInput> {
               },
               color: Colors.grey[900],
               child: Text(
-                'I_COMMIT'.tr(),
+                'I_COMMIT_BUTTON'.tr(),
                 style: TextStyle(fontSize: 18, color: Colors.white),
               ),
             ),

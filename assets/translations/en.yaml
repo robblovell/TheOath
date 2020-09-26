@@ -21,7 +21,7 @@
 
   INVALID_PHONE_LENGTH: Phone number must be 10-14 digits long
   INVALID_PHONE_REGEX: Phone number is in an invalid format
-  I_COMMIT: I Commit to this Oath
+  I_COMMIT_BUTTON: I Commit
   SOMETHING_WRONG_1: Please enter a valid phone number
   NETWORK_ISSUES_2: Please check your internet connection and try again.
   SOMETHING_WRONG_3: Something has gone wrong, please try again later.
@@ -36,7 +36,7 @@
   SOMETHING_WRONG_12: This device does not have cellular connectivity.
     Something has gone wrong, please try again later.
   URL_PROBLEM: Oops... the URL couldn\'t be opened!
-  ENTER_PHONE_TIP: Enter a phone number
+  ENTER_PHONE_TIP: Enter your phone number to sign the oath
   ABOUT: About
   LOGOUT: Log Out
   LOGIN: Log in

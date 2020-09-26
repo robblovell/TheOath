@@ -37,22 +37,23 @@ class OathCard extends StatelessWidget {
       child: Card(
           elevation: 0,
           color: Colors.transparent,
-          child: Container(
-            child: Align(
-                alignment: Alignment.topLeft,
-                child: AutoSizeText(
-                  this.text.tr(),
-                  textAlign: TextAlign.left,
-                  overflow: TextOverflow.visible,
-                  stepGranularity: 1,
-                  maxLines: 3,
-                  minFontSize: minFontSize,
-                  style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: fontSize,
-                      color: Colors.black),
-                )),
-          )),
+          child: Padding(padding: EdgeInsets.only(left:10,right:10),
+            child: Container(
+              child: Align(
+                  alignment: Alignment.topLeft,
+                  child: AutoSizeText(
+                    this.text.tr(),
+                    textAlign: TextAlign.left,
+                    overflow: TextOverflow.visible,
+                    stepGranularity: 1,
+                    maxLines: 3,
+                    minFontSize: minFontSize,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        fontSize: fontSize,
+                        color: Colors.black),
+                  )),
+          ))),
     );
   }
 }

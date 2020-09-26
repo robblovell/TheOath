@@ -87,7 +87,7 @@ platform :ios do |options|
 
     def notifySlack(message, commit, result)
       slack(
-        slack_url: "https://hooks.slack.com/services/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",
+        slack_url: $SLACK_HOOK,
         message: message,
         success: result,
         default_payloads: [commit[:branch],commit[:sha],commit[:rev], commit[:message]]

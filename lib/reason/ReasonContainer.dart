@@ -20,12 +20,14 @@ class TheReason extends StatelessWidget {
           height: 2700,
           child: Align(
             alignment: Alignment.topLeft,
-            child: RichText(
+            child: Padding(
+                padding: EdgeInsets.all(20),
+              child: RichText(
               overflow: TextOverflow.visible,
               text: TextSpan(
                   style: TextStyle(
                       fontWeight: FontWeight.w300,
-                      fontSize: 15,
+                      fontSize: 20,
                       color: Colors.black),
                   children: <TextSpan>[
                     // todo: clean this code up!
@@ -64,7 +66,7 @@ class TheReason extends StatelessWidget {
                     TextSpan(text: 'EXPLAIN14'.tr() + '\n\n'),
                     TextSpan(text: 'EXPLAIN15'.tr() + '\n\n'),
                   ]),
-            ),
+            ),),
           ),
           // Text('The power of protest is to reveal truth in the face of unjust power through non-violent action.'),
         ),

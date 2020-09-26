@@ -36,7 +36,7 @@ class TheOath extends StatelessWidget {
         ],
         // expandedHeight: appBarHeight,
         flexibleSpace: FlexibleSpaceBar(
-          titlePadding: EdgeInsets.zero,
+          titlePadding: EdgeInsets.only(left:12, bottom:10),
           centerTitle: false,
           title: Text("LOGIN_TITLE".tr()),
         ),
