@@ -10,11 +10,6 @@ import 'package:theprotestersoath/stories/stories_cubit.dart';
 import 'package:theprotestersoath/stories/stories_state.dart';
 
 class StoryPage extends StatefulWidget {
-  // @override
-  // static Route route() {
-  //   return MaterialPageRoute(builder: (_) => StoryPage());
-  // }
-
   @override
   _StoryPageState createState() => _StoryPageState();
 }
@@ -29,7 +24,7 @@ class StoryContainer extends StatelessWidget {
     void _showErrorSnackBar() {
       Scaffold.of(context).showSnackBar(
         SnackBar(
-          content: Text('Oops... the URL couldn\'t be opened!'),
+          content: Text('URL_PROBLEM'.tr()),
         ),
       );
     }
@@ -127,7 +122,7 @@ class _StoryPageState extends State<StoryPage> {
                 ),
               ],
               leading: IconButton(
-                icon: Icon(Icons.turned_in),
+                icon: Icon(Icons.arrow_back),
                 onPressed: () {
                   BlocProvider.of<AppDrawerBloc>(context)
                       .add(BackButtonEvent("StoryPage"));

@@ -61,7 +61,7 @@ class AppDrawerBloc extends Bloc<AppDrawerEvent, AppDrawerState> {
   Stream<AppDrawerEvent> backFromReason(event) async* {
     StreamController<AppDrawerEvent> eventStream = StreamController();
     eventStream.add(event);
-    await eventStream.close();
+    eventStream.close();
     yield* eventStream.stream;
   }
 }

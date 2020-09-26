@@ -72,10 +72,10 @@ class HomePage extends StatelessWidget {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                alignment: Alignment(0.0, 0.80),
+                alignment: Alignment(0.0, 0.76),
                 child: Text(
                   'OATH_TAKEN'.tr(),
-                  textScaleFactor: 1.3,
+                  textScaleFactor: 1.8,
                 ),
               ),
             ),

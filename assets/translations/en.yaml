@@ -19,10 +19,10 @@
   SHORT_POINT_07: leave when emotionally out of control,
   SHORT_POINT_08: not protest in a riot or curfew for violence.
 
-  INVALID_PHONE_REMOTE: Phone number should not contain letters and must be 10-14 digits long.
-  INVALID_PHONE_REGEX: Phone number is in an invalid format.
+  INVALID_PHONE_LENGTH: Phone number must be 10-14 digits long
+  INVALID_PHONE_REGEX: Phone number is in an invalid format
   I_COMMIT: I Commit to this Oath
-  SOMETHING_WRONG_1: Please enter a valid phone number.
+  SOMETHING_WRONG_1: Please enter a valid phone number
   NETWORK_ISSUES_2: Please check your internet connection and try again.
   SOMETHING_WRONG_3: Something has gone wrong, please try again later.
   SOMETHING_WRONG_4: Something has gone wrong, please try again later.
@@ -31,7 +31,10 @@
   INVALID_OTP_7: The wrong code was given or the phone number given is incorrect.
   SOMETHING_WRONG_8: Something has gone wrong, please try again later.
   INVALID_OTP2_9: The sms verification code entered is incorrect. Please check the number and try again.
-  AUTH_TIMEOUT_10: Authentication Timed Out.
+  AUTH_TIMEOUT_10: Authentication Timed Out
+  SOMETHING_WRONG_11: Cannot evaluate the phone number for an unknown reason.
+    Something has gone wrong, please try again later.
+  URL_PROBLEM: Oops... the URL couldn\'t be opened!
   ENTER_PHONE_TIP: Enter a phone number
   ABOUT: About
   LOGOUT: Log Out
