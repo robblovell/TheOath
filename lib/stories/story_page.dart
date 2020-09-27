@@ -35,11 +35,10 @@ class _StoryPageState extends State<StoryPage> {
             SliverAppBar(
                 pinned: true,
                 // expandedHeight: appBarHeight,
-                flexibleSpace: FlexibleSpaceBar(
-                  titlePadding: EdgeInsets.zero,
-                  centerTitle: true,
-                  title: Text("STORIES".tr()),
-                ),
+              title: Text(
+                "STORIES".tr(),
+                style: TextStyle(color: Colors.white),
+              ),
                 actions: [
                   IconButton(
                     icon: Icon(Icons.art_track, size: 40),
