@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cubit/flutter_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:link/link.dart';
 import 'package:theprotestersoath/navigation/app_drawer/appdrawer_bloc.dart';
 import 'package:theprotestersoath/navigation/app_drawer/appdrawer_event.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:theprotestersoath/stories/StoryModel.dart';
 import 'package:theprotestersoath/stories/stories_cubit.dart';
 import 'package:theprotestersoath/stories/stories_state.dart';
+
+import 'StoryCard.dart';
 
 class StoryPage extends StatefulWidget {
   @override
@@ -21,77 +22,58 @@ class StoryContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void _showErrorSnackBar() {
-      Scaffold.of(context).showSnackBar(
-        SnackBar(
-          content: Text('URL_PROBLEM'.tr()),
+    return CustomScrollView(shrinkWrap: false, slivers: <Widget>[
+      // SliverAppBar(
+      //   pinned: true,
+      //   // expandedHeight: appBarHeight,
+      //   flexibleSpace: FlexibleSpaceBar(
+      //     titlePadding: EdgeInsets.zero,
+      //     centerTitle: false,
+      //     title: Text("REASON_TITLE".tr()),
+      //   ),
+      // ),
+      SliverToBoxAdapter(
+        child: SizedBox(
+          height: 2700,
+          child: Align(
+            alignment: Alignment.topLeft,
+            child: LayoutBuilder(builder:
+                (BuildContext context, BoxConstraints viewportConstraints) {
+              return Container(
+                  height: 2700,
+                  color: Colors.grey[400],
+                  child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight: viewportConstraints.maxHeight,
+                      ),
+                      child: IntrinsicHeight(
+                          child: Column(children: <Widget>[
+                        StoryCard(story),
+                        Expanded(
+                            child: Align(
+                                alignment: Alignment.bottomRight,
+                                child: Container(
+                                    alignment: Alignment(0.9, 0.87),
+                                    child: IconButton(
+                                      icon: Icon(
+                                        Icons.list,
+                                        //article_outlined,
+                                        color: Colors.black,
+                                        size: 30,
+                                      ),
+                                      tooltip: 'STORIES_TOOLTIP'.tr(),
+                                      onPressed: () =>
+                                          BlocProvider.of<AppDrawerBloc>(
+                                                  context)
+                                              .add(OathPageEvent()),
+                                    )))),
+                      ]))));
+            }),
+          ),
+          // Text('The power of protest is to reveal truth in the face of unjust power through non-violent action.'),
         ),
-      );
-    }
-
-    return LayoutBuilder(
-        builder: (BuildContext context, BoxConstraints viewportConstraints) {
-      return Container(
-          color: Colors.grey[400],
-          child: ConstrainedBox(
-              constraints: BoxConstraints(
-                minHeight: viewportConstraints.maxHeight,
-              ),
-              child: IntrinsicHeight(
-                  child: Column(children: <Widget>[
-                Container(
-                    height: 500,
-                    child: ListView(
-                      padding: const EdgeInsets.all(8),
-                      children: <Widget>[
-                        Container(
-                            height: 300.0,
-                            decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                image: DecorationImage(
-                                  fit: BoxFit.contain,
-                                  image: AssetImage(story.imageURL),
-                                ))),
-                        Align(
-                          child: Center(
-                              child: Text(
-                            story.title,
-                            textScaleFactor: 1.3,
-                          )),
-                        ),
-                        Align(
-                          alignment: Alignment.bottomRight,
-                          child: Text(story.credit),
-                        ),
-                        Align(
-                            alignment: Alignment.bottomRight,
-                            child: Link(
-                              child: Text('STORY_URL_CAPTION'.tr()),
-                              url: story.storyURL,
-                              onError: _showErrorSnackBar,
-                            )
-                            // Text('STORY_01_URL'.tr()),
-                            ),
-                      ],
-                    )),
-                Expanded(
-                    child: Align(
-                        alignment: Alignment.bottomRight,
-                        child: Container(
-                            alignment: Alignment(0.9, 0.87),
-                            child: IconButton(
-                              icon: Icon(
-                                Icons.list, //article_outlined,
-                                color: Colors.black,
-                                size: 30,
-                              ),
-                              tooltip: 'STORIES_TOOLTIP'.tr(),
-                              onPressed: () =>
-                                  BlocProvider.of<AppDrawerBloc>(context)
-                                      .add(OathPageEvent()),
-                            )))),
-              ]))));
-    });
+      ),
+    ]);
   }
 }
 
