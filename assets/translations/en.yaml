@@ -49,20 +49,25 @@
   OATH_TAKEN: I Took The Protester's Oath
   STORIES_TOOLTIP: Stories
   STORY_URL_CAPTION:  Online Story Link
+
+  STORY_TITLE_00: Protests against Hitler
   STORY_00: One month before Hitler rose to power, a Jewish family living in Germany defiantly displayed a Hanukkah menorah in their window across from a Nazi flag.
-  STORY_DATE_00: 1932.
+  STORY_DATE_00: 1932
   STORY_CREDIT_00: Photo 12/Universal Images Group via Getty Images
   STORY_IMAGE_00: assets/img/stories/story000.jpg
   STORY_IMAGE_URL_00: https://i.insider.com/5ede5e88f34d0572f200b336
   STORY_URL_00: https://en.wikipedia.org/wiki/The_Holocaust
 
-  STORY_01: A lone man stands up to a line of tanks in Tiananmen Square in 1989.
+  STORY_TITLE_01: Tank Man
+  STORY_SUMMARY_01: A lone man stands up to a line of tanks in Tiananmen Square in 1989.
   STORY_DATE_01: June 5, 1989
   STORY_CREDIT_01: AP Photo/Jeff Widener
   STORY_IMAGE_01: assets/img/stories/story001.jpg
   STORY_IMAGE_URL_01: https://i.insider.com/55b0f2782acae7c7018b9204
   STORY_URL_01: https://en.wikipedia.org/wiki/Tank_Man
 
+  STORY_TITLE_02: Rosa Parks
+  STORY_SUMMARY_02: Rosa Parks defies immoral laws targeting the color of her skin.
   STORY_02: This photo of Rosa Parks sitting in the front of a bus was actually taken after the Supreme Court disbanded Montgomery's segregated bus system, but it remains a classic symbol.
   STORY_DATE_02: December 21, 1956.
   STORY_CREDIT_02: Underwood Archives/Getty Images
@@ -70,6 +75,8 @@
   STORY_IMAGE_URL_02: https://i.insider.com/5ede626e988ee312947bac38
   STORY_URL_02: https://en.wikipedia.org/wiki/Montgomery_bus_boycott
 
+  STORY_TITLE_03: Civil Rights Movement
+  STORY_SUMMARY_03: Martin Luther King waves to a crowd on the steps of the Lincoln Memorial.
   STORY_03: The civil rights movement, which began in 1954, aimed to end racial inequality, segregation, and discrimination.
   STORY_DATE_03: 1954-1968
   STORY_CREDIT_03: Martin Luther King Jr. AP
@@ -77,6 +84,7 @@
   STORY_IMAGE_URL_03: https://i.insider.com/58829068ee14b618038b92c5
   STORY_URL_03: https://en.wikipedia.org/wiki/Civil_rights_movement
 
+  STORY_TITLE_04: Kent State Shootings
   STORY_04: John Filo's photo of the aftermath of the Kent State shootings is credited with helping turn public opinion against the Vietnam War.
   STORY_DATE_04: May 1, 1970
   STORY_CREDIT_04: John Filo/Valley News-Dispatch
@@ -84,15 +92,17 @@
   STORY_IMAGE_URL_04: https://i.insider.com/5ede5cfe5af6cc69607005b7
   STORY_URL_04: https://en.wikipedia.org/wiki/Kent_State_shootings
 
-  STORY_05: John Lewis, in the foreground, is beaten by a state trooper during a civil rights voting march in Selma, Ala.
-  STORY_DATE_05: March 7, 1965.
+  STORY_TITLE_05: John Lewis
+  STORY_SUMMARY_05: John Lewis, in the foreground, is beaten by a state trooper during a civil rights voting march in Selma, Ala.
+  STORY_DATE_05: March 7, 1965
   STORY_CREDIT_05: AP Photo
   STORY_IMAGE_05: assets/img/stories/story005.jpg
   STORY_IMAGE_URL_05: https://apnews.com/eda3ffe8fbfcf7727270e67bba1c9566
   STORY_URL_05: https://en.wikipedia.org/wiki/Selma_to_Montgomery_marches
 
-  STORY_06: Demonstrator George Harris sticking carnations into gun barrels during an antiwar protest at the Pentagon in 1967.
-  STORY_DATE_06: October 22, 1967.
+  STORY_TITLE_06: Anti-Vietnam War Protests
+  STORY_SUMMARY_06: Demonstrator George Harris sticking carnations into gun barrels during an antiwar protest at the Pentagon in 1967.
+  STORY_DATE_06: October 22, 1967
   STORY_CREDIT_06: Bernie Boston/The Washington Post via Getty Images
   STORY_IMAGE_06: assets/img/stories/story006.jpg
   STORY_IMAGE_URL_06: https://i.insider.com/5ede5da23ad8617aea7f5cc8
