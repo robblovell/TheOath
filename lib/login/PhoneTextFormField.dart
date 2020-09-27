@@ -4,6 +4,7 @@ class PhoneTextFormField {
   Expanded getCustomEditTextArea({
     String labelValue = "",
     String hintValue = "",
+    double fontLabelSize = 15,
     Function validator,
     IconData icon,
     bool validation,
@@ -23,12 +24,12 @@ class PhoneTextFormField {
         fillColor: Colors.white.withOpacity(0.6),
         filled: true,
         isDense: true,
-        labelStyle: TextStyle(color: Colors.black45, fontSize: 13),
-        focusColor: Colors.black45,
+        labelStyle: TextStyle(color: Colors.grey[800], fontSize: fontLabelSize),
+        focusColor: Colors.black,
         errorStyle: TextStyle(
           color: Colors.white,
           wordSpacing: 5.0,
-          fontSize: 15,
+          fontSize: fontLabelSize+2,
         ),
         hintText: hintValue,
         labelText: labelValue,

@@ -101,7 +101,7 @@ class _LoginFormState extends State<LoginForm> {
                             ),
                             Container(
                               // A fixed-height child that holds a phone entry or pin entry
-                              color: Colors.grey, //const Color(0xff00ccee),
+                              color: Colors.grey,
                               height: 170.0,
                               alignment: Alignment.center,
                               child: getViewAsPerState(state),

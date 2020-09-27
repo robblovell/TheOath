@@ -6,9 +6,10 @@ import 'package:theprotestersoath/utils/sizing.dart';
 class OathCard extends StatelessWidget {
   final String text;
   bool isLogin = false;
+  bool shortCard = false;
   int index = -1;
 
-  OathCard(this.text, this.isLogin, this.index);
+  OathCard(this.text, this.isLogin, this.index, this.shortCard);
 
   @override
   Widget build(BuildContext context) {
@@ -17,10 +18,17 @@ class OathCard extends StatelessWidget {
         screenHeight(context) - MediaQuery.of(context).padding.top;
     double aspect = width / height;
 
-    final heightPart1 = height / (27);
-    final aspectPart1 = 3 / aspect;
-    final heightPart2 = height / (32);
-    final aspectPart2 = 3 / aspect;
+    double heightPart1 = height / (27);
+    double aspectPart1 = 3 / aspect;
+    double heightPart2 = height / (30);
+    double aspectPart2 = 3 / aspect;
+    double padTop = this.shortCard ? 0:2;
+    if (aspect < .5) { // wider phones.
+      heightPart1 = height / (29);
+      aspectPart1 = 3.8 / aspect;
+      heightPart2 = height / (32);
+      aspectPart2 = 3.8 / aspect;
+    }
 
     final double fontSize = (heightPart1 - aspectPart1).toInt().toDouble();
     final double minFontSize = (heightPart2 - aspectPart2).toInt().toDouble();
@@ -37,7 +45,7 @@ class OathCard extends StatelessWidget {
       child: Card(
           elevation: 0,
           color: Colors.transparent,
-          child: Padding(padding: EdgeInsets.only(left:10,right:10),
+          child: Padding(padding: EdgeInsets.only(left:10,right:10,bottom:0,top:padTop),
             child: Container(
               child: Align(
                   alignment: Alignment.topLeft,

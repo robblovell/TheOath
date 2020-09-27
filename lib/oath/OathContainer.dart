@@ -112,8 +112,8 @@ class TheOathGrid extends StatelessWidget {
             alignment: Alignment.centerLeft,
             color: Colors.grey[300 + index % 2 * 100],
             child: (viewportHeight != height && viewportHeight < 600)
-                ? OathCard('SHORT_POINT_0$index', isLogin, index)
-                : OathCard('POINT_0$index', isLogin, index),
+                ? OathCard('SHORT_POINT_0$index', isLogin, index, true)
+                : OathCard('POINT_0$index', isLogin, index, false),
           );
         },
         childCount: 9,

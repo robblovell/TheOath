@@ -132,12 +132,14 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       };
       final phoneCodeAutoRetrievalTimeout = (String verid) {
         this.verID = verid;
-        eventStream.add(LoginExceptionEvent('AUTH_TIMEOUT_10'.tr())); //+ " (Error 10)"));
-        eventStream.close();
+        // You don't need to do anything here with the end user.
+        // eventStream.add(OtpSendEvent());
+        // eventStream.add(LoginExceptionEvent('AUTH_TIMEOUT_10'.tr()));
+        // eventStream.close();
       };
       await FirebaseAuth.instance.verifyPhoneNumber(
         phoneNumber: phoNo,
-        timeout: const Duration(seconds: 120),
+        timeout: const Duration(seconds: 30),
         verificationCompleted: phoneVerificationCompleted,
         verificationFailed: phoneVerificationFailed,
         codeSent: phoneCodeSent,

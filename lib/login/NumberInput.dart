@@ -5,6 +5,7 @@ import 'package:theprotestersoath/login/PhoneTextFormField.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:theprotestersoath/utils/sizing.dart';
 import 'package:theprotestersoath/utils/stripCorrectPhone.dart';
 import 'package:theprotestersoath/utils/validatePhoneNumber.dart';
 
@@ -38,6 +39,8 @@ class _NumberInput extends State<NumberInput> {
 
   @override
   Widget build(BuildContext context) {
+    final double fontLabelSize = screenWidth(context) < 400 ? 13 : 15;
+
     // To show the keyboard on load:  _focusNode.requestFocus();
     return Padding(
       padding: EdgeInsets.only(top: 16, bottom: 16.0, left: 16.0, right: 16.0),
@@ -46,15 +49,16 @@ class _NumberInput extends State<NumberInput> {
           Form(
             key: _formKey,
             child: PhoneTextFormField().getCustomEditTextArea(
-              labelValue: 'ENTER_PHONE_TIP'.tr(),
-              hintValue: '',
-              controller: _phoneTextController,
-              keyboardType: TextInputType.number,
-              icon: Icons.phone,
-              focusNode: _focusNode,
-              validator: (value) {
-                return validatePhoneNumber(value);
-              }),
+                labelValue: 'ENTER_PHONE_TIP'.tr(),
+                hintValue: '',
+                controller: _phoneTextController,
+                keyboardType: TextInputType.number,
+                icon: Icons.phone,
+                focusNode: _focusNode,
+                fontLabelSize: fontLabelSize,
+                validator: (value) {
+                  return validatePhoneNumber(value);
+                }),
           ),
           Padding(
             padding: const EdgeInsets.all(7.0),
