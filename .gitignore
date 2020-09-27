@@ -151,8 +151,14 @@ gplaydev.json
 Payload.apk
 Google-Play-Android Developer.json
 web/secrets
-AdHoc_com.theprotestersoath.theprotestersoath.mobileprovision
-AppStore_com.theprotestersoath.theprotestersoath.mobileprovision
+AdHoc_com.protestersoath.protestersoath.mobileprovision
+AppStore_com.protestersoath.protestersoath.mobileprovision
 Runner.app.dSYM.zip
 Runner.ipa
 4RZKZ35YZP.cer
+/ios/certs
+/ios/secrets
+/ios/AdHoc_com.theprotestersoath.theprotestersoath.mobileprovision
+/ios/AppStore_com.theprotestersoath.theprotestersoath.mobileprovision
+/ios/4RZKZ35YZP.cer
+/android/app/google-services-invlid.json

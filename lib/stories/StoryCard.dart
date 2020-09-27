@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:link/link.dart';
-import 'package:theprotestersoath/stories/StoryModel.dart';
+import 'package:protestersoath/stories/StoryModel.dart';
 
 Widget StoryCard(BuildContext context, StoryModel story) {
   void _showErrorSnackBar() {

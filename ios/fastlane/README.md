@@ -21,16 +21,31 @@ or alternatively using `brew install fastlane`
 fastlane ios beta
 ```
 
+### ios getinfo
+```
+fastlane ios getinfo
+```
+getinfo
+### ios bump
+```
+fastlane ios bump
+```
+bump
 ### ios build
 ```
 fastlane ios build
 ```
 build
-### ios distribute
+### ios tofirebase
 ```
-fastlane ios distribute
+fastlane ios tofirebase
 ```
-distribute
+tofirebase
+### ios totestflight
+```
+fastlane ios totestflight
+```
+totestflight
 
 ----
 

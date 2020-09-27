@@ -1,4 +1,4 @@
-app_identifier("com.theprotestersoath.theprotestersoath") # The bundle identifier of your app
+app_identifier("com.protestersoath.protestersoath") # The bundle identifier of your app
 apple_id("robblovell@gmail.com") # Your Apple email address
 
 itc_team_id("277532") # App Store Connect Team ID

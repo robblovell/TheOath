@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:theprotestersoath/navigation/app_drawer/appdrawer_bloc.dart';
-import 'package:theprotestersoath/navigation/app_drawer/appdrawer_event.dart';
-import 'package:theprotestersoath/authentication/authentication.dart';
+import 'package:protestersoath/navigation/app_drawer/appdrawer_bloc.dart';
+import 'package:protestersoath/navigation/app_drawer/appdrawer_event.dart';
+import 'package:protestersoath/authentication/authentication.dart';
 
 import '../navigation/app_drawer/appdrawer.dart';
 import '../navigation/app_drawer/appdrawer_state.dart';

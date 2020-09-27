@@ -40,7 +40,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.theprotestersoath.theprotestersoath"
+        applicationId "com.protestersoath.protestersoath"
         minSdkVersion 16
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
@@ -64,6 +64,7 @@ flutter {
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.google.firebase:firebase-analytics:17.5.0'
+    // for firebase authentiation
     implementation 'com.google.firebase:firebase-auth:19.3.2'
     implementation 'com.google.firebase:firebase-crashlytics:17.2.1'
 }

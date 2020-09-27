@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
-import 'package:theprotestersoath/data/Token.dart';
+import 'package:protestersoath/data/Token.dart';
 
 import 'appdrawer_event.dart';
 

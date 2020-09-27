@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:theprotestersoath/authentication/authentication.dart';
-import 'package:theprotestersoath/navigation/app_drawer/appdrawer_bloc.dart';
-import 'package:theprotestersoath/navigation/app_drawer/appdrawer_event.dart';
+import 'package:protestersoath/authentication/authentication.dart';
+import 'package:protestersoath/navigation/app_drawer/appdrawer_bloc.dart';
+import 'package:protestersoath/navigation/app_drawer/appdrawer_event.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:theprotestersoath/oath/OathCard.dart';
-import 'package:theprotestersoath/utils/sizing.dart';
+import 'package:protestersoath/oath/OathCard.dart';
+import 'package:protestersoath/utils/sizing.dart';
 
 class TheOath extends StatelessWidget {
   TheOath(this.isLogin, this.viewportConstraints);

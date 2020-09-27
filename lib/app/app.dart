@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cubit/flutter_cubit.dart';
 
-import 'package:theprotestersoath/authentication/authentication.dart';
-import 'package:theprotestersoath/home/home_page.dart';
-import 'package:theprotestersoath/login/LoginPage.dart';
-import 'package:theprotestersoath/navigation/app_drawer/appdrawer_bloc.dart';
-import 'package:theprotestersoath/reason/reason_page.dart';
-import 'package:theprotestersoath/splash/splash_page.dart';
+import 'package:protestersoath/authentication/authentication.dart';
+import 'package:protestersoath/home/home_page.dart';
+import 'package:protestersoath/login/LoginPage.dart';
+import 'package:protestersoath/navigation/app_drawer/appdrawer_bloc.dart';
+import 'package:protestersoath/reason/reason_page.dart';
+import 'package:protestersoath/splash/splash_page.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:theprotestersoath/stories/stories_cubit.dart';
-import 'package:theprotestersoath/stories/story_page.dart';
-import 'package:theprotestersoath/utils/onBackPressed.dart';
+import 'package:protestersoath/stories/stories_cubit.dart';
+import 'package:protestersoath/stories/story_page.dart';
+import 'package:protestersoath/utils/onBackPressed.dart';
 
 import '../about/about_page.dart';
 import '../navigation/app_drawer/appdrawer_state.dart';

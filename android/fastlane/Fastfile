@@ -62,7 +62,7 @@ platform :android do
     )
   end
 
-  def distributeAndroid
+  def distributeFirebase
     firebase_app_distribution(
       apk_path: "../build/app/outputs/apk/release/app-release.apk",
       app: "1:111371745959:android:5665648e6e1b1bd98bb982",
@@ -74,7 +74,7 @@ platform :android do
 
   def notifySlack(message, commit, result)
     slack(
-      slack_url: $SLACK_HOOK,
+      slack_url: ENV["SLACK_HOOK"],
       message: message,
       success: result,
       default_payloads: [commit[:branch],commit[:sha],commit[:rev], commit[:message]]
@@ -86,16 +86,15 @@ platform :android do
       buildAndroid()
     end
 
-  desc "distribute"
-    lane :distribute do
+  desc "firebase"
+    lane :firebase do
       commit = getGitInfo()
-      buildAndroid()
-      distributeAndroid()
+      distributeFirebase()
       notifySlack("A new build is available for testing", commit, true)
     end
 
   desc "beta"
-    lane :publish do
+    lane :beta do
       commit = getGitInfo()
       buildAndroid()
       upload_to_play_store(track: 'beta')

@@ -1,8 +1,8 @@
-// import 'package:theprotestersoath/home/home_page.dart';
-// import 'package:theprotestersoath/login/LoginPage.dart';
-// import 'package:theprotestersoath/splash/splash_page.dart';
+// import 'package:protestersoath/home/home_page.dart';
+// import 'package:protestersoath/login/LoginPage.dart';
+// import 'package:protestersoath/splash/splash_page.dart';
 // import 'package:flutter/material.dart';
-// import 'package:theprotestersoath/stories/story_page.dart';
+// import 'package:protestersoath/stories/story_page.dart';
 //
 // import '../about/about_page.dart';
 // import '../oath/oath_page.dart';

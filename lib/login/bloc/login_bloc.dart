@@ -4,7 +4,7 @@ import 'package:flutter_session/flutter_session.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:theprotestersoath/data/Token.dart';
+import 'package:protestersoath/data/Token.dart';
 import './login.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {

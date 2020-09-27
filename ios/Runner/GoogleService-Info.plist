@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>111371745959-076thuk7883cubrfd2rk48266fjl195e.apps.googleusercontent.com</string>
+	<string>111371745959-f75s5snkrbkoa1i5dhch0nci0dpvptbk.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.111371745959-076thuk7883cubrfd2rk48266fjl195e</string>
+	<string>com.googleusercontent.apps.111371745959-f75s5snkrbkoa1i5dhch0nci0dpvptbk</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>111371745959-5pbhbep27tkae3a4g64ku5ibqnge234g.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.theprotestersoath.theprotestersoath</string>
+	<string>com.protestersoath.protestersoath</string>
 	<key>PROJECT_ID</key>
 	<string>the-protesters-oath</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,7 +31,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:111371745959:ios:d000a315c73d72468bb982</string>
+	<string>1:111371745959:ios:e8fabbcdcc07e1718bb982</string>
 	<key>DATABASE_URL</key>
 	<string>https://the-protesters-oath.firebaseio.com</string>
 </dict>

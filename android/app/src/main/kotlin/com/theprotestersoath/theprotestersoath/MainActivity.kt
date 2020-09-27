@@ -1,4 +1,4 @@
-package com.theprotestersoath.theprotestersoath
+package com.protestersoath.protestersoath
 
 import io.flutter.embedding.android.FlutterActivity
 

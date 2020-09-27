@@ -1,13 +1,13 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:theprotestersoath/login/bloc/login.dart';
-import 'package:theprotestersoath/login/bloc/login_bloc.dart';
-import 'package:theprotestersoath/login/PhoneTextFormField.dart';
+import 'package:protestersoath/login/bloc/login.dart';
+import 'package:protestersoath/login/bloc/login_bloc.dart';
+import 'package:protestersoath/login/PhoneTextFormField.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:theprotestersoath/utils/sizing.dart';
-import 'package:theprotestersoath/utils/stripCorrectPhone.dart';
-import 'package:theprotestersoath/utils/validatePhoneNumber.dart';
+import 'package:protestersoath/utils/sizing.dart';
+import 'package:protestersoath/utils/stripCorrectPhone.dart';
+import 'package:protestersoath/utils/validatePhoneNumber.dart';
 
 class NumberInput extends StatefulWidget {
   NumberInput({Key key}) : super(key: key);

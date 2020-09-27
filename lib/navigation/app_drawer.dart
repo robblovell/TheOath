@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:theprotestersoath/authentication/authentication.dart';
+import 'package:protestersoath/authentication/authentication.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 import 'app_drawer/appdrawer_bloc.dart';

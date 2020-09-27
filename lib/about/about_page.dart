@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:theprotestersoath/navigation/app_drawer/appdrawer_bloc.dart';
-import 'package:theprotestersoath/navigation/app_drawer/appdrawer_event.dart';
+import 'package:protestersoath/navigation/app_drawer/appdrawer_bloc.dart';
+import 'package:protestersoath/navigation/app_drawer/appdrawer_event.dart';
 
 import '../res.dart';
 

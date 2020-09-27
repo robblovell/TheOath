@@ -25,12 +25,22 @@ Runs all the tests
 ```
 fastlane android build
 ```
-distribute
+build
 ### android distribute
 ```
 fastlane android distribute
 ```
 distribute
+### android beta
+```
+fastlane android beta
+```
+beta
+### android publish
+```
+fastlane android publish
+```
+publish
 
 ----
 

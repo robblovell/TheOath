@@ -1,11 +1,11 @@
-import 'package:theprotestersoath/authentication/authentication.dart';
-import 'package:theprotestersoath/oath/OathContainer.dart';
-import 'package:theprotestersoath/login/bloc/login.dart';
-import 'package:theprotestersoath/login/bloc/login_bloc.dart';
+import 'package:protestersoath/authentication/authentication.dart';
+import 'package:protestersoath/oath/OathContainer.dart';
+import 'package:protestersoath/login/bloc/login.dart';
+import 'package:protestersoath/login/bloc/login_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:theprotestersoath/utils/onBackPressed.dart';
+import 'package:protestersoath/utils/onBackPressed.dart';
 import './PinInput.dart';
 import './NumberInput.dart';
 import './LoadingIndicator.dart';

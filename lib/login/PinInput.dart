@@ -1,11 +1,11 @@
 import 'package:pin_input_text_field/pin_input_text_field.dart';
-import 'package:theprotestersoath/login/bloc/login.dart';
-import 'package:theprotestersoath/login/bloc/login_bloc.dart';
+import 'package:protestersoath/login/bloc/login.dart';
+import 'package:protestersoath/login/bloc/login_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:theprotestersoath/utils/sizing.dart';
+import 'package:protestersoath/utils/sizing.dart';
 
 class PinInput extends StatefulWidget {
   PinInput({Key key}) : super(key: key);

@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:theprotestersoath/utils/sizing.dart';
+import 'package:protestersoath/utils/sizing.dart';
 
 class OathCard extends StatelessWidget {
   final String text;

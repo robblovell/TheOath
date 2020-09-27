@@ -1,3 +1,28 @@
+## Build ios
+
+Ad-hoc build.
+```
+bundle exec fastlane ios build method:ad-hoc
+```
+
+Store build.
+```
+bundle exec fastlane ios build method:app-store
+```
+
+Distribution to Firebase.
+```
+firebase login
+bundle exec fastlane ios firebase
+
+```
+
+Problems: with build number not changing or clean checkout:
+
+```
+flutter clean  & flutter pub get && cd ios/ && pod repo update && pod update && pod install 
+```
+
 brew tap dart-lang/dart
 brew install dart
 brew info dart

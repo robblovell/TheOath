@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:theprotestersoath/data/Token.dart';
-import 'package:theprotestersoath/utils/stripCorrectPhone.dart';
+import 'package:protestersoath/data/Token.dart';
+import 'package:protestersoath/utils/stripCorrectPhone.dart';
 
 import 'PaintedBarcode/PaintedBarcode.dart';
 import 'PaintedBarcode/Shape.dart';
