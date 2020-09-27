@@ -6,21 +6,8 @@ class TheReason extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(shrinkWrap: false, slivers: <Widget>[
-      // SliverAppBar(
-      //   pinned: true,
-      //   // expandedHeight: appBarHeight,
-      //   flexibleSpace: FlexibleSpaceBar(
-      //     titlePadding: EdgeInsets.zero,
-      //     centerTitle: false,
-      //     title: Text("REASON_TITLE".tr()),
-      //   ),
-      // ),
       SliverToBoxAdapter(
-        child: SizedBox(
-          height: 2700,
-          child: Align(
-            alignment: Alignment.topLeft,
-            child: Padding(
+        child: Padding(
                 padding: EdgeInsets.all(20),
               child: RichText(
               overflow: TextOverflow.visible,
@@ -69,8 +56,6 @@ class TheReason extends StatelessWidget {
             ),),
           ),
           // Text('The power of protest is to reveal truth in the face of unjust power through non-violent action.'),
-        ),
-      ),
     ]);
   }
 }
