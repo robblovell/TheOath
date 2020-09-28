@@ -9,12 +9,19 @@
 #
 #     https://docs.fastlane.tools/plugins/available-plugins
 #
-update_fastlane
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
 
 default_platform(:ios)
 
-platform :ios do |options|
-    lane :beta do
+platform :ios do
+  desc "Generate new localized screenshots"
+  lane :screenshots do
+    capture_screenshots(workspace: "Runner.xcworkspace", scheme: "Runner")
+    upload_to_app_store(skip_binary_upload: true, skip_metadata: true)
+  end
+   lane :beta do
       cert
       sigh(force: true)
     end

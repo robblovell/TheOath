@@ -1,5 +1,5 @@
-  LOGIN_TITLE: The Protester's Oath
-  APP_TITLE: The Protester's Oath 2
+  LOGIN_TITLE: Protester's Oath
+  APP_TITLE: Protester's Oath
   POINT_00: I will not be violent.
   POINT_01: I will not bring a weapon, defensive or offensive, to a protest.
   POINT_02: I will stop violence, crime and vandalism, or record it, if I feel it is safe to do so.
@@ -46,7 +46,7 @@
   HOME: Proof of Oath
   THEOATH: The Oath
   THEREASON: Reason for the Oath
-  OATH_TAKEN: I Took The Protester's Oath
+  OATH_TAKEN: I Took the Protester's Oath
   STORIES_TOOLTIP: Stories
   STORY_URL_CAPTION:  Online Story Link
 

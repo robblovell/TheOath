@@ -3,23 +3,23 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>111371745959-f75s5snkrbkoa1i5dhch0nci0dpvptbk.apps.googleusercontent.com</string>
+	<string>1087855424394-dqdfbb8fa2jsjv9ehvcghabhekesnpn8.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.111371745959-f75s5snkrbkoa1i5dhch0nci0dpvptbk</string>
+	<string>com.googleusercontent.apps.1087855424394-dqdfbb8fa2jsjv9ehvcghabhekesnpn8</string>
 	<key>ANDROID_CLIENT_ID</key>
-	<string>111371745959-5pbhbep27tkae3a4g64ku5ibqnge234g.apps.googleusercontent.com</string>
+	<string>1087855424394-frso7uf572ledkp322mcnsnk7sip0251.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAGhQ-qBWnfustSPqv4XWWZQDr0w1PcGnw</string>
+	<string>AIzaSyAundYADoSHKd4eUpCfbSSQ6W7HmWNz8zI</string>
 	<key>GCM_SENDER_ID</key>
-	<string>111371745959</string>
+	<string>1087855424394</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.protestersoath.protestersoath</string>
 	<key>PROJECT_ID</key>
-	<string>the-protesters-oath</string>
+	<string>protesters-oath</string>
 	<key>STORAGE_BUCKET</key>
-	<string>the-protesters-oath.appspot.com</string>
+	<string>protesters-oath.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -31,8 +31,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:111371745959:ios:e8fabbcdcc07e1718bb982</string>
+	<string>1:1087855424394:ios:73d498fc25bf7891fa8e73</string>
 	<key>DATABASE_URL</key>
-	<string>https://the-protesters-oath.firebaseio.com</string>
+	<string>https://protesters-oath.firebaseio.com</string>
 </dict>
 </plist>

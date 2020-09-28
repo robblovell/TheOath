@@ -22,7 +22,7 @@ class LOCAL {
 
   static Map<String, Map<String, String>> _localizedValues = {
     'en': {
-      'title': "The Protester's Oath",
+      'title': "Protester's Oath",
     },
     'es': {
       // Spanish

@@ -1,41 +1,50 @@
 {
   "project_info": {
-    "project_number": "111371745959",
-    "firebase_url": "https://the-protesters-oath.firebaseio.com",
-    "project_id": "the-protesters-oath",
-    "storage_bucket": "the-protesters-oath.appspot.com"
+    "project_number": "1087855424394",
+    "firebase_url": "https://protesters-oath.firebaseio.com",
+    "project_id": "protesters-oath",
+    "storage_bucket": "protesters-oath.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:111371745959:android:7888cf3c8e374ebe8bb982",
+        "mobilesdk_app_id": "1:1087855424394:android:3a568bcd5f12c731fa8e73",
         "android_client_info": {
           "package_name": "com.protestersoath.protestersoath"
         }
       },
       "oauth_client": [
         {
-          "client_id": "111371745959-bubclkgsi0pjm67d1qgrlgck8ptuno79.apps.googleusercontent.com",
+          "client_id": "1087855424394-frso7uf572ledkp322mcnsnk7sip0251.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.protestersoath.protestersoath",
+            "certificate_hash": "b7a2beaa614b3b39951315051ce66c6235098b0e"
+          }
+        },
+        {
+          "client_id": "1087855424394-4kgk8v2apcsktaj2g4efpo6i71kj263v.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAyIvMvA0HgyWfO-n48xo2CTmpJEcsclOg"
+          "current_key": "AIzaSyCHsefB8r5C8yvvZo752MNfCbi6jkZwyNQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "111371745959-bubclkgsi0pjm67d1qgrlgck8ptuno79.apps.googleusercontent.com",
+              "client_id": "1087855424394-4kgk8v2apcsktaj2g4efpo6i71kj263v.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "111371745959-f75s5snkrbkoa1i5dhch0nci0dpvptbk.apps.googleusercontent.com",
+              "client_id": "1087855424394-dqdfbb8fa2jsjv9ehvcghabhekesnpn8.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.protestersoath.protestersoath"
+                "bundle_id": "com.protestersoath.protestersoath",
+                "app_store_id": "1533594652"
               }
             }
           ]

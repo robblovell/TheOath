@@ -9,7 +9,9 @@
 #
 #     https://docs.fastlane.tools/plugins/available-plugins
 #
-update_fastlane
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
 
 default_platform(:android)
 
@@ -96,6 +98,8 @@ platform :android do
   desc "beta"
     lane :beta do
       commit = getGitInfo()
+      # gradle(task: "clean assembleRelease")
+      crashlytics
       buildAndroid()
       upload_to_play_store(track: 'beta')
       notifySlack("Successfully published a beta build", commit, true)
@@ -104,7 +108,7 @@ platform :android do
   desc "publish"
     lane :publish do
       commit = getGitInfo()
-      buildAndroid()
+      # gradle(task: "clean assembleRelease")
       upload_to_play_store(track: 'store')
       notifySlack("Successfully published a store build", commit, true)
     end
@@ -114,5 +118,4 @@ platform :android do
     commit = getGitInfo()
     notifySlack("Build failed with exception: #{exception}", commit, false)
   end
-
 end

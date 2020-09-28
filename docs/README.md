@@ -1,28 +1,3 @@
-## Build ios
-
-Ad-hoc build.
-```
-bundle exec fastlane ios build method:ad-hoc
-```
-
-Store build.
-```
-bundle exec fastlane ios build method:app-store
-```
-
-Distribution to Firebase.
-```
-firebase login
-bundle exec fastlane ios firebase
-
-```
-
-Problems: with build number not changing or clean checkout:
-
-```
-flutter clean  & flutter pub get && cd ios/ && pod repo update && pod update && pod install 
-```
-
 brew tap dart-lang/dart
 brew install dart
 brew info dart
@@ -45,7 +20,7 @@ bundle update
 bundle exec fastlane add_plugin firebase_app_distribution
 
 
-export GRADLE_APK_OUTPUT_PATH=/Users/robblovell/Code/original/theprotestersoath/build/app/outputs/flutter-apk/
+export GRADLE_APK_OUTPUT_PATH=/Users/robblovell/Code/original/protestersoath/build/app/outputs/flutter-apk/
 
         firebase_app_distribution(
             apk_path: "../build/app/outputs/apk/release/app-release.apk",

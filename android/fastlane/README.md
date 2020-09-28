@@ -26,11 +26,11 @@ Runs all the tests
 fastlane android build
 ```
 build
-### android distribute
+### android firebase
 ```
-fastlane android distribute
+fastlane android firebase
 ```
-distribute
+firebase
 ### android beta
 ```
 fastlane android beta
