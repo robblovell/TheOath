@@ -6,7 +6,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:protestersoath/utils/onBackPressed.dart';
-import './PinInput.dart';
 import './NumberInput.dart';
 import './LoadingIndicator.dart';
 
@@ -39,12 +38,9 @@ class _LoginFormState extends State<LoginForm> {
         child: BlocListener<LoginBloc, LoginState>(
           cubit: _loginBloc,
           listener: (context, loginState) {
-            if (loginState is ExceptionState ||
-                loginState is OtpExceptionState) {
+            if (loginState is ExceptionState) {
               String message;
               if (loginState is ExceptionState) {
-                message = loginState.message;
-              } else if (loginState is OtpExceptionState) {
                 message = loginState.message;
               }
               final snackBar = SnackBar(
@@ -121,13 +117,11 @@ class _LoginFormState extends State<LoginForm> {
   getViewAsPerState(LoginState state) {
     if (state is Unauthenticated) {
       return NumberInput();
-    } else if (state is OtpSentState || state is OtpExceptionState) {
-      return PinInput();
     } else if (state is LoadingState) {
       return LoadingIndicator();
     } else if (state is LoginCompleteState) {
       BlocProvider.of<AuthenticationBloc>(context).add(LoggedIn(
-          token: state.getUser() != null ? state.getUser().uid : "none"));
+          token: state.getUser() != null ? state.getUser().phoneNumber : "none"));
     } else {
       return NumberInput();
     }

@@ -20,16 +20,24 @@ class AppDrawerBloc extends Bloc<AppDrawerEvent, AppDrawerState> {
     this.lastPage = this.currentPage;
     this.currentPage = event;
     if (event is LoadingEvent) {
-      dynamic tokenMap = await FlutterSession().get("token");
+      dynamic tokenMap = await FlutterSession().get("protester");
       this.token = Token.fromJson(tokenMap);
       // print(token);
       yield HomePageState(this.token);
+      // dynamic tokenMap = await FlutterSession().get("token");
+      // this.token = Token.fromJson(tokenMap);
+      // // print(token);
+      // yield HomePageState(this.token);
     }
     if (event is HomePageEvent) {
-      dynamic tokenMap = await FlutterSession().get("token");
+      dynamic tokenMap = await FlutterSession().get("protester");
       this.token = Token.fromJson(tokenMap);
       // print(token);
       yield HomePageState(this.token);
+      // dynamic tokenMap = await FlutterSession().get("token");
+      // this.token = Token.fromJson(tokenMap);
+      // // print(token);
+      // yield HomePageState(this.token);
     }
     if (event is AboutPageEvent) {
       yield AboutPageState();
@@ -44,8 +52,10 @@ class AppDrawerBloc extends Bloc<AppDrawerEvent, AppDrawerState> {
       yield ReasonPageState(this.lastPage);
     }
     if (event is BackButtonEvent) {
-      dynamic tokenMap = await FlutterSession().get("token");
+      dynamic tokenMap = await FlutterSession().get("protester");
       this.token = Token.fromJson(tokenMap);
+      // dynamic tokenMap = await FlutterSession().get("token");
+      // this.token = Token.fromJson(tokenMap);
       // print(token);
       // todo: handle the differences for the Reason page. sometimes it goes back to oath.
       yield HomePageState(this.token);

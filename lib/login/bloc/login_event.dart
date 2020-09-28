@@ -1,7 +1,6 @@
 import 'package:equatable/equatable.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
-// import 'package:meta/meta.dart';
+import 'package:protestersoath/data/Protester.dart';
 
 @immutable
 class LoginEvent extends Equatable {
@@ -17,18 +16,11 @@ class SendOtpEvent extends LoginEvent {
 
 class AppStartEvent extends LoginEvent {}
 
-class VerifyOtpEvent extends LoginEvent {
-  final String otp;
-  VerifyOtpEvent({this.otp});
-}
-
 class LogoutEvent extends LoginEvent {}
 
-class OtpSendEvent extends LoginEvent {}
-
 class LoginCompleteEvent extends LoginEvent {
-  final User firebaseUser;
-  LoginCompleteEvent(this.firebaseUser);
+  final Protester localUser;
+  LoginCompleteEvent(this.localUser);
 }
 
 class LoginExceptionEvent extends LoginEvent {
