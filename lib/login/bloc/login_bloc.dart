@@ -30,6 +30,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       }
     } else if (event is OtpSendEvent) {
       yield OtpSentState(); // we get here after an otp is sent. the ui reacts by showing the pin entry screen.
+    // candidate: this was commented out in e3c15d2c
     } else if (event is LoginCompleteEvent) {
       yield LoginCompleteState(event.firebaseUser);
     } else if (event is LoginExceptionEvent) {
@@ -106,7 +107,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
           }
         } catch (error) {
           eventStream.add(LoginExceptionEvent('SOMETHING_WRONG_4'.tr() + " (Error 04) ")); // + error));
-          await eventStream.close();
+          // candidate: this had an await now but probalby shouldn't in e3c15d2c
+          eventStream.close();
         }
       };
       final phoneVerificationFailed = (FirebaseAuthException authException) {
@@ -132,6 +134,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       };
       final phoneCodeAutoRetrievalTimeout = (String verid) {
         this.verID = verid;
+        // candidate: this was not commented out in e3c15d2c
         // You don't need to do anything here with the end user.
         // eventStream.add(OtpSendEvent());
         // eventStream.add(LoginExceptionEvent('AUTH_TIMEOUT_10'.tr()));
@@ -139,7 +142,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       };
       await FirebaseAuth.instance.verifyPhoneNumber(
         phoneNumber: phoNo,
-        timeout: const Duration(seconds: 30),
+        timeout: const Duration(seconds: 30),//  timeout was 120.
         verificationCompleted: phoneVerificationCompleted,
         verificationFailed: phoneVerificationFailed,
         codeSent: phoneCodeSent,
