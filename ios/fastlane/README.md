@@ -26,11 +26,11 @@ Generate new localized screenshots
 fastlane ios beta
 ```
 
-### ios getinfo
+### ios info
 ```
-fastlane ios getinfo
+fastlane ios info
 ```
-getinfo
+info
 ### ios bump
 ```
 fastlane ios bump
