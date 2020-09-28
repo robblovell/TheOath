@@ -164,3 +164,6 @@ Runner.ipa
 /android/app/google-services-invlid.json
 secrets
 YKLY9H78WK.cer
+/android/AdHoc_com.protestersoath.protestersoath.mobileprovision
+/ios/AdHoc_com.protestersoath.protestersoath.mobileprovision
+/ios/AppStore_com.protestersoath.protestersoath.mobileprovision
