@@ -57,7 +57,6 @@ platform :android do
   end
 
   def buildAndroid
-    bumpAndroid()
     build_android_app( # built-in fastlane action.
       task: "assemble",
       build_type: "Release",
@@ -67,7 +66,7 @@ platform :android do
   def distributeFirebase
     firebase_app_distribution(
       apk_path: "../build/app/outputs/apk/release/app-release.apk",
-      app: "1:111371745959:android:5665648e6e1b1bd98bb982",
+      app: "1:1087855424394:android:3a568bcd5f12c731fa8e73",
       testers: "robblovell@gmail.com",  # "/path/to/testers.txt"
       release_notes: "First release",  # "/path/to/release-notes.txt"
       firebase_cli_token: $FIREBASE_TOKEN
@@ -82,14 +81,17 @@ platform :android do
       default_payloads: [commit[:branch],commit[:sha],commit[:rev], commit[:message]]
     )
   end
-
+  desc "bump"
+    lane :bump do
+    bumpAndroid()
+    end
   desc "build"
     lane :build do
       buildAndroid()
     end
 
-  desc "firebase"
-    lane :firebase do
+  desc "tofirebase"
+    lane :tofirebase do
       commit = getGitInfo()
       distributeFirebase()
       notifySlack("A new build is available for testing", commit, true)

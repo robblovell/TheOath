@@ -76,21 +76,21 @@ platform :ios do
       build_app(
         scheme: "Runner",
         # ["app-store", "ad-hoc", "package", "enterprise", "development", "developer-id"]
-        export_method: options[:method],
+        export_method: "app-store" #options[:method],
       )
     end
 
-    def distributeFirebase
+    def toFirebase
       firebase_app_distribution(
         ipa_path: "./Runner.ipa",
-        app: "1:111371745959:ios:d000a315c73d72468bb982",
+        app: "1:1087855424394:ios:73d498fc25bf7891fa8e73",
         testers: "robblovell@gmail.com",  # "/path/to/testers.txt"
         release_notes: "/Users/robblovell/Code/original/theprotestersoath/docs/release-notes.txt",
         firebase_cli_token: $FIREBASE_TOKEN
       )
     end
 
-    def distributeTestFlight
+    def toTestFlight
         upload_to_testflight(
         )
     end
@@ -123,13 +123,13 @@ platform :ios do
 
     desc "tofirebase"
       lane :tofirebase do |options|
-        distributeFirebase()
+        toFirebase()
         commit = getInfo()
         notifySlack("A new build is available for testing. #{commit[:rev]} - #{commit[:sha]}", commit, true)
       end
     desc "totestflight"
       lane :totestflight do |options|
-        distributeTestFlight()
+        toTestFlight()
         commit = getInfo()
         notifySlack("A new build is available for testing. #{commit[:rev]} - #{commit[:sha]}", commit, true)
       end

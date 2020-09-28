@@ -15,37 +15,42 @@ Install _fastlane_ using
 or alternatively using `brew install fastlane`
 
 # Available Actions
-## Android
-### android test
+## iOS
+### ios screenshots
 ```
-fastlane android test
+fastlane ios screenshots
 ```
-Runs all the tests
-### android bump
+Generate new localized screenshots
+### ios beta
 ```
-fastlane android bump
+fastlane ios beta
+```
+
+### ios getinfo
+```
+fastlane ios getinfo
+```
+getinfo
+### ios bump
+```
+fastlane ios bump
 ```
 bump
-### android build
+### ios build
 ```
-fastlane android build
+fastlane ios build
 ```
 build
-### android tofirebase
+### ios tofirebase
 ```
-fastlane android tofirebase
+fastlane ios tofirebase
 ```
 tofirebase
-### android beta
+### ios totestflight
 ```
-fastlane android beta
+fastlane ios totestflight
 ```
-beta
-### android publish
-```
-fastlane android publish
-```
-publish
+totestflight
 
 ----
 
