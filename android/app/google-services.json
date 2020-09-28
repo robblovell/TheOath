@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1087855424394-qvjmvk4ask3hsa1li7u781jj0le1tdrb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.protestersoath.protestersoath",
+            "certificate_hash": "2cedf39c3d2cde5e9affeac9eb80450fc1dc2b27"
+          }
+        },
+        {
           "client_id": "1087855424394-frso7uf572ledkp322mcnsnk7sip0251.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
