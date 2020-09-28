@@ -142,7 +142,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       };
       await FirebaseAuth.instance.verifyPhoneNumber(
         phoneNumber: phoNo,
-        timeout: const Duration(seconds: 30),//  timeout was 120.
+        timeout: const Duration(seconds: 60),//  timeout was 120.
         verificationCompleted: phoneVerificationCompleted,
         verificationFailed: phoneVerificationFailed,
         codeSent: phoneCodeSent,
