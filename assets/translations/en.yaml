@@ -38,8 +38,8 @@
   URL_PROBLEM: Oops... the URL couldn\'t be opened!
   ENTER_PHONE_TIP: Enter your phone number to sign the oath
   ABOUT: About
-  LOGOUT: Log Out
-  LOGIN: Log in
+  LOGOUT: Retake Oath
+  LOGIN: Take The Oath
   BACK: Back
   STORIES: Stories of Protest
   SETTINGS: Settings
@@ -48,6 +48,7 @@
   THEREASON: Reason for the Oath
   OATH_TAKEN: I Took the Protester's Oath
   STORIES_TOOLTIP: Stories
+  OATH_TOOLTIP: The Oath
   STORY_URL_CAPTION:  Online Story Link
 
   STORY_TITLE_00: Protests against Hitler

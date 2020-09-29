@@ -29,9 +29,10 @@ class HomePage extends StatelessWidget {
             ),
             actions: [
               IconButton(
-                icon: Icon(Icons.art_track, size: 40),
+                icon: Icon(Icons.art_track, size: 35),
                 onPressed: () => BlocProvider.of<AppDrawerBloc>(context)
                     .add(StoryPageEvent()),
+                tooltip: 'STORIES_TOOLTIP'.tr(),
               ),
             ],
           ),
@@ -52,23 +53,23 @@ class HomePage extends StatelessWidget {
                     color: Colors.black,
                     size: 30,
                   ),
-                  tooltip: 'STORIES_TOOLTIP'.tr(),
+                  tooltip: 'OATH_TOOLTIP'.tr(),
                   onPressed: () => BlocProvider.of<AppDrawerBloc>(context)
                       .add(OathPageEvent()),
                 )),
-            Container(
-                alignment: Alignment(-.9, 0.91),
-                child: IconButton(
-                  icon: Icon(
-                    Icons.info,
-                    // IconData(0xe060, fontFamily: 'MaterialIcons'),
-                    color: Colors.black,
-                    size: 30,
-                  ),
-                  tooltip: 'THEREASON'.tr(),
-                  onPressed: () => BlocProvider.of<AppDrawerBloc>(context)
-                      .add(ReasonPageEvent()),
-                )),
+            // Container(
+            //     alignment: Alignment(-.9, 0.91),
+            //     child: IconButton(
+            //       icon: Icon(
+            //         Icons.info,
+            //         // IconData(0xe060, fontFamily: 'MaterialIcons'),
+            //         color: Colors.black,
+            //         size: 30,
+            //       ),
+            //       tooltip: 'THEREASON'.tr(),
+            //       onPressed: () => BlocProvider.of<AppDrawerBloc>(context)
+            //           .add(ReasonPageEvent()),
+            //     )),
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(

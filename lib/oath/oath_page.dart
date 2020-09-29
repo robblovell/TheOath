@@ -17,13 +17,13 @@ class OathPage extends StatelessWidget {
             "THEOATH".tr(),
             style: TextStyle(color: Colors.white),
           ),
-          actions: [
-            IconButton(
-              icon: Icon(Icons.art_track, size: 40),
-              onPressed: () =>
-                  BlocProvider.of<AppDrawerBloc>(context).add(StoryPageEvent()),
-            ),
-          ],
+          // actions: [
+          //   IconButton(
+          //     icon: Icon(Icons.art_track, size: 40),
+          //     onPressed: () =>
+          //         BlocProvider.of<AppDrawerBloc>(context).add(StoryPageEvent()),
+          //   ),
+          // ],
           leading: IconButton(
             icon: Icon(Icons.arrow_back),
             onPressed: () {

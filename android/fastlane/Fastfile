@@ -64,11 +64,12 @@ platform :android do
   end
 
   def distributeFirebase
+    puts $FIREBASE_TOKEN
     firebase_app_distribution(
       apk_path: "../build/app/outputs/apk/release/app-release.apk",
       app: "1:1087855424394:android:3a568bcd5f12c731fa8e73",
       testers: "robblovell@gmail.com",  # "/path/to/testers.txt"
-      release_notes: "First release",  # "/path/to/release-notes.txt"
+      release_notes: "",  # "/path/to/release-notes.txt"
       firebase_cli_token: $FIREBASE_TOKEN
     )
   end
