@@ -102,16 +102,21 @@ platform :android do
     lane :beta do
       commit = getGitInfo()
       # gradle(task: "clean assembleRelease")
-      crashlytics
-      buildAndroid()
+#      crashlytics
+#      buildAndroid()
       upload_to_play_store(track: 'beta')
+      notifySlack("Successfully published a beta build", commit, true)
+    end
+  desc "bundle"
+    lane :publish do
+      commit = getGitInfo()
+      gradle(task: "clean assembleRelease")
       notifySlack("Successfully published a beta build", commit, true)
     end
 
   desc "publish"
     lane :publish do
       commit = getGitInfo()
-      # gradle(task: "clean assembleRelease")
       upload_to_play_store(track: 'store')
       notifySlack("Successfully published a store build", commit, true)
     end
