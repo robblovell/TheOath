@@ -48,5 +48,8 @@ class AuthenticationBloc
     if (event is LoginReasonPageEvent) {
       yield LoginReasonPageState();
     }
+    if (event is LoginPrivacyPageEvent) {
+      yield LoginPrivacyPageState();
+    }
   }
 }

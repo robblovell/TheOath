@@ -51,6 +51,8 @@ class _AppState extends State<App> {
             return LoginPage();
           } else if (state is LoginReasonPageState) {
             return ReasonPage(true);
+          } else if (state is LoginPrivacyPageState) {
+            return PrivacyPage(true);
           } else if (state is Authenticated) {
             return AppView();
           } else {
