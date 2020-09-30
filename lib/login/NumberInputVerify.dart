@@ -49,7 +49,7 @@ class _NumberInputVerify extends State<NumberInputVerify> {
           Form(
             key: _formKey,
             child: PhoneTextFormField().getCustomEditTextArea(
-                labelValue: 'ENTER_PHONE_TIP'.tr(),
+                labelValue: 'ENTER_VERIFY_PHONE_TIP'.tr(),
                 hintValue: '',
                 controller: _phoneTextController,
                 keyboardType: TextInputType.number,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:protestersoath/navigation/app_drawer.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_bloc.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_event.dart';
 import 'package:protestersoath/oath/OathContainer.dart';
@@ -24,13 +25,13 @@ class OathPage extends StatelessWidget {
           //         BlocProvider.of<AppDrawerBloc>(context).add(StoryPageEvent()),
           //   ),
           // ],
-          leading: IconButton(
-            icon: Icon(Icons.arrow_back),
-            onPressed: () {
-              BlocProvider.of<AppDrawerBloc>(context)
-                  .add(BackButtonEvent("OathPage"));
-            },
-          ),
+          // leading: IconButton(
+          //   icon: Icon(Icons.arrow_back),
+          //   onPressed: () {
+          //     BlocProvider.of<AppDrawerBloc>(context)
+          //         .add(BackButtonEvent("OathPage"));
+          //   },
+          // ),
         ),
         body: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints viewportConstraints) {
@@ -58,6 +59,8 @@ class OathPage extends StatelessWidget {
               ),
             );
           },
-        ));
+        ),
+        drawer: AppDrawer(),
+    );
   }
 }

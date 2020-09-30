@@ -1,4 +1,4 @@
-  LOGIN_TITLE: Protester's Oath
+  LOGIN_TITLE: The Protester's Oath
   APP_TITLE: Protester's Oath
   POINT_00: I will not be violent.
   POINT_01: I will not bring a weapon, defensive or offensive, to a protest.
@@ -37,6 +37,7 @@
     Something has gone wrong, please try again later.
   URL_PROBLEM: Oops... the URL couldn\'t be opened!
   ENTER_PHONE_TIP: Enter your phone number to sign the oath
+  ENTER_VERIFY_PHONE_TIP: Enter another's phone number to sign the oath
   ABOUT: About
   LOGOUT: Retake Oath
   LOGIN: Take The Oath

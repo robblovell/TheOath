@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:protestersoath/navigation/app_drawer.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_bloc.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_event.dart';
 
@@ -13,19 +14,20 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: AppDrawer(),
       backgroundColor: Colors.grey,
       appBar: AppBar(
         title: Text(
           "About",
           style: TextStyle(color: Colors.white),
         ),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {
-            BlocProvider.of<AppDrawerBloc>(context)
-                .add(BackButtonEvent("AboutPage"));
-          },
-        ),
+        // leading: IconButton(
+        //   icon: Icon(Icons.arrow_back),
+        //   onPressed: () {
+        //     BlocProvider.of<AppDrawerBloc>(context)
+        //         .add(BackButtonEvent("AboutPage"));
+        //   },
+        // ),
       ),
       body: Center(
           child: Column(

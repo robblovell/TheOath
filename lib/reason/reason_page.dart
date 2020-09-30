@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:protestersoath/navigation/app_drawer.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_bloc.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_event.dart';
 import 'package:protestersoath/authentication/authentication.dart';
@@ -34,30 +35,33 @@ class ReasonPage extends StatelessWidget {
                   BlocProvider.of<AuthenticationBloc>(context).add(LoggedOut());
                 },
               );
-            })()),
+            })()
+        ),
         body: TheReason(),
       );
     } else {
       return BlocBuilder<AppDrawerBloc, AppDrawerState>(
           builder: (BuildContext context, AppDrawerState state) {
         return Scaffold(
+          drawer: AppDrawer(),
           appBar: AppBar(
               title: Text(
                 "THEREASON".tr(),
                 style: TextStyle(color: Colors.white),
               ),
-              leading: (() {
-                AppDrawerEvent lastPage = (state as ReasonPageState).lastPage;
-                return IconButton(
-                  icon: Icon(lastPage is OathPageEvent
-                      ? Icons.arrow_back
-                      : Icons.arrow_back),
-                  onPressed: () {
-                    BlocProvider.of<AppDrawerBloc>(context)
-                        .add(ReasonBackButtonEvent(lastPage));
-                  },
-                );
-              })()),
+              // leading: (() {
+              //   AppDrawerEvent lastPage = (state as ReasonPageState).lastPage;
+              //   return IconButton(
+              //     icon: Icon(lastPage is OathPageEvent
+              //         ? Icons.arrow_back
+              //         : Icons.arrow_back),
+              //     onPressed: () {
+              //       BlocProvider.of<AppDrawerBloc>(context)
+              //           .add(ReasonBackButtonEvent(lastPage));
+              //     },
+              //   );
+              // })()
+          ),
           body: TheReason(),
         );
       });

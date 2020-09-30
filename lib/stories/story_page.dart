@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_cubit/flutter_cubit.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:protestersoath/navigation/app_drawer.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_bloc.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_event.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -27,12 +28,14 @@ class _StoryPageState extends State<StoryPage> {
           child: Icon(Icons.close),
         );
       } else if (state is LoadedState) {
-        return Container(
+        return Scaffold(
+            drawer: AppDrawer(),
+            body: Container(
             color: Colors.grey,
             child:CustomScrollView(
           slivers: <Widget> [
             SliverAppBar(
-                pinned: true,
+              pinned: true,
                 // expandedHeight: appBarHeight,
               title: Text(
                 "STORIES".tr(),
@@ -45,13 +48,13 @@ class _StoryPageState extends State<StoryPage> {
                         CubitProvider.of<StoriesCubit>(context).getNextStory(),
                   ),
                 ],
-                leading: IconButton(
-                  icon: Icon(Icons.arrow_back),
-                  onPressed: () {
-                    BlocProvider.of<AppDrawerBloc>(context)
-                        .add(BackButtonEvent("StoryPage"));
-                  },
-                ),
+                // leading: IconButton(
+                //   icon: Icon(Icons.arrow_back),
+                //   onPressed: () {
+                //     BlocProvider.of<AppDrawerBloc>(context)
+                //         .add(BackButtonEvent("StoryPage"));
+                //   },
+                // ),
               ),
               SliverList(
                 delegate: SliverChildListDelegate(
@@ -60,7 +63,7 @@ class _StoryPageState extends State<StoryPage> {
                   ],
                 ),
               )
-          ]));
+          ])));
       }
       return Center(
         child: Icon(Icons.close),

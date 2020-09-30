@@ -40,6 +40,7 @@ class TheOath extends StatelessWidget {
           centerTitle: false,
           title: Text("LOGIN_TITLE".tr()),
         ),
+        leading: Container()
       ),
       TheOathGrid(isLogin, this.viewportConstraints)
     ]);
