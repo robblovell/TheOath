@@ -212,6 +212,7 @@ This command builds an APK for android.
 The output location is one directory up in the build directory of the project:
 
 * /build/app/outputs/apk/[debug | release]/app-[debug | release].apk
+* /ios/Runner.ipa
 
 APK files genereated with this command will be debug builds, even if the files are named release.
 Relases are signed with a release key that makes them releases.
