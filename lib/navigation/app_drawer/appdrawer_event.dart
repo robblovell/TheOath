@@ -61,6 +61,16 @@ class ReasonPageEvent extends AppDrawerEvent {
   @override
   List<Object> get props => [];
 }
+class VerifyPageEvent extends AppDrawerEvent {
+  VerifyPageEvent() : super();
+
+  @override
+  String toString() => 'VerifyPage';
+
+  @override
+  List<Object> get props => [];
+}
+
 class PrivacyPageEvent extends AppDrawerEvent {
   PrivacyPageEvent() : super();
 
@@ -99,4 +109,15 @@ class BackButtonEvent extends AppDrawerEvent {
 
   @override
   List<Object> get props => [this.fromPage];
+}
+
+class VerifyProofOfOathEvent extends AppDrawerEvent {
+  VerifyProofOfOathEvent({@required this.othersPhone}) : super();
+  final String othersPhone;
+
+  @override
+  String toString() => 'VerifyProofOfOath { othersPhone: $othersPhone }';
+
+  @override
+  List<Object> get props => [othersPhone];
 }

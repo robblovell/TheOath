@@ -47,26 +47,16 @@ class ReasonPage extends StatelessWidget {
                 style: TextStyle(color: Colors.white),
               ),
               leading: (() {
-                if (this.isLogin) {
-                  return IconButton(
-                    icon: Icon(Icons.info),
-                    onPressed: () {
-                      BlocProvider.of<AuthenticationBloc>(context)
-                          .add(LoggedOut());
-                    },
-                  );
-                } else {
-                  AppDrawerEvent lastPage = (state as ReasonPageState).lastPage;
-                  return IconButton(
-                    icon: Icon(lastPage is OathPageEvent
-                        ? Icons.arrow_back
-                        : Icons.arrow_back),
-                    onPressed: () {
-                      BlocProvider.of<AppDrawerBloc>(context)
-                          .add(ReasonBackButtonEvent(lastPage));
-                    },
-                  );
-                }
+                AppDrawerEvent lastPage = (state as ReasonPageState).lastPage;
+                return IconButton(
+                  icon: Icon(lastPage is OathPageEvent
+                      ? Icons.arrow_back
+                      : Icons.arrow_back),
+                  onPressed: () {
+                    BlocProvider.of<AppDrawerBloc>(context)
+                        .add(ReasonBackButtonEvent(lastPage));
+                  },
+                );
               })()),
           body: TheReason(),
         );

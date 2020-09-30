@@ -18,7 +18,7 @@ class AppDrawer extends StatelessWidget {
             removeTop: true,
             child: Expanded(
               child: ListView(
-                padding: const EdgeInsets.only(top: 40),
+                padding: const EdgeInsets.only(top: 52),
                 children: <Widget>[
                   ListTile(
                     leading: Icon(Icons.list), //article_outlined),
@@ -65,6 +65,18 @@ class AppDrawer extends StatelessWidget {
                     onTap: () {
                       BlocProvider.of<AppDrawerBloc>(theContext)
                           .add(HomePageEvent());
+                      Navigator.pop(theContext);
+                    },
+                  ),
+                  ListTile(
+                    leading: Icon(Icons.turned_in),
+                    title: Text(
+                      "VERIFY_OTHER".tr(),
+                      style: TextStyle(fontSize: 22, color: Colors.black),
+                    ),
+                    onTap: () {
+                      BlocProvider.of<AppDrawerBloc>(theContext)
+                          .add(VerifyPageEvent());
                       Navigator.pop(theContext);
                     },
                   ),

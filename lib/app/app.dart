@@ -6,6 +6,8 @@ import 'package:protestersoath/authentication/authentication.dart';
 import 'package:protestersoath/home/home_page.dart';
 import 'package:protestersoath/login/LoginPage.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_bloc.dart';
+import 'package:protestersoath/oath/VerifyPage.dart';
+import 'package:protestersoath/oath/VerifyProofOfOathPage.dart';
 import 'package:protestersoath/privacy/privacy_page.dart';
 import 'package:protestersoath/reason/reason_page.dart';
 import 'package:protestersoath/splash/splash_page.dart';
@@ -117,6 +119,10 @@ class _AppViewState extends State<AppView> {
                     return ReasonPage(false);
                   } else if (state is PrivacyPageState) {
                     return PrivacyPage(false);
+                  } else if (state is VerifyPageState) {
+                    return VerifyPage();
+                  } else if (state is VerifyProofOfOathState) {
+                    return VerifyProofOfOathPage();
                   } else {
                     return SplashPage();
                   }

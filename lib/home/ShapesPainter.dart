@@ -7,9 +7,9 @@ import 'PaintedBarcode/Shape.dart';
 import 'PaintedBarcode/Square.dart';
 
 class ShapesPainter extends CustomPainter {
-  Token token;
-  ShapesPainter(Token token) {
-    this.token = token;
+  String phoneNumber;
+  ShapesPainter(String phone) {
+    this.phoneNumber = phone;
   }
   @override
   void paint(Canvas canvas, Size size) {
@@ -20,7 +20,7 @@ class ShapesPainter extends CustomPainter {
     shapes.add(Square(rect, Colors.grey[500]));
     // this.token.phoneNumber = "+16047621034";
     PaintedBarcode painting = PaintedBarcode(shapes);
-    painting.makePainting(stripPlusOnePhone(this.token.phoneNumber));
+    painting.makePainting(stripPlusOnePhone(this.phoneNumber));
     painting.draw(canvas);
   }
 

@@ -36,6 +36,11 @@ class StoryPageState extends AppDrawerState {
   List<Object> get props => [];
 }
 
+class VerifyPageState extends AppDrawerState {
+  @override
+  List<Object> get props => [];
+}
+
 class ReasonPageState extends AppDrawerState {
   AppDrawerEvent lastPage;
   ReasonPageState(lastPage) {
@@ -57,4 +62,12 @@ class PrivacyPageState extends AppDrawerState {
 class OathPageState extends AppDrawerState {
   @override
   List<Object> get props => [];
+}
+class VerifyProofOfOathState extends AppDrawerState {
+  String othersPhone;
+  VerifyProofOfOathState(othersPhone) {
+    this.othersPhone = othersPhone;
+  }
+  @override
+  List<Object> get props => [othersPhone];
 }

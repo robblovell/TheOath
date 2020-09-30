@@ -145,8 +145,8 @@
   STORY_URL_11: https://www.oregonlive.com/news/2020/06/the-world-needs-to-see-this-the-story-behind-the-iconic-photo-of-the-burnside-bridge-protest-in-portland.html
 
   PRIVACY_TITLE: Privacy Policy
-  PRIVACY1: This application do not collect personal data. All phone numbers are stored locally on your phone and not on any remote servers.
-  PRIVACY2: We collect anonymized data about how the application is performing for the purpose of fixing problems and improving the app.
+  PRIVACY1: This application dose not collect personal data. All phone numbers are stored locally on your phone and not on any remote servers.
+  PRIVACY2: We do collect anonymized data about how the application is performing for the purpose of fixing problems and improving the app.
 
   REASON_TITLE: Reasoning
   REASON1: The power of protest is to reveal truth in the face of unjust power through nonviolent action.
@@ -154,6 +154,13 @@
   REASON3: People who are out of power, minorities, immigrants, the non traditional and those at the fringes of society have learned this. But we all must learn this if there is to be change.
   REASON4: We are taught to meet injustice with violence, that violence is somehow justified in that context. Violence is never justified, and further, the reacting person gives up their power when they respond with violence. The power of nonviolence is its ability to win sympathy and to clearly demonstrate the injustice of an aggressor, an oppressor, the object of the protest.
   REASON5: Please take this oath so that your voice will be heard and the real power of nonviolence activated.
+
+  VERIFY_OTHER: Verify An Oath # the menu
+  VERIFY_TITLE: Verify An Oath
+  VERIFY_BUTTON: Verify
+  VERIFY1: Each "Proof of Oath" is a unique picture constructed from your phone number.
+  VERIFY2: Enter someon else's phone number here and press 'confirm' to see that their picture matches the proof of oath on their phone.
+  OATH_VERIFIED: Compare this picture with the picture on the phone owned by the person you are verifying.
 
   EXPLAIN_TITLE: Explanation
   EXPLAIN1: Being nonviolent is the power that a protest holds, that gives it a voice for change.

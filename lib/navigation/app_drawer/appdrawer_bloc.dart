@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter_session/flutter_session.dart';
+import 'package:protestersoath/data/Protester.dart';
 import 'package:protestersoath/data/Token.dart';
 import 'package:bloc/bloc.dart';
 import './appdrawer.dart';
@@ -7,6 +8,7 @@ import 'appdrawer.dart';
 
 class AppDrawerBloc extends Bloc<AppDrawerEvent, AppDrawerState> {
   Token token;
+  String othersPhone;
   AppDrawerEvent lastPage;
   AppDrawerEvent currentPage;
 
@@ -45,6 +47,9 @@ class AppDrawerBloc extends Bloc<AppDrawerEvent, AppDrawerState> {
     if (event is StoryPageEvent) {
       yield StoryPageState();
     }
+    if (event is VerifyPageEvent) {
+      yield VerifyPageState();
+    }
     if (event is OathPageEvent) {
       yield OathPageState();
     }
@@ -53,6 +58,9 @@ class AppDrawerBloc extends Bloc<AppDrawerEvent, AppDrawerState> {
     }
     if (event is PrivacyPageEvent) {
       yield PrivacyPageState(this.lastPage);
+    }
+    if (event is VerifyProofOfOathEvent) {
+      yield VerifyProofOfOathState(event.othersPhone);
     }
     if (event is BackButtonEvent) {
       dynamic tokenMap = await FlutterSession().get("protester");

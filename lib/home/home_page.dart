@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
               child: Container(
                 height: MediaQuery.of(context).size.height,
               ),
-              painter: ShapesPainter((state as HomePageState).token),
+              painter: ShapesPainter((state as HomePageState).token.phoneNumber),
             ),
             Container(
                 alignment: Alignment(0.9, 0.91),
