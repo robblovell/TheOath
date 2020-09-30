@@ -57,19 +57,18 @@ class HomePage extends StatelessWidget {
                   onPressed: () => BlocProvider.of<AppDrawerBloc>(context)
                       .add(OathPageEvent()),
                 )),
-            // Container(
-            //     alignment: Alignment(-.9, 0.91),
-            //     child: IconButton(
-            //       icon: Icon(
-            //         Icons.info,
-            //         // IconData(0xe060, fontFamily: 'MaterialIcons'),
-            //         color: Colors.black,
-            //         size: 30,
-            //       ),
-            //       tooltip: 'THEREASON'.tr(),
-            //       onPressed: () => BlocProvider.of<AppDrawerBloc>(context)
-            //           .add(ReasonPageEvent()),
-            //     )),
+            Container(
+                alignment: Alignment(-.9, 0.91),
+                child: IconButton(
+                  icon: Icon(
+                    Icons.privacy_tip,
+                    color: Colors.black,
+                    size: 30,
+                  ),
+                  tooltip: 'PRIVACY'.tr(),
+                  onPressed: () => BlocProvider.of<AppDrawerBloc>(context)
+                      .add(PrivacyPageEvent()),
+                )),
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(

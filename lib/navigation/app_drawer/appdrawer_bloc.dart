@@ -51,6 +51,9 @@ class AppDrawerBloc extends Bloc<AppDrawerEvent, AppDrawerState> {
     if (event is ReasonPageEvent) {
       yield ReasonPageState(this.lastPage);
     }
+    if (event is PrivacyPageEvent) {
+      yield PrivacyPageState(this.lastPage);
+    }
     if (event is BackButtonEvent) {
       dynamic tokenMap = await FlutterSession().get("protester");
       this.token = Token.fromJson(tokenMap);
@@ -61,6 +64,12 @@ class AppDrawerBloc extends Bloc<AppDrawerEvent, AppDrawerState> {
       yield HomePageState(this.token);
     }
     if (event is ReasonBackButtonEvent) {
+      yield LoadingState();
+      backFromReason(event.toPageEvent).listen((event) {
+        add(event);
+      });
+    }
+    if (event is PrivacyBackButtonEvent) {
       yield LoadingState();
       backFromReason(event.toPageEvent).listen((event) {
         add(event);

@@ -108,7 +108,7 @@ platform :android do
       notifySlack("Successfully published a beta build", commit, true)
     end
   desc "bundle"
-    lane :publish do
+    lane :bundle do
       commit = getGitInfo()
       gradle(task: "clean assembleRelease")
       notifySlack("Successfully published a beta build", commit, true)

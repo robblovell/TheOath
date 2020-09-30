@@ -6,6 +6,7 @@ import 'package:protestersoath/authentication/authentication.dart';
 import 'package:protestersoath/home/home_page.dart';
 import 'package:protestersoath/login/LoginPage.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_bloc.dart';
+import 'package:protestersoath/privacy/privacy_page.dart';
 import 'package:protestersoath/reason/reason_page.dart';
 import 'package:protestersoath/splash/splash_page.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -109,11 +110,11 @@ class _AppViewState extends State<AppView> {
                       child: StoryPage(),
                     );
                   } else if (state is OathPageState) {
-                    // Navigator.of(context).pop();
                     return OathPage();
                   } else if (state is ReasonPageState) {
-                    // Navigator.of(context).pop();
                     return ReasonPage(false);
+                  } else if (state is PrivacyPageState) {
+                    return PrivacyPage(false);
                   } else {
                     return SplashPage();
                   }

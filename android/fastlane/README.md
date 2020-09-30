@@ -41,6 +41,11 @@ tofirebase
 fastlane android beta
 ```
 beta
+### android bundle
+```
+fastlane android bundle
+```
+bundle
 ### android publish
 ```
 fastlane android publish

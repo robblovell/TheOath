@@ -61,7 +61,15 @@ class ReasonPageEvent extends AppDrawerEvent {
   @override
   List<Object> get props => [];
 }
+class PrivacyPageEvent extends AppDrawerEvent {
+  PrivacyPageEvent() : super();
 
+  @override
+  String toString() => 'PrivacyPage';
+
+  @override
+  List<Object> get props => [];
+}
 class ReasonBackButtonEvent extends AppDrawerEvent {
   AppDrawerEvent toPageEvent;
   ReasonBackButtonEvent(this.toPageEvent) : super();
@@ -72,7 +80,16 @@ class ReasonBackButtonEvent extends AppDrawerEvent {
   @override
   List<Object> get props => [this.toPageEvent];
 }
+class PrivacyBackButtonEvent extends AppDrawerEvent {
+  AppDrawerEvent toPageEvent;
+  PrivacyBackButtonEvent(this.toPageEvent) : super();
 
+  @override
+  String toString() => 'PrivacyBackButton';
+
+  @override
+  List<Object> get props => [this.toPageEvent];
+}
 class BackButtonEvent extends AppDrawerEvent {
   String fromPage;
   BackButtonEvent(this.fromPage) : super();

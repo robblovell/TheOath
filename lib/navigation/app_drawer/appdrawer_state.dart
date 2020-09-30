@@ -45,7 +45,15 @@ class ReasonPageState extends AppDrawerState {
   @override
   List<Object> get props => [lastPage];
 }
+class PrivacyPageState extends AppDrawerState {
+  AppDrawerEvent lastPage;
+  PrivacyPageState(lastPage) {
+    this.lastPage = lastPage;
+  }
 
+  @override
+  List<Object> get props => [lastPage];
+}
 class OathPageState extends AppDrawerState {
   @override
   List<Object> get props => [];
