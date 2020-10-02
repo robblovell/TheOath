@@ -13,8 +13,8 @@ class PaintedBarcode {
     Colors.blue,
     Colors.yellow,
     Colors.pink,
-    Colors.cyan,
     Colors.purple,
+    Colors.cyan,
     Colors.orange,
     Colors.lightGreenAccent,
     Colors.indigo,
@@ -121,11 +121,11 @@ class PaintedBarcode {
           digits[(index + 3) % length] % [this.spread(this.shapes)].length;
       this.shapes = this.split(this.shapes, which, direction, color, repeat);
     });
-    // used = [];
-    // used2 = [];
+    used = [];
+    used2 = [];
     digits.asMap().forEach((index, digit) {
-      if (digit == 0 || digit == 7) {
-        int colorIndex = digits[(index) % length] % colors.length;
+      if (digit == 0 || digit == 3) {
+        int colorIndex = digits[(index+2) % length] % colors.length;
         Color color = this.colors[colorIndex%colors.length];
         if (used.contains(colorIndex)) {
           int colorIndex2 = (index+6)%alt_colors.length;
