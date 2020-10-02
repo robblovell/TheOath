@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class PhoneTextFormField {
-  Expanded getCustomEditTextArea({
+  Container getCustomEditTextArea({
     String labelValue = "",
     String hintValue = "",
     double fontLabelSize = 15,
@@ -13,7 +13,7 @@ class PhoneTextFormField {
     String validationErrorMsg,
     FocusNode focusNode,
   }) {
-    return Expanded(
+    return Container(
         child: TextFormField(
       controller: controller,
       focusNode: focusNode,
