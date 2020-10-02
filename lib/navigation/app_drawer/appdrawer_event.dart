@@ -32,6 +32,16 @@ class AboutPageEvent extends AppDrawerEvent {
   List<Object> get props => [];
 }
 
+class SettingsPageEvent extends AppDrawerEvent {
+  SettingsPageEvent() : super();
+
+  @override
+  String toString() => 'SettingsPage';
+
+  @override
+  List<Object> get props => [];
+}
+
 class StoryPageEvent extends AppDrawerEvent {
   StoryPageEvent() : super();
 

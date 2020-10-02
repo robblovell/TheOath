@@ -44,6 +44,9 @@ class AppDrawerBloc extends Bloc<AppDrawerEvent, AppDrawerState> {
     if (event is AboutPageEvent) {
       yield AboutPageState();
     }
+    if (event is SettingsPageEvent) {
+      yield SettingsPageState();
+    }
     if (event is StoryPageEvent) {
       yield StoryPageState();
     }

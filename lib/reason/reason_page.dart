@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_session/flutter_session.dart';
+import 'package:preferences/preference_service.dart';
 import 'package:protestersoath/navigation/app_drawer.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_bloc.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_event.dart';
@@ -14,6 +16,7 @@ class ReasonPage extends StatelessWidget {
   ReasonPage(this.isLogin);
 
   bool isLogin = true;
+  final drawer = PrefService.getString('drawer', ignoreCache: true);
 
   // static Route route() {
   //   return MaterialPageRoute(builder: (_) => ReasonPage(this.isLogin));
@@ -43,24 +46,22 @@ class ReasonPage extends StatelessWidget {
       return BlocBuilder<AppDrawerBloc, AppDrawerState>(
           builder: (BuildContext context, AppDrawerState state) {
         return Scaffold(
-          drawer: AppDrawer(),
+          drawer:this.drawer=='all' ? AppDrawer() : null,
           appBar: AppBar(
               title: Text(
                 "THEREASON".tr(),
                 style: TextStyle(color: Colors.white),
               ),
-              // leading: (() {
-              //   AppDrawerEvent lastPage = (state as ReasonPageState).lastPage;
-              //   return IconButton(
-              //     icon: Icon(lastPage is OathPageEvent
-              //         ? Icons.arrow_back
-              //         : Icons.arrow_back),
-              //     onPressed: () {
-              //       BlocProvider.of<AppDrawerBloc>(context)
-              //           .add(ReasonBackButtonEvent(lastPage));
-              //     },
-              //   );
-              // })()
+              leading: (() {
+                AppDrawerEvent lastPage = (state as ReasonPageState).lastPage;
+                return this.drawer=='all' ? null : IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: () {
+                    BlocProvider.of<AppDrawerBloc>(context)
+                        .add(ReasonBackButtonEvent(lastPage));
+                  },
+                );
+              })()
           ),
           body: TheReason(),
         );

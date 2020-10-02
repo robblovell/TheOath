@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_session/flutter_session.dart';
+import 'package:preferences/preference_service.dart';
+// import 'package:global_configuration/global_configuration.dart';
 import 'package:protestersoath/navigation/app_drawer.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_bloc.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_event.dart';
@@ -9,11 +12,12 @@ import 'package:protestersoath/oath/OathContainer.dart';
 import 'OathContainer.dart';
 
 class OathPage extends StatelessWidget {
-
+  final drawer = PrefService.getString('drawer', ignoreCache: true);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
+      drawer: this.drawer=='all' ? AppDrawer() : null,
+      appBar: AppBar(
           title: Text(
             "THEOATH".tr(),
             style: TextStyle(color: Colors.white),
@@ -25,13 +29,13 @@ class OathPage extends StatelessWidget {
           //         BlocProvider.of<AppDrawerBloc>(context).add(StoryPageEvent()),
           //   ),
           // ],
-          // leading: IconButton(
-          //   icon: Icon(Icons.arrow_back),
-          //   onPressed: () {
-          //     BlocProvider.of<AppDrawerBloc>(context)
-          //         .add(BackButtonEvent("OathPage"));
-          //   },
-          // ),
+          leading: this.drawer=='all' ? null : IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              BlocProvider.of<AppDrawerBloc>(context)
+                  .add(BackButtonEvent("OathPage"));
+            },
+          ),
         ),
         body: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints viewportConstraints) {
@@ -60,7 +64,6 @@ class OathPage extends StatelessWidget {
             );
           },
         ),
-        drawer: AppDrawer(),
     );
   }
 }

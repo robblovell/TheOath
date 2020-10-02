@@ -44,7 +44,7 @@ class VerifyProofOfOathPage extends StatelessWidget {
                   child: Container(
                     alignment: Alignment(0.0, 0.76),
                     child: Text(
-                      'OATH_VERIFIED'.tr(),
+                      'OATH_VERIFIED'.tr()+ "\n\n Phone: "+(state as VerifyProofOfOathState).othersPhone,
                       textScaleFactor: 1.8,
                     ),
                   ),

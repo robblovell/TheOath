@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_session/flutter_session.dart';
+import 'package:preferences/preference_service.dart';
+// import 'package:global_configuration/global_configuration.dart';
 import 'package:protestersoath/navigation/app_drawer.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_bloc.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_event.dart';
@@ -16,28 +19,27 @@ class VerifyPage extends StatelessWidget {
   // static Route route() {
   //   return MaterialPageRoute(builder: (_) => VerifyPage(this.isLogin));
   // }
+  final drawer = PrefService.getString('drawer', ignoreCache: true);
 
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AppDrawerBloc, AppDrawerState>(
         builder: (BuildContext context, AppDrawerState state) {
       return Scaffold(
-        drawer: AppDrawer(),
+        drawer: this.drawer=='all' ? AppDrawer() : null,
         backgroundColor: Colors.grey,
         appBar: AppBar(
             title: Text(
               "VERIFY_TITLE".tr(),
               style: TextStyle(color: Colors.white),
             ),
-            // leading: (() {
-            //   return IconButton(
-            //     icon: Icon(Icons.arrow_back),
-            //     onPressed: () {
-            //       BlocProvider.of<AppDrawerBloc>(context)
-            //           .add(BackButtonEvent("VerifyPage"));
-            //     },
-            //   );
-            // })()
+            leading: this.drawer=='all' ? null : IconButton(
+                icon: Icon(Icons.arrow_back),
+                onPressed: () {
+                  BlocProvider.of<AppDrawerBloc>(context)
+                      .add(BackButtonEvent("VerifyPage"));
+                },
+              )
         ),
         body: VerifyContainer(),
       );

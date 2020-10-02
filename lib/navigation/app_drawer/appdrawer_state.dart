@@ -63,6 +63,10 @@ class OathPageState extends AppDrawerState {
   @override
   List<Object> get props => [];
 }
+class SettingsPageState extends AppDrawerState {
+  @override
+  List<Object> get props => [];
+}
 class VerifyProofOfOathState extends AppDrawerState {
   String othersPhone;
   VerifyProofOfOathState(othersPhone) {

@@ -18,13 +18,13 @@ class VerifyContainer extends StatelessWidget {
                       color: Colors.black),
                   children: <TextSpan>[
                     // todo: clean this code up!
-                    TextSpan(
-                        style: TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 20,
-                          color: Colors.black,
-                        ),
-                        text: 'VERIFY_TITLE'.tr() + '\n\n'),
+                    // TextSpan(
+                    //     style: TextStyle(
+                    //       fontWeight: FontWeight.w500,
+                    //       fontSize: 20,
+                    //       color: Colors.black,
+                    //     ),
+                    //     text: 'VERIFY_TITLE'.tr() + '\n\n'),
                     TextSpan(text: 'VERIFY1'.tr() + '\n\n'),
                     TextSpan(text: 'VERIFY2'.tr() + '\n\n'),
                   ]),

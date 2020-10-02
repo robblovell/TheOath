@@ -1,183 +1,189 @@
-  LOGIN_TITLE: The Protester's Oath
-  APP_TITLE: Protester's Oath
-  POINT_00: I will not be violent.
-  POINT_01: I will not bring a weapon, defensive or offensive, to a protest.
-  POINT_02: I will stop violence, crime and vandalism, or record it, if I feel it is safe to do so.
-  POINT_03: I will bear witness and record peaceful and nonviolent acts of protest.
-  POINT_04: I will help those who are hurt when I am able.
-  POINT_05: I will listen to the direction of protest leaders and report problems I see.
-  POINT_06: I will eat and sleep beforehand so that I can control my emotions.
-  POINT_07: I will recognize when I am out of control and remove myself to calm down.
-  POINT_08: I will not protest at night during a riot or a curfew ordered to quell violence.
-  SHORT_POINT_00: I will not be violent,
-  SHORT_POINT_01: not bring a weapon to a protest,
-  SHORT_POINT_02: stop violence, crime and vandalism, if safe,
-  SHORT_POINT_03: witness and record peaceful protest acts,
-  SHORT_POINT_04: help those who are hurt when able,
-  SHORT_POINT_05: listen to the direction of protest leaders,
-  SHORT_POINT_06: eat and sleep to control emotions,
-  SHORT_POINT_07: leave when emotionally out of control,
-  SHORT_POINT_08: not protest in a riot or curfew for violence.
+LOGIN_TITLE: The Protester's Oath
+APP_TITLE: Protester's Oath
+POINT_00: I will not be violent.
+POINT_01: I will not bring a weapon, defensive or offensive, to a protest.
+POINT_02: I will stop violence, crime and vandalism, or record it, if I feel it is safe to do so.
+POINT_03: I will bear witness and record peaceful and nonviolent acts of protest.
+POINT_04: I will help those who are hurt when I am able.
+POINT_05: I will listen to the direction of protest leaders and report problems I see.
+POINT_06: I will eat and sleep beforehand so that I can control my emotions.
+POINT_07: I will recognize when I am out of control and remove myself to calm down.
+POINT_08: I will not protest at night during a riot or a curfew ordered to quell violence.
+SHORT_POINT_00: I will not be violent,
+SHORT_POINT_01: not bring a weapon to a protest,
+SHORT_POINT_02: stop violence, crime and vandalism, if safe,
+SHORT_POINT_03: witness and record peaceful protest acts,
+SHORT_POINT_04: help those who are hurt when able,
+SHORT_POINT_05: listen to the direction of protest leaders,
+SHORT_POINT_06: eat and sleep to control emotions,
+SHORT_POINT_07: leave when emotionally out of control,
+SHORT_POINT_08: not protest in a riot or curfew for violence.
 
-  INVALID_PHONE_LENGTH: Phone number must be 10-14 digits long
-  INVALID_PHONE_REGEX: Phone number is in an invalid format
-  I_COMMIT_BUTTON: I Commit
-  SOMETHING_WRONG_1: Please enter a valid phone number
-  NETWORK_ISSUES_2: Please check your internet connection and try again.
-  SOMETHING_WRONG_3: Something has gone wrong, please try again later.
-  SOMETHING_WRONG_4: Something has gone wrong, please try again later.
-  SOMETHING_WRONG_5: Something has gone wrong, please try again later.
-  SOMETHING_WRONG_6: You have entered a wrong pin code, please try again.
-  INVALID_OTP_7: The wrong code was given or the phone number given is incorrect.
-  SOMETHING_WRONG_8: Something has gone wrong, please try again later.
-  INVALID_OTP2_9: The sms verification code entered is incorrect. Please check the number and try again.
-  AUTH_TIMEOUT_10: Authentication Timed Out
-  SOMETHING_WRONG_11: Cannot evaluate the phone number for an unknown reason.
-  SOMETHING_WRONG_12: This device does not have cellular connectivity.
-    Something has gone wrong, please try again later.
-  URL_PROBLEM: Oops... the URL couldn\'t be opened!
-  ENTER_PHONE_TIP: Enter your phone number to sign the oath
-  ENTER_VERIFY_PHONE_TIP: Enter another's phone number to sign the oath
-  ABOUT: About
-  LOGOUT: Retake Oath
-  LOGIN: Take The Oath
-  BACK: Back
-  STORIES: Stories of Protest
-  SETTINGS: Settings
-  HOME: Proof of Oath
-  THEOATH: The Oath
-  THEREASON: Reason for the Oath
-  OATH_TAKEN: I Took the Protester's Oath
-  STORIES_TOOLTIP: Stories
-  OATH_TOOLTIP: The Oath
-  STORY_URL_CAPTION:  Online Story Link
+INVALID_PHONE_LENGTH: Phone number must be 10-14 digits long
+INVALID_PHONE_REGEX: Phone number is in an invalid format
+I_COMMIT_BUTTON: I Commit
+SOMETHING_WRONG_1: Please enter a valid phone number
+NETWORK_ISSUES_2: Please check your internet connection and try again.
+SOMETHING_WRONG_3: Something has gone wrong, please try again later.
+SOMETHING_WRONG_4: Something has gone wrong, please try again later.
+SOMETHING_WRONG_5: Something has gone wrong, please try again later.
+SOMETHING_WRONG_6: You have entered a wrong pin code, please try again.
+INVALID_OTP_7: The wrong code was given or the phone number given is incorrect.
+SOMETHING_WRONG_8: Something has gone wrong, please try again later.
+INVALID_OTP2_9: The sms verification code entered is incorrect. Please check the number and try again.
+AUTH_TIMEOUT_10: Authentication Timed Out
+SOMETHING_WRONG_11: Cannot evaluate the phone number for an unknown reason.
+SOMETHING_WRONG_12: This device does not have cellular connectivity.
+  Something has gone wrong, please try again later.
+URL_PROBLEM: Oops... the URL couldn\'t be opened!
+ENTER_PHONE_TIP: Enter your phone number to sign the oath
+ENTER_VERIFY_PHONE_TIP: Enter another's phone number to sign the oath
+ABOUT: About
+LOGOUT: Retake Oath
+LOGIN: Take The Oath
+BACK: Back
+STORIES: Stories of Protest
+SETTINGS: Settings
+HOME: Proof of Oath
+THEOATH: The Oath
+THEREASON: Reason for the Oath
+OATH_TAKEN: I Took the Protester's Oath
+STORIES_TOOLTIP: Stories
+OATH_TOOLTIP: The Oath
+STORY_URL_CAPTION:  Online Story Link
 
-  STORY_TITLE_00: Protests against Hitler
-  STORY_00: One month before Hitler rose to power, a Jewish family living in Germany defiantly displayed a Hanukkah menorah in their window across from a Nazi flag.
-  STORY_DATE_00: 1932
-  STORY_CREDIT_00: Photo 12/Universal Images Group via Getty Images
-  STORY_IMAGE_00: assets/img/stories/story000.jpg
-  STORY_IMAGE_URL_00: https://i.insider.com/5ede5e88f34d0572f200b336
-  STORY_URL_00: https://en.wikipedia.org/wiki/The_Holocaust
+SETTINGS_TITLE: Settings
+SETTINGS_MENU_CONFIG: Menu Configuration
+SETTINGS_MENU_OPTION1: Menu on "Proof of Oath" screen only
+SETTINGS_MENU_OPTION2: Menu on all screens
+SETTINGS_MENU_OPTION3: Buttons only on "Proof of Oath" screen
 
-  STORY_TITLE_01: Tank Man
-  STORY_SUMMARY_01: A lone man stands up to a line of tanks in Tiananmen Square in 1989.
-  STORY_DATE_01: June 5, 1989
-  STORY_CREDIT_01: AP Photo/Jeff Widener
-  STORY_IMAGE_01: assets/img/stories/story001.jpg
-  STORY_IMAGE_URL_01: https://i.insider.com/55b0f2782acae7c7018b9204
-  STORY_URL_01: https://en.wikipedia.org/wiki/Tank_Man
+STORY_TITLE_00: Protests against Hitler
+STORY_00: One month before Hitler rose to power, a Jewish family living in Germany defiantly displayed a Hanukkah menorah in their window across from a Nazi flag.
+STORY_DATE_00: 1932
+STORY_CREDIT_00: Photo 12/Universal Images Group via Getty Images
+STORY_IMAGE_00: assets/img/stories/story000.jpg
+STORY_IMAGE_URL_00: https://i.insider.com/5ede5e88f34d0572f200b336
+STORY_URL_00: https://en.wikipedia.org/wiki/The_Holocaust
 
-  STORY_TITLE_02: Rosa Parks
-  STORY_SUMMARY_02: Rosa Parks defies immoral laws targeting the color of her skin.
-  STORY_02: This photo of Rosa Parks sitting in the front of a bus was actually taken after the Supreme Court disbanded Montgomery's segregated bus system, but it remains a classic symbol.
-  STORY_DATE_02: December 21, 1956.
-  STORY_CREDIT_02: Underwood Archives/Getty Images
-  STORY_IMAGE_02: assets/img/stories/story002.jpg
-  STORY_IMAGE_URL_02: https://i.insider.com/5ede626e988ee312947bac38
-  STORY_URL_02: https://en.wikipedia.org/wiki/Montgomery_bus_boycott
+STORY_TITLE_01: Tank Man
+STORY_SUMMARY_01: A lone man stands up to a line of tanks in Tiananmen Square in 1989.
+STORY_DATE_01: June 5, 1989
+STORY_CREDIT_01: AP Photo/Jeff Widener
+STORY_IMAGE_01: assets/img/stories/story001.jpg
+STORY_IMAGE_URL_01: https://i.insider.com/55b0f2782acae7c7018b9204
+STORY_URL_01: https://en.wikipedia.org/wiki/Tank_Man
 
-  STORY_TITLE_03: Civil Rights Movement
-  STORY_SUMMARY_03: Martin Luther King waves to a crowd on the steps of the Lincoln Memorial.
-  STORY_03: The civil rights movement, which began in 1954, aimed to end racial inequality, segregation, and discrimination.
-  STORY_DATE_03: 1954-1968
-  STORY_CREDIT_03: Martin Luther King Jr. AP
-  STORY_IMAGE_03: assets/img/stories/story003.jpg
-  STORY_IMAGE_URL_03: https://i.insider.com/58829068ee14b618038b92c5
-  STORY_URL_03: https://en.wikipedia.org/wiki/Civil_rights_movement
+STORY_TITLE_02: Rosa Parks
+STORY_SUMMARY_02: Rosa Parks defies immoral laws targeting the color of her skin.
+STORY_02: This photo of Rosa Parks sitting in the front of a bus was actually taken after the Supreme Court disbanded Montgomery's segregated bus system, but it remains a classic symbol.
+STORY_DATE_02: December 21, 1956.
+STORY_CREDIT_02: Underwood Archives/Getty Images
+STORY_IMAGE_02: assets/img/stories/story002.jpg
+STORY_IMAGE_URL_02: https://i.insider.com/5ede626e988ee312947bac38
+STORY_URL_02: https://en.wikipedia.org/wiki/Montgomery_bus_boycott
 
-  STORY_TITLE_04: Kent State Shootings
-  STORY_04: John Filo's photo of the aftermath of the Kent State shootings is credited with helping turn public opinion against the Vietnam War.
-  STORY_DATE_04: May 1, 1970
-  STORY_CREDIT_04: John Filo/Valley News-Dispatch
-  STORY_IMAGE_04: assets/img/stories/story004.jpg
-  STORY_IMAGE_URL_04: https://i.insider.com/5ede5cfe5af6cc69607005b7
-  STORY_URL_04: https://en.wikipedia.org/wiki/Kent_State_shootings
+STORY_TITLE_03: Civil Rights Movement
+STORY_SUMMARY_03: Martin Luther King waves to a crowd on the steps of the Lincoln Memorial.
+STORY_03: The civil rights movement, which began in 1954, aimed to end racial inequality, segregation, and discrimination.
+STORY_DATE_03: 1954-1968
+STORY_CREDIT_03: Martin Luther King Jr. AP
+STORY_IMAGE_03: assets/img/stories/story003.jpg
+STORY_IMAGE_URL_03: https://i.insider.com/58829068ee14b618038b92c5
+STORY_URL_03: https://en.wikipedia.org/wiki/Civil_rights_movement
 
-  STORY_TITLE_05: John Lewis
-  STORY_SUMMARY_05: John Lewis, in the foreground, is beaten by a state trooper during a civil rights voting march in Selma, Ala.
-  STORY_DATE_05: March 7, 1965
-  STORY_CREDIT_05: AP Photo
-  STORY_IMAGE_05: assets/img/stories/story005.jpg
-  STORY_IMAGE_URL_05: https://apnews.com/eda3ffe8fbfcf7727270e67bba1c9566
-  STORY_URL_05: https://en.wikipedia.org/wiki/Selma_to_Montgomery_marches
+STORY_TITLE_04: Kent State Shootings
+STORY_04: John Filo's photo of the aftermath of the Kent State shootings is credited with helping turn public opinion against the Vietnam War.
+STORY_DATE_04: May 1, 1970
+STORY_CREDIT_04: John Filo/Valley News-Dispatch
+STORY_IMAGE_04: assets/img/stories/story004.jpg
+STORY_IMAGE_URL_04: https://i.insider.com/5ede5cfe5af6cc69607005b7
+STORY_URL_04: https://en.wikipedia.org/wiki/Kent_State_shootings
 
-  STORY_TITLE_06: Anti-Vietnam War Protests
-  STORY_SUMMARY_06: Demonstrator George Harris sticking carnations into gun barrels during an antiwar protest at the Pentagon in 1967.
-  STORY_DATE_06: October 22, 1967
-  STORY_CREDIT_06: Bernie Boston/The Washington Post via Getty Images
-  STORY_IMAGE_06: assets/img/stories/story006.jpg
-  STORY_IMAGE_URL_06: https://i.insider.com/5ede5da23ad8617aea7f5cc8
-  STORY_URL_06: https://en.wikipedia.org/wiki/Selma_to_Montgomery_marches
+STORY_TITLE_05: John Lewis
+STORY_SUMMARY_05: John Lewis, in the foreground, is beaten by a state trooper during a civil rights voting march in Selma, Ala.
+STORY_DATE_05: March 7, 1965
+STORY_CREDIT_05: AP Photo
+STORY_IMAGE_05: assets/img/stories/story005.jpg
+STORY_IMAGE_URL_05: https://apnews.com/eda3ffe8fbfcf7727270e67bba1c9566
+STORY_URL_05: https://en.wikipedia.org/wiki/Selma_to_Montgomery_marches
 
-  STORY_07: A Woman Sits In Front Of Riot Police Blocking The Road To Protect Protesters During The Anti-Government Protest In Seoul, South Korea.
-  STORY_DATE_07: 24 April 2015.
-  STORY_CREDIT_07: Chung Sung-Jun/Getty Images
-  STORY_IMAGE_07: assets/img/stories/story007.jpg
-  STORY_IMAGE_URL_07: https://images.thestar.com/QqrIn4CsbO_rwaS83GsxZwtE15o=/1086x710/smart/filters:cb(2700061000)/https://www.thestar.com/content/dam/thestar/news/world/2015/04/24/10000-south-koreans-march-in-anti-government-rally/granny-protester.jpg
-  STORY_URL_07: https://www.thestar.com/news/world/2015/04/24/10000-south-koreans-march-in-anti-government-rally.html
+STORY_TITLE_06: Anti-Vietnam War Protests
+STORY_SUMMARY_06: Demonstrator George Harris sticking carnations into gun barrels during an antiwar protest at the Pentagon in 1967.
+STORY_DATE_06: October 22, 1967
+STORY_CREDIT_06: Bernie Boston/The Washington Post via Getty Images
+STORY_IMAGE_06: assets/img/stories/story006.jpg
+STORY_IMAGE_URL_06: https://i.insider.com/5ede5da23ad8617aea7f5cc8
+STORY_URL_06: https://en.wikipedia.org/wiki/Selma_to_Montgomery_marches
 
-  STORY_08: A series of sit-in street protests, often called the Umbrella Revolution and sometimes used interchangeably with Umbrella Movement, or Occupy Movement, occurred in Hong Kong from 26 September to 15 December 2014.[
-  STORY_DATE_08: 26 September to 15 December 2014.
-  STORY_CREDIT_08: Chung Sung-Jun/Getty Images
-  STORY_IMAGE_08: assets/img/stories/story008.jpg
-  STORY_IMAGE_URL_08: https://assets.bwbx.io/images/users/iqjWHBFdfxIU/imk_Zwl9BJpo/v0/1800x-1.jpg
-  STORY_URL_08: https://en.wikipedia.org/wiki/Umbrella_Movement
+STORY_07: A Woman Sits In Front Of Riot Police Blocking The Road To Protect Protesters During The Anti-Government Protest In Seoul, South Korea.
+STORY_DATE_07: 24 April 2015.
+STORY_CREDIT_07: Chung Sung-Jun/Getty Images
+STORY_IMAGE_07: assets/img/stories/story007.jpg
+STORY_IMAGE_URL_07: https://images.thestar.com/QqrIn4CsbO_rwaS83GsxZwtE15o=/1086x710/smart/filters:cb(2700061000)/https://www.thestar.com/content/dam/thestar/news/world/2015/04/24/10000-south-koreans-march-in-anti-government-rally/granny-protester.jpg
+STORY_URL_07: https://www.thestar.com/news/world/2015/04/24/10000-south-koreans-march-in-anti-government-rally.html
 
-  STORY_09: Chalk Girl, is a protester at the heart of Hong Kong’s democracy movement. Arrested for drawing a flower in chalk on a wall when she was 14
-  STORY_DATE_09: September 2016
-  STORY_CREDIT_09: The Guardian
-  STORY_IMAGE_09: assets/img/stories/story009.jpg
-  STORY_IMAGE_URL_09: https://cdn1.i-scmp.com/sites/default/files/styles/1200x800/public/2015/01/04/chalkgirl.jpg?itok=wM9vo-nV
-  STORY_URL_09: https://www.theguardian.com/world/ng-interactive/2017/jun/16/chalk-girl-hong-kong-democracy-umbrella-movement-protester-china
+STORY_08: A series of sit-in street protests, often called the Umbrella Revolution and sometimes used interchangeably with Umbrella Movement, or Occupy Movement, occurred in Hong Kong from 26 September to 15 December 2014.[
+STORY_DATE_08: 26 September to 15 December 2014.
+STORY_CREDIT_08: Chung Sung-Jun/Getty Images
+STORY_IMAGE_08: assets/img/stories/story008.jpg
+STORY_IMAGE_URL_08: https://assets.bwbx.io/images/users/iqjWHBFdfxIU/imk_Zwl9BJpo/v0/1800x-1.jpg
+STORY_URL_08: https://en.wikipedia.org/wiki/Umbrella_Movement
 
-  STORY_10: The Lennon Wall in Hong Kong is one of the major artworks of the Umbrella Movement as a collective artistic work of spontaneous free expression, demanding democracy in the elections of the territory's top leaders.
-  STORY_DATE_10: 10 October 2014, 23:04
-  STORY_CREDIT_10: Pasu Au Yeung
-  STORY_IMAGE_10: assets/img/stories/story010.jpg
-  STORY_IMAGE_URL_10: https://commons.wikimedia.org/wiki/File:Hong_Kong_Umbrella_Revolution_-umbrellarevolution_-UmbrellaMovement_(15310525419).jpg
-  STORY_URL_10: https://en.wikipedia.org/wiki/Lennon_Wall_(Hong_Kong)
+STORY_09: Chalk Girl, is a protester at the heart of Hong Kong’s democracy movement. Arrested for drawing a flower in chalk on a wall when she was 14
+STORY_DATE_09: September 2016
+STORY_CREDIT_09: The Guardian
+STORY_IMAGE_09: assets/img/stories/story009.jpg
+STORY_IMAGE_URL_09: https://cdn1.i-scmp.com/sites/default/files/styles/1200x800/public/2015/01/04/chalkgirl.jpg?itok=wM9vo-nV
+STORY_URL_09: https://www.theguardian.com/world/ng-interactive/2017/jun/16/chalk-girl-hong-kong-democracy-umbrella-movement-protester-china
 
-  STORY_11: Thousands of people lay down on June 2 on the Burnside Bridge for 8 minutes and 46 seconds in remembrance of George Floyd, who was killed by a Minneapolis police officer.
-  STORY_DATE_11: June 2, 202
-  STORY_CREDIT_11: Andrew Wallner
-  STORY_IMAGE_11: assets/img/stories/story011.jpg
-  STORY_IMAGE_URL_11: https://www.oregonlive.com/resizer/PEiJs2Z-xHTNyoVowdEWUESNkpI=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/LRPD6CZ4PZG3VHOEPFCN4JWOWA.jpg
-  STORY_URL_11: https://www.oregonlive.com/news/2020/06/the-world-needs-to-see-this-the-story-behind-the-iconic-photo-of-the-burnside-bridge-protest-in-portland.html
+STORY_10: The Lennon Wall in Hong Kong is one of the major artworks of the Umbrella Movement as a collective artistic work of spontaneous free expression, demanding democracy in the elections of the territory's top leaders.
+STORY_DATE_10: 10 October 2014, 23:04
+STORY_CREDIT_10: Pasu Au Yeung
+STORY_IMAGE_10: assets/img/stories/story010.jpg
+STORY_IMAGE_URL_10: https://commons.wikimedia.org/wiki/File:Hong_Kong_Umbrella_Revolution_-umbrellarevolution_-UmbrellaMovement_(15310525419).jpg
+STORY_URL_10: https://en.wikipedia.org/wiki/Lennon_Wall_(Hong_Kong)
 
-  PRIVACY_TITLE: Privacy Policy
-  PRIVACY1: This application dose not collect personal data. All phone numbers are stored locally on your phone and not on any remote servers.
-  PRIVACY2: We do collect anonymized data about how the application is performing for the purpose of fixing problems and improving the app.
+STORY_11: Thousands of people lay down on June 2 on the Burnside Bridge for 8 minutes and 46 seconds in remembrance of George Floyd, who was killed by a Minneapolis police officer.
+STORY_DATE_11: June 2, 202
+STORY_CREDIT_11: Andrew Wallner
+STORY_IMAGE_11: assets/img/stories/story011.jpg
+STORY_IMAGE_URL_11: https://www.oregonlive.com/resizer/PEiJs2Z-xHTNyoVowdEWUESNkpI=/1280x0/smart/cloudfront-us-east-1.images.arcpublishing.com/advancelocal/LRPD6CZ4PZG3VHOEPFCN4JWOWA.jpg
+STORY_URL_11: https://www.oregonlive.com/news/2020/06/the-world-needs-to-see-this-the-story-behind-the-iconic-photo-of-the-burnside-bridge-protest-in-portland.html
 
-  REASON_TITLE: Reasoning
-  REASON1: The power of protest is to reveal truth in the face of unjust power through nonviolent action.
-  REASON2: Violence negates that revelation, burying the truth in a haze of fear and anger. If the audience of the protest fears you, they will not hear you. Nonviolence means peaceful civil disobedience and useful mischief against immoral laws and power.
-  REASON3: People who are out of power, minorities, immigrants, the non traditional and those at the fringes of society have learned this. But we all must learn this if there is to be change.
-  REASON4: We are taught to meet injustice with violence, that violence is somehow justified in that context. Violence is never justified, and further, the reacting person gives up their power when they respond with violence. The power of nonviolence is its ability to win sympathy and to clearly demonstrate the injustice of an aggressor, an oppressor, the object of the protest.
-  REASON5: Please take this oath so that your voice will be heard and the real power of nonviolence activated.
+PRIVACY_TITLE: Privacy Policy
+PRIVACY1: This application dose not collect personal data. All phone numbers are stored locally on your phone and not on any remote servers.
+PRIVACY2: We do collect anonymized data about how the application is performing for the purpose of fixing problems and improving the app.
 
-  VERIFY_OTHER: Verify An Oath # the menu
-  VERIFY_TITLE: Verify An Oath
-  VERIFY_BUTTON: Verify
-  VERIFY1: Each "Proof of Oath" is a unique picture constructed from your phone number.
-  VERIFY2: Enter someon else's phone number here and press 'confirm' to see that their picture matches the proof of oath on their phone.
-  OATH_VERIFIED: Compare this picture with the picture on the phone owned by the person you are verifying.
+REASON_TITLE: Reasoning
+REASON1: The power of protest is to reveal truth in the face of unjust power through nonviolent action.
+REASON2: Violence negates that revelation, burying the truth in a haze of fear and anger. If the audience of the protest fears you, they will not hear you. Nonviolence means peaceful civil disobedience and useful mischief against immoral laws and power.
+REASON3: People who are out of power, minorities, immigrants, the non traditional and those at the fringes of society have learned this. But we all must learn this if there is to be change.
+REASON4: We are taught to meet injustice with violence, that violence is somehow justified in that context. Violence is never justified, and further, the reacting person gives up their power when they respond with violence. The power of nonviolence is its ability to win sympathy and to clearly demonstrate the injustice of an aggressor, an oppressor, the object of the protest.
+REASON5: Please take this oath so that your voice will be heard and the real power of nonviolence activated.
 
-  EXPLAIN_TITLE: Explanation
-  EXPLAIN1: Being nonviolent is the power that a protest holds, that gives it a voice for change.
-  EXPLAIN2: Protesting involves committing of acts of useful civil disobedience that is peaceful, nonviolent and non-vengeful. These acts may be inconvenient to others, but brings attention to the injustices that are being protested. Indiscriminate vandalism isn’t useful mischief, throwing things is not useful mischief. Examples of useful mischief are blocking traffic, sit-ins, disobeying immoral laws, or defacing of symbols of oppression and hate.
-  EXPLAIN3: Violence is where protest ends and riots begin. Violence gives the object of a protest an excuse to commit violent acts and to suppress the protest. Violence overshadows the reason for the protest.
-  EXPLAIN4: Vandalizing bystander property, breaking windows or spraying graffiti does not help a cause because the object of the protest will use that as an excuse to discount its message. Vandalism will be used as an excuse to respond with disproportionate force which endangers the protest. Vandalism will be seen as violence by many bystanders. One exception is vandalism of symbols of oppression.
-  EXPLAIN5: Throwing things at police, military or anyone will be seen as an act of violence and will be responded to with disproportionate force. Throwing any projectile will be seen as an act of violence even if it is non-lethal. Water bottles, rocks, eggs, fireworks, shoes and other like objects can hurt someone if they hit them in unfortunate ways. One exception is glitter or soap bubbles which can’t be construed as violent.
-  EXPLAIN6: Weapons must not be brought to a protest because it enables violence whether that weapon is used defensively or offensively. Do not bring a weapon to a protest, no guns, knives, batons or any instrument that can be used to hurt someone. A weapon is not a means of defence, it is a temptation to use violence.
-  EXPLAIN7: Stopping violence around the protest helps people stay focused on what is important- staying nonviolent. This must be done in a nonviolent way. Help each other to quell anger and respond with love so that the message of the protest will be heard.
-  EXPLAIN8: Being a witness to the protest helps to bring the protest’s message to a wider audience and gain the sympathy of potential allies. The protest will be understood if violence is met with love and by example over time.
-  EXPLAIN9: Help people who are hurt only if you are coming to help from a place of certainty, safety, knowledge of your surroundings and of the risk you are taking. Helping the hurt will keep people healthy so that they can continue to participate.
-  EXPLAIN10: By listening to the leaders of the protest, you can coordinate with protest activities and help communicate coherent and clear messages. The first responsibility of the protest and protesters is to communicate to bystanders what the problem is and what remedy is required.
-  EXPLAIN11: When the police are informed, they do not have an excuse to work against the protest. Police should come to see their duty as protecting the protester, property and bystanders. By cooperating with police, they can come to understand the motivations of the protest. Committing crimes is self serving and not the purpose of protest.
-  EXPLAIN12: Eating and sleeping before attending a protest will help to control feelings of anger. The human body is built to short circuit the brain in dangerous situations and will create the desire for violence. This short circuit becomes more sensitive as we become tired and hungry.
-  EXPLAIN13: When we become emotional it is more difficult to control ourselves. We must not respond to violence with violence, even when feeling angry or fearful. We must stand if we can, run to protect ourselves if we must, or remove ourselves if we cannot control our actions. If we feel self righteous we will feel we have an excuse for retribution. But, we should not take that path because this will hurt the cause.
-  EXPLAIN14: Finally, nighttime protests are more difficult because it is much easier to get away with violence, crime and vandalism. It is also much harder to distinguish rioter from protester. If a protest must take place at night, more coordination with the protest leaders and police will be necessary to keep the things peaceful, identify vandals and thieves and keep protesters safe.
-  EXPLAIN15: Robb E. Lovell
+VERIFY_OTHER: Verify An Oath # the menu
+VERIFY_TITLE: Verify An Oath
+VERIFY_BUTTON: Verify
+VERIFY1: Each "Proof of Oath" is a unique picture constructed from your phone number.
+VERIFY2: Enter someon else's phone number here and press 'confirm' to see that their picture matches the proof of oath on their phone.
+OATH_VERIFIED: Compare this picture with the picture on the phone owned by the person you are verifying.
+
+EXPLAIN_TITLE: Explanation
+EXPLAIN1: Being nonviolent is the power that a protest holds, that gives it a voice for change.
+EXPLAIN2: Protesting involves committing of acts of useful civil disobedience that is peaceful, nonviolent and non-vengeful. These acts may be inconvenient to others, but brings attention to the injustices that are being protested. Indiscriminate vandalism isn’t useful mischief, throwing things is not useful mischief. Examples of useful mischief are blocking traffic, sit-ins, disobeying immoral laws, or defacing of symbols of oppression and hate.
+EXPLAIN3: Violence is where protest ends and riots begin. Violence gives the object of a protest an excuse to commit violent acts and to suppress the protest. Violence overshadows the reason for the protest.
+EXPLAIN4: Vandalizing bystander property, breaking windows or spraying graffiti does not help a cause because the object of the protest will use that as an excuse to discount its message. Vandalism will be used as an excuse to respond with disproportionate force which endangers the protest. Vandalism will be seen as violence by many bystanders. One exception is vandalism of symbols of oppression.
+EXPLAIN5: Throwing things at police, military or anyone will be seen as an act of violence and will be responded to with disproportionate force. Throwing any projectile will be seen as an act of violence even if it is non-lethal. Water bottles, rocks, eggs, fireworks, shoes and other like objects can hurt someone if they hit them in unfortunate ways. One exception is glitter or soap bubbles which can’t be construed as violent.
+EXPLAIN6: Weapons must not be brought to a protest because it enables violence whether that weapon is used defensively or offensively. Do not bring a weapon to a protest, no guns, knives, batons or any instrument that can be used to hurt someone. A weapon is not a means of defence, it is a temptation to use violence.
+EXPLAIN7: Stopping violence around the protest helps people stay focused on what is important- staying nonviolent. This must be done in a nonviolent way. Help each other to quell anger and respond with love so that the message of the protest will be heard.
+EXPLAIN8: Being a witness to the protest helps to bring the protest’s message to a wider audience and gain the sympathy of potential allies. The protest will be understood if violence is met with love and by example over time.
+EXPLAIN9: Help people who are hurt only if you are coming to help from a place of certainty, safety, knowledge of your surroundings and of the risk you are taking. Helping the hurt will keep people healthy so that they can continue to participate.
+EXPLAIN10: By listening to the leaders of the protest, you can coordinate with protest activities and help communicate coherent and clear messages. The first responsibility of the protest and protesters is to communicate to bystanders what the problem is and what remedy is required.
+EXPLAIN11: When the police are informed, they do not have an excuse to work against the protest. Police should come to see their duty as protecting the protester, property and bystanders. By cooperating with police, they can come to understand the motivations of the protest. Committing crimes is self serving and not the purpose of protest.
+EXPLAIN12: Eating and sleeping before attending a protest will help to control feelings of anger. The human body is built to short circuit the brain in dangerous situations and will create the desire for violence. This short circuit becomes more sensitive as we become tired and hungry.
+EXPLAIN13: When we become emotional it is more difficult to control ourselves. We must not respond to violence with violence, even when feeling angry or fearful. We must stand if we can, run to protect ourselves if we must, or remove ourselves if we cannot control our actions. If we feel self righteous we will feel we have an excuse for retribution. But, we should not take that path because this will hurt the cause.
+EXPLAIN14: Finally, nighttime protests are more difficult because it is much easier to get away with violence, crime and vandalism. It is also much harder to distinguish rioter from protester. If a protest must take place at night, more coordination with the protest leaders and police will be necessary to keep the things peaceful, identify vandals and thieves and keep protesters safe.
+EXPLAIN15: Robb E. Lovell
 
 

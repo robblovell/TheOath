@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_session/flutter_session.dart';
+import 'package:preferences/preference_service.dart';
+// import 'package:global_configuration/global_configuration.dart';
 import 'package:protestersoath/navigation/app_drawer.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_bloc.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_event.dart';
@@ -10,24 +13,25 @@ class AboutPage extends StatelessWidget {
   // static Route route() {
   //   return MaterialPageRoute(builder: (_) => AboutPage());
   // }
+  final drawer = PrefService.getString('drawer', ignoreCache: true);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: AppDrawer(),
+      drawer: this.drawer=='all' ? AppDrawer() : null,
       backgroundColor: Colors.grey,
       appBar: AppBar(
         title: Text(
           "About",
           style: TextStyle(color: Colors.white),
         ),
-        // leading: IconButton(
-        //   icon: Icon(Icons.arrow_back),
-        //   onPressed: () {
-        //     BlocProvider.of<AppDrawerBloc>(context)
-        //         .add(BackButtonEvent("AboutPage"));
-        //   },
-        // ),
+        leading: this.drawer=='all' ? null : IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            BlocProvider.of<AppDrawerBloc>(context)
+                .add(BackButtonEvent("AboutPage"));
+          },
+        ),
       ),
       body: Center(
           child: Column(
