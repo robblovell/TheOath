@@ -17,11 +17,11 @@ class PaintedBarcode {
     Colors.purple,
     Colors.orange,
     Colors.lightGreenAccent,
-    Colors.tealAccent,
+    Colors.indigo,
   ];
   List<Color> alt_colors = [
     Colors.redAccent[100],
-    Colors.greenAccent[100],
+    Colors.greenAccent[200],
     Colors.indigoAccent[100],
     Colors.yellowAccent[100],
     Colors.pink[100],
@@ -29,7 +29,19 @@ class PaintedBarcode {
     Colors.purpleAccent[100],
     Colors.orangeAccent[100],
     Colors.lightGreenAccent[100],
-    Colors.tealAccent[100],
+    Colors.indigo[300],
+  ];
+  List<Color> alt_alt_colors = [
+    Colors.grey[100],
+    Colors.grey[200],
+    Colors.grey[300],
+    Colors.grey[400],
+    Colors.brown,
+    Colors.grey[500],
+    Colors.grey[600],
+    Colors.grey[700],
+    Colors.grey[800],
+    Colors.grey[900],
   ];
 
   PaintedBarcode(List<Object> shapes) {
@@ -80,40 +92,54 @@ class PaintedBarcode {
     }).toList();
     int length = digits.length;
     List<int> used = [];
+    List<int> used2 = [];
     digits.asMap().forEach((index, digit) {
-      int direction = digit % 10;
-      direction = (digit < 3)
-          ? 1
-          : (digit < 8)
-              ? 0
-              : (digit < 9)
+      int digitOb = (digit).toInt() % 10;
+      int direction = 0;
+      direction = (digitOb < 4)
+          ? 1 // vertical
+          : (digitOb < 8)
+              ? 0 // horizontal
+              : (digitOb < 9)
                   ? 2
                   : 3;
 
-      int colorIndex = digits[(index + 1) % length] % 10;
-      Color color = this.colors[colorIndex];
+      int colorIndex = digits[(index + 1) % length] % colors.length;
+      Color color = this.colors[colorIndex%colors.length];
       if (used.contains(colorIndex)) {
-        color = this.alt_colors[index%10];
+        int colorIndex2 = index%alt_colors.length;
+        color = this.alt_colors[colorIndex2];
+        if (used2.contains(colorIndex2)) {
+          int colorIndex3 = (index+1)%alt_colors.length;
+          color = this.alt_alt_colors[colorIndex3];
+        }
+        used2.add(colorIndex2);
       }
+      used.add(colorIndex);
       int repeat = digits[(index + 2) % length] % 2;
       int which =
           digits[(index + 3) % length] % [this.spread(this.shapes)].length;
       this.shapes = this.split(this.shapes, which, direction, color, repeat);
-      used.add(colorIndex);
     });
-    used = [];
+    // used = [];
+    // used2 = [];
     digits.asMap().forEach((index, digit) {
-      if (digit == 0) {
-        int colorIndex = digits[(index + 1) % length] % 10;
-        Color color = this.colors[colorIndex];
+      if (digit == 0 || digit == 7) {
+        int colorIndex = digits[(index) % length] % colors.length;
+        Color color = this.colors[colorIndex%colors.length];
         if (used.contains(colorIndex)) {
-          color = this.alt_colors[index%10];
+          int colorIndex2 = (index+6)%alt_colors.length;
+          color = this.alt_colors[colorIndex2];
+          if (used2.contains(colorIndex2)) {
+            int colorIndex3 = (index+1)%alt_colors.length;
+            color = this.alt_alt_colors[colorIndex3];
+          }
+          used2.add(colorIndex2);
         }
-        this.shapes.add(Circle.fromShape(this.shapes[index], color));
         used.add(colorIndex);
+        this.shapes.add(Circle.fromShape(this.shapes[index], color));
       }
     });
-    // print(this.shapes.toString());
   }
 
   arrayDraw(Canvas canvas, List<Object> shapes) {
