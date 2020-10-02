@@ -245,10 +245,11 @@ fastlane ios totestflight
 
 **Android**:
 ```shell script
-bundle fastlane android publish
+fastlane android bundle
 ```
 **iOS**:
 ```shell script
+fastlane ios build method:app-store
 ```
 
 #### Beta Publishing:
@@ -259,7 +260,6 @@ fastlane android publish
 **iOS**:
 TODO: Setup instructions for app store publishing
 ```shell script
-fastlane ios build method:app-store
 ```
 
 #### Live Publishing:
@@ -270,7 +270,6 @@ fastlane ios build method:app-store
 **iOS**:
 TODO: Setup instructions for app store publishing
 ```shell script
-fastlane ios build method:app-store
 ```
 
 #### Summary of environment variables required for CI
