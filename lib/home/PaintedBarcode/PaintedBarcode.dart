@@ -15,8 +15,8 @@ class PaintedBarcode {
     Colors.pink,
     Colors.purple,
     Colors.cyan,
+    Colors.teal,
     Colors.orange,
-    Colors.lightGreenAccent,
     Colors.indigo,
   ];
   List<Color> alt_colors = [
@@ -27,8 +27,8 @@ class PaintedBarcode {
     Colors.pink[100],
     Colors.cyanAccent[100],
     Colors.purpleAccent[100],
+    Colors.lightGreenAccent[200],
     Colors.orangeAccent[100],
-    Colors.lightGreenAccent[100],
     Colors.indigo[300],
   ];
   List<Color> alt_alt_colors = [
@@ -36,12 +36,12 @@ class PaintedBarcode {
     Colors.grey[200],
     Colors.grey[300],
     Colors.grey[400],
-    Colors.brown,
     Colors.grey[500],
     Colors.grey[600],
     Colors.grey[700],
     Colors.grey[800],
     Colors.grey[900],
+    Colors.brown,
   ];
 
   PaintedBarcode(List<Object> shapes) {
@@ -104,7 +104,7 @@ class PaintedBarcode {
                   ? 2
                   : 3;
 
-      int colorIndex = digits[(index + 1) % length] % colors.length;
+      int colorIndex = digits[(index + 2) % length] % colors.length;
       Color color = this.colors[colorIndex%colors.length];
       if (used.contains(colorIndex)) {
         int colorIndex2 = index%alt_colors.length;
@@ -125,13 +125,13 @@ class PaintedBarcode {
     used2 = [];
     digits.asMap().forEach((index, digit) {
       if (digit == 0 || digit == 3) {
-        int colorIndex = digits[(index+2) % length] % colors.length;
+        int colorIndex = digits[(index+9) % length] % colors.length;
         Color color = this.colors[colorIndex%colors.length];
         if (used.contains(colorIndex)) {
-          int colorIndex2 = (index+6)%alt_colors.length;
+          int colorIndex2 = (index+3)%alt_colors.length;
           color = this.alt_colors[colorIndex2];
           if (used2.contains(colorIndex2)) {
-            int colorIndex3 = (index+1)%alt_colors.length;
+            int colorIndex3 = (index+4)%alt_colors.length;
             color = this.alt_alt_colors[colorIndex3];
           }
           used2.add(colorIndex2);
