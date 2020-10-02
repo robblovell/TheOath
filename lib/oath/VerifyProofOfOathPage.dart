@@ -16,41 +16,46 @@ class VerifyProofOfOathPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AppDrawerBloc, AppDrawerState>(
         builder: (BuildContext context, AppDrawerState state) {
-          return Scaffold(
-              // drawer: AppDrawer(),
-              appBar: AppBar(
-                  title: Text(
-                    "VERIFY_TITLE".tr(),
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  leading: (() {
-                    return IconButton(
-                      icon: Icon(Icons.arrow_back),
-                      onPressed: () {
-                        BlocProvider.of<AppDrawerBloc>(context).add(VerifyPageEvent());
-                      },
-                    );
-                  })()),
-              body: Stack(children: <Widget>[
-                CustomPaint(
-                  size: Size.infinite,
-                  child: Container(
-                    height: MediaQuery.of(context).size.height,
-                  ),
-                  painter: ShapesPainter((state as VerifyProofOfOathState).othersPhone),
-                ),
-                Align(
-                  alignment: Alignment.bottomCenter,
+      return Scaffold(
+          // drawer: AppDrawer(),
+          appBar: AppBar(
+              title: Text(
+                "VERIFY_TITLE".tr(),
+                style: TextStyle(color: Colors.white),
+              ),
+              leading: (() {
+                return IconButton(
+                  icon: Icon(Icons.arrow_back),
+                  onPressed: () {
+                    BlocProvider.of<AppDrawerBloc>(context)
+                        .add(VerifyPageEvent());
+                  },
+                );
+              })()),
+          body: Stack(children: <Widget>[
+            CustomPaint(
+              size: Size.infinite,
+              child: Container(
+                height: MediaQuery.of(context).size.height,
+              ),
+              painter:
+                  ShapesPainter((state as VerifyProofOfOathState).othersPhone),
+            ),
+            Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: EdgeInsets.all(20),
                   child: Container(
                     alignment: Alignment(0.0, 0.76),
                     child: Text(
-                      'OATH_VERIFIED'.tr()+ "\n\n Phone: "+(state as VerifyProofOfOathState).othersPhone,
+                      'OATH_VERIFIED'.tr() +
+                          "\n\n Phone: " +
+                          (state as VerifyProofOfOathState).othersPhone,
                       textScaleFactor: 1.8,
                     ),
                   ),
-                ),
-              ]));
-        });
+                )),
+          ]));
+    });
   }
 }
-
