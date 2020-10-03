@@ -6,9 +6,10 @@ class VerifyContainer extends StatelessWidget {
   // App Bar for the Login/Oath.
   @override
   Widget build(BuildContext context) {
-    return Column(children: <Widget>[
+    return SingleChildScrollView(
+        child: Column(children: <Widget>[
           Padding(
-            padding: EdgeInsets.all(20),
+            padding: EdgeInsets.only(left:20, right:20, top:20, bottom:0),
             child: RichText(
               overflow: TextOverflow.visible,
               text: TextSpan(
@@ -17,16 +18,8 @@ class VerifyContainer extends StatelessWidget {
                       fontSize: 20,
                       color: Colors.black),
                   children: <TextSpan>[
-                    // todo: clean this code up!
-                    // TextSpan(
-                    //     style: TextStyle(
-                    //       fontWeight: FontWeight.w500,
-                    //       fontSize: 20,
-                    //       color: Colors.black,
-                    //     ),
-                    //     text: 'VERIFY_TITLE'.tr() + '\n\n'),
                     TextSpan(text: 'VERIFY1'.tr() + '\n\n'),
-                    TextSpan(text: 'VERIFY2'.tr() + '\n\n'),
+                    TextSpan(text: 'VERIFY2'.tr() ),
                   ]),
             ),
           ),
@@ -38,7 +31,7 @@ class VerifyContainer extends StatelessWidget {
             child: NumberInputVerify(),
           )
 
-        ]);
+        ]));
 
   }
 }
