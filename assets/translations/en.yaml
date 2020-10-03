@@ -166,7 +166,7 @@ REASON5: Please take this oath so that your voice will be heard and the real pow
 VERIFY_OTHER: Verify An Oath # the menu
 VERIFY_TITLE: Verify An Oath
 VERIFY_BUTTON: Verify
-VERIFY1: Each '"'Proof of Oath'"' is a unique picture constructed from your phone number.
+VERIFY1: Each 'Proof of Oath' is a unique picture constructed from your phone number.
 VERIFY2: Enter someone else's phone number here and press 'confirm' to see that their picture matches the 'proof of oath' on their phone.
 OATH_VERIFIED: Compare this picture with the picture on the phone owned by the person you are verifying.
 
