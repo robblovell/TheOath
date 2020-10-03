@@ -14,13 +14,12 @@ class ShapesPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     // Create a rectangle with size and width same as the canvas
-    final Rect rect = Rect.fromLTWH(0, 0, size.width, size.height);
 
     List<Object> shapes = List<Object>();
-    shapes.add(Square(rect, Colors.grey[500]));
+
     // this.token.phoneNumber = "+16047621034";
     PaintedBarcode painting = PaintedBarcode(shapes);
-    painting.makePainting(stripPlusOnePhone(this.phoneNumber));
+    painting.makePainting(stripPlusOnePhone(this.phoneNumber), size.width, size.height);
     painting.draw(canvas);
   }
 

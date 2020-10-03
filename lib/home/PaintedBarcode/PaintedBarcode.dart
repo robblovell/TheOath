@@ -26,22 +26,21 @@ class PaintedBarcode {
     Colors.yellowAccent[100],
     Colors.pink[100],
     Colors.cyanAccent[100],
-    Colors.purpleAccent[100],
     Colors.lightGreenAccent[200],
+    Colors.deepOrange,
     Colors.orangeAccent[100],
     Colors.indigo[300],
   ];
   List<Color> alt_alt_colors = [
     Colors.blueGrey,
+    Colors.brown,
     Colors.lime,
-    Colors.grey[300],
     Colors.grey[400],
     Colors.grey[500],
     Colors.grey[600],
     Colors.grey[700],
     Colors.grey[800],
     Colors.grey[900],
-    Colors.brown,
   ];
 
   PaintedBarcode(List<Object> shapes) {
@@ -81,7 +80,8 @@ class PaintedBarcode {
     return [...shapes, ...shapeShape(toSplit, direction, color, repeat)];
   }
 
-  void makePainting(phone) {
+  void makePainting(phone, width, height) {
+
     List digits = phone.split('');
     RegExp digitChars = RegExp('[0-9]');
 
@@ -91,6 +91,10 @@ class PaintedBarcode {
       return int.parse(digit);
     }).toList();
     int length = digits.length;
+    final Rect rect = Rect.fromLTWH(0, 0, width, height);
+    int colorIndex = digits[(digits[0]) % length] % this.alt_alt_colors.length;
+    Color colorBase = this.alt_alt_colors[colorIndex];
+    this.shapes.add(Square(rect, colorBase));
     List<int> used = [];
     List<int> used2 = [];
     digits.asMap().forEach((index, digit) {
