@@ -85,7 +85,7 @@ class Square extends Shape {
 
         return [
           Triangle.fromPoints(RB, LB, RT, this.color),
-          Triangle.fromPoints(RT, LT, RB, color)
+          Triangle.fromPoints(RT, LT, LB, color)
         ];
     }
   }
