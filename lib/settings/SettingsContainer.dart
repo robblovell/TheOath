@@ -24,6 +24,7 @@ class SettingsContainer extends StatelessWidget {
           'SETTINGS_MENU_OPTION1'.tr(),
           'home',
           'drawer',
+          isDefault: true,
         ),
         RadioPreference(
           'SETTINGS_MENU_OPTION2'.tr(),
@@ -34,6 +35,18 @@ class SettingsContainer extends StatelessWidget {
           'SETTINGS_MENU_OPTION3'.tr(),
           'none',
           'drawer',
+        ),
+        PreferenceTitle('SETTINGS_STORIES_CONFIG'.tr()),
+        RadioPreference(
+          'SETTINGS_STORIES_OPTION2'.tr(),
+          'pages',
+          'stories',
+          isDefault: true,
+        ),
+        RadioPreference(
+          'SETTINGS_STORIES_OPTION1'.tr(),
+          'feeds',
+          'stories',
         ),
       ]),
     );

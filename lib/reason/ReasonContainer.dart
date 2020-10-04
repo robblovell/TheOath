@@ -25,6 +25,7 @@ class TheReason extends StatelessWidget {
                         color: Colors.black,
                       ),
                       text: 'REASON_TITLE'.tr() + '\n\n'),
+                  TextSpan(text: 'REASON0'.tr() + '\n\n'),
                   TextSpan(text: 'REASON1'.tr() + '\n\n'),
                   TextSpan(text: 'REASON2'.tr() + '\n\n'),
                   TextSpan(text: 'REASON3'.tr() + '\n\n'),

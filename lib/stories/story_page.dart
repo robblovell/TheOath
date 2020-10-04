@@ -8,6 +8,7 @@ import 'package:protestersoath/navigation/app_drawer.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_bloc.dart';
 import 'package:protestersoath/navigation/app_drawer/appdrawer_event.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:protestersoath/stories/rss_page.dart';
 import 'package:protestersoath/stories/stories_cubit.dart';
 import 'package:protestersoath/stories/stories_state.dart';
 
@@ -40,8 +41,7 @@ class _StoryPageState extends State<StoryPage> {
                       drawer: this.drawer == 'all' ? AppDrawer() : null,
                       body: Container(
                           color: Colors.grey,
-                          child: CustomScrollView(
-                              slivers: <Widget>[
+                          child: CustomScrollView(slivers: <Widget>[
                                 SliverAppBar(
                                   pinned: true,
                                   // expandedHeight: appBarHeight,

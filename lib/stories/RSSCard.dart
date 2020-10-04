@@ -4,7 +4,8 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:link/link.dart';
 import 'package:protestersoath/stories/StoryModel.dart';
 
-Widget StoryCard(BuildContext context, StoryModel story) {
+
+Widget RSSCard(BuildContext context, StoryModel story, openFeed) {
   void _showErrorSnackBar() {
     Scaffold.of(context).showSnackBar(
       SnackBar(
@@ -22,51 +23,21 @@ Widget StoryCard(BuildContext context, StoryModel story) {
             ? Image.asset(story.imageURL)
             : Image.network(story.imageURL),
         // Title and Summary
-        (story.summary == '')
-            ? ListTile(
+        ListTile(
                 leading: Icon(Icons.arrow_drop_down_circle),
-                title:
-                    // Text(story.title),
-                    Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(story.title, style: TextStyle(fontSize: 20)),
-                    Align(
-                        alignment: Alignment.bottomRight,
-                        child:
-                            Text(story.date, style: TextStyle(fontSize: 10))),
-                  ],
-                ),
+                title: Text(story.title, style: TextStyle(fontSize: 20)),
+                subtitle: Html(data: story.summary), //Text(story.summary, style: TextStyle(fontSize: 10)),
                 isThreeLine: false,
-              )
-            : ListTile(
-                leading: Icon(Icons.arrow_drop_down_circle),
-                title:
-                    // Text(story.title),
-                    Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(story.title, style: TextStyle(fontSize: 20)),
-                    Align(
-                        alignment: Alignment.bottomRight,
-                        child:
-                            Text(story.date, style: TextStyle(fontSize: 10))),
-                  ],
-                ),
-                subtitle: Text(
-                  story.summary,
-                  style: TextStyle(
-                      fontSize: 12, color: Colors.black.withOpacity(0.8)),
-                ),
-                isThreeLine: true,
+                onTap: () => openFeed(story.postURL),
               ),
+
         // Date of the story
 
         // The story
         (story.body != '')
             ? Padding(
                 padding: const EdgeInsets.only(
-                    left: 20, right: 10, top: 0, bottom: 5),
+                    left: 10, right: 10, top: 0, bottom: 5),
                 child: story.isHTML
                     ? Html(data: story.body)
                     : Text(
@@ -93,9 +64,19 @@ Widget StoryCard(BuildContext context, StoryModel story) {
         Align(
           alignment: Alignment.centerRight,
           child: Padding(
-            padding: EdgeInsets.only(top: 3, bottom: 20, right: 10),
+            padding: EdgeInsets.only(top: 3, bottom: 3, right: 10),
             child: Text(
               'Photo: ' + story.credit,
+              style: TextStyle(fontSize: 10),
+            ),
+          ),
+        ),
+        Align(
+          alignment: Alignment.centerRight,
+          child: Padding(
+            padding: EdgeInsets.only(top: 3, bottom: 20, right: 10),
+            child: Text(
+              'Date: ' + story.date,
               style: TextStyle(fontSize: 10),
             ),
           ),

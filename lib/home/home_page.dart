@@ -68,7 +68,7 @@ class HomePage extends StatelessWidget {
                       .add(VerifyPageEvent()),
                 )):Container(),
             drawer == "none" ? Container(
-                alignment: Alignment(0.45, 0.91),
+                alignment: Alignment(0.0, 0.91),
                 child: IconButton(
                   icon: Icon(Icons.settings, color: Colors.black, size: 30,),
                   tooltip: 'SETTINGS'.tr(),
@@ -76,10 +76,10 @@ class HomePage extends StatelessWidget {
                       .add(SettingsPageEvent()),
                 )):Container(),
             drawer == "none" ? Container(
-                alignment: Alignment(0.0, 0.91),
+                alignment: Alignment(0.45, 0.91),
                 child: IconButton(
                   icon: Icon(Icons.exit_to_app,color: Colors.black,size: 30,),
-                  tooltip: 'SETTINGS'.tr(),
+                  tooltip: 'LOGOUT'.tr(),
                   onPressed: () => BlocProvider.of<AuthenticationBloc>(context)
                       .add(LoggedOut()),
                 )):Container(),

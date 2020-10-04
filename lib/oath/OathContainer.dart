@@ -24,6 +24,7 @@ class TheOath extends StatelessWidget {
         actions: [
           IconButton(
               icon: Icon(Icons.info, size: 40),
+              tooltip: 'THEREASON'.tr(),
               onPressed: () {
                 if (this.isLogin) {
                   BlocProvider.of<AuthenticationBloc>(context)

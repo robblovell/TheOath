@@ -24,50 +24,51 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^1.0.0
-
+  auto_size_text: ^2.1.0
   #  cloud_firestore_web: ^0.1.1+2 # Cloud Firestore Web is behind  from 0.2.0+1
   #  cloud_firestore: ^0.13.2+2
   bloc: ^6.0.3
   bloc_test: ^7.0.3
   cloud_firestore: ^0.14.0+2
-  flutter_cubit: ^0.1.1
-  firebase_core: 0.5.0
-#  firebase_auth: ^0.18.0+1
-  firebase_analytics: ^6.0.0
-  flutter_bloc: ^6.0.5
+  cupertino_icons: ^1.0.0
+  easy_localization: ^2.3.3
   equatable: ^1.1.1
+  #  firebase_auth: ^0.18.0+1
+  firebase_analytics: ^6.0.0
+  firebase_core: ^0.5.0
+  flutter_bloc: ^6.0.5
+  flutter_cubit: ^0.1.1
+  flutter_crashlytics: ^1.0.0
+  flutter_html: ^1.0.2
+  #  flutter_phoenix: ^0.1.0
   flutter_redux: ^0.6.0
-  flutter_crashlytics: 1.0.0
+  flutter_session: ^0.1.1
   #  flutter_signin_button: ^1.1.0
   flutter_svg: ^0.18.1
   fluttertoast: ^7.0.4
-#  global_configuration: ^1.6.0
-  preferences: ^5.2.1
-  #  flutter_phoenix: ^0.1.0
-  #  google_sign_in: ^4.0.1+1
   font_awesome_flutter: ^8.8.1
-  lottie: 0.6.0
-  #  pin_entry_text_field: ^0.1.4
+  #  global_configuration: ^1.6.0
+  #  google_sign_in: ^4.0.1+1
+  json_annotation: ^3.1.0
+  link: ^1.1.0
+  lottie: ^0.6.0
+  material_design_icons_flutter: ^4.0.5555
   pin_input_text_field: ^3.1.1
+  preferences: ^5.2.1
+  #  pin_entry_text_field: ^0.1.4
   #  pinput: ^0.2.0
-  redux_thunk: 0.3.0
+  redux_thunk: ^0.3.0
   rxdart: ^0.23.0 # 0.24.1
   simple_animations: ^2.2.2
   shared_preferences: ^0.5.10
-  easy_localization: ^2.3.3
-  material_design_icons_flutter: 4.0.5555
-  auto_size_text: 2.1.0
-  link: ^1.1.0
-  flutter_session: 0.1.1
-  json_annotation: 3.1.0
+  webfeed: ^0.6.0
 
 dev_dependencies:
   flutter_launcher_icons: "^0.8.0"
   flutter_test:
     sdk: flutter
+  #  lint: ^1.0.0
   pedantic: ^1.0.0
-#  lint: ^1.0.0
 
 flutter_icons:
   ios: true
@@ -78,7 +79,6 @@ flutter_icons:
   adpative_icon_foreground: "assets/launcher/foreground.png"
 
 flutter:
-
   uses-material-design: true
 
   # Asset Directories

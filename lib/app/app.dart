@@ -12,6 +12,7 @@ import 'package:protestersoath/oath/VerifyProofOfOathPage.dart';
 import 'package:protestersoath/privacy/privacy_page.dart';
 import 'package:protestersoath/reason/reason_page.dart';
 import 'package:protestersoath/splash/splash_page.dart';
+import 'package:protestersoath/stories/StoriesSwitcher.dart';
 import 'package:protestersoath/stories/stories_cubit.dart';
 import 'package:protestersoath/settings/settings_page.dart';
 import 'package:protestersoath/stories/story_page.dart';
@@ -117,7 +118,7 @@ class _AppViewState extends State<AppView> {
                     // Navigator.of(context).pop();
                     return CubitProvider<StoriesCubit>(
                       create: (context) => StoriesCubit(),
-                      child: StoryPage(),
+                      child: StoriesSwitcher(),
                     );
                   } else if (state is OathPageState) {
                     return OathPage();

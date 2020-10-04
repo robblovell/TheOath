@@ -27,9 +27,18 @@ class StoriesCubit extends Cubit<StoriesState> {
       var date = 'STORY_DATE_' + index;
       var credit = 'STORY_CREDIT_' + index;
       var image = 'STORY_IMAGE_' + index;
-      var url = 'STORY_URL_' + index;
-      final story = StoryModel(fn(date.tr()), fn(title.tr()), fn(summary.tr()),
-          fn(body.tr()), fn(credit.tr()), fn(image.tr()), fn(url.tr()));
+      var postURL = 'STORY_URL_' + index;
+      var referenceURL = 'STORY_URL_' + index;
+      final story = StoryModel(
+          date: fn(date.tr()),
+          title: fn(title.tr()),
+          summary: fn(summary.tr()),
+          body: fn(body.tr()),
+          credit: fn(credit.tr()),
+          imageURL: fn(image.tr()),
+          referenceURL: fn(referenceURL.tr()),
+          postURL: fn(postURL.tr()),
+          isHTML: false,);
       emit(LoadedState(story));
     } catch (e) {
       emit(ErrorState());

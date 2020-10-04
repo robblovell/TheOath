@@ -360,7 +360,8 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-6.6.1-all.zip
 genreate ipa:
 https://gist.github.com/monmonja/6e2910ca51d64b8be8bb8d28d0d34a55
 
-
+## Setup
+brew install bundletool
 
 
 

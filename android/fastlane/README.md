@@ -21,6 +21,11 @@ or alternatively using `brew install fastlane`
 fastlane android test
 ```
 Runs all the tests
+### android info
+```
+fastlane android info
+```
+info
 ### android bump
 ```
 fastlane android bump

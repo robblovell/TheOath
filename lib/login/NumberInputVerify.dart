@@ -79,7 +79,6 @@ class _NumberInputVerify extends State<NumberInputVerify> {
                 elevation: 20.0,
                 minWidth: 210,
                 splashColor: Colors.grey[500],
-                animationDuration: Duration(seconds: 1),
                 colorBrightness: Brightness.light,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0),
