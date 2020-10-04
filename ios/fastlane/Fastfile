@@ -16,38 +16,23 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Generate new localized screenshots"
-  lane :screenshots do
-    capture_screenshots(workspace: "Runner.xcworkspace", scheme: "Runner")
-    upload_to_app_store(skip_binary_upload: true, skip_metadata: true)
-  end
-   lane :beta do
+  IPA_INPUT = "Runner"
+
+  FIREBASE_APP_ID = "1:1087855424394:ios:73d498fc25bf7891fa8e73"
+  RELEASE_NOTES_FILE = "/Users/robblovell/Code/original/protestersoath/docs/release-notes.txt"
+
+    lane :beta do
       cert
       sigh(force: true)
     end
 
-    def bumpIOS
-       # read the properties file, assume the last and fifth line is the version Code.
-      properties = File.read("/Users/robblovell/Code/original/protestersoath/local.properties")
-      puts properties
-      parts = properties.split('=')
-
-      parts[5] = ((parts[5].to_i) + 1).to_s
-
-      properties = parts.join("=");
-      puts properties
-
-      f = File.new("/Users/robblovell/Code/original/protestersoath/local.properties", "w")
-      f.write(properties)
-      f.close
+    def bumpAll
+        sh("../bin/bump.sh")
+#        increment_build_number(xcodeproj: "Runner.xcodeproj")
+#        increment_build_number()
     end
 
     def getInfo
-#      properties = File.read("/Users/robblovell/Code/original/protestersoath/local.properties")
-#      puts("Properties: "+properties.blue)
-#      parts = properties.split('=')
-#
-#      parts[5] = ((parts[5].to_i) + 1).to_s
       commit = last_git_commit
       revNumber=`git rev-list --all|wc -l|xargs`
       shaNumber=`git rev-parse --verify --short HEAD`
@@ -67,32 +52,37 @@ platform :ios do
     end
 
     def buildIOS(options)
+      puts "Build method is #{options[:method]}. Possible: [app-store,ad-hoc,package,enterprise,development,developer-id]"
+
+#      flutter build ios options[:method]=="app-store"?"":"--release --no-codesign"
       get_certificates
       get_provisioning_profile(
         adhoc: options[:method]=="app-store"?false:true,
         force: true#,
       )
-      puts "Build method is #{options[:method]}. Possible: [app-store,ad-hoc,package,enterprise,development,developer-id]"
-      build_app(
-        scheme: "Runner",
-        # ["app-store", "ad-hoc", "package", "enterprise", "development", "developer-id"]
-        export_method: options[:method],
-      )
+      gym(export_method: options[:method])
+
+#      flutter build ios --release --no-codesign
+#      build_ios_app(scheme: IPA_INPUT, export_method: options[:method], exportPath: IPA_OUTPUT)
+#      build_app(
+#        scheme: "Runner",
+#        # ["app-store", "ad-hoc", "package", "enterprise", "development", "developer-id"]
+#        export_method: options[:method],
+#      )
     end
 
     def toFirebase
       firebase_app_distribution(
-        ipa_path: "./Runner.ipa",
-        app: "1:1087855424394:ios:73d498fc25bf7891fa8e73",
+        ipa_path: IPA_INPUT,
+        app: FIREBASE_APP_ID,
         testers: "robblovell@gmail.com",  # "/path/to/testers.txt"
-        release_notes: "/Users/robblovell/Code/original/protestersoath/docs/release-notes.txt",
+        release_notes: RELEASE_NOTES_FILE,
         firebase_cli_token: $FIREBASE_TOKEN
       )
     end
 
     def toTestFlight
-        upload_to_testflight(
-        )
+        upload_to_testflight()
     end
 
     def notifySlack(message, commit, result)
@@ -104,6 +94,12 @@ platform :ios do
       )
     end
 
+    desc "Generate new localized screenshots"
+      lane :screenshots do
+        capture_screenshots(workspace: "Runner.xcworkspace", scheme: "Runner")
+        upload_to_app_store(skip_binary_upload: true, skip_metadata: true)
+      end
+
     desc "info"
       lane :info do |options|
         getInfo()
@@ -111,7 +107,8 @@ platform :ios do
 
     desc "bump"
       lane :bump do |options|
-        bumpIOS()
+        bumpAll()
+        notifySlack("Versions for ios and android have been bumped.", commit, true)
       end
 
     desc "build"
@@ -127,6 +124,7 @@ platform :ios do
         commit = getInfo()
         notifySlack("A new build is available for testing. #{commit[:rev]} - #{commit[:sha]}", commit, true)
       end
+
     desc "totestflight"
       lane :totestflight do |options|
         toTestFlight()

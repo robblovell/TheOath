@@ -31,6 +31,11 @@ bump
 fastlane android build
 ```
 build
+### android bundle
+```
+fastlane android bundle
+```
+bundle
 ### android tofirebase
 ```
 fastlane android tofirebase
@@ -41,11 +46,6 @@ tofirebase
 fastlane android beta
 ```
 beta
-### android bundle
-```
-fastlane android bundle
-```
-bundle
 ### android publish
 ```
 fastlane android publish

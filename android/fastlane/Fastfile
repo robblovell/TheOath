@@ -21,23 +21,11 @@ platform :android do
     gradle(task: "test")
   end
 
-    def bumpAndroid
-         # read the properties file, assume the last and fifth line is the version Code.
-        properties = File.read("../local.properties")
-        puts properties
-        parts = properties.split('=')
+  def bumpAll
+    sh("../bin/bump.sh")
+  end
 
-        parts[5] = ((parts[5].to_i) + 1).to_s
-
-        properties = parts.join("=");
-        puts properties
-
-        f = File.new("../local.properties", "w")
-        f.write(properties)
-        f.close
-      end
-
-  def getGitInfo
+  def getInfo
     commit = last_git_commit
     revNumber=`git rev-list --all|wc -l|xargs`
     shaNumber=`git rev-parse --verify --short HEAD`
@@ -63,7 +51,7 @@ platform :android do
     )
   end
 
-  def distributeFirebase
+  def toFirebase
     puts $FIREBASE_TOKEN
     firebase_app_distribution(
       apk_path: "../build/app/outputs/apk/release/app-release.apk",
@@ -82,48 +70,62 @@ platform :android do
       default_payloads: [commit[:branch],commit[:sha],commit[:rev], commit[:message]]
     )
   end
-  desc "bump"
-    lane :bump do
-    bumpAndroid()
+
+  desc "info"
+    lane :info do |options|
+      getInfo()
     end
+
+  desc "bump"
+    lane :bump do |options|
+      bumpAll()
+      notifySlack("Versions for ios and android have been bumped.", commit, true)
+    end
+
   desc "build"
     lane :build do
       buildAndroid()
+      commit = getInfo()
+      notifySlack("A new apk has been built and is available.", commit, true)
+    end
+
+  desc "bundle"
+    lane :bundle do
+      sh("flutter build appbundle")
+#      gradle(task: "clean assembleRelease")
+      commit = getInfo()
+      notifySlack("Successfully bundled android version.", commit, true)
     end
 
   desc "tofirebase"
     lane :tofirebase do
-      commit = getGitInfo()
-      distributeFirebase()
+      toFirebase()
+      commit = getInfo()
       notifySlack("A new build is available for testing", commit, true)
     end
 
+  # Experimental:
   desc "beta"
     lane :beta do
-      commit = getGitInfo()
       # gradle(task: "clean assembleRelease")
 #      crashlytics
 #      buildAndroid()
       upload_to_play_store(track: 'beta')
-      notifySlack("Successfully published a beta build", commit, true)
-    end
-  desc "bundle"
-    lane :bundle do
-      commit = getGitInfo()
-      gradle(task: "clean assembleRelease")
+      commit = getInfo()
       notifySlack("Successfully published a beta build", commit, true)
     end
 
+  # Experimental:
   desc "publish"
     lane :publish do
-      commit = getGitInfo()
+      commit = getInfo()
       upload_to_play_store(track: 'store')
       notifySlack("Successfully published a store build", commit, true)
     end
 
   # handle exception
   error do |lane, exception, options|
-    commit = getGitInfo()
+    commit = getInfo()
     notifySlack("Build failed with exception: #{exception}", commit, false)
   end
 end

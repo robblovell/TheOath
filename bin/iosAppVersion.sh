@@ -1,0 +1,1 @@
+tar -zxvOf ../build/ios/outputs/ipa/Runner.ipa Payload/Runner.app/Info.plist | plutil  -convert xml1 -r -o - -- - | grep -A 1 CFBundleVersion                                                                                    130 ↵

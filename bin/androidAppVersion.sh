@@ -1,0 +1,1 @@
+aapt dump badging ../build/app/outputs/apk/release/app-release.apk | grep package

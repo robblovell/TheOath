@@ -186,20 +186,45 @@ export SLACK_HOOK={{env[SLACK_HOOK]}}
 Notifications are used for all lanes.
 
 #### Bumping Versions:
-TODO::Bumping versions currently doesn't work
-To bump version, edit the files:
+
+To bump version manually, edit the files:
 * pubspec.yml and change the version: line. 1.0.3 is the semantic version and the +x is the build number.
-* For Android: edit android/local.properties and modify flutter.versionCode to increase the build number. flutter.versionName is the semantic version.
+* For Android: edit /android/local.properties and modify flutter.versionCode to increase the build number. flutter.versionName is the semantic version.
 * For iOS: edit the /ios/Flutter/Generated.xcconfig file and modify the FLUTTER_BUILD_NUMBER. The FLUTTER_BUILD_NAME is the semantic version
 
 Make sure all version numbers all match. Generally, increment only the version code/build number for each build.
 Increment semantic versions only on releases to stores starting with that release's ad-hoc distribution and testing cycle.
 
+To auto bump these files, there is a script in /bin/bump.sh that increments the pubspec.yaml file's version +[version code]
+But, this script does not update android's local.properties and ios's generated.xcconfig files.
+
+TBD: after incrementing the pubspec file, increment both android and ios version code numbers.
+
+* android *
+
+To bump the android build, the pubspec.yaml file's version line must have the +[version code] number incremented.
+The build's use of this number is through the flutter cache file called `/android/local.properties`
+
+fastlane android bump
+
+* ios *
+
+To bump the ios build, the pubspec.yaml file's version line must have the +[version code] number incremented.
+The build's use of this number is through the flutter cache file called `/ios/Flutter/Generated.xcconfig`
+
+TBD:
+
 #### Testing:
 
 TBD
 
-#### Packaging:
+#### Building and Packaging:
+
+The output location of building and packaging is a directory 
+one up from /ios and /android in the /build directory of the project:
+
+* /build/app/outputs/apk/[debug | release]/app-[debug | release].apk
+* /ios/Runner.ipa
 
 **Android**:
 
@@ -209,22 +234,56 @@ cd android
 fastlane android build
 ```
 This command builds an APK for android.
-The output location is one directory up in the build directory of the project:
-
-* /build/app/outputs/apk/[debug | release]/app-[debug | release].apk
-* /ios/Runner.ipa
 
 APK files genereated with this command will be debug builds, even if the files are named release.
 Relases are signed with a release key that makes them releases.
 TODO: figure out how to switch back to debug once the gradle files are modified for release (From debug mode)
 
+All android bundling are performed in the android directory. To build android APK for ad-hoc distribution, use:
+Requires that an apk exists, produced by the build command above.
+```shell script
+cd android
+fastlane android bundle
+```
+// TODO: fastlane android bundle deletes the build directory?
+
 **iOS**: 
+
+After a clean, the file ios/Flutter/Generated.xcconfig will have been deleted.
+To get this back:
+
+```shell script
+flutter build ios --release --no-codesign
+```
+
+Ad-hoc build using gym (see the fastlane lane "build")
 ```shell script
 cd ios
 fastlane ios build method:ad-hoc
 ```
 
+App-store build using gym (see the fastlane lane "build")
+```shell script
+fastlane ios build method:app-store
+```
+
 This command builds an ipa file for iOS.
+
+#### Determine Version Numbers
+android:
+```shell script
+aapt dump badging ../build/app/outputs/apk/release/app-release.apk | grep package
+```
+ios:
+
+From the /ios directory:
+```shell script
+tar -zxvOf ../build/ios/outputs/ipa/Runner.ipa Payload/Runner.app/Info.plist | plutil  -convert xml1 -r -o - -- - | grep -A 1 CFBundleShortVersion
+```
+
+## Distirbution and Publishing
+
+The sections below are still under construction:
 
 #### Distribution:
 
@@ -252,7 +311,7 @@ fastlane android bundle
 fastlane ios build method:app-store
 ```
 
-#### Beta Publishing:
+#### Beta Publishing: (//todo: Not working)
 **Android**:
 ```shell script
 fastlane android publish
@@ -262,7 +321,7 @@ TODO: Setup instructions for app store publishing
 ```shell script
 ```
 
-#### Live Publishing:
+#### Live Publishing: (//todo: Not working)
 **Android**:
 ```shell script
 
@@ -296,14 +355,11 @@ Make sure your gradle version is up to date in /android/gradle/wrapper/gradle-wr
 distributionUrl=https\://services.gradle.org/distributions/gradle-6.6.1-all.zip
 ```
 
-
-
 ## Unsorted notes
 
 genreate ipa:
 https://gist.github.com/monmonja/6e2910ca51d64b8be8bb8d28d0d34a55
 
-flutter build appbundle --target-platform android-arm,android-arm64
 
 
 
