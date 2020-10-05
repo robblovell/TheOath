@@ -218,13 +218,35 @@ TBD:
 
 TBD
 
-#### Building and Packaging:
+#### Building:
 
 The output location of building and packaging is a directory 
 one up from /ios and /android in the /build directory of the project:
 
 * /build/app/outputs/apk/[debug | release]/app-[debug | release].apk
 * /ios/Runner.ipa
+
+To make sure that you are starting from scratch and the version numbers copied from the pubspec.yaml file
+to genreated.xcconfig and local.properties files for fastlane to use:
+```shell script
+flutter clean
+```
+**android**
+```shell script
+flutter build apk 
+flutter build ios --releasae --no-codesign
+```
+for android you can also do 
+```shell script
+flutter build appbundle
+```
+**ios**
+```shell script
+flutter clean
+flutter build apk 
+flutter build ios --releasae --no-codesign
+```
+#### Packaging:
 
 **Android**:
 
@@ -249,12 +271,16 @@ fastlane android bundle
 
 **iOS**: 
 
-After a clean, the file ios/Flutter/Generated.xcconfig will have been deleted.
-To get this back:
+After a clean, the file ios/Flutter/Generated.xcconfig will have been deleted. 
+Also, the podfile might be out of date with the flutter build.
+
+To get things back in sync:
 
 ```shell script
 flutter build ios --release --no-codesign
 ```
+
+Once that's done, you can do: 
 
 Ad-hoc build using gym (see the fastlane lane "build")
 ```shell script
